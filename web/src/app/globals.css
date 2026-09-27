@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-slate-50: #f8fafc;
+  --color-slate-900: #0f172a;
+  
+  --color-primary: #0f172a; /* Deep Blue for brand */
+  --color-accent-green: #25D366; /* WhatsApp Green */
+  --color-accent-green-hover: #20BA5A;
+  
+  --color-accent-orange: #ea580c;
+  --color-accent-orange-hover: #c2410c;
+
+  --font-sans: var(--font-inter);
+}
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-900;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight text-primary;
+  }
+}
