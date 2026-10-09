@@ -9,9 +9,13 @@ Wheelchair-accessible taxi website, modeled on the Maxi Cabs Perth business/book
 | [03-tech-stack.md](./03-tech-stack.md) | Concrete technology choices and why |
 | [04-seo.md](./04-seo.md) | Keyword strategy, on-page/technical/local SEO, content roadmap |
 | [05-design.md](./05-design.md) | Visual direction, layout patterns, accessibility-of-the-site standards |
+| [06-implementation.md](./06-implementation.md) | Implementation constraints, content-discipline rules, visual-weight budget, build sequencing |
 
 ## Suggested reading order
-PRD → Architecture → Tech Stack → SEO → Design.
+PRD → Architecture → Tech Stack → SEO → Design → Implementation.
+
+## Design direction note
+Site should be visually appealing and light on text — imagery, icons, and short statements carry the weight; prose is reserved for FAQ/trust detail. See the visual-weight budget table in 06-implementation.md.
 
 ## Status
 Draft v1 — pending client answers to the open questions in the PRD (service area, NDIS/TUSS acceptance, fleet details, content cadence, preferred primary contact channel).

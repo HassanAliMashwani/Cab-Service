@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import MobileContactBar from "@/components/layout/MobileContactBar";
+import FloatingWhatsApp from "@/components/layout/FloatingWhatsApp";
 import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({
@@ -30,6 +31,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <MobileContactBar />
+        <FloatingWhatsApp />
         <Analytics />
       </body>
     </html>
