@@ -1,75 +1,74 @@
-import { Star, Quote, CheckCircle2 } from "lucide-react";
-import SectionHeading from "./SectionHeading";
+"use client";
+
+import { Star, Quote, ShieldCheck } from "lucide-react";
+
+const reviews = [
+  {
+    name: "Marcus & Sarah J.",
+    role: "Family of 5",
+    rating: 5,
+    text: "Landed at T1 with 3 kids, 6 suitcases, and a pram. Driver was waiting curbside with child seats pre-installed. Best airport transfer in Perth!",
+    tag: "Airport Transfer",
+  },
+  {
+    name: "David H.",
+    role: "NDIS Plan Manager",
+    rating: 5,
+    text: "The hydraulic ramp and 4-point Q'Straint tie-downs make my father feel completely secure. Always on time for Fiona Stanley appointments.",
+    tag: "Wheelchair Access",
+  },
+  {
+    name: "Chloe Henderson",
+    role: "Bride",
+    rating: 5,
+    text: "Two 11-seater Maxi Cabs for our wedding party from Perth CBD to Swan Valley. Drivers were punctual, impeccably dressed, vehicles spotless.",
+    tag: "Wedding Shuttle",
+  },
+];
 
 export default function TestimonialsSection() {
-  const reviews = [
-    {
-      name: "Marcus & Sarah Jenkins",
-      trip: "Perth Airport (T1) Family Transfer",
-      rating: 5,
-      comment: "We landed at Terminal 1 with 3 kids, 6 large suitcases, and a double pram. Our Maxi Cab was waiting right at the curbside with pre-installed child car seats. The driver was exceptionally polite and helped load everything. Best airport transfer experience in Perth!",
-      location: "Fremantle",
-    },
-    {
-      name: "David H. (NDIS Plan Manager)",
-      trip: "Weekly Hospital & Medical Transfer",
-      rating: 5,
-      comment: "Finding a punctual wheelchair-accessible taxi in Perth used to be a nightmare until we booked here. The hydraulic ramp and 4-point Q'Straint tie-downs make my father feel completely secure. Always on time for his Fiona Stanley appointments.",
-      location: "Murdoch",
-    },
-    {
-      name: "Chloe Henderson",
-      trip: "Wedding Guest Shuttle",
-      rating: 5,
-      comment: "Booked two 11-seater Maxi Cabs for our wedding party from Perth CBD to Swan Valley wineries. Drivers were super punctual, impeccably dressed, and vehicles were spotless with ice-cold air conditioning. Highly recommended for any event!",
-      location: "Perth CBD",
-    },
-  ];
-
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white border-y border-slate-200">
+    <section className="bg-black py-20 px-6 sm:px-10 lg:px-16 border-b-4 border-zinc-800">
       <div className="max-w-7xl mx-auto">
-        
-        <SectionHeading
-          badge="Passenger Feedback"
-          title="What Our Clients Say"
-          subtitle="Real reviews from Perth families, business travelers, and accessible transport passengers."
-        />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {reviews.map((rev, index) => (
+        {/* Header */}
+        <div className="mb-10">
+          <span className="text-[11px] font-black text-amber-400 uppercase tracking-[0.3em] block mb-2">
+            Proven Trust
+          </span>
+          <h2 className="text-4xl sm:text-5xl font-black uppercase text-white tracking-tight leading-none">
+            Passenger<br />Reviews
+          </h2>
+        </div>
+
+        {/* Cards — matching home page brutalist style */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {reviews.map((rev, idx) => (
             <div
-              key={index}
-              className="bg-slate-50 rounded-3xl p-7 sm:p-8 border border-slate-200/80 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+              key={idx}
+              className="bg-zinc-900 border-4 border-black p-6 shadow-[4px_4px_0px_0px_#000] relative flex flex-col justify-between"
             >
+              <Quote className="absolute top-4 right-4 w-12 h-12 text-white/5" />
               <div>
-                {/* Rating Stars & Quote Icon */}
-                <div className="flex items-center justify-between mb-5">
-                  <div className="flex items-center gap-1 text-amber-500">
-                    {[...Array(rev.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
-                    ))}
-                  </div>
-                  <Quote className="w-8 h-8 text-slate-300" />
+                <div className="flex items-center gap-1 mb-4">
+                  {[...Array(rev.rating)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 text-amber-400 fill-amber-400" />
+                  ))}
                 </div>
-
-                {/* Review Text */}
-                <p className="text-slate-700 text-sm leading-relaxed italic mb-6">
-                  "{rev.comment}"
+                <p className="text-[14px] font-bold text-white leading-relaxed mb-6 italic relative z-10">
+                  &ldquo;{rev.text}&rdquo;
                 </p>
               </div>
 
-              {/* Author Info */}
-              <div className="pt-4 border-t border-slate-200/60 flex items-center justify-between">
+              <div className="flex items-end justify-between gap-4 mt-auto border-t-2 border-zinc-800 pt-4">
                 <div>
-                  <h4 className="font-bold text-slate-900 text-sm">{rev.name}</h4>
-                  <span className="text-xs text-amber-600 font-medium block">{rev.trip}</span>
-                  <span className="text-[11px] text-slate-500">{rev.location}, WA</span>
+                  <h4 className="font-black text-[15px] text-white uppercase tracking-wider">{rev.name}</h4>
+                  <p className="text-white/60 font-medium text-[11px] mt-1">{rev.role}</p>
                 </div>
-                <span className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-700 bg-emerald-100/70 px-2 py-1 rounded-full">
-                  <CheckCircle2 className="w-3 h-3 text-emerald-600" />
-                  Verified
-                </span>
+                <div className="flex flex-col items-center">
+                  <ShieldCheck className="w-5 h-5 text-emerald-400 mb-1" />
+                  <span className="text-[9px] font-black uppercase text-white/40 tracking-widest">{rev.tag}</span>
+                </div>
               </div>
             </div>
           ))}

@@ -42,10 +42,7 @@ export default function FAQAccordion() {
       <div className="max-w-[800px] mx-auto">
         <div className="text-center mb-10">
           <span className="text-xs font-black text-amber-400 uppercase tracking-[0.2em] mb-3 block">Got Questions?</span>
-          <h2 className="text-3xl lg:text-4xl font-black uppercase tracking-tight text-white mb-4">Frequently Asked Questions</h2>
-          <p className="text-white/60 font-medium max-w-xl mx-auto text-sm sm:text-base">
-            Everything you need to know about our Perth maxi cab, airport transfers, and accessible fleet.
-          </p>
+          <h2 className="text-3xl lg:text-4xl font-black uppercase tracking-tight text-white mb-4">FAQ&apos;s</h2>
         </div>
 
         <div className="space-y-3">

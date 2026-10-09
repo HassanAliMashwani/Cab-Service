@@ -116,20 +116,7 @@ export default function Home() {
                 </div>
               </a>
 
-              {/* WhatsApp Button with Official WhatsApp SVG */}
-              <a
-                href="https://wa.me/61424791786?text=Hi,%20I%20would%20like%20to%20book%20a%20Maxi%20Cab%20in%20Perth."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2.5 backdrop-blur-md bg-[#25D366]/20 border border-[#25D366]/50 hover:bg-[#25D366] text-white px-4 sm:px-5 py-2.5 sm:py-3.5 rounded-full transition-all duration-300 shadow-lg group hover:scale-105 active:scale-95"
-              >
-                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#25D366] flex items-center justify-center text-white shadow-md">
-                  <WhatsAppIcon className="w-4.5 h-4.5" />
-                </div>
-                <span className="text-xs sm:text-sm md:text-base font-bold tracking-wide">
-                  Chat on WhatsApp
-                </span>
-              </a>
+
 
             </div>
           </FadeIn>
