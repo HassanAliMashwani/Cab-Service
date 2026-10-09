@@ -1,4 +1,4 @@
-﻿import { FileText, CheckCircle2, MapPin, Smile, ArrowUpRight } from "lucide-react";
+import { FileText, CheckCircle2, MapPin, Smile, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 
 const steps = [
@@ -7,28 +7,28 @@ const steps = [
     title: "Request a Quote",
     icon: FileText,
     color: "text-amber-400",
-    bg: "bg-amber-400",
+    hoverBg: "hover:bg-amber-400",
   },
   {
     num: "02",
     title: "Get Fixed Price",
     icon: CheckCircle2,
     color: "text-sky-400",
-    bg: "bg-sky-400",
+    hoverBg: "hover:bg-sky-400",
   },
   {
     num: "03",
     title: "Driver Arrives",
     icon: MapPin,
     color: "text-emerald-400",
-    bg: "bg-emerald-400",
+    hoverBg: "hover:bg-emerald-400",
   },
   {
     num: "04",
     title: "Enjoy the Ride",
     icon: Smile,
     color: "text-violet-400",
-    bg: "bg-violet-400",
+    hoverBg: "hover:bg-violet-400",
   },
 ];
 
@@ -55,12 +55,12 @@ export default function HowItWorks() {
           </Link>
         </div>
 
-        {/* Steps â€” brutalist grid */}
+        {/* Steps – brutalist grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-0 border-2 border-zinc-700">
-          {steps.map(({ num, title, icon: Icon, color, bg }, i) => (
+          {steps.map(({ num, title, icon: Icon, color, hoverBg }, i) => (
             <div
               key={i}
-              className={`group relative p-8 border-r-2 border-b-2 border-zinc-700 last:border-r-0 hover:${bg} transition-colors duration-150 overflow-hidden`}
+              className={`group relative p-8 border-r-2 border-b-2 border-zinc-700 last:border-r-0 ${hoverBg} transition-colors duration-150 overflow-hidden`}
             >
               {/* Giant background number */}
               <span className="absolute -right-3 -bottom-5 text-[8rem] font-black text-white/[0.04] group-hover:text-black/10 select-none leading-none transition-colors">
@@ -89,5 +89,3 @@ export default function HowItWorks() {
     </section>
   );
 }
-
-

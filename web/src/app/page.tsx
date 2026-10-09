@@ -14,7 +14,8 @@ import {
   Sparkles,
   Award,
   Users,
-  Baby
+  Baby,
+  MapPin
 } from "lucide-react";
 import FadeIn from "@/components/animations/FadeIn";
 import SlideUp from "@/components/animations/SlideUp";
@@ -22,99 +23,103 @@ import FAQAccordion from "@/components/services/FAQAccordion";
 import TestimonialsCarousel from "@/components/home/TestimonialsCarousel";
 import VehicleShowcase from "@/components/home/VehicleShowcase";
 import ServiceCard from "@/components/services/ServiceCard";
+import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 
 export default function Home() {
   return (
     <div className="flex flex-col w-full bg-slate-50 min-h-screen">
-      {/* â”€â”€ Cinematic Hero Section â”€â”€ */}
-      <section className="relative w-full h-[100svh] min-h-[700px] flex items-end pb-12 sm:pb-16 pt-24 overflow-hidden">
+      {/* ── Cinematic Hero Section ── */}
+      <section className="relative w-full h-[100svh] min-h-[680px] max-h-[1080px] flex flex-col justify-between pt-28 pb-8 sm:pb-12 overflow-hidden">
         
-        {/* Background Image & Overlays */}
+        {/* Background Image & Crisp Overlays (Preserving original bright sunset & skyline) */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=2000&q=80" 
-            alt="Perth Cityscape Background" 
-            className="w-full h-full object-cover"
+            src="/images/perth-maxi-van-hero.jpg" 
+            alt="Perth Maxi Cab Wheelchair Accessible Vehicle with Perth City Sunset Skyline" 
+            className="w-full h-full object-cover object-[70%_center] lg:object-center brightness-105"
           />
-          {/* Gradient to darken the bottom and top (for header) */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black/90" />
+          {/* Subtle top header gradient so navbar text stays crisp */}
+          <div className="absolute top-0 left-0 right-0 h-36 bg-gradient-to-b from-black/55 to-transparent pointer-events-none" />
+          {/* Very light soft gradient on left for text legibility while keeping the entire picture bright and vivid */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/15 to-transparent pointer-events-none" />
         </div>
 
-        {/* Giant Background Text (like "EGYPT" in the reference) */}
-        <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
-          <h1 className="text-[25vw] font-black text-white/20 tracking-tighter mix-blend-overlay leading-none">
-            PERTH
-          </h1>
+        {/* Flight Path SVG Arc in Sky */}
+        <div className="absolute top-20 right-8 sm:right-20 lg:right-32 pointer-events-none select-none z-10 hidden sm:block">
+          <svg className="w-56 h-28 overflow-visible" viewBox="0 0 220 100" fill="none">
+            <path
+              d="M10 90 C 80 75, 140 40, 205 12"
+              stroke="rgba(255,255,255,0.6)"
+              strokeWidth="1.5"
+              strokeDasharray="4 4"
+            />
+          </svg>
+          <div className="absolute top-0 right-0 rotate-45">
+            <Plane className="w-4 h-4 text-white fill-white/30 drop-shadow" />
+          </div>
         </div>
 
-        {/* Foreground Content */}
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 flex flex-col lg:flex-row lg:items-end justify-between gap-10">
-          
-          {/* Left Side: Stats & CTA */}
-          <div className="flex flex-col gap-6 lg:max-w-2xl">
+        {/* Top/Middle: Headline & Catchy Punchy Line */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 pt-4 sm:pt-8">
+          <div className="max-w-xl lg:max-w-2xl flex flex-col items-start">
             
-            {/* Stats Row */}
-            <div className="flex flex-wrap gap-8 sm:gap-12 text-white">
-              <FadeIn delay={0.1}>
-                <div className="flex flex-col">
-                  <span className="text-3xl sm:text-5xl font-bold tracking-tight">10K+</span>
-                  <span className="text-sm text-white/70 mt-1 font-medium">Verified Transfers</span>
-                </div>
-              </FadeIn>
-              <FadeIn delay={0.2}>
-                <div className="flex flex-col">
-                  <span className="text-3xl sm:text-5xl font-bold tracking-tight">24/7</span>
-                  <span className="text-sm text-white/70 mt-1 font-medium">Availability</span>
-                </div>
-              </FadeIn>
-              <FadeIn delay={0.3}>
-                <div className="flex flex-col">
-                  <span className="text-3xl sm:text-5xl font-bold tracking-tight">100%</span>
-                  <span className="text-sm text-white/70 mt-1 font-medium">NDIS & TUSS Approved</span>
-                </div>
-              </FadeIn>
-            </div>
+            {/* Main Headline */}
+            <FadeIn delay={0.05}>
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[0.95] text-white mb-4 drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)]">
+                Perth <br />
+                <span className="text-amber-400 drop-shadow-[0_4px_14px_rgba(0,0,0,0.6)]">Maxi Cab</span>
+              </h1>
+            </FadeIn>
 
-            {/* CTA & Short Desc Row */}
-            <SlideUp delay={0.4} className="flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-8 mt-4">
+            {/* Catchy Punchy Line */}
+            <FadeIn delay={0.1}>
+              <p className="text-xl sm:text-2xl md:text-3xl font-extrabold text-white max-w-xl leading-snug drop-shadow-[0_3px_12px_rgba(0,0,0,0.95)]">
+                Anywhere in Perth. <span className="text-amber-400">Always on Time.</span> Always Accessible.
+              </p>
+              <p className="text-sm sm:text-base text-white/80 mt-2.5 max-w-lg font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+                Airport transfers, city travel &amp; premium wheelchair-ready transport on demand.
+              </p>
+            </FadeIn>
+
+          </div>
+        </div>
+
+        {/* Bottom Action Bar */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+          <FadeIn delay={0.15} className="w-full">
+            <div className="flex flex-wrap items-center gap-3 sm:gap-5 pb-2">
+              
+              {/* Book Now Button */}
               <Link
                 href="/enquire"
-                className="inline-flex items-center justify-center gap-2 bg-white text-black font-bold px-8 py-4 rounded-full hover:scale-105 transition-transform"
+                className="inline-flex items-center gap-3 bg-amber-400 hover:bg-amber-300 text-black font-extrabold text-sm sm:text-base px-7 sm:px-8 py-3.5 sm:py-4 rounded-full shadow-[0_8px_24px_rgba(251,191,36,0.45)] hover:shadow-[0_12px_28px_rgba(251,191,36,0.6)] hover:scale-105 active:scale-95 transition-all"
               >
                 <span>Book Now</span>
-                <ArrowRight className="w-5 h-5 bg-black text-white rounded-full p-1" />
+                <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-black flex items-center justify-center text-white">
+                  <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                </div>
               </Link>
-              <p className="text-sm text-white/80 max-w-xs leading-relaxed font-medium">
-                Book premium accessible transport & maxi cabs in Perth â€“ your gateway to dignified and reliable travel.
-              </p>
-            </SlideUp>
-          </div>
 
-          {/* Right Side: Glassmorphism Thumbnail Card (replacing VehicleShowcase button logic visually for the hero) */}
-          <FadeIn delay={0.5} className="shrink-0 lg:w-[320px]">
-            <div className="backdrop-blur-md bg-white/10 border border-white/20 p-2 rounded-3xl shadow-2xl relative group cursor-pointer overflow-hidden">
-              <img 
-                src="https://images.unsplash.com/photo-1542296332-2e4473faf563?auto=format&fit=crop&w=600&q=80" 
-                alt="Premium Maxi Cab"
-                className="w-full h-40 object-cover rounded-2xl group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors rounded-3xl" />
-              
-              {/* Fake Video Player UI */}
-              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white text-xs font-medium">
-                <span>01:30</span>
-                <div className="flex-1 mx-3 h-1 bg-white/30 rounded-full overflow-hidden">
-                  <div className="w-1/3 h-full bg-white rounded-full" />
+              {/* 24/7 Support Call Pill */}
+              <a
+                href="tel:+61424791786"
+                className="flex items-center gap-3 group backdrop-blur-md bg-black/50 border border-white/20 px-4 sm:px-5 py-2.5 sm:py-3.5 rounded-full hover:bg-black/70 transition-colors shadow-lg"
+              >
+                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-amber-400/20 border border-amber-400 flex items-center justify-center text-amber-400 group-hover:scale-110 transition-transform">
+                  <Clock className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
                 </div>
-                <div className="w-6 h-6 rounded-full bg-white/30 flex items-center justify-center backdrop-blur-sm">
-                  <div className="w-0 h-0 border-t-4 border-t-transparent border-l-6 border-l-white border-b-4 border-b-transparent ml-0.5" />
+                <div className="flex flex-col text-left">
+                  <span className="text-[10px] sm:text-[11px] text-white/70 font-medium">24/7 Support</span>
+                  <span className="text-xs sm:text-sm md:text-base font-bold text-white tracking-wide group-hover:text-amber-400 transition-colors">
+                    +61 424 791 786
+                  </span>
                 </div>
-              </div>
+              </a>
+
+
+
             </div>
-            {/* Keeping the VehicleShowcase as a hidden trigger or alternative if needed, but visually we use the card above to match design */}
-            <div className="hidden"><VehicleShowcase /></div>
           </FadeIn>
-
         </div>
       </section>
 

@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Phone, MessageCircle, Calendar } from "lucide-react";
+import { Phone, Calendar } from "lucide-react";
+import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 
 export default function MobileContactBar() {
   return (
@@ -21,7 +22,7 @@ export default function MobileContactBar() {
           className="flex-[1.3] flex items-center justify-center gap-1.5 bg-emerald-500 active:bg-emerald-600 text-white py-2.5 rounded-xl font-bold text-xs transition-colors shadow-sm"
           aria-label="WhatsApp Us"
         >
-          <MessageCircle className="w-4 h-4" />
+          <WhatsAppIcon className="w-4 h-4" />
           <span>WhatsApp</span>
         </a>
 

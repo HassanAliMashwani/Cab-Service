@@ -1,15 +1,15 @@
-﻿"use client";
+"use client";
 
 import Link from "next/link";
 import { 
   Phone, 
-  MessageCircle, 
   MapPin, 
   ShieldCheck, 
   ArrowUp,
   Clock,
   Car
 } from "lucide-react";
+import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -137,7 +137,7 @@ export default function Footer() {
                 <a href="https://wa.me/61424791786" target="_blank" rel="noopener noreferrer" className="group flex flex-col">
                   <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest mb-1">WhatsApp Message</span>
                   <span className="flex items-center gap-2 text-white font-bold group-hover:text-emerald-400 transition-colors">
-                    <MessageCircle className="w-4 h-4 text-emerald-400" />
+                    <WhatsAppIcon className="w-4 h-4 text-emerald-400" />
                     +61 424 791 786
                   </span>
                 </a>

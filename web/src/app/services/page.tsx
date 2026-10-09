@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
 import {
   Plane,
@@ -22,7 +22,6 @@ import SlideUp from "@/components/animations/SlideUp";
 import FadeIn from "@/components/animations/FadeIn";
 import ServiceCard from "@/components/services/ServiceCard";
 import HowItWorks from "@/components/services/HowItWorks";
-import WhyChooseUsLegacy from "@/components/services/WhyChooseUsLegacy";
 import TestimonialsSection from "@/components/services/TestimonialsSection";
 import FAQAccordion from "@/components/services/FAQAccordion";
 import FinalCTABanner from "@/components/services/FinalCTABanner";
@@ -101,12 +100,12 @@ export default function ServicesPage() {
 
         {/* Floating decorative icons â€” pure visual maximalism */}
         <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
-          <Plane      className="absolute -top-4 -left-8  w-72 h-72 text-amber-500/[0.12] rotate-12" />
-          <Accessibility className="absolute top-8 right-0   w-56 h-56 text-sky-400/[0.12] -rotate-6" />
-          <Sparkles   className="absolute bottom-24 left-0  w-52 h-52 text-violet-400/[0.10] rotate-3" />
-          <Users      className="absolute bottom-0  right-24 w-64 h-64 text-emerald-400/[0.10] -rotate-12" />
-          <Car        className="absolute top-1/2  left-1/2  w-96 h-96 text-white/[0.03] -translate-x-1/2 -translate-y-1/2" />
-          <ShieldCheck className="absolute top-1/3 right-1/4  w-32 h-32 text-amber-400/[0.08]" />
+          <Plane      className="absolute -top-4 -left-8  w-72 h-72 text-amber-500/25 rotate-12" />
+          <Accessibility className="absolute top-8 right-0   w-56 h-56 text-sky-400/25 -rotate-6" />
+          <Sparkles   className="absolute bottom-24 left-0  w-52 h-52 text-violet-400/20 rotate-3" />
+          <Users      className="absolute bottom-0  right-24 w-64 h-64 text-emerald-400/20 -rotate-12" />
+          <Car        className="absolute top-1/2  left-1/2  w-96 h-96 text-white/[0.07] -translate-x-1/2 -translate-y-1/2" />
+          <ShieldCheck className="absolute top-1/3 right-1/4  w-32 h-32 text-amber-400/20" />
         </div>
 
         {/* Amber radial glow */}
@@ -114,13 +113,7 @@ export default function ServicesPage() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-20 w-full">
 
-          {/* Brutalist label pill */}
-          <SlideUp>
-            <div className="inline-flex items-center gap-2 bg-amber-400 border-4 border-black px-4 py-2 mb-8 shadow-[5px_5px_0px_0px_#000]">
-              <MapPin className="w-3.5 h-3.5 text-black" />
-              <span className="text-black font-black uppercase text-xs tracking-widest">Perth&apos;s Premier Maxi Cab</span>
-            </div>
-          </SlideUp>
+
 
           {/* Giant brutalist headline */}
           <SlideUp delay={0.05}>
@@ -266,7 +259,6 @@ export default function ServicesPage() {
           BELOW-FOLD: How It Works, Why Us, etc.
          â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <HowItWorks />
-      <WhyChooseUsLegacy />
       <TestimonialsSection />
       <FAQAccordion />
       <FinalCTABanner />

@@ -1,19 +1,19 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import {
   Phone,
   ArrowUpRight,
   ShieldCheck,
   Clock,
-  MessageCircle,
   Car,
   Zap,
 } from "lucide-react";
+import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 
 export default function FinalCTABanner() {
   return (
     <section className="relative bg-black text-white overflow-hidden border-t-4 border-amber-400">
 
-      {/* Floating giant icon â€” decorative */}
+      {/* Floating giant icon – decorative */}
       <div className="absolute right-0 top-0 pointer-events-none select-none">
         <Car className="w-96 h-96 text-white/[0.03]" />
       </div>
@@ -22,12 +22,6 @@ export default function FinalCTABanner() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-24">
-
-        {/* Tag */}
-        <div className="inline-flex items-center gap-2 bg-amber-400 border-4 border-black px-4 py-2 mb-8 shadow-[5px_5px_0px_0px_#facc15]">
-          <ShieldCheck className="w-4 h-4 text-black" />
-          <span className="text-black font-black uppercase text-xs tracking-widest">Guaranteed On-Time</span>
-        </div>
 
         {/* Giant headline */}
         <h2 className="text-[clamp(3rem,10vw,8rem)] font-black uppercase leading-[0.9] tracking-tighter text-white mb-3">
@@ -71,9 +65,9 @@ export default function FinalCTABanner() {
             href="https://wa.me/61424791786?text=Hi,%20I%20would%20like%20to%20book%20a%20Maxi%20Cab%20in%20Perth."
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-emerald-500 border-4 border-black text-white font-black uppercase text-sm px-8 py-4 shadow-[4px_4px_0px_0px_#000] hover:shadow-[7px_7px_0px_0px_#000] hover:-translate-x-1 hover:-translate-y-1 transition-all"
+            className="inline-flex items-center gap-2 bg-[#25D366] border-4 border-black text-white font-black uppercase text-sm px-8 py-4 shadow-[4px_4px_0px_0px_#000] hover:shadow-[7px_7px_0px_0px_#000] hover:-translate-x-1 hover:-translate-y-1 transition-all"
           >
-            <MessageCircle className="w-4 h-4" /> WhatsApp
+            <WhatsAppIcon className="w-5 h-5" /> WhatsApp
           </a>
         </div>
 
@@ -81,5 +75,3 @@ export default function FinalCTABanner() {
     </section>
   );
 }
-
-
