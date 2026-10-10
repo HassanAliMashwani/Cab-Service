@@ -91,7 +91,7 @@ export async function POST(request: Request) {
 
     const fullMessage = messageLines.join("\n");
     const encodedMessage = encodeURIComponent(fullMessage);
-    const whatsappUrl = `https://wa.me/61400000000?text=${encodedMessage}`;
+    const whatsappUrl = `https://wa.me/923335028515?text=${encodedMessage}`;
 
     // Log the enquiry for operational records
     console.log(`[ENQUIRY_LOG] Ref: ${referenceId} - ${serviceName} from ${data.name} (${data.phone})`);

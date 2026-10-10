@@ -26,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-slate-50 text-slate-900 selection:bg-teal-200 pb-[72px] sm:pb-0">
+      <body suppressHydrationWarning className="min-h-full flex flex-col bg-slate-50 text-slate-900 selection:bg-teal-200 pb-[72px] sm:pb-0">
         <SmoothScrollProvider>
           <Header />
           <main className="flex-grow">

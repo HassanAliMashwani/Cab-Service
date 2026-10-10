@@ -1,9 +1,8 @@
-﻿import { ShieldCheck, Heart, Navigation, Users, CheckCircle2, ArrowRight, MessageCircle, Clock, Award, Star } from "lucide-react";
+import { ShieldCheck, Heart, Navigation, Users, CheckCircle2, ArrowRight, Clock, Award, Star } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/animations/FadeIn";
 import SlideUp from "@/components/animations/SlideUp";
-import FinalCTABanner from "@/components/services/FinalCTABanner";
 
 export const metadata: Metadata = {
   title: "About Us | Perth Accessible Taxi | Wheelchair Specialist",
@@ -109,7 +108,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto text-center">
           <span className="text-xs font-black text-amber-400 uppercase tracking-[0.2em] mb-4 block">Professional Drivers</span>
           <h2 className="text-4xl lg:text-5xl font-black uppercase tracking-tight text-white mb-16">Meet Our Team</h2>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[1, 2, 3].map((_, idx) => (
               <div key={idx} className="bg-black border-4 border-zinc-800 p-6 shadow-[6px_6px_0px_0px_#000] group">
@@ -148,10 +147,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
-      {/* Final CTA Banner */}
-      <FinalCTABanner />
-
     </div>
   );
 }

@@ -11,6 +11,7 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
+import GmailIcon from "@/components/icons/GmailIcon";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -90,18 +91,9 @@ export default function Header() {
 
             {/* Desktop CTAs */}
             <div className="hidden sm:flex items-center gap-3">
-              <a
-                href="tel:+61424791786"
-                className="flex items-center gap-2 px-4 py-2 rounded-full backdrop-blur-md bg-white/10 border border-white/20 text-white text-xs font-bold hover:bg-white/20 transition-all"
-              >
-                <Phone className="w-3.5 h-3.5 text-amber-400" />
-                <span className="hidden md:inline">+61 424 791 786</span>
-                <span className="md:hidden">Call</span>
-              </a>
-
               <Link
                 href="/enquire"
-                className="flex items-center gap-1.5 px-5 py-2 bg-amber-400 hover:bg-amber-300 text-black text-xs font-black uppercase tracking-wider rounded-full shadow-[0_4px_16px_rgba(251,191,36,0.35)] hover:scale-105 active:scale-95 transition-all"
+                className="flex items-center gap-1.5 px-6 py-2.5 bg-amber-400 hover:bg-amber-300 text-black text-xs font-black uppercase tracking-wider rounded-full shadow-[0_4px_16px_rgba(251,191,36,0.35)] hover:scale-105 active:scale-95 transition-all"
               >
                 <span>Book Now</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
@@ -118,7 +110,7 @@ export default function Header() {
               </Link>
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="w-9 h-9 rounded-xl backdrop-blur-md bg-white/10 border border-white/20 flex items-center justify-center text-white"
+                className="w-9 h-9 rounded-full backdrop-blur-md bg-white/10 border border-white/20 flex items-center justify-center text-white"
                 aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
               >
                 {mobileMenuOpen ? <X className="w-4.5 h-4.5" /> : <Menu className="w-4.5 h-4.5" />}
@@ -129,13 +121,13 @@ export default function Header() {
 
         {/* Mobile Drawer */}
         {mobileMenuOpen && (
-          <div className="lg:hidden backdrop-blur-2xl bg-black/70 border-t border-white/10">
+          <div className="lg:hidden backdrop-blur-2xl bg-black/90 border-t border-white/10">
             <nav className="flex flex-col px-5 py-6 gap-1">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`px-4 py-3 rounded-xl text-sm font-bold flex items-center justify-between ${
+                  className={`px-4 py-3 rounded-full text-sm font-bold flex items-center justify-between ${
                     active(link.href)
                       ? "bg-amber-400/20 text-amber-400"
                       : "text-white/80 hover:bg-white/10 hover:text-white"
@@ -146,26 +138,33 @@ export default function Header() {
                 </Link>
               ))}
 
-              <div className="mt-4 pt-4 border-t border-white/10 flex flex-col gap-2">
+              <div className="mt-4 pt-4 border-t border-white/10 flex flex-col gap-2.5">
                 <a
                   href="tel:+61424791786"
-                  className="flex items-center justify-center gap-2 py-3 rounded-xl bg-white/10 border border-white/20 text-white font-bold text-sm"
+                  className="flex items-center justify-center gap-2 py-3 rounded-full bg-white/10 border border-white/20 text-white font-bold text-sm hover:bg-white/20 transition-all"
                 >
                   <Phone className="w-4 h-4 text-amber-400" />
                   +61 424 791 786
                 </a>
                 <a
-                  href="https://wa.me/61424791786"
+                  href="https://wa.me/923335028515?text=Hi,%20I%20would%20like%20to%20book%20a%20Maxi%20Cab%20in%20Perth."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 py-3 rounded-xl bg-emerald-500 text-white font-bold text-sm"
+                  className="flex items-center justify-center gap-2 py-3 rounded-full bg-[#25D366] text-white font-bold text-sm shadow-md"
                 >
                   <WhatsAppIcon className="w-4 h-4" />
-                  WhatsApp
+                  WhatsApp Us (+92 333 5028515)
+                </a>
+                <a
+                  href="mailto:bookings@wheelchairmaxiperth.com"
+                  className="flex items-center justify-center gap-2 py-3 rounded-full bg-white text-zinc-950 font-bold text-sm shadow-md"
+                >
+                  <GmailIcon className="w-4 h-4" colored={true} />
+                  Email via Gmail
                 </a>
                 <Link
                   href="/enquire"
-                  className="flex items-center justify-center gap-2 py-3 rounded-xl bg-amber-400 text-black font-black text-sm border-2 border-black shadow-[3px_3px_0px_0px_#000]"
+                  className="flex items-center justify-center gap-2 py-3 rounded-full bg-amber-400 text-black font-black text-sm border-2 border-black shadow-[3px_3px_0px_0px_#000]"
                 >
                   Book Online <ArrowUpRight className="w-4 h-4" />
                 </Link>

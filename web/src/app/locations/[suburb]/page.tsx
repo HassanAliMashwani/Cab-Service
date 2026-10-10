@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { MessageCircle, ShieldCheck, MapPin, CheckCircle } from "lucide-react";
+import { ShieldCheck, MapPin, CheckCircle } from "lucide-react";
+import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 import FadeIn from "@/components/animations/FadeIn";
 import SlideUp from "@/components/animations/SlideUp";
 import { suburbs } from "../page";
@@ -55,12 +56,12 @@ export default async function SuburbPage({ params }: Props) {
             </p>
             
             <a 
-              href={`https://wa.me/61400000000?text=Hi,%20I%20need%20a%20wheelchair%20accessible%20taxi%20in%20${encodeURIComponent(suburbName)}.`}
+              href={`https://wa.me/923335028515?text=Hi,%20I%20need%20a%20wheelchair%20accessible%20taxi%20in%20${encodeURIComponent(suburbName)}.`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-accent-green hover:bg-accent-green-hover text-white px-8 py-4 rounded-xl font-bold text-lg transition-colors"
+              className="inline-flex items-center justify-center gap-2.5 bg-[#25D366] hover:bg-[#20ba59] text-white px-8 py-4 rounded-full font-bold text-lg transition-all shadow-lg hover:scale-105"
             >
-              <MessageCircle className="w-6 h-6" />
+              <WhatsAppIcon className="w-5 h-5" />
               <span>Book via WhatsApp</span>
             </a>
           </SlideUp>
