@@ -22,8 +22,6 @@ import FAQAccordion from "@/components/services/FAQAccordion";
 import TestimonialsCarousel from "@/components/home/TestimonialsCarousel";
 import VehicleShowcase from "@/components/home/VehicleShowcase";
 import ServiceCard from "@/components/services/ServiceCard";
-import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
-import GmailIcon from "@/components/icons/GmailIcon";
 import HowItWorks from "@/components/home/HowItWorks";
 
 export default function Home() {
@@ -77,9 +75,6 @@ export default function Home() {
               <p className="text-xl sm:text-2xl md:text-3xl font-extrabold text-white max-w-xl leading-snug drop-shadow-[0_3px_12px_rgba(0,0,0,0.95)]">
                 Anywhere in Perth. <span className="text-amber-400">Always on Time.</span> Always Accessible.
               </p>
-              <p className="text-sm sm:text-base text-white/80 mt-2.5 max-w-lg font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
-                Airport transfers, city travel &amp; premium wheelchair-ready transport on demand.
-              </p>
             </FadeIn>
 
           </div>
@@ -101,29 +96,11 @@ export default function Home() {
                 </div>
               </Link>
 
-              {/* WhatsApp Direct */}
-              <a
-                href="https://wa.me/923335028515?text=Hi,%20I%20would%20like%20to%20book%20a%20Maxi%20Cab%20in%20Perth."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 bg-[#25D366] hover:bg-[#20ba59] text-white font-extrabold text-sm sm:text-base px-6 sm:px-7 py-3.5 sm:py-4 rounded-full shadow-[0_8px_24px_rgba(37,211,102,0.4)] hover:shadow-[0_12px_28px_rgba(37,211,102,0.6)] hover:scale-105 active:scale-95 transition-all"
-              >
-                <WhatsAppIcon className="w-5 h-5 text-white" />
-                <span>WhatsApp</span>
-              </a>
 
-              {/* Gmail / Email Direct */}
-              <a
-                href="mailto:bookings@wheelchairmaxiperth.com"
-                className="inline-flex items-center gap-2.5 backdrop-blur-md bg-white/95 hover:bg-white text-zinc-950 font-extrabold text-sm sm:text-base px-6 sm:px-7 py-3.5 sm:py-4 rounded-full shadow-[0_8px_24px_rgba(255,255,255,0.25)] hover:scale-105 active:scale-95 transition-all"
-              >
-                <GmailIcon className="w-5 h-5" colored={true} />
-                <span>Email Us</span>
-              </a>
 
               {/* 24/7 Support Call Pill */}
               <a
-                href="tel:+61424791786"
+                href="tel:+923335028515"
                 className="flex items-center gap-3 group backdrop-blur-md bg-black/50 border border-white/20 px-4 sm:px-5 py-2.5 sm:py-3.5 rounded-full hover:bg-black/70 transition-colors shadow-lg"
               >
                 <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-amber-400/20 border border-amber-400 flex items-center justify-center text-amber-400 group-hover:scale-110 transition-transform">
@@ -132,7 +109,7 @@ export default function Home() {
                 <div className="flex flex-col text-left">
                   <span className="text-[10px] sm:text-[11px] text-white/70 font-medium">24/7 Support</span>
                   <span className="text-xs sm:text-sm md:text-base font-bold text-white tracking-wide group-hover:text-amber-400 transition-colors">
-                    +61 424 791 786
+                    +92 333 5028515
                   </span>
                 </div>
               </a>

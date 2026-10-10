@@ -64,7 +64,7 @@ export default function WhyChooseUsLegacy() {
             </h2>
           </div>
           <a
-            href="tel:+61424791786"
+            href="tel:+923335028515"
             className="self-start sm:self-end inline-flex items-center gap-2 bg-amber-400 border-4 border-black text-black font-black uppercase text-xs px-5 py-3 shadow-[4px_4px_0px_0px_#000] hover:shadow-[7px_7px_0px_0px_#000] hover:-translate-x-1 hover:-translate-y-1 transition-all"
           >
             <Phone className="w-4 h-4" /> Call Now

@@ -7,7 +7,7 @@ import ContactForm from "@/components/contact/ContactForm";
 export const metadata: Metadata = {
   title: "Contact Perth Maxi Cab | Direct Call, WhatsApp & Quick Booking",
   description:
-    "Direct contact for Perth's premier maxi cab and wheelchair accessible service. Call +61 424 791 786 or message WhatsApp +92 333 5028515 for immediate fixed quotes.",
+    "Direct contact for Perth's premier maxi cab and wheelchair accessible service. Call or message WhatsApp +92 333 5028515 for immediate fixed quotes.",
 };
 
 export default function ContactPage() {
@@ -74,7 +74,7 @@ export default function ContactPage() {
 
             {/* Phone Card */}
             <a
-              href="tel:+61424791786"
+              href="tel:+923335028515"
               className="block bg-zinc-900 p-6 sm:p-8 border-4 border-amber-400 shadow-[6px_6px_0px_0px_#facc15] hover:translate-y-[-4px] hover:shadow-[8px_8px_0px_0px_#facc15] transition-all group relative overflow-hidden rounded-2xl"
             >
               <Phone className="absolute -bottom-6 -right-6 w-32 h-32 text-amber-400/10 group-hover:text-amber-400/20 transition-colors pointer-events-none" />
@@ -87,7 +87,7 @@ export default function ContactPage() {
                     Call Directly
                   </h3>
                   <p className="text-white font-black text-lg sm:text-xl">
-                    +61 424 791 786
+                    +92 333 5028515
                   </p>
                   <p className="text-amber-400 text-xs font-bold uppercase tracking-widest mt-1">
                     Available 24/7

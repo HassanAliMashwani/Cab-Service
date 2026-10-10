@@ -121,11 +121,11 @@ export default function LocalEverydayTransportPage() {
                     <span>WhatsApp Inquiry</span>
                   </a>
                   <a
-                    href="tel:+61424791786"
+                    href="tel:+923335028515"
                     className="flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 w-full py-3 rounded-full font-bold text-sm transition-colors"
                   >
                     <Phone className="w-4 h-4" />
-                    <span>Call +61 424 791 786</span>
+                    <span>Call +92 333 5028515</span>
                   </a>
                 </div>
 

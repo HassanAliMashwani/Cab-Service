@@ -105,6 +105,11 @@ export default function ServicesPage() {
               SERVICES
             </h1>
           </SlideUp>
+          <SlideUp delay={0.15}>
+            <p className="mt-4 sm:mt-6 text-xs sm:text-sm md:text-base font-bold uppercase tracking-wider text-zinc-300 max-w-2xl">
+              Guaranteed On-Time Airport Transfers, Wheelchair Accessible &amp; Group Travel Across Greater Perth
+            </p>
+          </SlideUp>
 
         </div>
       </section>

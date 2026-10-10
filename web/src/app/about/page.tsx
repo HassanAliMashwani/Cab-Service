@@ -1,13 +1,10 @@
 import type { Metadata } from "next";
 import {
   ShieldCheck,
-  Accessibility,
   CheckCircle2,
   Star,
-  Users,
-  Car,
-  Sparkles,
-  Plane,
+  Accessibility,
+  MapPin,
 } from "lucide-react";
 import SlideUp from "@/components/animations/SlideUp";
 import FadeIn from "@/components/animations/FadeIn";
@@ -25,43 +22,69 @@ export default function AboutPage() {
     <div className="flex flex-col w-full bg-black min-h-screen text-white overflow-x-hidden selection:bg-amber-400 selection:text-black">
 
       {/* ═════════════════════════════════════════════════════════════
-          1. ABOUT PAGE HEADER — Brutalist dark + floating giant icons
+          1. ABOUT PAGE HEADER — Built with Semantic HTML / SEO Architecture
          ═════════════════════════════════════════════════════════════ */}
-      <section className="relative bg-black text-white min-h-[50vh] sm:min-h-[55vh] flex items-center overflow-hidden border-b-4 border-black">
-
-        {/* Floating decorative icons — pure visual maximalism */}
+      <section className="relative bg-[#07090e] text-white min-h-[500px] sm:min-h-[550px] lg:min-h-[580px] flex items-center overflow-hidden border-b-4 border-black pt-20 sm:pt-24 pb-16">
+        
+        {/* Responsive Background Artwork (WA map, Maxi van outline, pins, circuit tracks) */}
         <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
-          <Plane className="absolute -top-4 -left-8 w-72 h-72 text-amber-500/25 rotate-12" />
-          <Accessibility className="absolute top-8 right-0 w-56 h-56 text-sky-400/25 -rotate-6" />
-          <Sparkles className="absolute bottom-24 left-0 w-52 h-52 text-violet-400/20 rotate-3" />
-          <Users className="absolute bottom-0 right-24 w-64 h-64 text-emerald-400/20 -rotate-12" />
-          <Car className="absolute top-1/2 left-1/2 w-96 h-96 text-white/[0.07] -translate-x-1/2 -translate-y-1/2" />
-          <ShieldCheck className="absolute top-1/3 right-1/4 w-32 h-32 text-amber-400/20" />
+          <picture className="w-full h-full block">
+            <source srcSet="/images/about-hero-backdrop-2x.png" media="(min-width: 640px)" />
+            <img
+              src="/images/about-hero-backdrop.png"
+              alt=""
+              aria-hidden="true"
+              className="w-full h-full object-cover object-right md:object-center opacity-90 sm:opacity-95"
+            />
+          </picture>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#07090e] via-[#07090e]/60 to-transparent w-full md:w-3/5" />
         </div>
 
-        {/* Amber radial glow */}
-        <div className="absolute top-1/2 left-0 w-[600px] h-[600px] -translate-y-1/2 bg-amber-500/[0.06] rounded-full blur-3xl pointer-events-none" />
+        {/* Floating amber wheelchair outline behind 'US' */}
+        <div className="absolute left-[180px] sm:left-[240px] md:left-[280px] top-[140px] sm:top-[160px] pointer-events-none select-none opacity-20">
+          <Accessibility className="w-44 h-44 sm:w-56 sm:h-56 text-amber-400 stroke-1 -rotate-6" />
+        </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-20 sm:py-24 w-full">
+        {/* Ambient radial glow */}
+        <div className="absolute top-1/2 left-0 w-[500px] h-[500px] -translate-y-1/2 bg-amber-500/[0.07] rounded-full blur-3xl pointer-events-none" />
 
-          {/* Giant brutalist headline */}
-          <SlideUp delay={0.05}>
-            <h1 className="text-[clamp(4rem,15vw,10rem)] font-black uppercase leading-[0.9] tracking-tighter text-white mb-1 select-none">
-              ABOUT
-            </h1>
-          </SlideUp>
-          <SlideUp delay={0.1}>
-            <h1 className="text-[clamp(4rem,15vw,10rem)] font-black uppercase leading-[0.9] tracking-tighter text-amber-400 mb-0 select-none">
-              US
-            </h1>
-          </SlideUp>
+        {/* Real Semantic SEO Content Container */}
+        <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 w-full">
+          <div className="max-w-2xl">
+            {/* Primary SEO Heading <h1> */}
+            <SlideUp delay={0.05}>
+              <h1 className="text-[clamp(3.75rem,12vw,8rem)] font-black uppercase leading-[0.88] tracking-tighter select-none">
+                <span className="block text-white">ABOUT</span>
+                {" "}
+                <span className="block text-amber-400 mt-1">US</span>
+              </h1>
+            </SlideUp>
 
+            {/* Keyword-rich Tagline with highlighted spans */}
+            <SlideUp delay={0.15}>
+              <div className="mt-6 sm:mt-8 max-w-xl">
+                <p className="text-xs sm:text-sm md:text-base font-black uppercase tracking-wider text-white leading-relaxed">
+                  OVER <span className="text-amber-400">10 YEARS</span> OF RELIABLE, ACCESSIBLE &amp; DEDICATED
+                  <br className="hidden sm:inline" />
+                  {" "}PASSENGER CARE ACROSS <span className="text-amber-400">WESTERN AUSTRALIA</span>
+                </p>
+              </div>
+            </SlideUp>
+
+            {/* WA Location Pin Badge */}
+            <SlideUp delay={0.2}>
+              <div className="mt-6 sm:mt-8 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-400/10 border border-amber-400/30 text-amber-400 text-xs font-bold uppercase tracking-wider shadow-[0_0_15px_rgba(251,191,36,0.15)]">
+                <MapPin className="w-3.5 h-3.5 fill-amber-400 text-black" />
+                <span>WA Licensed &bull; Perth Metro &bull; Airport Transfers</span>
+              </div>
+            </SlideUp>
+          </div>
         </div>
       </section>
 
 
       {/* ═════════════════════════════════════════════════════════════
-          2. "OUR STORY" SECTION (Aligned Photo + Story + Stats)
+          2. "OUR STORY" SECTION (Aligned Photo + Story Timeline + Stats)
          ═════════════════════════════════════════════════════════════ */}
       <section className="py-10 md:py-14 px-4 sm:px-6 lg:px-8 bg-zinc-950 border-b-4 border-black w-full">
         <div className="max-w-7xl mx-auto">
@@ -106,38 +129,61 @@ export default function AboutPage() {
               </FadeIn>
             </div>
 
-            {/* Story Text Column: Symmetrical & Scannable */}
-            <div className="lg:col-span-7 flex flex-col justify-between space-y-5">
+            {/* Story Timeline Column */}
+            <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
               <div>
                 <SlideUp delay={0.15}>
                   <span className="text-xs font-black text-amber-400 uppercase tracking-[0.2em] block mb-1">
-                    Our Mission &amp; Heritage
+                    Our Journey &amp; Heritage
                   </span>
-                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black uppercase tracking-tight text-white">
-                    Accessibility Is Not An Add-On
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black uppercase tracking-tight text-white mb-6">
+                    Milestones &amp; History
                   </h2>
                 </SlideUp>
 
-                <FadeIn delay={0.2} className="space-y-3 mt-3.5">
-                  {/* Bold Opening Line */}
-                  <p className="text-sm sm:text-base text-white font-extrabold leading-snug border-l-3 border-amber-400 pl-3">
-                    We started with one clear standard: every passenger in Perth deserves prompt, compassionate, and predictable transport.
-                  </p>
-
-                  {/* Short Paragraph 1 */}
-                  <p className="text-zinc-300 text-xs sm:text-sm leading-relaxed font-medium">
-                    In traditional fleets, wheelchair vehicles are often treated as an afterthought, leading to long waits and missed flights. We built Perth Maxi Cab to eliminate those compromises with a dedicated fleet of spacious <span className="text-amber-400 font-bold">7 to 11 seater maxi cabs</span> available around the clock.
-                  </p>
-
-                  {/* Short Paragraph 2 */}
-                  <p className="text-zinc-300 text-xs sm:text-sm leading-relaxed font-medium">
-                    Every accessible van is purpose-equipped with <span className="text-amber-400 font-bold">certified hydraulic ramps</span> and <span className="text-amber-400 font-bold">4-point Q&apos;Straint tie-down locks</span>, ensuring wheelchair users travel with absolute dignity, safety, and room for companions and luggage.
-                  </p>
-
-                  {/* Short Paragraph 3 */}
-                  <p className="text-zinc-300 text-xs sm:text-sm leading-relaxed font-medium">
-                    Whether booking for Perth Airport (T1–T4), hospital transfers, or special group occasions, our passengers enjoy locked-in reservation times and <span className="text-amber-400 font-bold">transparent fixed fares with zero surge pricing</span>.
-                  </p>
+                <FadeIn delay={0.2}>
+                  <div className="relative pl-6 sm:pl-8 space-y-6 before:absolute before:left-2 sm:before:left-2.5 before:top-2 before:bottom-2 before:w-0.5 before:bg-zinc-800">
+                    {[
+                      {
+                        year: "2014",
+                        title: "Founded in Perth",
+                        description: "Started with dedicated wheelchair-accessible maxi vehicles to provide dignified, on-time airport & hospital transit.",
+                      },
+                      {
+                        year: "2018",
+                        title: "Fleet Expansion",
+                        description: "Expanded our fleet to include 7–11 seater passenger vans with pre-installed child capsules & booster seats.",
+                      },
+                      {
+                        year: "2021",
+                        title: "NDIS & Hydraulic Standards",
+                        description: "Achieved full NDIS registration, upgrading our fleet with hydraulic ramps and 4-point Q'Straint tie-down systems.",
+                      },
+                      {
+                        year: "Present",
+                        title: "24/7 Greater Perth Coverage",
+                        description: "Delivering guaranteed fixed fares and zero surge pricing across Perth Airport (T1–T4) and all surrounding suburbs.",
+                      },
+                    ].map((item, idx) => (
+                      <div key={idx} className="relative group">
+                        {/* Timeline node */}
+                        <div className="absolute -left-6 sm:-left-8 top-1 w-4 h-4 rounded-full bg-black border-2 border-amber-400 flex items-center justify-center group-hover:scale-125 transition-transform shadow-[0_0_8px_rgba(251,191,36,0.5)]">
+                          <div className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+                        </div>
+                        <div className="flex items-baseline gap-2.5">
+                          <span className="text-amber-400 font-black text-xs uppercase tracking-wider">
+                            {item.year}
+                          </span>
+                          <h3 className="text-white font-bold text-sm sm:text-base">
+                            {item.title}
+                          </h3>
+                        </div>
+                        <p className="text-zinc-400 text-xs sm:text-sm font-medium mt-1 leading-relaxed">
+                          {item.description}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
                 </FadeIn>
               </div>
 

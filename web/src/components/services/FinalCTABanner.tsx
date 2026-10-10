@@ -55,10 +55,10 @@ export default function FinalCTABanner() {
           </Link>
 
           <a
-            href="tel:+61424791786"
+            href="tel:+923335028515"
             className="inline-flex items-center gap-2 bg-transparent border-4 border-white/40 text-white font-black uppercase text-sm px-8 py-4 rounded-full hover:border-white hover:bg-white hover:text-black transition-all"
           >
-            <Phone className="w-4 h-4" /> +61 424 791 786
+            <Phone className="w-4 h-4" /> +92 333 5028515
           </a>
 
           <a

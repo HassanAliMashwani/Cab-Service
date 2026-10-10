@@ -228,11 +228,11 @@ export default function BabySeatTaxiPage() {
                   </a>
 
                   <a
-                    href="tel:+61424791786"
+                    href="tel:+923335028515"
                     className="w-full bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold py-3 px-4 rounded-full text-center flex items-center justify-center gap-2 text-xs transition-all"
                   >
                     <Phone className="w-3.5 h-3.5" />
-                    <span>Call Driver Dispatch: +61 424 791 786</span>
+                    <span>Call Driver Dispatch: +92 333 5028515</span>
                   </a>
                 </div>
               </div>

@@ -296,7 +296,7 @@ export default function ServiceCard({
                   WhatsApp
                 </a>
                 <a
-                  href="tel:+61424791786"
+                  href="tel:+923335028515"
                   className="flex-1 flex items-center justify-center gap-2 px-5 py-3.5 bg-transparent text-white border-4 border-zinc-700 font-black uppercase text-xs tracking-widest hover:border-white hover:bg-white hover:text-black transition-all rounded-full"
                 >
                   <Phone className="w-4 h-4" />

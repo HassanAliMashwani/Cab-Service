@@ -53,3 +53,18 @@
 .service-card:hover .service-card-image-wrap img {
   transform: scale(1.08);
 }
+
+/* Smooth fade in fade out pulse */
+@keyframes fadeInOut {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.animate-fade-in-out {
+  animation: fadeInOut 2.2s ease-in-out infinite;
+}
+

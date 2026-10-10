@@ -7,7 +7,7 @@ export default function MobileContactBar() {
     <div className="fixed bottom-0 left-0 right-0 bg-slate-950/95 backdrop-blur-md border-t border-slate-800 px-3 py-2.5 sm:hidden z-50 shadow-[0_-4px_20px_rgba(0,0,0,0.3)]">
       <div className="flex gap-2 items-center">
         <a 
-          href="tel:+61424791786" 
+          href="tel:+923335028515" 
           className="flex-1 flex items-center justify-center gap-1.5 bg-slate-800 active:bg-slate-700 text-white py-2.5 rounded-full font-bold text-xs transition-colors border border-slate-700"
           aria-label="Direct Phone Call"
         >

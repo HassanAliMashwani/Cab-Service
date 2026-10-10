@@ -91,10 +91,9 @@ export default function Header() {
             <div className="hidden sm:flex items-center gap-3">
               <Link
                 href="/enquire"
-                className="flex items-center gap-1.5 px-6 py-2.5 bg-amber-400 hover:bg-amber-300 text-black text-xs font-black uppercase tracking-wider rounded-full shadow-[0_4px_16px_rgba(251,191,36,0.35)] hover:scale-105 active:scale-95 transition-all"
+                className="inline-flex items-center justify-center px-5 py-2.5 bg-amber-400 hover:bg-amber-300 text-black text-xs font-bold uppercase tracking-wider rounded-full transition-all animate-fade-in-out hover:animate-none"
               >
-                <span>Book Now</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
+                Book Now
               </Link>
             </div>
 
@@ -102,7 +101,7 @@ export default function Header() {
             <div className="flex items-center gap-2 lg:hidden">
               <Link
                 href="/enquire"
-                className="px-4 py-2 bg-amber-400 text-black text-xs font-black uppercase rounded-full shadow-md"
+                className="px-4 py-2 bg-amber-400 hover:bg-amber-300 text-black text-xs font-bold uppercase rounded-full transition-all animate-fade-in-out hover:animate-none"
               >
                 Book
               </Link>
@@ -138,11 +137,11 @@ export default function Header() {
 
               <div className="mt-4 pt-4 border-t border-white/10 flex flex-col gap-2.5">
                 <a
-                  href="tel:+61424791786"
+                  href="tel:+923335028515"
                   className="flex items-center justify-center gap-2 py-3 rounded-full bg-white/10 border border-white/20 text-white font-bold text-sm hover:bg-white/20 transition-all"
                 >
                   <Phone className="w-4 h-4 text-amber-400" />
-                  +61 424 791 786
+                  +92 333 5028515
                 </a>
                 <a
                   href="https://wa.me/923335028515?text=Hi,%20I%20would%20like%20to%20book%20a%20Maxi%20Cab%20in%20Perth."
@@ -162,7 +161,7 @@ export default function Header() {
                 </a>
                 <Link
                   href="/enquire"
-                  className="flex items-center justify-center gap-2 py-3 rounded-full bg-amber-400 text-black font-black text-sm border-2 border-black shadow-[3px_3px_0px_0px_#000]"
+                  className="flex items-center justify-center gap-2 py-3 rounded-full bg-amber-400 hover:bg-amber-300 text-black font-bold text-sm transition-colors"
                 >
                   Book Online <ArrowUpRight className="w-4 h-4" />
                 </Link>
