@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { 
-  MessageCircle, 
   ShieldCheck, 
   CheckCircle, 
   Clock, 
@@ -24,6 +23,8 @@ import TestimonialsCarousel from "@/components/home/TestimonialsCarousel";
 import VehicleShowcase from "@/components/home/VehicleShowcase";
 import ServiceCard from "@/components/services/ServiceCard";
 import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
+import GmailIcon from "@/components/icons/GmailIcon";
+import HowItWorks from "@/components/home/HowItWorks";
 
 export default function Home() {
   return (
@@ -87,7 +88,7 @@ export default function Home() {
         {/* Bottom Action Bar */}
         <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
           <FadeIn delay={0.15} className="w-full">
-            <div className="flex flex-wrap items-center gap-3 sm:gap-5 pb-2">
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4 pb-2">
               
               {/* Book Now Button */}
               <Link
@@ -99,6 +100,26 @@ export default function Home() {
                   <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </div>
               </Link>
+
+              {/* WhatsApp Direct */}
+              <a
+                href="https://wa.me/923335028515?text=Hi,%20I%20would%20like%20to%20book%20a%20Maxi%20Cab%20in%20Perth."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2.5 bg-[#25D366] hover:bg-[#20ba59] text-white font-extrabold text-sm sm:text-base px-6 sm:px-7 py-3.5 sm:py-4 rounded-full shadow-[0_8px_24px_rgba(37,211,102,0.4)] hover:shadow-[0_12px_28px_rgba(37,211,102,0.6)] hover:scale-105 active:scale-95 transition-all"
+              >
+                <WhatsAppIcon className="w-5 h-5 text-white" />
+                <span>WhatsApp</span>
+              </a>
+
+              {/* Gmail / Email Direct */}
+              <a
+                href="mailto:bookings@wheelchairmaxiperth.com"
+                className="inline-flex items-center gap-2.5 backdrop-blur-md bg-white/95 hover:bg-white text-zinc-950 font-extrabold text-sm sm:text-base px-6 sm:px-7 py-3.5 sm:py-4 rounded-full shadow-[0_8px_24px_rgba(255,255,255,0.25)] hover:scale-105 active:scale-95 transition-all"
+              >
+                <GmailIcon className="w-5 h-5" colored={true} />
+                <span>Email Us</span>
+              </a>
 
               {/* 24/7 Support Call Pill */}
               <a
@@ -116,8 +137,6 @@ export default function Home() {
                 </div>
               </a>
 
-
-
             </div>
           </FadeIn>
         </div>
@@ -126,51 +145,8 @@ export default function Home() {
 
       {/* Brutalist Wrapper */}
       <div className="bg-black text-white w-full">
-        {/* 3-Step Process (Brutalist) */}
-        <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
-          <div className="bg-black border-4 border-zinc-800 shadow-[8px_8px_0px_0px_#000] p-8 lg:p-12 text-center">
-            <span className="text-xs font-black text-amber-400 uppercase tracking-[0.2em] block mb-4">
-              Hassle-Free Booking Process
-            </span>
-            <h2 className="text-3xl sm:text-5xl font-black text-white uppercase tracking-tight mb-12 md:mb-16">
-              How It Works
-            </h2>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative max-w-5xl mx-auto">
-              <div className="hidden md:block absolute top-10 left-[16%] right-[16%] h-1 bg-zinc-800 z-0"></div>
-
-              <div className="relative z-10 flex flex-col items-center group">
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-black text-white border-4 border-zinc-800 rounded-none flex items-center justify-center font-black text-2xl md:text-3xl mb-4 group-hover:bg-amber-400 group-hover:text-black group-hover:border-black transition-colors shadow-[4px_4px_0px_0px_#000]">
-                  1
-                </div>
-                <h3 className="font-black text-white text-lg md:text-xl mb-2 uppercase tracking-wider">Select Service</h3>
-                <p className="text-white/60 font-medium text-xs md:text-sm leading-relaxed max-w-xs">
-                  Pick wheelchair accessible, 7-11 seater, or baby seat taxi with your pickup date & time.
-                </p>
-              </div>
-
-              <div className="relative z-10 flex flex-col items-center group">
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-black text-white border-4 border-zinc-800 rounded-none flex items-center justify-center font-black text-2xl md:text-3xl mb-4 group-hover:bg-emerald-500 group-hover:text-black group-hover:border-black transition-colors shadow-[4px_4px_0px_0px_#000]">
-                  2
-                </div>
-                <h3 className="font-black text-white text-lg md:text-xl mb-2 uppercase tracking-wider">Instant Fixed Quote</h3>
-                <p className="text-white/60 font-medium text-xs md:text-sm leading-relaxed max-w-xs">
-                  We confirm vehicle availability and send an upfront fixed quote with no surge fees.
-                </p>
-              </div>
-
-              <div className="relative z-10 flex flex-col items-center group">
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-black text-white border-4 border-zinc-800 rounded-none flex items-center justify-center font-black text-2xl md:text-3xl mb-4 group-hover:bg-sky-400 group-hover:text-black group-hover:border-black transition-colors shadow-[4px_4px_0px_0px_#000]">
-                  3
-                </div>
-                <h3 className="font-black text-white text-lg md:text-xl mb-2 uppercase tracking-wider">Punctual Pickup</h3>
-                <p className="text-white/60 font-medium text-xs md:text-sm leading-relaxed max-w-xs">
-                  Driver arrives early with ramps or pre-installed child seats, ready for smooth transit.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* 3-Step Process with scroll fade in/out animation */}
+        <HowItWorks />
 
         {/* 6 Core Services Grid using ServiceCard */}
         <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full border-t-4 border-black">
@@ -221,13 +197,13 @@ export default function Home() {
               badgeText="Family" 
             />
             <ServiceCard 
-              title="Medical Transport" 
-              tagline="Hospital Transfers" 
-              iconName="HeartPulse" 
-              gradient="sky" 
-              features={["Fiona Stanley", "Royal Perth", "Door to Door"]} 
-              serviceHref="/services/medical-ndis-transport" 
-              badgeText="Care" 
+              title="Weddings & Events" 
+              tagline="Charters & Celebrations" 
+              iconName="Sparkles" 
+              gradient="violet" 
+              features={["Tinted Windows", "Dual A/C Zones", "Swan Valley Tours"]} 
+              serviceHref="/services/local-everyday-transport" 
+              badgeText="VIP" 
             />
             <ServiceCard 
               title="Local Events" 
@@ -249,40 +225,6 @@ export default function Home() {
         {/* FAQ Accordion Section */}
         <FAQAccordion />
 
-        {/* Ready to Book Bottom Callout */}
-        <section className="py-12 md:py-16 px-4 sm:px-6 max-w-7xl mx-auto border-t-4 border-black">
-          <div className="bg-amber-400 border-4 border-black p-6 sm:p-10 shadow-[8px_8px_0px_0px_#000]">
-            <SlideUp>
-              <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
-                <div className="text-center lg:text-left">
-                  <h2 className="text-2xl sm:text-3xl font-black mb-2 uppercase tracking-tight text-black">
-                    Ready to Secure Your Transfer?
-                  </h2>
-                  <p className="text-black/80 font-bold text-sm max-w-lg">
-                    Send us your trip details on WhatsApp or via our booking form for an instant fixed quote.
-                  </p>
-                </div>
-                <div className="flex flex-col sm:flex-row gap-4 shrink-0 w-full lg:w-auto">
-                  <a
-                    href="https://wa.me/61424791786"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 lg:flex-none inline-flex items-center justify-center gap-2 bg-black text-white border-4 border-black font-black uppercase text-xs tracking-widest px-6 py-4 hover:bg-zinc-800 transition-all shadow-[4px_4px_0px_0px_#000] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_#000]"
-                  >
-                    <MessageCircle className="w-4 h-4 text-emerald-400" />
-                    <span>WhatsApp</span>
-                  </a>
-                  <Link
-                    href="/enquire"
-                    className="flex-1 lg:flex-none inline-flex items-center justify-center gap-2 bg-white text-black border-4 border-black font-black uppercase text-xs tracking-widest px-6 py-4 hover:bg-slate-100 transition-all shadow-[4px_4px_0px_0px_#000] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_#000]"
-                  >
-                    <span>Booking Form</span>
-                  </Link>
-                </div>
-              </div>
-            </SlideUp>
-          </div>
-        </section>
       </div>
     </div>
   );

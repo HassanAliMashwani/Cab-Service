@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Calculator, ArrowRight, MessageCircle, ShieldCheck, Accessibility, Users, Baby } from "lucide-react";
+import { Calculator, ArrowRight, ShieldCheck, Accessibility, Users, Baby } from "lucide-react";
+import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 
 interface RouteFare {
   from: string;
@@ -138,17 +139,17 @@ export default function FareEstimator() {
       {/* Action */}
       <div className="flex flex-col sm:flex-row gap-3">
         <a
-          href={`https://wa.me/61400000000?text=${whatsappMessage}`}
+          href={`https://wa.me/923335028515?text=${whatsappMessage}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-1 inline-flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-4 rounded-xl text-sm transition-colors"
+          className="flex-1 inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba59] text-white font-black py-3.5 px-5 rounded-full text-sm transition-all shadow-[0_4px_15px_rgba(37,211,102,0.3)] hover:scale-[1.02]"
         >
-          <MessageCircle className="w-4 h-4" />
+          <WhatsAppIcon className="w-4 h-4" />
           <span>Confirm on WhatsApp</span>
         </a>
         <a
           href="/enquire"
-          className="inline-flex items-center justify-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-white font-semibold py-3 px-4 rounded-xl text-sm transition-colors"
+          className="inline-flex items-center justify-center gap-1.5 bg-zinc-800 hover:bg-zinc-700 text-white font-bold py-3.5 px-5 rounded-full text-sm transition-all border border-zinc-700"
         >
           <span>Online Booking</span>
           <ArrowRight className="w-4 h-4" />

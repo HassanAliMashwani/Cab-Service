@@ -69,7 +69,7 @@ export default function VehicleShowcase() {
             <div className="flex justify-end gap-3">
               <button
                 onClick={() => setIsOpen(false)}
-                className="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 rounded-xl text-sm transition-colors"
+                className="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3.5 rounded-full text-sm transition-colors cursor-pointer"
               >
                 Close Specifications
               </button>

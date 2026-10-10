@@ -1,4 +1,5 @@
-import { Baby, ShieldCheck, CheckCircle2, ArrowRight, MessageCircle, Phone, Heart, Users, Sparkles } from "lucide-react";
+import { Baby, ShieldCheck, CheckCircle2, ArrowRight, Phone, Heart, Users, Sparkles } from "lucide-react";
+import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SlideUp from "@/components/animations/SlideUp";
@@ -72,18 +73,18 @@ export default function BabySeatTaxiPage() {
             <SlideUp delay={0.2} className="mt-8 flex flex-wrap gap-4">
               <Link
                 href="/enquire"
-                className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-7 py-3.5 rounded-xl shadow-lg transition-all text-sm sm:text-base flex items-center gap-2"
+                className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-7 py-3.5 rounded-full shadow-lg transition-all text-sm sm:text-base flex items-center gap-2"
               >
                 <span>Book Taxi with Baby Seat</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <a
-                href="https://wa.me/61400000000?text=Hi,%20I%20would%20like%20to%20book%20a%20Maxi%20Taxi%20with%20a%20Baby%20Seat%20in%20Perth."
+                href="https://wa.me/923335028515?text=Hi,%20I%20would%20like%20to%20book%20a%20Maxi%20Taxi%20with%20a%20Baby%20Seat%20in%20Perth."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white/10 hover:bg-white/20 text-white border border-white/20 font-bold px-7 py-3.5 rounded-xl transition-all text-sm sm:text-base flex items-center gap-2"
+                className="bg-[#25D366] hover:bg-[#20ba59] text-white font-bold px-7 py-3.5 rounded-full transition-all text-sm sm:text-base flex items-center gap-2 shadow-md"
               >
-                <MessageCircle className="w-4 h-4 text-emerald-400" />
+                <WhatsAppIcon className="w-4 h-4" />
                 <span>Message on WhatsApp</span>
               </a>
             </SlideUp>
@@ -211,27 +212,27 @@ export default function BabySeatTaxiPage() {
                 <div className="space-y-3">
                   <Link
                     href="/enquire"
-                    className="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3.5 px-4 rounded-xl text-center block text-sm transition-all shadow-md"
+                    className="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3.5 px-4 rounded-full text-center block text-sm transition-all shadow-md"
                   >
                     Online Booking Form
                   </Link>
 
                   <a
-                    href="https://wa.me/61400000000?text=Hi,%20I'd%20like%20to%20reserve%20a%20Maxi%20Taxi%20with%20a%20Baby%20Seat."
+                    href="https://wa.me/923335028515?text=Hi,%20I'd%20like%20to%20reserve%20a%20Maxi%20Taxi%20with%20a%20Baby%20Seat."
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3.5 px-4 rounded-xl text-center flex items-center justify-center gap-2 text-sm transition-all"
+                    className="w-full bg-[#25D366] hover:bg-[#20ba59] text-white font-bold py-3.5 px-4 rounded-full text-center flex items-center justify-center gap-2 text-sm transition-all"
                   >
-                    <MessageCircle className="w-4 h-4" />
+                    <WhatsAppIcon className="w-4 h-4" />
                     <span>WhatsApp Instant Quote</span>
                   </a>
 
                   <a
-                    href="tel:0890000000"
-                    className="w-full bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold py-3 px-4 rounded-xl text-center flex items-center justify-center gap-2 text-xs transition-all"
+                    href="tel:+61424791786"
+                    className="w-full bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold py-3 px-4 rounded-full text-center flex items-center justify-center gap-2 text-xs transition-all"
                   >
                     <Phone className="w-3.5 h-3.5" />
-                    <span>Call Driver Dispatch: (08) 9000 0000</span>
+                    <span>Call Driver Dispatch: +61 424 791 786</span>
                   </a>
                 </div>
               </div>
