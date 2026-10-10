@@ -5,9 +5,7 @@ import Link from "next/link";
 import { 
   Phone, 
   MapPin, 
-  ShieldCheck, 
   ArrowUp, 
-  Clock, 
   Car, 
   Accessibility,
   ArrowUpRight 
@@ -102,21 +100,6 @@ export default function Footer() {
                 </span>
               </div>
             </Link>
-
-            <p className="text-sm text-white/60 leading-relaxed max-w-sm font-medium">
-              Your Local Perth Maxi Cab Service for Airport Transfers, Group Travel &amp; Events. Fully equipped with certified ramps, wheelchair tie-downs, and child safety restraints.
-            </p>
-
-            <div className="pt-2 flex flex-col gap-3">
-              <div className="flex items-center gap-2 backdrop-blur-md bg-white/5 border border-white/10 px-3 py-2 w-max rounded-lg">
-                <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                <span className="text-[10px] font-black uppercase text-white tracking-widest">WA DoT Licensed</span>
-              </div>
-              <div className="flex items-center gap-2 backdrop-blur-md bg-white/5 border border-white/10 px-3 py-2 w-max rounded-lg">
-                <Clock className="w-4 h-4 text-amber-400" />
-                <span className="text-[10px] font-black uppercase text-white tracking-widest">24/7 No Surge Price</span>
-              </div>
-            </div>
           </div>
 
           {/* Column 2: Quick Links (2 cols) */}
@@ -230,13 +213,6 @@ export default function Footer() {
                 </div>
               </li>
             </ul>
-
-            <Link
-              href="/enquire"
-              className="mt-6 inline-flex items-center justify-center gap-2 bg-amber-400 hover:bg-amber-300 border-2 border-black text-black font-black uppercase text-xs px-6 py-3.5 shadow-[4px_4px_0px_0px_#000] hover:shadow-[6px_6px_0px_0px_#000] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all w-full rounded-full"
-            >
-              Book Now &rarr;
-            </Link>
           </div>
         </div>
 

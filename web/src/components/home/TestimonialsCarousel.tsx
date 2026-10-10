@@ -58,8 +58,8 @@ export default function TestimonialsCarousel() {
         {/* Horizontal scroll container (3 on desktop, 1 on mobile) */}
         <div className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-6 hide-scrollbar" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
           {testimonials.map((test, idx) => (
-            <div 
-              key={idx} 
+            <div
+              key={idx}
               className="snap-start shrink-0 w-[85vw] sm:w-[350px] lg:w-[calc(33.333%-1rem)] bg-zinc-900 border-4 border-black p-6 shadow-[4px_4px_0px_0px_#000] relative flex flex-col justify-between"
             >
               <Quote className="absolute top-4 right-4 w-12 h-12 text-white/5" />
@@ -73,7 +73,7 @@ export default function TestimonialsCarousel() {
                   "{test.text}"
                 </p>
               </div>
-              
+
               <div className="flex items-end justify-between gap-4 mt-auto border-t-2 border-zinc-800 pt-4">
                 <div>
                   <h4 className="font-black text-[15px] text-white uppercase tracking-wider">{test.name}</h4>
@@ -84,7 +84,8 @@ export default function TestimonialsCarousel() {
           ))}
         </div>
       </div>
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         .hide-scrollbar::-webkit-scrollbar {
           display: none;
         }
