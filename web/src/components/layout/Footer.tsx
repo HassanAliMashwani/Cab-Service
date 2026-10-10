@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { 
-  Phone, 
-  MapPin, 
-  ShieldCheck, 
+import {
+  Phone,
+  MapPin,
+  ShieldCheck,
   ArrowUp,
   Clock,
   Car
@@ -19,10 +19,10 @@ export default function Footer() {
   return (
     <footer className="bg-black text-white pt-16 pb-12 mt-auto border-t-4 border-black relative z-10 shadow-[0_-10px_30px_rgba(0,0,0,0.5)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Main 4-Column Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 mb-14">
-          
+
           {/* Column 1: Logo & Tagline (4 cols) */}
           <div className="lg:col-span-4 space-y-6">
             <Link href="/" className="flex items-center gap-3 group inline-flex">

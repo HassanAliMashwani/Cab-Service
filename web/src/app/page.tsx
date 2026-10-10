@@ -1,16 +1,16 @@
 import Link from "next/link";
-import { 
-  MessageCircle, 
-  ShieldCheck, 
-  CheckCircle, 
-  Clock, 
-  Plane, 
-  Car, 
-  HeartPulse, 
-  Navigation, 
-  Phone, 
-  Star, 
-  ArrowRight, 
+import {
+  MessageCircle,
+  ShieldCheck,
+  CheckCircle,
+  Clock,
+  Plane,
+  Car,
+  HeartPulse,
+  Navigation,
+  Phone,
+  Star,
+  ArrowRight,
   Sparkles,
   Award,
   Users,
@@ -30,12 +30,12 @@ export default function Home() {
     <div className="flex flex-col w-full bg-slate-50 min-h-screen">
       {/* ── Cinematic Hero Section ── */}
       <section className="relative w-full h-[100svh] min-h-[680px] max-h-[1080px] flex flex-col justify-between pt-28 pb-8 sm:pb-12 overflow-hidden">
-        
+
         {/* Background Image & Crisp Overlays (Preserving original bright sunset & skyline) */}
         <div className="absolute inset-0 z-0">
-          <img 
-            src="/images/perth-maxi-van-hero.jpg" 
-            alt="Perth Maxi Cab Wheelchair Accessible Vehicle with Perth City Sunset Skyline" 
+          <img
+            src="/images/perth-maxi-van-hero.jpg"
+            alt="Perth Maxi Cab Wheelchair Accessible Vehicle with Perth City Sunset Skyline"
             className="w-full h-full object-cover object-[70%_center] lg:object-center brightness-105"
           />
           {/* Subtle top header gradient so navbar text stays crisp */}
@@ -62,7 +62,7 @@ export default function Home() {
         {/* Top/Middle: Headline & Catchy Punchy Line */}
         <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 pt-4 sm:pt-8">
           <div className="max-w-xl lg:max-w-2xl flex flex-col items-start">
-            
+
             {/* Main Headline */}
             <FadeIn delay={0.05}>
               <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[0.95] text-white mb-4 drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)]">
@@ -88,7 +88,7 @@ export default function Home() {
         <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
           <FadeIn delay={0.15} className="w-full">
             <div className="flex flex-wrap items-center gap-3 sm:gap-5 pb-2">
-              
+
               {/* Book Now Button */}
               <Link
                 href="/enquire"
@@ -184,59 +184,59 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <ServiceCard 
-              title="Airport Transfer" 
-              tagline="T1 · T2 · T3 · T4" 
-              iconName="Plane" 
-              gradient="amber" 
-              features={["Live Flight Tracking", "Meet & Greet", "8-10 Bags"]} 
-              serviceHref="/services/airport-transfers" 
-              badgeText="24/7" 
+            <ServiceCard
+              title="Airport Transfer"
+              tagline="T1 · T2 · T3 · T4"
+              iconName="Plane"
+              gradient="amber"
+              features={["Live Flight Tracking", "Meet & Greet", "8-10 Bags"]}
+              serviceHref="/services/airport-transfers"
+              badgeText="24/7"
             />
-            <ServiceCard 
-              title="Wheelchair Taxi" 
-              tagline="NDIS · TUSS" 
-              iconName="Accessibility" 
-              gradient="sky" 
-              features={["Hydraulic Ramp", "Q'Straint Locks", "NDIS Invoices"]} 
-              serviceHref="/services/wheelchair-accessible-taxi" 
-              badgeText="NDIS" 
+            <ServiceCard
+              title="Wheelchair Taxi"
+              tagline="NDIS · TUSS"
+              iconName="Accessibility"
+              gradient="sky"
+              features={["Hydraulic Ramp", "Q'Straint Locks", "NDIS Invoices"]}
+              serviceHref="/services/wheelchair-accessible-taxi"
+              badgeText="NDIS"
             />
-            <ServiceCard 
-              title="Group Maxi Cab" 
-              tagline="7 to 11 Seats" 
-              iconName="Users" 
-              gradient="emerald" 
-              features={["Family Travel", "Corporate Events", "Swan Valley"]} 
-              serviceHref="/services/group-maxi-cab" 
-              badgeText="Spacious" 
+            <ServiceCard
+              title="Group Maxi Cab"
+              tagline="7 to 11 Seats"
+              iconName="Users"
+              gradient="emerald"
+              features={["Family Travel", "Corporate Events", "Swan Valley"]}
+              serviceHref="/services/group-maxi-cab"
+              badgeText="Spacious"
             />
-            <ServiceCard 
-              title="Baby Seat Taxi" 
-              tagline="Pre-installed Seats" 
-              iconName="Baby" 
-              gradient="rose" 
-              features={["Infant Capsules", "Forward Facing", "Clean & Safe"]} 
-              serviceHref="/services/baby-seat-taxi" 
-              badgeText="Family" 
+            <ServiceCard
+              title="Baby Seat Taxi"
+              tagline="Pre-installed Seats"
+              iconName="Baby"
+              gradient="rose"
+              features={["Infant Capsules", "Forward Facing", "Clean & Safe"]}
+              serviceHref="/services/baby-seat-taxi"
+              badgeText="Family"
             />
-            <ServiceCard 
-              title="Medical Transport" 
-              tagline="Hospital Transfers" 
-              iconName="HeartPulse" 
-              gradient="sky" 
-              features={["Fiona Stanley", "Royal Perth", "Door to Door"]} 
-              serviceHref="/services/medical-ndis-transport" 
-              badgeText="Care" 
+            <ServiceCard
+              title="Medical Transport"
+              tagline="Hospital Transfers"
+              iconName="HeartPulse"
+              gradient="sky"
+              features={["Fiona Stanley", "Royal Perth", "Door to Door"]}
+              serviceHref="/services/medical-ndis-transport"
+              badgeText="Care"
             />
-            <ServiceCard 
-              title="Local Events" 
-              tagline="Perth & Surrounds" 
-              iconName="Car" 
-              gradient="amber" 
-              features={["Optus Stadium", "Crown Perth", "Concerts"]} 
-              serviceHref="/services/local-everyday-transport" 
-              badgeText="Events" 
+            <ServiceCard
+              title="Local Events"
+              tagline="Perth & Surrounds"
+              iconName="Car"
+              gradient="amber"
+              features={["Optus Stadium", "Crown Perth", "Concerts"]}
+              serviceHref="/services/local-everyday-transport"
+              badgeText="Events"
             />
           </div>
         </section>

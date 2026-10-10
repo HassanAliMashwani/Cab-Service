@@ -16,11 +16,11 @@ const ICON_MAP: Record<string, LucideIcon> = {
 /* ── Gradient presets ── */
 type GradientKey = "amber" | "sky" | "violet" | "emerald" | "rose";
 const GRADIENTS: Record<GradientKey, string> = {
-  amber:   "from-amber-400 via-orange-500 to-red-500",
-  sky:     "from-sky-400 via-blue-500 to-indigo-600",
-  violet:  "from-violet-500 via-purple-600 to-fuchsia-600",
+  amber: "from-amber-400 via-orange-500 to-red-500",
+  sky: "from-sky-400 via-blue-500 to-indigo-600",
+  violet: "from-violet-500 via-purple-600 to-fuchsia-600",
   emerald: "from-emerald-400 via-teal-500 to-cyan-600",
-  rose:    "from-rose-400 via-pink-500 to-red-500",
+  rose: "from-rose-400 via-pink-500 to-red-500",
 };
 
 export interface ServiceCardProps {

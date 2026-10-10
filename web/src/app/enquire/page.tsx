@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import EnquiryForm from "@/components/booking/EnquiryForm";
 import { ShieldCheck, Clock, CheckCircle2, Phone, MessageCircle } from "lucide-react";
 import SlideUp from "@/components/animations/SlideUp";

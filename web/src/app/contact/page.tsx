@@ -1,13 +1,13 @@
-﻿import type { Metadata } from "next";
-import { 
-  Phone, 
-  Mail, 
-  MessageCircle, 
-  MapPin, 
-  Clock, 
-  ShieldCheck, 
-  CheckCircle2, 
-  Send 
+import type { Metadata } from "next";
+import {
+  Phone,
+  Mail,
+  MessageCircle,
+  MapPin,
+  Clock,
+  ShieldCheck,
+  CheckCircle2,
+  Send
 } from "lucide-react";
 import SlideUp from "@/components/animations/SlideUp";
 import FadeIn from "@/components/animations/FadeIn";
@@ -61,7 +61,7 @@ export default function ContactPage() {
       {/* Main Grid */}
       <section className="py-12 md:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-24">
-          
+
           {/* Direct Channels Cards (5 columns) */}
           <div className="lg:col-span-5 space-y-6">
             <FadeIn>
@@ -139,7 +139,7 @@ export default function ContactPage() {
               <p className="text-white/60 font-medium mb-10 border-l-4 border-amber-400 pl-4">
                 Fill out the form below. We will verify availability and confirm your booking with an upfront fixed quote within minutes.
               </p>
-              
+
               <div className="bg-black border-4 border-zinc-800 p-6 sm:p-8">
                 <EnquiryForm />
               </div>
@@ -153,7 +153,7 @@ export default function ContactPage() {
           <div className="relative z-10">
             <span className="text-xs font-black text-amber-400 uppercase tracking-[0.2em] mb-4 block">Where We Drive</span>
             <h2 className="text-3xl sm:text-4xl font-black uppercase tracking-tight mb-12">Service Coverage Areas</h2>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
               {serviceZones.map((zone, idx) => (
                 <div key={idx} className="flex gap-4 group">
@@ -169,7 +169,7 @@ export default function ContactPage() {
                 </div>
               ))}
             </div>
-            
+
             <div className="mt-12 p-6 bg-black border-2 border-zinc-800 flex items-start gap-4">
               <ShieldCheck className="w-6 h-6 text-amber-400 flex-shrink-0 mt-1" />
               <div>
