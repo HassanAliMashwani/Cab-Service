@@ -1,4 +1,5 @@
-import { MessageCircle, CheckCircle2, Car, ShieldCheck, Clock, ArrowRight, Phone } from "lucide-react";
+import { CheckCircle2, Car, ShieldCheck, Clock, ArrowRight, Phone } from "lucide-react";
+import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SlideUp from "@/components/animations/SlideUp";
@@ -32,18 +33,18 @@ export default function LocalEverydayTransportPage() {
             <SlideUp delay={0.2} className="mt-8 flex flex-wrap gap-4">
               <Link
                 href="/enquire"
-                className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-7 py-3.5 rounded-xl shadow-lg transition-all text-sm sm:text-base flex items-center gap-2"
+                className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-7 py-3.5 rounded-full shadow-lg transition-all text-sm sm:text-base flex items-center gap-2"
               >
                 <span>Book Local Ride</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <a
-                href="https://wa.me/61400000000?text=Hi,%20I%20would%20like%20to%20book%20a%20local%20wheelchair%20taxi%20in%20Perth."
+                href="https://wa.me/923335028515?text=Hi,%20I%20would%20like%20to%20book%20a%20local%20wheelchair%20taxi%20in%20Perth."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white/10 hover:bg-white/20 text-white border border-white/20 font-bold px-7 py-3.5 rounded-xl transition-all text-sm sm:text-base flex items-center gap-2"
+                className="bg-[#25D366] hover:bg-[#20ba59] text-white font-bold px-7 py-3.5 rounded-full transition-all text-sm sm:text-base flex items-center gap-2 shadow-md"
               >
-                <MessageCircle className="w-4 h-4 text-emerald-400" />
+                <WhatsAppIcon className="w-4 h-4" />
                 <span>WhatsApp Us</span>
               </a>
             </SlideUp>
@@ -106,25 +107,25 @@ export default function LocalEverydayTransportPage() {
                 <div className="space-y-3 mb-6">
                   <Link
                     href="/enquire"
-                    className="flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white w-full py-3.5 rounded-xl font-bold text-sm transition-colors shadow-sm"
+                    className="flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white w-full py-3.5 rounded-full font-bold text-sm transition-colors shadow-sm"
                   >
                     <span>Online Booking Form</span>
                   </Link>
                   <a
-                    href="https://wa.me/61400000000?text=Hi,%20I%20would%20like%20to%20book%20a%20local%20wheelchair%20taxi%20in%20Perth."
+                    href="https://wa.me/923335028515?text=Hi,%20I%20would%20like%20to%20book%20a%20local%20wheelchair%20taxi%20in%20Perth."
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white w-full py-3.5 rounded-xl font-bold text-sm transition-colors shadow-sm"
+                    className="flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba59] text-white w-full py-3.5 rounded-full font-bold text-sm transition-colors shadow-sm"
                   >
-                    <MessageCircle className="w-4 h-4" />
+                    <WhatsAppIcon className="w-4 h-4" />
                     <span>WhatsApp Inquiry</span>
                   </a>
                   <a
-                    href="tel:+61400000000"
-                    className="flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 w-full py-3 rounded-xl font-bold text-sm transition-colors"
+                    href="tel:+61424791786"
+                    className="flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 w-full py-3 rounded-full font-bold text-sm transition-colors"
                   >
                     <Phone className="w-4 h-4" />
-                    <span>Call +61 400 000 000</span>
+                    <span>Call +61 424 791 786</span>
                   </a>
                 </div>
 

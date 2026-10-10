@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import FadeIn from "@/components/animations/FadeIn";
 import SlideUp from "@/components/animations/SlideUp";
-import { MapPin } from "lucide-react";
+import PerthLocationsRoadmap from "@/components/locations/PerthLocationsRoadmap";
 
 export const metadata: Metadata = {
-  title: "Areas We Serve | Perth Accessible Taxi",
-  description: "View the list of suburbs and areas we serve across Perth with our wheelchair accessible taxi services.",
+  title: "Perth Suburbs Network & Connected Transit Roadmap | Perth Maxi Cab",
+  description:
+    "Explore our complete connected transit roadmap across Perth. 24/7 wheelchair accessible taxis and 7-11 seater maxi cabs connecting Perth Airport, Fremantle, Joondalup, Midland, Mandurah and all metropolitan suburbs.",
 };
 
 export const suburbs = [
@@ -29,46 +28,38 @@ export const suburbs = [
 
 export default function LocationsPage() {
   return (
-    <div className="flex flex-col w-full">
-      {/* Hero */}
-      <section className="bg-slate-900 text-white py-16 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SlideUp className="max-w-3xl">
-            <h1 className="text-4xl lg:text-5xl font-bold mb-6 text-white">
-              Areas We Serve
+    <div className="flex flex-col w-full bg-black min-h-screen text-white selection:bg-amber-400 selection:text-black">
+      
+      {/* ─────────────────────────────────────────────────────────────
+          1. HERO SECTION: Connected Transit Network
+         ───────────────────────────────────────────────────────────── */}
+      <section className="relative pt-32 pb-12 sm:pt-36 sm:pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full text-center overflow-hidden">
+        
+        {/* Subtle radial ambient spotlight */}
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[250px] bg-amber-400/15 blur-[140px] pointer-events-none rounded-full" />
+
+        <div className="relative z-10 max-w-4xl mx-auto">
+          <SlideUp>
+            
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight leading-[0.95] mb-6 text-white">
+              Connected <span className="text-amber-400">Transit Roadmap</span>
             </h1>
-            <p className="text-xl text-slate-300">
-              Providing reliable wheelchair-accessible transport across the Perth metropolitan area and beyond.
-            </p>
+
+            
+
+            
           </SlideUp>
         </div>
+
       </section>
 
-      {/* Content */}
-      <section className="py-16 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeIn className="mb-12">
-            <h2 className="text-2xl font-bold mb-4">Our Service Areas</h2>
-            <p className="text-slate-600 max-w-2xl">
-              We cover all major suburbs in Perth, ensuring you have access to safe, comfortable transport no matter where you are located. Select a location below to learn more.
-            </p>
-          </FadeIn>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {suburbs.sort().map((suburb, i) => (
-              <SlideUp key={suburb} delay={0.05 * (i % 10)}>
-                <Link 
-                  href={`/locations/${suburb.toLowerCase().replace(/\s+/g, '-')}`}
-                  className="flex items-center gap-3 bg-white border border-slate-200 p-4 rounded-xl hover:border-primary hover:shadow-md transition-all group"
-                >
-                  <MapPin className="w-5 h-5 text-accent-green group-hover:text-primary transition-colors" />
-                  <span className="font-semibold text-slate-800 group-hover:text-primary transition-colors">{suburb}</span>
-                </Link>
-              </SlideUp>
-            ))}
-          </div>
-        </div>
+      {/* ─────────────────────────────────────────────────────────────
+          2. BEAUTIFUL CONNECTED ROADMAP (Interactive Map & Directory)
+         ───────────────────────────────────────────────────────────── */}
+      <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full pb-24">
+        <PerthLocationsRoadmap />
       </section>
+
     </div>
   );
 }

@@ -79,10 +79,6 @@ export default function TestimonialsCarousel() {
                   <h4 className="font-black text-[15px] text-white uppercase tracking-wider">{test.name}</h4>
                   <p className="text-white/60 font-medium text-[11px] mt-1">{test.role}</p>
                 </div>
-                <div className="flex flex-col items-center">
-                  <ShieldCheck className="w-5 h-5 text-emerald-400 mb-1" />
-                  <span className="text-[9px] font-black uppercase text-white/40 tracking-widest">{test.tag}</span>
-                </div>
               </div>
             </div>
           ))}

@@ -46,26 +46,26 @@ export default function FinalCTABanner() {
         </div>
 
         {/* CTA Buttons */}
-        <div className="flex flex-wrap gap-4">
+        <div className="flex flex-wrap gap-4 items-center">
           <Link
             href="/enquire"
-            className="inline-flex items-center gap-2 bg-amber-400 border-4 border-black text-black font-black uppercase text-sm px-8 py-4 shadow-[6px_6px_0px_0px_#facc15] hover:shadow-[10px_10px_0px_0px_#facc15] hover:-translate-x-1 hover:-translate-y-1 transition-all"
+            className="inline-flex items-center gap-2 bg-amber-400 border-4 border-black text-black font-black uppercase text-sm px-8 py-4 rounded-full shadow-[6px_6px_0px_0px_#facc15] hover:shadow-[10px_10px_0px_0px_#facc15] hover:-translate-x-1 hover:-translate-y-1 transition-all"
           >
-            Get Free Quote <ArrowUpRight className="w-5 h-5" />
+            Get Quote <ArrowUpRight className="w-5 h-5" />
           </Link>
 
           <a
             href="tel:+61424791786"
-            className="inline-flex items-center gap-2 bg-transparent border-4 border-white/40 text-white font-black uppercase text-sm px-8 py-4 hover:border-white hover:bg-white hover:text-black transition-all"
+            className="inline-flex items-center gap-2 bg-transparent border-4 border-white/40 text-white font-black uppercase text-sm px-8 py-4 rounded-full hover:border-white hover:bg-white hover:text-black transition-all"
           >
             <Phone className="w-4 h-4" /> +61 424 791 786
           </a>
 
           <a
-            href="https://wa.me/61424791786?text=Hi,%20I%20would%20like%20to%20book%20a%20Maxi%20Cab%20in%20Perth."
+            href="https://wa.me/923335028515?text=Hi,%20I%20would%20like%20to%20book%20a%20Maxi%20Cab%20in%20Perth."
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-[#25D366] border-4 border-black text-white font-black uppercase text-sm px-8 py-4 shadow-[4px_4px_0px_0px_#000] hover:shadow-[7px_7px_0px_0px_#000] hover:-translate-x-1 hover:-translate-y-1 transition-all"
+            className="inline-flex items-center gap-2 bg-[#25D366] border-4 border-black text-white font-black uppercase text-sm px-8 py-4 rounded-full shadow-[4px_4px_0px_0px_#000] hover:shadow-[7px_7px_0px_0px_#000] hover:-translate-x-1 hover:-translate-y-1 transition-all"
           >
             <WhatsAppIcon className="w-5 h-5" /> WhatsApp
           </a>

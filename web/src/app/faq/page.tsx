@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { MessageCircle, ArrowRight, Phone, HelpCircle } from "lucide-react";
+import { ArrowRight, Phone, HelpCircle } from "lucide-react";
 import FadeIn from "@/components/animations/FadeIn";
 import SlideUp from "@/components/animations/SlideUp";
+import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
+import GmailIcon from "@/components/icons/GmailIcon";
 
 export const metadata: Metadata = {
   title: "Frequently Asked Questions | Perth Accessible Taxi",
@@ -122,21 +124,28 @@ export default function FAQPage() {
             <p className="text-slate-300 mb-8 max-w-lg mx-auto text-sm">
               We are happy to answer any questions about wheelchair dimensions, customized routes, or medical appointment schedules.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-wrap gap-4 justify-center">
               <a
-                href="https://wa.me/61400000000?text=Hi,%20I%20have%20a%20question%20about%20your%20wheelchair%20accessible%20taxi%20service."
+                href="https://wa.me/923335028515?text=Hi,%20I%20have%20a%20question%20about%20your%20wheelchair%20accessible%20taxi%20service."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white px-7 py-3.5 rounded-xl font-bold transition-colors text-sm shadow-md"
+                className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba59] text-white px-7 py-3.5 rounded-full font-bold transition-all text-sm shadow-md hover:scale-105"
               >
-                <MessageCircle className="w-4 h-4" />
+                <WhatsAppIcon className="w-4 h-4" />
                 <span>Ask on WhatsApp</span>
+              </a>
+              <a
+                href="mailto:bookings@wheelchairmaxiperth.com"
+                className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white px-7 py-3.5 rounded-full font-bold transition-all text-sm hover:scale-105"
+              >
+                <GmailIcon className="w-4 h-4" colored={true} />
+                <span>Email via Gmail</span>
               </a>
               <Link
                 href="/enquire"
-                className="inline-flex items-center justify-center gap-2 bg-white text-slate-900 hover:bg-slate-100 px-7 py-3.5 rounded-xl font-bold transition-colors text-sm"
+                className="inline-flex items-center justify-center gap-2 bg-amber-400 text-black hover:bg-amber-300 px-7 py-3.5 rounded-full font-bold transition-all text-sm hover:scale-105"
               >
-                <span>Book a Ride Online</span>
+                <span>Book Online</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>

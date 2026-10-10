@@ -23,8 +23,9 @@ import FadeIn from "@/components/animations/FadeIn";
 import ServiceCard from "@/components/services/ServiceCard";
 import HowItWorks from "@/components/services/HowItWorks";
 import TestimonialsSection from "@/components/services/TestimonialsSection";
-import FAQAccordion from "@/components/services/FAQAccordion";
-import FinalCTABanner from "@/components/services/FinalCTABanner";
+import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
+import GmailIcon from "@/components/icons/GmailIcon";
+
 
 export const metadata: Metadata = {
   title: "Perth Maxi Cab Services | Airport Transfers, Wheelchair Taxis & Group Travel",
@@ -146,16 +147,30 @@ export default function ServicesPage() {
 
           {/* CTA buttons */}
           <FadeIn delay={0.25}>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-4 items-center">
               <Link
                 href="/enquire"
-                className="inline-flex items-center gap-2 bg-amber-400 border-4 border-black text-black font-black uppercase text-sm px-8 py-4 shadow-[6px_6px_0px_0px_#000] hover:shadow-[10px_10px_0px_0px_#000] hover:-translate-x-1 hover:-translate-y-1 transition-all"
+                className="inline-flex items-center gap-2 bg-amber-400 border-4 border-black text-black font-black uppercase text-sm px-8 py-4 rounded-full shadow-[6px_6px_0px_0px_#000] hover:shadow-[10px_10px_0px_0px_#000] hover:-translate-x-1 hover:-translate-y-1 transition-all"
               >
                 Book Now <ArrowUpRight className="w-5 h-5" />
               </Link>
               <a
+                href="https://wa.me/923335028515?text=Hi,%20I%20would%20like%20to%20book%20a%20Maxi%20Cab%20in%20Perth."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-[#25D366] border-4 border-black text-white font-black uppercase text-sm px-8 py-4 rounded-full shadow-[4px_4px_0px_0px_#000] hover:shadow-[7px_7px_0px_0px_#000] hover:-translate-x-1 hover:-translate-y-1 transition-all"
+              >
+                <WhatsAppIcon className="w-5 h-5" /> WhatsApp
+              </a>
+              <a
+                href="mailto:bookings@wheelchairmaxiperth.com"
+                className="inline-flex items-center gap-2 bg-white border-4 border-black text-black font-black uppercase text-sm px-8 py-4 rounded-full shadow-[4px_4px_0px_0px_#000] hover:shadow-[7px_7px_0px_0px_#000] hover:-translate-x-1 hover:-translate-y-1 transition-all"
+              >
+                <GmailIcon className="w-5 h-5" colored={true} /> Email Us
+              </a>
+              <a
                 href="tel:+61424791786"
-                className="inline-flex items-center gap-2 bg-transparent border-4 border-white/40 text-white font-black uppercase text-sm px-8 py-4 hover:border-white hover:bg-white hover:text-black transition-all"
+                className="inline-flex items-center gap-2 bg-transparent border-4 border-white/40 text-white font-black uppercase text-sm px-8 py-4 rounded-full hover:border-white hover:bg-white hover:text-black transition-all"
               >
                 <Phone className="w-4 h-4" /> +61 424 791 786
               </a>
@@ -202,7 +217,7 @@ export default function ServicesPage() {
             </div>
             <Link
               href="/enquire"
-              className="inline-flex items-center gap-2 bg-amber-400 border-4 border-black text-black font-black uppercase text-xs px-5 py-3 shadow-[4px_4px_0px_0px_#000] hover:shadow-[7px_7px_0px_0px_#000] hover:-translate-x-1 hover:-translate-y-1 transition-all self-end"
+              className="inline-flex items-center gap-2 bg-amber-400 border-4 border-black text-black font-black uppercase text-xs px-5 py-3 shadow-[4px_4px_0px_0px_#000] hover:shadow-[7px_7px_0px_0px_#000] hover:-translate-x-1 hover:-translate-y-1 transition-all self-end rounded-full"
             >
               Book Any Service <ArrowUpRight className="w-4 h-4" />
             </Link>
@@ -260,9 +275,9 @@ export default function ServicesPage() {
          â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <HowItWorks />
       <TestimonialsSection />
-      <FAQAccordion />
-      <FinalCTABanner />
 
+      {/* Extra bottom padding so the footer floating banner overlaps cleanly */}
+      <div className="h-32 sm:h-40 bg-black" />
     </div>
   );
 }
