@@ -56,7 +56,7 @@ export default function LocationsPage() {
       {/* ─────────────────────────────────────────────────────────────
           2. BEAUTIFUL CONNECTED ROADMAP (Interactive Map & Directory)
          ───────────────────────────────────────────────────────────── */}
-      <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full pb-24">
+      <section className="px-2 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full pb-24">
         <PerthLocationsRoadmap />
       </section>
 

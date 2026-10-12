@@ -135,7 +135,7 @@ export default function ContactForm() {
   }
 
   return (
-    <div className="bg-zinc-900 border-4 border-amber-400 shadow-[8px_8px_0px_0px_#facc15] p-6 sm:p-8 rounded-3xl relative">
+    <div className="bg-zinc-900 border-2 sm:border-4 border-amber-400 shadow-[4px_4px_0px_0px_#facc15] sm:shadow-[8px_8px_0px_0px_#facc15] p-4 sm:p-8 rounded-2xl sm:rounded-3xl relative">
       
       {/* Form Header */}
       <div className="mb-6 pb-4 border-b-2 border-zinc-800 flex items-center justify-between">

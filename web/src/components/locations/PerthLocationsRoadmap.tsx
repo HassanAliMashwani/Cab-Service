@@ -80,7 +80,7 @@ export const SUBURB_LOCATIONS: SuburbLocation[] = [
     slug: "subiaco",
     category: "metro",
     categoryLabel: "Inner West",
-    x: 38,
+    x: 34,
     y: 42,
     timeAirport: "22 mins",
     timeCBD: "7 mins",
@@ -110,7 +110,7 @@ export const SUBURB_LOCATIONS: SuburbLocation[] = [
     slug: "perth-cbd",
     category: "metro",
     categoryLabel: "Central Metro",
-    x: 48,
+    x: 50,
     y: 44,
     timeAirport: "18 mins",
     timeCBD: "0 mins",
@@ -140,7 +140,7 @@ export const SUBURB_LOCATIONS: SuburbLocation[] = [
     slug: "belmont",
     category: "airport",
     categoryLabel: "Airport Corridor",
-    x: 62,
+    x: 64,
     y: 40,
     timeAirport: "8 mins",
     timeCBD: "12 mins",
@@ -282,19 +282,19 @@ export default function PerthLocationsRoadmap() {
   // Real geographic highway artery routes in Perth
   const HIGHWAY_LINES = [
     // Mitchell Freeway (M1 North): Joondalup -> down to Perth CBD
-    { d: "M 28,14 L 38,28 L 48,44", stroke: "#facc15", strokeWidth: 3, label: "Mitchell Fwy (M1)" },
+    { d: "M 28,14 L 38,28 L 50,44", stroke: "#facc15", strokeWidth: 3, label: "Mitchell Fwy (M1)" },
     // Kwinana Freeway (M1 South): Perth CBD -> Applecross -> Cockburn -> Mandurah
-    { d: "M 48,44 L 38,54 L 28,74 L 24,92", stroke: "#facc15", strokeWidth: 3, label: "Kwinana Fwy (M1)" },
+    { d: "M 50,44 L 38,54 L 28,74 L 24,92", stroke: "#facc15", strokeWidth: 3, label: "Kwinana Fwy (M1)" },
     // Graham Farmer Fwy & Great Eastern Hwy: Perth CBD -> Belmont -> Airport -> Midland
-    { d: "M 48,44 L 62,40 L 74,38 L 82,24", stroke: "#38bdf8", strokeWidth: 2.5, label: "Gt Eastern Hwy" },
+    { d: "M 50,44 L 64,40 L 74,38 L 82,24", stroke: "#38bdf8", strokeWidth: 2.5, label: "Gt Eastern Hwy" },
     // Tonkin Highway (Eastern Corridor): Midland -> Airport -> Cannington -> Armadale
     { d: "M 82,24 L 74,38 L 66,60 L 80,76", stroke: "#10b981", strokeWidth: 2.2, label: "Tonkin Hwy" },
     // Stirling Highway: Perth CBD -> Subiaco -> Cottesloe -> Fremantle
-    { d: "M 48,44 L 38,42 L 18,48 L 20,62", stroke: "#e879f9", strokeWidth: 2.2, label: "Stirling Hwy" },
+    { d: "M 50,44 L 34,42 L 18,48 L 20,62", stroke: "#e879f9", strokeWidth: 2.2, label: "Stirling Hwy" },
     // Leach Highway: Fremantle -> Applecross -> Cannington -> Airport
     { d: "M 20,62 L 38,54 L 66,60 L 74,38", stroke: "#fb923c", strokeWidth: 2, label: "Leach Hwy" },
     // Albany Highway: Perth CBD -> Victoria Park -> Cannington -> Armadale
-    { d: "M 48,44 L 56,50 L 66,60 L 80,76", stroke: "#a3e635", strokeWidth: 2, label: "Albany Hwy" },
+    { d: "M 50,44 L 56,50 L 66,60 L 80,76", stroke: "#a3e635", strokeWidth: 2, label: "Albany Hwy" },
     // West Coast Highway: Joondalup -> Scarborough -> Cottesloe
     { d: "M 28,14 L 18,30 L 18,48", stroke: "#38bdf8", strokeWidth: 1.8, label: "West Coast Hwy" },
     // Coastal Link: Fremantle -> Rockingham
@@ -309,29 +309,29 @@ export default function PerthLocationsRoadmap() {
       {/* ─────────────────────────────────────────────────────────────
           CONNECTED TRANSIT ROADMAP CONTAINER
          ───────────────────────────────────────────────────────────── */}
-      <div className="bg-zinc-950 border-4 border-black shadow-[8px_8px_0px_0px_#facc15] rounded-3xl overflow-hidden">
+      <div className="bg-zinc-950 border-2 sm:border-4 border-black shadow-[4px_4px_0px_0px_#facc15] sm:shadow-[8px_8px_0px_0px_#facc15] rounded-2xl sm:rounded-3xl overflow-hidden">
         
         {/* Header Strip with Live Transit Status & Corridor Filters */}
-        <div className="p-4 sm:p-6 border-b-4 border-black bg-zinc-900 flex flex-wrap items-center justify-between gap-4">
+        <div className="p-3.5 sm:p-6 border-b-2 sm:border-b-4 border-black bg-zinc-900 flex flex-wrap items-center justify-between gap-3.5 sm:gap-4">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-amber-400 text-black flex items-center justify-center font-black shadow-[0_0_15px_rgba(251,191,36,0.6)]">
-              <Navigation className="w-5 h-5 animate-pulse" />
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-amber-400 text-black flex items-center justify-center font-black shadow-[0_0_15px_rgba(251,191,36,0.6)] shrink-0">
+              <Navigation className="w-4 h-4 sm:w-5 sm:h-5 animate-pulse" />
             </div>
             <div>
-              <h2 className="text-lg sm:text-xl font-black uppercase tracking-tight text-white flex items-center gap-2">
+              <h2 className="text-base sm:text-xl font-black uppercase tracking-tight text-white flex items-center gap-2">
                 <span>Perth Connected Transit Arterials</span>
                 <span className="hidden sm:inline-block px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 text-[10px] font-bold border border-emerald-500/30">
                   Live Network
                 </span>
               </h2>
-              <p className="text-xs text-zinc-400 font-medium">
+              <p className="text-[11px] sm:text-xs text-zinc-400 font-medium leading-snug">
                 Click any suburb node on the map to view direct accessible taxi information and travel times.
               </p>
             </div>
           </div>
 
-          {/* Corridor Filter Chips */}
-          <div className="flex flex-wrap items-center gap-1.5">
+          {/* Corridor Filter Chips — Aligned 2-column grid on mobile, flex on desktop */}
+          <div className="grid grid-cols-2 gap-2 w-full sm:w-auto sm:flex sm:flex-wrap sm:items-center sm:gap-1.5">
             {[
               { id: "all", label: "All 16 Hubs" },
               { id: "airport", label: "Airport Corridor" },
@@ -344,7 +344,7 @@ export default function PerthLocationsRoadmap() {
                 key={f.id}
                 type="button"
                 onClick={() => setFilterCategory(f.id)}
-                className={`text-[11px] font-black uppercase tracking-wider px-3 py-1.5 rounded-full transition-all cursor-pointer ${
+                className={`w-full sm:w-auto text-center justify-center text-[10px] sm:text-[11px] font-black uppercase tracking-wider px-2 sm:px-3 py-2 sm:py-1.5 rounded-full transition-all cursor-pointer ${
                   filterCategory === f.id
                     ? "bg-amber-400 text-black shadow-[2px_2px_0px_0px_#000]"
                     : "bg-zinc-800 text-zinc-300 hover:bg-zinc-700 hover:text-white"
@@ -357,16 +357,16 @@ export default function PerthLocationsRoadmap() {
         </div>
 
         {/* ─────────────────────────────────────────────────────────────
-            FULL-WIDTH ACCURATE TRANSIT ROADMAP CANVAS
+            FULL-WIDTH ACCURATE TRANSIT ROADMAP CANVAS (Static)
            ───────────────────────────────────────────────────────────── */}
-        <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9] min-h-[560px] sm:min-h-[640px] md:min-h-[720px] bg-gradient-to-br from-zinc-950 via-zinc-900 to-black p-4 sm:p-8 flex items-center justify-center overflow-hidden">
+        <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9] min-h-[460px] sm:min-h-[640px] md:min-h-[720px] bg-gradient-to-br from-zinc-950 via-zinc-900 to-black p-2 sm:p-8 flex items-center justify-center overflow-hidden">
           
           {/* Subtle grid backdrop */}
           <div className="absolute inset-0 bg-[radial-gradient(#3f3f46_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none" />
 
           {/* Indian Ocean & Coastline Accent (West) */}
-          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-sky-950/40 via-sky-900/10 to-transparent pointer-events-none flex items-center justify-start pl-3">
-            <span className="text-[11px] font-black uppercase tracking-[0.35em] text-sky-400/40 -rotate-90 select-none">
+          <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-20 bg-gradient-to-r from-sky-950/40 via-sky-900/10 to-transparent pointer-events-none flex items-center justify-start pl-2 sm:pl-3">
+            <span className="text-[9px] sm:text-[11px] font-black uppercase tracking-[0.35em] text-sky-400/40 -rotate-90 select-none">
               Indian Ocean
             </span>
           </div>
@@ -509,7 +509,7 @@ export default function PerthLocationsRoadmap() {
 
                 {/* Node Circle */}
                 <div
-                  className={`relative w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-black transition-all duration-200 border-2 shadow-md ${
+                  className={`relative w-7 h-7 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-black transition-all duration-200 border-2 shadow-md ${
                     isAirport
                       ? "bg-emerald-500 text-black border-black shadow-[0_0_15px_#10b981]"
                       : isCBD
@@ -520,19 +520,19 @@ export default function PerthLocationsRoadmap() {
                   }`}
                 >
                   {isAirport ? (
-                    <Plane className="w-4 h-4 sm:w-5 sm:h-5 text-black" />
+                    <Plane className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-black" />
                   ) : isCBD ? (
-                    <Building2 className="w-4 h-4 text-black" />
+                    <Building2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-black" />
                   ) : suburb.category === "coastal" ? (
-                    <Compass className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-sky-400" />
+                    <Compass className="w-3 h-3 sm:w-4 sm:h-4 text-sky-400" />
                   ) : (
-                    <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400" />
+                    <MapPin className="w-3 h-3 sm:w-4 sm:h-4 text-amber-400" />
                   )}
                 </div>
 
                 {/* Suburb Name Pill Below Node */}
                 <span
-                  className={`mt-1 px-2.5 py-0.5 rounded-full text-[9px] sm:text-[10px] font-black uppercase tracking-wider whitespace-nowrap shadow-md transition-all ${
+                  className={`mt-1 px-1.5 sm:px-2.5 py-0.5 rounded-full text-[8.5px] sm:text-[10px] font-black uppercase tracking-wider whitespace-nowrap shadow-md transition-all ${
                     isHovered
                       ? "bg-amber-400 text-black font-black scale-105"
                       : "bg-black/85 text-white/95 border border-white/10 group-hover:bg-zinc-800 group-hover:text-amber-400"

@@ -101,16 +101,16 @@ export default function Header() {
             <div className="flex items-center gap-2 lg:hidden">
               <Link
                 href="/enquire"
-                className="px-4 py-2 bg-amber-400 hover:bg-amber-300 text-black text-xs font-bold uppercase rounded-full transition-all animate-fade-in-out hover:animate-none"
+                className="px-3 py-1.5 sm:px-3.5 sm:py-2 bg-amber-400 hover:bg-amber-300 text-black text-[0.825rem] sm:text-xs font-black uppercase rounded-full transition-all animate-fade-in-out hover:animate-none shrink-0 whitespace-nowrap min-h-[38px] flex items-center justify-center"
               >
-                Book
+                Book Now
               </Link>
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="w-9 h-9 rounded-full backdrop-blur-md bg-white/10 border border-white/20 flex items-center justify-center text-white"
+                className="w-10 h-10 rounded-full backdrop-blur-md bg-white/10 border border-white/20 flex items-center justify-center text-white shrink-0 active:scale-95 transition-transform"
                 aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
               >
-                {mobileMenuOpen ? <X className="w-4.5 h-4.5" /> : <Menu className="w-4.5 h-4.5" />}
+                {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
             </div>
           </div>

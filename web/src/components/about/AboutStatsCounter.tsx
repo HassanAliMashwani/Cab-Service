@@ -81,13 +81,21 @@ function AnimatedNumber({
 
 export default function AboutStatsCounter() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6 border-t border-zinc-800">
+    <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 pt-6 border-t border-zinc-800">
       {statsData.map((stat, idx) => (
         <div
           key={idx}
-          className="bg-zinc-900/70 border border-zinc-800 rounded-2xl p-4 sm:p-5 flex flex-col justify-between hover:border-amber-400/50 hover:bg-zinc-900 transition-all shadow-md group"
+          className={`bg-zinc-900/70 border border-zinc-800 rounded-2xl p-3.5 sm:p-5 flex flex-col justify-between hover:border-amber-400/50 hover:bg-zinc-900 transition-all shadow-md group ${
+            idx === 2
+              ? "col-span-2 sm:col-span-1 max-w-[240px] sm:max-w-none mx-auto w-full text-center sm:text-left"
+              : ""
+          }`}
         >
-          <div className="text-3xl sm:text-4xl font-black text-amber-400 tracking-tight flex items-baseline">
+          <div
+            className={`text-2xl sm:text-4xl font-black text-amber-400 tracking-tight flex items-baseline ${
+              idx === 2 ? "justify-center sm:justify-start" : ""
+            }`}
+          >
             {stat.prefix && <span>{stat.prefix}</span>}
             <AnimatedNumber value={stat.numericValue} />
             {stat.suffix && <span className="ml-0.5">{stat.suffix}</span>}
@@ -97,7 +105,7 @@ export default function AboutStatsCounter() {
               {stat.label}
             </p>
             {stat.subtext && (
-              <p className="text-[11px] text-zinc-400 font-medium mt-0.5">
+              <p className="text-[10px] sm:text-[11px] text-zinc-400 font-medium mt-0.5">
                 {stat.subtext}
               </p>
             )}
