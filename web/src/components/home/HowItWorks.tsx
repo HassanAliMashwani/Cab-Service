@@ -1,161 +1,98 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { motion } from "framer-motion";
-import { Car, Zap, Clock, ShieldCheck, ArrowUpRight } from "lucide-react";
-import Link from "next/link";
+import { Zap, Clock, ShieldCheck } from "lucide-react";
 
 const steps = [
   {
-    num: "01",
-    title: "Choose Vehicle",
-    description: "Wheelchair accessible, 7-11 seater, or baby seat taxi for your exact pickup time.",
-    icon: Car,
-    color: "text-amber-400",
-    activeBg: "bg-amber-400",
-    hoverBg: "hover:bg-amber-400",
+    step: "1",
+    title: "Select Service",
+    description:
+      "Pick wheelchair accessible, 7-11 seater, or baby seat taxi with your pickup date & time.",
+    hoverColor: "group-hover:bg-amber-400 group-hover:text-black",
+    colorAccent: "text-amber-400",
   },
   {
-    num: "02",
-    title: "Fixed Quote",
-    description: "Instant guaranteed upfront price with zero surge fees, day or night.",
-    icon: Zap,
-    color: "text-sky-400",
-    activeBg: "bg-sky-400",
-    hoverBg: "hover:bg-sky-400",
+    step: "2",
+    title: "Instant Fixed Quote",
+    description:
+      "We confirm vehicle availability and send an upfront fixed quote with no surge fees.",
+    hoverColor: "group-hover:bg-emerald-500 group-hover:text-black",
+    colorAccent: "text-emerald-400",
   },
   {
-    num: "03",
+    step: "3",
     title: "Punctual Pickup",
-    description: "Licensed driver arrives on time with pre-fitted child seats or wheelchair ramps.",
-    icon: Clock,
-    color: "text-emerald-400",
-    activeBg: "bg-emerald-400",
-    hoverBg: "hover:bg-emerald-400",
-  },
-  {
-    num: "04",
-    title: "Safe Journey",
-    description: "Enjoy smooth, direct Perth transit with full luggage space and NDIS care.",
-    icon: ShieldCheck,
-    color: "text-violet-400",
-    activeBg: "bg-violet-400",
-    hoverBg: "hover:bg-violet-400",
+    description:
+      "Driver arrives early with ramps or pre-installed child seats, ready for smooth transit.",
+    hoverColor: "group-hover:bg-sky-400 group-hover:text-black",
+    colorAccent: "text-sky-400",
   },
 ];
 
 export default function HowItWorks() {
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  // Sequential auto-cycle highlight loop
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % steps.length);
-    }, 1800);
-
-    return () => clearInterval(timer);
-  }, []);
-
   return (
-    <section className="py-8 sm:py-14 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
-      <div className="bg-black border-2 sm:border-4 border-zinc-800 shadow-[4px_4px_0px_0px_#000] sm:shadow-[8px_8px_0px_0px_#000] p-4 sm:p-8 lg:p-10">
-        
-        {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 sm:gap-6 mb-6 sm:mb-10">
-          <div>
-            <span className="text-[10px] sm:text-xs font-black text-amber-400 uppercase tracking-[0.25em] block mb-1 sm:mb-2">
-              Hassle-Free Booking Process
-            </span>
-            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-white uppercase tracking-tight leading-tight">
-              How It Works
-            </h2>
-          </div>
-          <Link
-            href="/enquire"
-            className="self-start sm:self-end inline-flex items-center gap-1.5 sm:gap-2 bg-amber-400 border-2 sm:border-4 border-black text-black font-black uppercase text-[11px] sm:text-xs px-3.5 sm:px-5 py-2 sm:py-2.5 shadow-[3px_3px_0px_0px_#000] sm:shadow-[4px_4px_0px_0px_#000] hover:shadow-[6px_6px_0px_0px_#000] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all rounded-full sm:rounded-none shrink-0"
-          >
-            <span>Book Now</span>
-            <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-          </Link>
-        </div>
+    <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+      <motion.div
+        initial={{ opacity: 0, y: 35 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.2 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="bg-black border-4 border-zinc-800 shadow-[8px_8px_0px_0px_#000] p-8 lg:p-12 text-center overflow-hidden"
+      >
+        <motion.span
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="text-xs font-black text-amber-400 uppercase tracking-[0.2em] block mb-4"
+        >
+          Hassle-Free Booking Process
+        </motion.span>
 
-        {/* Steps – 2 above 2 below on mobile, 4 across on desktop */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-0 border-2 border-zinc-700 bg-zinc-950">
-          {steps.map(({ num, title, description, icon: Icon, color, activeBg, hoverBg }, i) => {
-            const isActive = activeIndex === i;
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="text-3xl sm:text-5xl font-black text-white uppercase tracking-tight mb-12 md:mb-16"
+        >
+          How It Works
+        </motion.h2>
 
-            return (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative max-w-5xl mx-auto">
+          {/* Connecting line on desktop */}
+          <div className="hidden md:block absolute top-10 left-[16%] right-[16%] h-1 bg-zinc-800 z-0" />
+
+          {steps.map((item, idx) => (
+            <motion.div
+              key={item.step}
+              initial={{ opacity: 0, y: 40, scale: 0.94 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: false, amount: 0.25 }}
+              transition={{
+                duration: 0.55,
+                delay: idx * 0.16,
+                ease: "easeOut",
+              }}
+              className="relative z-10 flex flex-col items-center group cursor-default"
+            >
               <div
-                key={num}
-                onClick={() => setActiveIndex(i)}
-                className={`group relative p-3 sm:p-6 lg:p-7 ${
-                  i % 2 === 0 ? "border-r-2" : "border-r-0 lg:border-r-2"
-                } ${
-                  i < 2 ? "border-b-2" : "border-b-0 lg:border-b-0"
-                } border-zinc-700 lg:last:border-r-0 cursor-pointer transition-colors duration-200 overflow-hidden ${
-                  isActive ? activeBg : `${hoverBg} bg-zinc-950`
-                }`}
+                className={`w-16 h-16 md:w-20 md:h-20 bg-black text-white border-4 border-zinc-800 rounded-none flex items-center justify-center font-black text-2xl md:text-3xl mb-4 ${item.hoverColor} group-hover:border-black transition-all duration-300 shadow-[4px_4px_0px_0px_#000] group-hover:scale-105`}
               >
-                {/* Giant background watermark number */}
-                <span
-                  className={`absolute -right-2 -bottom-2 sm:-right-3 sm:-bottom-4 text-4xl sm:text-7xl lg:text-8xl font-black select-none leading-none pointer-events-none transition-colors duration-200 ${
-                    isActive
-                      ? "text-black/10"
-                      : "text-white/[0.04] group-hover:text-black/10"
-                  }`}
-                >
-                  {num}
-                </span>
-
-                {/* Icon box */}
-                <div
-                  className={`w-9 h-9 sm:w-13 sm:h-13 sm:w-14 sm:h-14 border-2 sm:border-4 flex items-center justify-center mb-2.5 sm:mb-5 transition-colors duration-200 ${
-                    isActive
-                      ? "border-black bg-black/10"
-                      : "border-zinc-700 group-hover:border-black"
-                  }`}
-                >
-                  <Icon
-                    className={`w-4 h-4 sm:w-7 sm:h-7 transition-colors duration-200 ${
-                      isActive ? "text-black" : `${color} group-hover:text-black`
-                    }`}
-                  />
-                </div>
-
-                {/* Step badge */}
-                <span
-                  className={`text-[9px] sm:text-[11px] font-black uppercase tracking-wider sm:tracking-widest block mb-1 sm:mb-1.5 transition-colors duration-200 ${
-                    isActive
-                      ? "text-black/70"
-                      : "text-zinc-500 group-hover:text-black/70"
-                  }`}
-                >
-                  Step {num}
-                </span>
-
-                {/* Title */}
-                <h3
-                  className={`text-xs sm:text-lg lg:text-xl font-black uppercase tracking-tight transition-colors duration-200 leading-snug mb-1 sm:mb-2 ${
-                    isActive ? "text-black" : "text-white group-hover:text-black"
-                  }`}
-                >
-                  {title}
-                </h3>
-
-                {/* Description */}
-                <p
-                  className={`text-[10px] sm:text-xs leading-normal sm:leading-relaxed font-medium transition-colors duration-200 line-clamp-3 sm:line-clamp-none ${
-                    isActive ? "text-black/85" : "text-zinc-400 group-hover:text-black/85"
-                  }`}
-                >
-                  {description}
-                </p>
+                {item.step}
               </div>
-            );
-          })}
+              <h3 className="font-black text-white text-lg md:text-xl mb-2 uppercase tracking-wider group-hover:text-white transition-colors">
+                {item.title}
+              </h3>
+              <p className="text-white/60 font-medium text-xs md:text-sm leading-relaxed max-w-xs">
+                {item.description}
+              </p>
+            </motion.div>
+          ))}
         </div>
-
-      </div>
+      </motion.div>
     </section>
   );
 }
