@@ -95,7 +95,7 @@ export default function AboutPage() {
                   <div className="relative h-full w-full bg-zinc-900 border-3 border-black rounded-xl overflow-hidden shadow-xl z-10">
                     <img
                       src="/images/our-story-maxi.jpg"
-                      alt="Modern Yellow and Black Perth Maxi Taxi Van parked on sunny St Georges Terrace Perth"
+                      alt="Wheelchair accessible Perth Maxi Taxi Van with passenger assistance ramp in Perth"
                       loading="lazy"
                       className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                     />
