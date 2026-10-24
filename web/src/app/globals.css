@@ -16,12 +16,18 @@
 }
 
 :root {
-  --header-height: 4rem;
+  --header-height: 4.25rem; /* 68px mobile */
 }
 
 @media (min-width: 640px) {
   :root {
-    --header-height: 4.5rem;
+    --header-height: 5rem; /* 80px tablet */
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --header-height: 5.75rem; /* 92px desktop */
   }
 }
 

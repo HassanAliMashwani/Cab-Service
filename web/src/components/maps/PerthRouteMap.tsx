@@ -340,7 +340,7 @@ export default function PerthRouteMap() {
           {/* Quick Quote CTA for this location */}
           <div className="mt-6 pt-4 border-t border-zinc-900">
             <a
-              href={`https://wa.me/923335028515?text=${encodeURIComponent(
+              href={`https://wa.me/61493252766?text=${encodeURIComponent(
                 `Hi, I would like to get a fixed fare quote for a Maxi Cab to/from ${activeNode.name}.`
               )}`}
               target="_blank"

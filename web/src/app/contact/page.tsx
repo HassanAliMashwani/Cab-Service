@@ -5,9 +5,9 @@ import GmailIcon from "@/components/icons/GmailIcon";
 import ContactForm from "@/components/contact/ContactForm";
 
 export const metadata: Metadata = {
-  title: "Contact Perth Maxi Cab | Direct Call, WhatsApp & Quick Booking",
+  title: "Contact Perth Wheelchair Taxi Van | Direct Call, WhatsApp & Quick Booking",
   description:
-    "Direct contact for Perth's premier maxi cab and wheelchair accessible service. Call or message WhatsApp +92 333 5028515 for immediate fixed quotes.",
+    "Direct contact for Perth's premier wheelchair accessible taxi van service. Call or message WhatsApp +61 493 252 766 for immediate fixed quotes.",
 };
 
 export default function ContactPage() {
@@ -23,7 +23,7 @@ export default function ContactPage() {
 
         <div className="relative z-10 max-w-3xl mx-auto">
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight leading-[0.95] mb-4 text-white">
-            Contact Perth <span className="text-amber-400">Maxi Cab</span>
+            Contact Perth <span className="text-amber-400">Wheelchair Taxi Van</span>
           </h1>
 
           <p className="text-base sm:text-lg text-zinc-300 font-semibold leading-relaxed max-w-xl mx-auto">
@@ -40,7 +40,7 @@ export default function ContactPage() {
         {/* Mobile Quick Action Buttons Bar — Always visible at the top on mobile so direct contact is never hidden */}
         <div className="md:hidden grid grid-cols-2 gap-2.5 mb-6">
           <a
-            href="https://wa.me/923335028515?text=Hi,%20I%20would%20like%20to%20enquire%20about%20a%20Maxi%20Cab%20in%20Perth."
+            href="https://wa.me/61493252766?text=Hi,%20I%20would%20like%20to%20enquire%20about%20a%20Maxi%20Cab%20in%20Perth."
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-2 bg-[#25D366] text-white py-3 px-3 rounded-xl font-black text-xs uppercase tracking-wider border-2 border-black shadow-[3px_3px_0px_0px_#000] active:scale-95 transition-transform"
@@ -49,7 +49,7 @@ export default function ContactPage() {
             <span>WhatsApp Us</span>
           </a>
           <a
-            href="tel:+923335028515"
+            href="tel:+61493252766"
             className="flex items-center justify-center gap-2 bg-amber-400 text-black py-3 px-3 rounded-xl font-black text-xs uppercase tracking-wider border-2 border-black shadow-[3px_3px_0px_0px_#000] active:scale-95 transition-transform"
           >
             <Phone className="w-4 h-4" />
@@ -75,7 +75,7 @@ export default function ContactPage() {
 
             {/* WhatsApp Button */}
             <a
-              href="https://wa.me/923335028515?text=Hi,%20I%20would%20like%20to%20enquire%20about%20a%20Maxi%20Cab%20in%20Perth."
+              href="https://wa.me/61493252766?text=Hi,%20I%20would%20like%20to%20enquire%20about%20a%20Maxi%20Cab%20in%20Perth."
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-between bg-zinc-900 p-3.5 sm:p-4 border-2 sm:border-3 border-emerald-500 shadow-[3px_3px_0px_0px_#10b981] sm:shadow-[4px_4px_0px_0px_#10b981] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_#10b981] transition-all group rounded-xl sm:rounded-2xl"
@@ -94,7 +94,7 @@ export default function ContactPage() {
                     </span>
                   </div>
                   <p className="text-white font-black text-base sm:text-lg tracking-tight mt-0.5">
-                    +92 333 5028515
+                    +61 493 252 766
                   </p>
                 </div>
               </div>
@@ -105,7 +105,7 @@ export default function ContactPage() {
 
             {/* Phone Button */}
             <a
-              href="tel:+923335028515"
+              href="tel:+61493252766"
               className="flex items-center justify-between bg-zinc-900 p-3.5 sm:p-4 border-2 sm:border-3 border-amber-400 shadow-[3px_3px_0px_0px_#facc15] sm:shadow-[4px_4px_0px_0px_#facc15] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_#facc15] transition-all group rounded-xl sm:rounded-2xl"
             >
               <div className="flex items-center gap-3.5 min-w-0">
@@ -122,7 +122,7 @@ export default function ContactPage() {
                     </span>
                   </div>
                   <p className="text-white font-black text-base sm:text-lg tracking-tight mt-0.5">
-                    +92 333 5028515
+                    +61 493 252 766
                   </p>
                 </div>
               </div>

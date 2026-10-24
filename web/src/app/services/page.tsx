@@ -18,8 +18,8 @@ import HowItWorks from "@/components/services/HowItWorks";
 import TestimonialsCarousel from "@/components/home/TestimonialsCarousel";
 
 export const metadata: Metadata = {
-  title: "Perth Maxi Cab Services | Airport Transfers, Wheelchair Taxis & Group Travel",
-  description: "Explore our full range of 7-11 seater Perth Maxi Cab services. Guaranteed airport transfers (T1-T4), wheelchair-accessible taxis, wedding shuttles, and family travel with baby seats.",
+  title: "Perth Wheelchair Taxi Van Services | Airport Transfers & Accessible Travel",
+  description: "Explore our full range of Perth Wheelchair Taxi Van services. Guaranteed airport transfers (T1-T4), wheelchair-accessible taxis, and comfortable family travel.",
 };
 
 /* ── Service card data — short features (≤4 words each) ── */
@@ -158,9 +158,9 @@ export default function ServicesPage() {
           </div>
 
           {/* Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-0 sm:border-4 sm:border-black">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6">
             {servicesList.map((service, index) => (
-              <div key={index} className={`${index % 2 === 1 ? "sm:border-l-4 border-black" : ""} ${index >= 2 ? "sm:border-t-4 border-black" : ""} ${index >= 1 && index < 3 ? "xl:border-l-4 xl:border-t-0" : ""} ${index >= 3 ? "xl:border-l-4 xl:border-t-4" : ""}`}>
+              <div key={index} className="h-full flex flex-col">
                 <ServiceCard
                   title={service.title}
                   tagline={service.tagline}

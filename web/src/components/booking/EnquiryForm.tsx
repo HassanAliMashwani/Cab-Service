@@ -134,7 +134,7 @@ export default function EnquiryForm() {
     if (formData.boosterSeats > 0) babySeatsList.push(`${formData.boosterSeats} Booster Seat(s)`);
 
     const lines = [
-      `*New Booking Enquiry (Perth Maxi & Accessible)*`,
+      `*New Booking Enquiry (Perth Wheelchair Taxi Van)*`,
       `*Service:* ${serviceLabels[formData.serviceType]}`,
       `*Passenger Details:*`,
       `• Name: ${formData.name || "Customer"}`,
@@ -156,7 +156,7 @@ export default function EnquiryForm() {
       `Please confirm price and vehicle availability.`
     ].filter(Boolean);
 
-    return `https://wa.me/923335028515?text=${encodeURIComponent(lines.join("\n"))}`;
+    return `https://wa.me/61493252766?text=${encodeURIComponent(lines.join("\n"))}`;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {

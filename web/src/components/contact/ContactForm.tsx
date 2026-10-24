@@ -42,7 +42,7 @@ export default function ContactForm() {
       `Please provide fixed quote and vehicle availability.`,
     ].filter(Boolean);
 
-    return `https://wa.me/923335028515?text=${encodeURIComponent(lines.join("\n"))}`;
+    return `https://wa.me/61493252766?text=${encodeURIComponent(lines.join("\n"))}`;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {

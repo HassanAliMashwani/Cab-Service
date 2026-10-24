@@ -56,7 +56,7 @@ export default async function SuburbPage({ params }: Props) {
             </p>
             
             <a 
-              href={`https://wa.me/923335028515?text=Hi,%20I%20need%20a%20wheelchair%20accessible%20taxi%20in%20${encodeURIComponent(suburbName)}.`}
+              href={`https://wa.me/61493252766?text=Hi,%20I%20need%20a%20wheelchair%20accessible%20taxi%20in%20${encodeURIComponent(suburbName)}.`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2.5 bg-[#25D366] hover:bg-[#20ba59] text-white px-8 py-4 rounded-full font-bold text-lg transition-all shadow-lg hover:scale-105"
@@ -75,7 +75,7 @@ export default async function SuburbPage({ params }: Props) {
             <FadeIn delay={0.1}>
               <h2 className="text-3xl font-bold mb-4 text-slate-900">Your Trusted Transport in {suburbName}</h2>
               <p className="text-slate-600 text-lg leading-relaxed mb-4">
-                Finding dependable accessible transport in {suburbName} shouldn't be stressful. We provide a premium service designed specifically for passengers who use wheelchairs, ensuring a safe and comfortable journey every time.
+                Finding dependable accessible transport in {suburbName} shouldn&apos;t be stressful. We provide a premium service designed specifically for passengers who use wheelchairs, ensuring a safe and comfortable journey every time.
               </p>
               <ul className="space-y-3 mb-6">
                 {[

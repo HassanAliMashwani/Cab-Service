@@ -23,6 +23,7 @@ import TestimonialsCarousel from "@/components/home/TestimonialsCarousel";
 import VehicleShowcase from "@/components/home/VehicleShowcase";
 import CoreServicesCarousel from "@/components/home/CoreServicesCarousel";
 import HowItWorks from "@/components/home/HowItWorks";
+import ServiceAreaSection from "@/components/home/ServiceAreaSection";
 
 export default function Home() {
   return (
@@ -67,9 +68,9 @@ export default function Home() {
             
             {/* Main Headline */}
             <FadeIn delay={0.05}>
-              <h1 className="text-[clamp(1.85rem,7.8vw,2.4rem)] sm:text-6xl md:text-7xl lg:text-[clamp(4rem,7vw,6.5rem)] font-black tracking-tight leading-[0.95] text-white mb-2 sm:mb-4 drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)]">
+              <h1 className="text-[clamp(1.85rem,7.8vw,2.4rem)] sm:text-6xl md:text-7xl lg:text-[clamp(3.5rem,6vw,5.5rem)] font-black tracking-tight leading-[0.95] text-white mb-2 sm:mb-4 drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)]">
                 Perth <br />
-                <span className="text-amber-400 drop-shadow-[0_4px_14px_rgba(0,0,0,0.6)]">Maxi Cab</span>
+                <span className="text-amber-400 drop-shadow-[0_4px_14px_rgba(0,0,0,0.6)]">Wheelchair Taxi Van</span>
               </h1>
             </FadeIn>
 
@@ -101,7 +102,7 @@ export default function Home() {
 
               {/* 24/7 Support Call Pill */}
               <a
-                href="tel:+923335028515"
+                href="tel:+61493252766"
                 className="inline-flex items-center justify-center gap-2 sm:gap-3 group backdrop-blur-md bg-black/60 sm:bg-black/50 border border-white/20 px-2.5 sm:px-5 py-1.5 sm:py-3.5 rounded-full hover:bg-black/70 transition-colors shadow-md sm:shadow-lg whitespace-nowrap shrink-0"
               >
                 <div className="w-5 h-5 sm:w-9 sm:h-9 rounded-full bg-amber-400/20 border border-amber-400 flex items-center justify-center text-amber-400 group-hover:scale-110 transition-transform shrink-0">
@@ -110,7 +111,7 @@ export default function Home() {
                 <div className="flex flex-col text-left leading-none sm:leading-normal">
                   <span className="text-[9px] sm:text-[11px] text-white/70 font-semibold sm:font-medium">24/7 Support</span>
                   <span className="text-[10px] sm:text-sm md:text-base font-bold text-white tracking-wide group-hover:text-amber-400 transition-colors mt-0.5 sm:mt-0">
-                    +92 333 5028515
+                    +61 493 252 766
                   </span>
                 </div>
               </a>
@@ -139,6 +140,9 @@ export default function Home() {
 
           <CoreServicesCarousel />
         </section>
+
+        {/* Service Area Section */}
+        <ServiceAreaSection />
 
         {/* Testimonials Carousel Section */}
         <section className="w-full border-t-4 border-black">

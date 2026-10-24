@@ -15,8 +15,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Premium Wheelchair-Accessible Taxi Perth | Direct Booking",
-  description: "Reliable, comfortable, and premium wheelchair-accessible transport in Perth. Direct bookings via WhatsApp, Call, or Email. Book your airport transfer or everyday transport today.",
+  title: "Perth Wheelchair Taxi Van | Premium Accessible & Maxi Transport Perth",
+  description: "Perth Wheelchair Taxi Van provides reliable, comfortable, and premium wheelchair-accessible transport across Perth. Direct bookings via WhatsApp, Call, or Email. Book your airport transfer or everyday transport today.",
 };
 
 export default function RootLayout({

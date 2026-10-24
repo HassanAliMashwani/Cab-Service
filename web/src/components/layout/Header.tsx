@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 import GmailIcon from "@/components/icons/GmailIcon";
+import BrandLogo from "@/components/ui/BrandLogo";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -41,31 +42,27 @@ export default function Header() {
     <>
       {/* â”€â”€ Glassmorphism Fixed Header â”€â”€ */}
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
-            ? "backdrop-blur-2xl bg-black/40 border-b border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
-            : "backdrop-blur-xl bg-black/20 border-b border-white/[0.08]"
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${scrolled
+            ? "backdrop-blur-2xl bg-black/50 border-b border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
+            : "backdrop-blur-xl bg-black/25 border-b border-white/[0.08]"
           }`}
       >
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-          <div className="flex items-center justify-between h-16 sm:h-18">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
+          <div
+            className={`flex items-center justify-between transition-all duration-200 ${
+              scrolled
+                ? "h-[64px] sm:h-[72px] lg:h-[76px] py-1.5"
+                : "h-[68px] sm:h-[80px] lg:h-[92px] py-2 sm:py-2.5"
+            }`}
+          >
 
-            {/* Logo */}
+            {/* Logo Lockup */}
             <Link
               href="/"
-              className="flex items-center gap-2.5 group"
-              aria-label="Perth Maxi Cab Home"
+              className="flex items-center group shrink-0"
+              aria-label="Perth Wheelchair Taxi Van Home"
             >
-              <div className="w-9 h-9 rounded-xl bg-amber-400 flex items-center justify-center shadow-[0_0_16px_rgba(251,191,36,0.5)] group-hover:shadow-[0_0_24px_rgba(251,191,36,0.7)] transition-all">
-                <Car className="w-5 h-5 text-black" />
-              </div>
-              <div className="flex flex-col leading-none">
-                <span className="font-black text-white text-sm tracking-tight">
-                  Perth Maxi Cab
-                </span>
-                <span className="text-[10px] font-bold text-white/50 uppercase tracking-widest mt-0.5">
-                  Airport &amp; Accessible
-                </span>
-              </div>
+              <BrandLogo size="md" scrolled={scrolled} showText={true} />
             </Link>
 
             {/* Desktop Nav */}
@@ -137,20 +134,20 @@ export default function Header() {
 
               <div className="mt-4 pt-4 border-t border-white/10 flex flex-col gap-2.5">
                 <a
-                  href="tel:+923335028515"
+                  href="tel:+61493252766"
                   className="flex items-center justify-center gap-2 py-3 rounded-full bg-white/10 border border-white/20 text-white font-bold text-sm hover:bg-white/20 transition-all"
                 >
                   <Phone className="w-4 h-4 text-amber-400" />
-                  +92 333 5028515
+                  +61 493 252 766
                 </a>
                 <a
-                  href="https://wa.me/923335028515?text=Hi,%20I%20would%20like%20to%20book%20a%20Maxi%20Cab%20in%20Perth."
+                  href="https://wa.me/61493252766?text=Hi,%20I%20would%20like%20to%20book%20a%20Maxi%20Cab%20in%20Perth."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 py-3 rounded-full bg-[#25D366] text-white font-bold text-sm shadow-md"
                 >
                   <WhatsAppIcon className="w-4 h-4" />
-                  WhatsApp Us (+92 333 5028515)
+                  WhatsApp Us (+61 493 252 766)
                 </a>
                 <a
                   href="mailto:bookings@wheelchairmaxiperth.com"

@@ -9,11 +9,12 @@ import SlideUp from "@/components/animations/SlideUp";
 import FadeIn from "@/components/animations/FadeIn";
 import AboutStatsCounter from "@/components/about/AboutStatsCounter";
 import CoreValuesGrid from "@/components/about/CoreValuesGrid";
+import FleetGallery from "@/components/about/FleetGallery";
 
 export const metadata: Metadata = {
-  title: "About Us | Perth Maxi Cab | Wheelchair Accessible & Group Transport",
+  title: "About Us | Perth Wheelchair Taxi Van | Wheelchair Accessible & Group Transport",
   description:
-    "Learn about Perth Maxi Cab: Western Australia's trusted provider for 7-11 seater vans, wheelchair-accessible transport, guaranteed airport transfers, and NDIS support.",
+    "Learn about Perth Wheelchair Taxi Van: Western Australia's trusted provider for wheelchair-accessible transport, guaranteed airport transfers, and NDIS support.",
 };
 
 export default function AboutPage() {
@@ -95,7 +96,7 @@ export default function AboutPage() {
                   <div className="relative h-full w-full bg-zinc-900 border-3 border-black rounded-xl overflow-hidden shadow-xl z-10">
                     <img
                       src="/images/our-story-maxi.jpg"
-                      alt="Wheelchair accessible Perth Maxi Taxi Van with passenger assistance ramp in Perth"
+                      alt="Perth Wheelchair Taxi Van with passenger assistance ramp in Perth"
                       loading="lazy"
                       className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                     />
@@ -190,7 +191,32 @@ export default function AboutPage() {
 
 
       {/* ═════════════════════════════════════════════════════════════
-          3. "OUR CORE VALUES" CARDS
+          3. ACCESSIBLE VEHICLE SHOWCASE
+         ═════════════════════════════════════════════════════════════ */}
+      <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-black border-b-4 border-black w-full">
+        <div className="max-w-7xl mx-auto">
+          {/* Section Header */}
+          <div className="mb-8 sm:mb-10">
+            <SlideUp>
+              <span className="text-[11px] font-black text-amber-400 uppercase tracking-[0.25em] mb-2 block">
+                Accessibility In Focus
+              </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-white">
+                Accessible Vehicle Showcase
+              </h2>
+              <p className="mt-3 text-zinc-400 text-sm max-w-xl leading-relaxed">
+                Take a look inside our purpose-built Toyota HiAce wheelchair-accessible maxi taxis — engineered with heavy-duty motorized hydraulic lifts, spacious high-roof cabins, and certified restraint systems.
+              </p>
+            </SlideUp>
+          </div>
+
+          <FleetGallery />
+        </div>
+      </section>
+
+
+      {/* ═════════════════════════════════════════════════════════════
+          4. "OUR CORE VALUES" CARDS
          ═════════════════════════════════════════════════════════════ */}
       <section className="py-14 md:py-20 px-4 sm:px-6 lg:px-8 bg-black border-b-4 border-black w-full">
         <div className="max-w-7xl mx-auto">
@@ -213,7 +239,7 @@ export default function AboutPage() {
 
 
       {/* ═════════════════════════════════════════════════════════════
-          4. "FULLY LICENSED & CERTIFIED" BANNER (3 Points + NDIS Logo)
+          5. "FULLY LICENSED & CERTIFIED" BANNER (3 Points + NDIS Logo)
          ═════════════════════════════════════════════════════════════ */}
       <section className="py-10 md:py-14 px-4 sm:px-6 lg:px-8 bg-zinc-950 w-full">
         <div className="max-w-7xl mx-auto">

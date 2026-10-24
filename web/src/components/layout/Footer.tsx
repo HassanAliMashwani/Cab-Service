@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 import GmailIcon from "@/components/icons/GmailIcon";
+import BrandLogo from "@/components/ui/BrandLogo";
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -54,15 +55,15 @@ export default function Footer() {
               </Link>
 
               <a
-                href="tel:+923335028515"
+                href="tel:+61493252766"
                 className="inline-flex items-center justify-center gap-2 bg-white hover:bg-zinc-100 active:scale-95 text-black font-extrabold text-xs sm:text-sm px-5 sm:px-6 py-2.5 sm:py-3 rounded-full shadow-[0_6px_16px_rgba(0,0,0,0.12)] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)] hover:scale-105 transition-all duration-200 min-h-[44px]"
               >
                 <Phone className="w-4 h-4 text-black" />
-                <span>+92 333 5028515</span>
+                <span>+61 493 252 766</span>
               </a>
 
               <a
-                href="https://wa.me/923335028515?text=Hi,%20I%20would%20like%20to%20book%20a%20Maxi%20Cab%20in%20Perth."
+                href="https://wa.me/61493252766?text=Hi,%20I%20would%20like%20to%20book%20a%20Maxi%20Cab%20in%20Perth."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white font-extrabold text-xs sm:text-sm px-5 sm:px-6 py-2.5 sm:py-3 rounded-full shadow-[0_6px_16px_rgba(37,211,102,0.3)] hover:shadow-[0_10px_20px_rgba(37,211,102,0.4)] hover:scale-105 transition-all duration-200 min-h-[44px]"
@@ -83,18 +84,8 @@ export default function Footer() {
 
         {/* Brand Header */}
         <div className="mb-5 pb-4 border-b border-zinc-800/80">
-          <Link href="/" className="flex items-center gap-3 group inline-flex">
-            <div className="w-10 h-10 bg-amber-400 group-hover:bg-amber-300 flex items-center justify-center text-black transition-all rounded-xl shadow-[0_0_15px_rgba(251,191,36,0.3)]">
-              <Car className="w-5 h-5" />
-            </div>
-            <div className="flex flex-col leading-none">
-              <span className="font-black text-lg text-white uppercase tracking-tight">
-                Perth Maxi Cab
-              </span>
-              <span className="text-[9px] font-bold text-amber-400 uppercase tracking-[0.25em] mt-0.5">
-                Airport &amp; Accessible
-              </span>
-            </div>
+          <Link href="/" className="flex items-center gap-3 group inline-flex" aria-label="Perth Wheelchair Taxi Van Home">
+            <BrandLogo size="lg" />
           </Link>
         </div>
 
@@ -173,21 +164,21 @@ export default function Footer() {
             </h3>
             <div className="space-y-3.5">
               {/* Direct Line */}
-              <a href="tel:+923335028515" className="grid grid-cols-[28px_1fr] items-center gap-2.5 group min-h-[40px]">
+              <a href="tel:+61493252766" className="grid grid-cols-[28px_1fr] items-center gap-2.5 group min-h-[40px]">
                 <div className="w-7 h-7 flex items-center justify-center shrink-0">
                   <Phone className="w-4 h-4 text-amber-400" />
                 </div>
                 <div className="flex flex-col text-left min-w-0">
                   <span className="text-[0.65rem] font-bold text-white/50 uppercase tracking-widest leading-none mb-1">Direct Line</span>
                   <span className="text-white font-bold text-[0.9rem] group-hover:text-amber-400 group-active:text-amber-400 transition-colors">
-                    +92 333 5028515
+                    +61 493 252 766
                   </span>
                 </div>
               </a>
 
               {/* WhatsApp Message */}
               <a
-                href="https://wa.me/923335028515?text=Hi,%20I%20would%20like%20to%20book%20a%20Maxi%20Cab%20in%20Perth."
+                href="https://wa.me/61493252766?text=Hi,%20I%20would%20like%20to%20book%20a%20Maxi%20Cab%20in%20Perth."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="grid grid-cols-[28px_1fr] items-center gap-2.5 group min-h-[40px]"
@@ -198,7 +189,7 @@ export default function Footer() {
                 <div className="flex flex-col text-left min-w-0">
                   <span className="text-[0.65rem] font-bold text-white/50 uppercase tracking-widest leading-none mb-1">WhatsApp Message</span>
                   <span className="text-white font-bold text-[0.9rem] group-hover:text-emerald-400 group-active:text-emerald-400 transition-colors">
-                    +92 333 5028515
+                    +61 493 252 766
                   </span>
                 </div>
               </a>
@@ -235,7 +226,7 @@ export default function Footer() {
         {/* ── DESKTOP/TABLET SPECIFIC LAYOUT (>=640px) ── */}
         <div className="hidden sm:grid sm:grid-cols-3 lg:grid-cols-12 gap-6 lg:gap-8 mb-8 items-start">
           
-          {/* Column 1: Links (directly under Perth Maxi Cab) */}
+          {/* Column 1: Links (directly under Perth Wheelchair Taxi Van) */}
           <div className="lg:col-span-4">
             <h3 className="text-white text-xs font-black uppercase tracking-[0.2em] mb-3 flex items-center gap-2">
               <span className="w-2 h-2 bg-amber-400" /> Links
@@ -305,17 +296,17 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2.5">
               <li>
-                <a href="tel:+923335028515" className="group flex flex-col">
+                <a href="tel:+61493252766" className="group flex flex-col">
                   <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest mb-0.5">Direct Line</span>
                   <span className="flex items-center gap-2 text-white font-bold group-hover:text-amber-400 transition-colors text-xs sm:text-sm">
                     <Phone className="w-3.5 h-3.5 text-amber-400" />
-                    +92 333 5028515
+                    +61 493 252 766
                   </span>
                 </a>
               </li>
               <li>
                 <a
-                  href="https://wa.me/923335028515?text=Hi,%20I%20would%20like%20to%20book%20a%20Maxi%20Cab%20in%20Perth."
+                  href="https://wa.me/61493252766?text=Hi,%20I%20would%20like%20to%20book%20a%20Maxi%20Cab%20in%20Perth."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex flex-col"
@@ -323,7 +314,7 @@ export default function Footer() {
                   <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest mb-0.5">WhatsApp Message</span>
                   <span className="flex items-center gap-2 text-white font-bold group-hover:text-emerald-400 transition-colors text-xs sm:text-sm">
                     <WhatsAppIcon className="w-3.5 h-3.5 text-emerald-400" />
-                    +92 333 5028515
+                    +61 493 252 766
                   </span>
                 </a>
               </li>
@@ -354,7 +345,7 @@ export default function Footer() {
            ───────────────────────────────────────────────────────────── */}
         <div className="border-t border-zinc-800/60 pt-4 pb-[calc(4rem+env(safe-area-inset-bottom))] sm:pb-3.5 flex flex-col sm:flex-row items-center justify-between gap-2.5 text-[11px] text-zinc-500">
           <p className="font-semibold tracking-wider text-center sm:text-left">
-            &copy; {new Date().getFullYear()} Perth Accessible Taxi &amp; Maxi Cab. All rights reserved.
+            &copy; {new Date().getFullYear()} Perth Wheelchair Taxi Van. All rights reserved.
           </p>
           <div className="flex items-center gap-4 font-semibold tracking-wider justify-center">
             <Link href="/privacy" className="hover:text-zinc-300 transition-colors duration-200">

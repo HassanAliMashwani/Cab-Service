@@ -17,7 +17,7 @@ interface FAQAccordionProps {
 
 const defaultFAQs: FAQItem[] = [
   {
-    q: "How much luggage can your 7 to 11 seater Perth Maxi Cabs accommodate?",
+    q: "How much luggage can your Perth Wheelchair Taxi Vans accommodate?",
     a: "Our high-roof Toyota HiAce luxury vans easily accommodate up to 8 to 10 large suitcases along with backpacks, prams, golf bags, or surfboards alongside all passengers. You never have to worry about luggage overflowing into passenger seating.",
   },
   {

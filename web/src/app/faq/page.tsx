@@ -126,7 +126,7 @@ export default function FAQPage() {
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <a
-                href="https://wa.me/923335028515?text=Hi,%20I%20have%20a%20question%20about%20your%20wheelchair%20accessible%20taxi%20service."
+                href="https://wa.me/61493252766?text=Hi,%20I%20have%20a%20question%20about%20your%20wheelchair%20accessible%20taxi%20service."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba59] text-white px-7 py-3.5 rounded-full font-bold transition-all text-sm shadow-md hover:scale-105"

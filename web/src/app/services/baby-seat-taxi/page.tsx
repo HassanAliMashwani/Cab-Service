@@ -79,7 +79,7 @@ export default function BabySeatTaxiPage() {
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <a
-                href="https://wa.me/923335028515?text=Hi,%20I%20would%20like%20to%20book%20a%20Maxi%20Taxi%20with%20a%20Baby%20Seat%20in%20Perth."
+                href="https://wa.me/61493252766?text=Hi,%20I%20would%20like%20to%20book%20a%20Maxi%20Taxi%20with%20a%20Baby%20Seat%20in%20Perth."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-[#25D366] hover:bg-[#20ba59] text-white font-bold px-7 py-3.5 rounded-full transition-all text-sm sm:text-base flex items-center gap-2 shadow-md"
@@ -171,7 +171,7 @@ export default function BabySeatTaxiPage() {
                   </h3>
                 </div>
                 <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-4">
-                  Traveling with babies often means bulky double prams, portacots, and endless suitcases. Regular sedans simply don't have the trunk space. Our high-roof Maxi Cabs comfortably hold all your baby gear and suitcases with room to spare.
+                  Traveling with babies often means bulky double prams, portacots, and endless suitcases. Regular sedans simply don&apos;t have the trunk space. Our high-roof Maxi Cabs comfortably hold all your baby gear and suitcases with room to spare.
                 </p>
                 <div className="flex flex-wrap gap-4 text-xs font-semibold text-blue-200">
                   <span className="bg-white/10 px-3 py-1.5 rounded-lg">✓ Terminals T1, T2, T3 & T4</span>
@@ -218,7 +218,7 @@ export default function BabySeatTaxiPage() {
                   </Link>
 
                   <a
-                    href="https://wa.me/923335028515?text=Hi,%20I'd%20like%20to%20reserve%20a%20Maxi%20Taxi%20with%20a%20Baby%20Seat."
+                    href="https://wa.me/61493252766?text=Hi,%20I'd%20like%20to%20reserve%20a%20Maxi%20Taxi%20with%20a%20Baby%20Seat."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full bg-[#25D366] hover:bg-[#20ba59] text-white font-bold py-3.5 px-4 rounded-full text-center flex items-center justify-center gap-2 text-sm transition-all"
@@ -228,11 +228,11 @@ export default function BabySeatTaxiPage() {
                   </a>
 
                   <a
-                    href="tel:+923335028515"
+                    href="tel:+61493252766"
                     className="w-full bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold py-3 px-4 rounded-full text-center flex items-center justify-center gap-2 text-xs transition-all"
                   >
                     <Phone className="w-3.5 h-3.5" />
-                    <span>Call Driver Dispatch: +92 333 5028515</span>
+                    <span>Call Driver Dispatch: +61 493 252 766</span>
                   </a>
                 </div>
               </div>
