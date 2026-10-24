@@ -39,7 +39,7 @@ export default function LocalEverydayTransportPage() {
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <a
-                href="https://wa.me/923335028515?text=Hi,%20I%20would%20like%20to%20book%20a%20local%20wheelchair%20taxi%20in%20Perth."
+                href="https://wa.me/61493252766?text=Hi,%20I%20would%20like%20to%20book%20a%20local%20wheelchair%20taxi%20in%20Perth."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-[#25D366] hover:bg-[#20ba59] text-white font-bold px-7 py-3.5 rounded-full transition-all text-sm sm:text-base flex items-center gap-2 shadow-md"
@@ -62,7 +62,7 @@ export default function LocalEverydayTransportPage() {
                   Stay Connected with Your Community
                 </h2>
                 <p className="text-slate-600 text-base sm:text-lg leading-relaxed mb-4">
-                  Having a physical disability or limited mobility shouldn't restrict you from living an active, fulfilling life. Whether you need a ride to Westfield Carousel, a weekend lunch in Fremantle, or a visit to family in Joondalup, we ensure you travel with ease.
+                  Having a physical disability or limited mobility shouldn&apos;t restrict you from living an active, fulfilling life. Whether you need a ride to Westfield Carousel, a weekend lunch in Fremantle, or a visit to family in Joondalup, we ensure you travel with ease.
                 </p>
                 <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
                   Our ramp-equipped vehicles accommodate manual wheelchairs, electric powerchairs, and mobility scooters with room for companions to ride alongside.
@@ -112,7 +112,7 @@ export default function LocalEverydayTransportPage() {
                     <span>Online Booking Form</span>
                   </Link>
                   <a
-                    href="https://wa.me/923335028515?text=Hi,%20I%20would%20like%20to%20book%20a%20local%20wheelchair%20taxi%20in%20Perth."
+                    href="https://wa.me/61493252766?text=Hi,%20I%20would%20like%20to%20book%20a%20local%20wheelchair%20taxi%20in%20Perth."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba59] text-white w-full py-3.5 rounded-full font-bold text-sm transition-colors shadow-sm"
@@ -121,11 +121,11 @@ export default function LocalEverydayTransportPage() {
                     <span>WhatsApp Inquiry</span>
                   </a>
                   <a
-                    href="tel:+923335028515"
+                    href="tel:+61493252766"
                     className="flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 w-full py-3 rounded-full font-bold text-sm transition-colors"
                   >
                     <Phone className="w-4 h-4" />
-                    <span>Call +92 333 5028515</span>
+                    <span>Call +61 493 252 766</span>
                   </a>
                 </div>
 

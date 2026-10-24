@@ -139,7 +139,7 @@ export default function FareEstimator() {
       {/* Action */}
       <div className="flex flex-col sm:flex-row gap-3">
         <a
-          href={`https://wa.me/923335028515?text=${whatsappMessage}`}
+          href={`https://wa.me/61493252766?text=${whatsappMessage}`}
           target="_blank"
           rel="noopener noreferrer"
           className="flex-1 inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba59] text-white font-black py-3.5 px-5 rounded-full text-sm transition-all shadow-[0_4px_15px_rgba(37,211,102,0.3)] hover:scale-[1.02]"

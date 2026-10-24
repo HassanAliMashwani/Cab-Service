@@ -134,7 +134,7 @@ export default function EnquiryForm() {
     if (formData.boosterSeats > 0) babySeatsList.push(`${formData.boosterSeats} Booster Seat(s)`);
 
     const lines = [
-      `*New Booking Enquiry (Perth Maxi & Accessible)*`,
+      `*New Booking Enquiry (Perth Wheelchair Taxi Van)*`,
       `*Service:* ${serviceLabels[formData.serviceType]}`,
       `*Passenger Details:*`,
       `• Name: ${formData.name || "Customer"}`,
@@ -156,7 +156,7 @@ export default function EnquiryForm() {
       `Please confirm price and vehicle availability.`
     ].filter(Boolean);
 
-    return `https://wa.me/923335028515?text=${encodeURIComponent(lines.join("\n"))}`;
+    return `https://wa.me/61493252766?text=${encodeURIComponent(lines.join("\n"))}`;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -271,37 +271,37 @@ export default function EnquiryForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-zinc-900 border-4 border-amber-400 shadow-[8px_8px_0px_0px_#facc15] p-6 sm:p-10 rounded-3xl relative text-white"
+      className="bg-zinc-900 border-2 sm:border-4 border-amber-400 shadow-[4px_4px_0px_0px_#facc15] sm:shadow-[8px_8px_0px_0px_#facc15] p-4 sm:p-8 lg:p-10 rounded-2xl sm:rounded-3xl relative text-white"
     >
-      {/* Header Bar — Top Quick WhatsApp button removed as requested */}
-      <div className="border-b-2 border-zinc-800 pb-6 mb-8">
+      {/* Header Bar */}
+      <div className="border-b-2 border-zinc-800 pb-5 mb-6 sm:mb-8">
         <div>
           <span className="inline-flex items-center gap-1.5 bg-amber-400 text-black text-xs font-black uppercase tracking-wider px-3.5 py-1 border-2 border-black shadow-[2px_2px_0px_0px_#000] rounded-full mb-2">
             <Accessibility className="w-3.5 h-3.5" />
             Direct Owner &amp; Dispatch Booking
           </span>
-          <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-white">
+          <h2 className="text-xl sm:text-3xl font-black uppercase tracking-tight text-white">
             Secure Your Booking
           </h2>
-          <p className="text-zinc-300 text-sm mt-1 font-medium">
-            Fixed transparent pricing • Zero airport surge pricing • Immediate dispatch confirmation
+          <p className="text-zinc-300 text-xs sm:text-sm mt-1 font-medium">
+            Fixed transparent pricing &bull; Zero airport surge pricing &bull; Immediate dispatch confirmation
           </p>
         </div>
       </div>
 
       {errorMsg && (
-        <div className="mb-6 p-4 rounded-2xl bg-rose-500/20 border-2 border-rose-500 text-rose-300 flex items-center gap-3 text-sm font-bold">
-          <AlertCircle className="w-5 h-5 flex-shrink-0 text-rose-400" />
+        <div className="mb-6 p-4 rounded-xl bg-rose-500/20 border-2 border-rose-500 text-rose-300 flex items-center gap-3 text-sm font-bold">
+          <AlertCircle className="w-5 h-5 shrink-0 text-rose-400" />
           <span>{errorMsg}</span>
         </div>
       )}
 
       {/* Service Selector Tabs */}
       <div className="mb-8">
-        <label className="block text-xs font-black uppercase tracking-wider text-amber-400 mb-3">
+        <label className="block text-xs font-black uppercase tracking-wider text-amber-400 mb-2.5">
           Select Service Required
         </label>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-2.5">
           {[
             { id: "wheelchair", label: "Wheelchair Taxi", icon: Accessibility },
             { id: "airport", label: "Airport Transfer", icon: Plane },
@@ -314,29 +314,32 @@ export default function EnquiryForm() {
               key={item.id}
               type="button"
               onClick={() => setService(item.id as FormDataState["serviceType"])}
-              className={`p-3 rounded-2xl text-xs font-black uppercase tracking-wider border-2 transition-all flex flex-col items-center justify-center gap-1.5 text-center cursor-pointer ${
+              className={`h-20 sm:h-22 p-2 sm:p-2.5 rounded-xl sm:rounded-2xl text-[10px] sm:text-xs font-black uppercase tracking-wider border-2 transition-all flex flex-col items-center justify-center gap-1.5 text-center cursor-pointer ${
                 formData.serviceType === item.id
-                  ? "bg-amber-400 text-black border-black shadow-[3px_3px_0px_0px_#000] scale-105"
+                  ? "bg-amber-400 text-black border-black shadow-[2px_2px_0px_0px_#000]"
                   : "bg-zinc-950 text-zinc-300 border-zinc-800 hover:border-zinc-700 hover:text-white"
               }`}
             >
-              <item.icon className="w-4 h-4" />
-              <span>{item.label}</span>
+              <item.icon className="w-4 h-4 shrink-0" />
+              <span className="leading-tight line-clamp-2">{item.label}</span>
             </button>
           ))}
         </div>
       </div>
 
       {/* Section 1: Trip Itinerary */}
-      <div className="space-y-6 mb-8">
-        <h3 className="text-xs font-black uppercase tracking-widest text-amber-400 pb-2 border-b border-zinc-800">
-          1. Trip Itinerary
-        </h3>
+      <div className="space-y-4 sm:space-y-5 mb-8">
+        <div className="flex items-center gap-2 pb-2 border-b border-zinc-800">
+          <span className="w-5 h-5 rounded-full bg-amber-400 text-black flex items-center justify-center text-[11px] font-black">1</span>
+          <h3 className="text-xs font-black uppercase tracking-widest text-amber-400">
+            Trip Itinerary
+          </h3>
+        </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label className="block text-xs font-black uppercase tracking-wider text-zinc-200 mb-1.5 flex items-center gap-1.5">
-              <MapPin className="w-4 h-4 text-emerald-400" />
+              <MapPin className="w-4 h-4 text-emerald-400 shrink-0" />
               Pickup Location *
             </label>
             <input
@@ -345,14 +348,14 @@ export default function EnquiryForm() {
               value={formData.pickupLocation}
               onChange={handleChange}
               placeholder="e.g. Perth Airport Terminal 1, or Suburb Address"
-              className="w-full px-4 py-3.5 rounded-xl bg-white text-zinc-950 font-bold border-2 border-zinc-300 focus:border-amber-400 focus:outline-none text-sm placeholder:text-zinc-500 placeholder:font-normal shadow-sm"
+              className="h-12 w-full px-4 rounded-xl bg-white text-zinc-950 font-bold border-2 border-zinc-300 focus:border-amber-400 focus:outline-none text-sm placeholder:text-zinc-500 placeholder:font-normal shadow-sm"
               required
             />
           </div>
 
           <div>
             <label className="block text-xs font-black uppercase tracking-wider text-zinc-200 mb-1.5 flex items-center gap-1.5">
-              <MapPin className="w-4 h-4 text-sky-400" />
+              <MapPin className="w-4 h-4 text-sky-400 shrink-0" />
               Destination *
             </label>
             <input
@@ -361,7 +364,7 @@ export default function EnquiryForm() {
               value={formData.destination}
               onChange={handleChange}
               placeholder="e.g. Fiona Stanley Hospital, Hotel, or Suburb"
-              className="w-full px-4 py-3.5 rounded-xl bg-white text-zinc-950 font-bold border-2 border-zinc-300 focus:border-amber-400 focus:outline-none text-sm placeholder:text-zinc-500 placeholder:font-normal shadow-sm"
+              className="h-12 w-full px-4 rounded-xl bg-white text-zinc-950 font-bold border-2 border-zinc-300 focus:border-amber-400 focus:outline-none text-sm placeholder:text-zinc-500 placeholder:font-normal shadow-sm"
               required
             />
           </div>
@@ -370,7 +373,7 @@ export default function EnquiryForm() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div>
             <label className="block text-xs font-black uppercase tracking-wider text-zinc-200 mb-1.5 flex items-center gap-1.5">
-              <Calendar className="w-4 h-4 text-amber-400" />
+              <Calendar className="w-4 h-4 text-amber-400 shrink-0" />
               Pickup Date *
             </label>
             <input
@@ -378,14 +381,14 @@ export default function EnquiryForm() {
               name="pickupDate"
               value={formData.pickupDate}
               onChange={handleChange}
-              className="w-full px-4 py-3.5 rounded-xl bg-white text-zinc-950 font-bold border-2 border-zinc-300 focus:border-amber-400 focus:outline-none text-sm shadow-sm"
+              className="h-12 w-full px-4 rounded-xl bg-white text-zinc-950 font-bold border-2 border-zinc-300 focus:border-amber-400 focus:outline-none text-sm shadow-sm"
               required
             />
           </div>
 
           <div>
             <label className="block text-xs font-black uppercase tracking-wider text-zinc-200 mb-1.5 flex items-center gap-1.5">
-              <Clock className="w-4 h-4 text-amber-400" />
+              <Clock className="w-4 h-4 text-amber-400 shrink-0" />
               Pickup Time *
             </label>
             <input
@@ -393,14 +396,14 @@ export default function EnquiryForm() {
               name="pickupTime"
               value={formData.pickupTime}
               onChange={handleChange}
-              className="w-full px-4 py-3.5 rounded-xl bg-white text-zinc-950 font-bold border-2 border-zinc-300 focus:border-amber-400 focus:outline-none text-sm shadow-sm"
+              className="h-12 w-full px-4 rounded-xl bg-white text-zinc-950 font-bold border-2 border-zinc-300 focus:border-amber-400 focus:outline-none text-sm shadow-sm"
               required
             />
           </div>
 
           <div>
             <label className="block text-xs font-black uppercase tracking-wider text-zinc-200 mb-1.5 flex items-center gap-1.5">
-              <Plane className="w-4 h-4 text-sky-400" />
+              <Plane className="w-4 h-4 text-sky-400 shrink-0" />
               Flight Number (Optional)
             </label>
             <input
@@ -409,13 +412,13 @@ export default function EnquiryForm() {
               value={formData.flightNumber}
               onChange={handleChange}
               placeholder="e.g. QF10, EK420"
-              className="w-full px-4 py-3.5 rounded-xl bg-white text-zinc-950 font-bold border-2 border-zinc-300 focus:border-amber-400 focus:outline-none text-sm placeholder:text-zinc-500 placeholder:font-normal shadow-sm"
+              className="h-12 w-full px-4 rounded-xl bg-white text-zinc-950 font-bold border-2 border-zinc-300 focus:border-amber-400 focus:outline-none text-sm placeholder:text-zinc-500 placeholder:font-normal shadow-sm"
             />
           </div>
         </div>
 
         {/* Return Trip Checkbox */}
-        <div className="pt-2">
+        <div className="pt-1">
           <label className="inline-flex items-center gap-2.5 cursor-pointer text-sm font-bold text-zinc-200">
             <input
               type="checkbox"
@@ -428,25 +431,25 @@ export default function EnquiryForm() {
           </label>
 
           {formData.isReturnTrip && (
-            <div className="mt-3 p-4 bg-zinc-950 border-2 border-zinc-800 rounded-2xl grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="mt-3 p-4 bg-zinc-950 border-2 border-zinc-800 rounded-xl grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-black uppercase text-zinc-400 mb-1">Return Date</label>
+                <label className="block text-xs font-black uppercase text-zinc-400 mb-1.5">Return Date</label>
                 <input
                   type="date"
                   name="returnDate"
                   value={formData.returnDate}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 rounded-xl bg-white text-zinc-950 font-bold border border-zinc-300 text-xs sm:text-sm"
+                  className="h-11 w-full px-3.5 rounded-xl bg-white text-zinc-950 font-bold border-2 border-zinc-300 text-xs sm:text-sm"
                 />
               </div>
               <div>
-                <label className="block text-xs font-black uppercase text-zinc-400 mb-1">Return Time</label>
+                <label className="block text-xs font-black uppercase text-zinc-400 mb-1.5">Return Time</label>
                 <input
                   type="time"
                   name="returnTime"
                   value={formData.returnTime}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 rounded-xl bg-white text-zinc-950 font-bold border border-zinc-300 text-xs sm:text-sm"
+                  className="h-11 w-full px-3.5 rounded-xl bg-white text-zinc-950 font-bold border-2 border-zinc-300 text-xs sm:text-sm"
                 />
               </div>
             </div>
@@ -455,22 +458,25 @@ export default function EnquiryForm() {
       </div>
 
       {/* Section 2: Passengers & Capacity */}
-      <div className="space-y-6 mb-8 border-t border-zinc-800 pt-8">
-        <h3 className="text-xs font-black uppercase tracking-widest text-amber-400 pb-2 border-b border-zinc-800">
-          2. Passengers &amp; Luggage
-        </h3>
+      <div className="space-y-5 mb-8 border-t border-zinc-800 pt-7">
+        <div className="flex items-center gap-2 pb-2 border-b border-zinc-800">
+          <span className="w-5 h-5 rounded-full bg-amber-400 text-black flex items-center justify-center text-[11px] font-black">2</span>
+          <h3 className="text-xs font-black uppercase tracking-widest text-amber-400">
+            Passengers &amp; Luggage
+          </h3>
+        </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label className="block text-xs font-black uppercase tracking-wider text-zinc-200 mb-1.5 flex items-center gap-1.5">
-              <Users className="w-4 h-4 text-amber-400" />
+              <Users className="w-4 h-4 text-amber-400 shrink-0" />
               Total Passengers (Up to 11)
             </label>
             <select
               name="passengersCount"
               value={formData.passengersCount}
               onChange={handleChange}
-              className="w-full px-4 py-3.5 rounded-xl bg-white text-zinc-950 font-bold border-2 border-zinc-300 focus:border-amber-400 outline-none text-sm shadow-sm"
+              className="h-12 w-full px-4 rounded-xl bg-white text-zinc-950 font-bold border-2 border-zinc-300 focus:border-amber-400 outline-none text-sm shadow-sm cursor-pointer"
             >
               {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((num) => (
                 <option key={num} value={num}>
@@ -482,14 +488,14 @@ export default function EnquiryForm() {
 
           <div>
             <label className="block text-xs font-black uppercase tracking-wider text-zinc-200 mb-1.5 flex items-center gap-1.5">
-              <Luggage className="w-4 h-4 text-amber-400" />
+              <Luggage className="w-4 h-4 text-amber-400 shrink-0" />
               Luggage Pieces
             </label>
             <select
               name="luggageCount"
               value={formData.luggageCount}
               onChange={handleChange}
-              className="w-full px-4 py-3.5 rounded-xl bg-white text-zinc-950 font-bold border-2 border-zinc-300 focus:border-amber-400 outline-none text-sm shadow-sm"
+              className="h-12 w-full px-4 rounded-xl bg-white text-zinc-950 font-bold border-2 border-zinc-300 focus:border-amber-400 outline-none text-sm shadow-sm cursor-pointer"
             >
               {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
                 <option key={num} value={num}>
@@ -501,27 +507,27 @@ export default function EnquiryForm() {
         </div>
 
         {/* Baby Seat Restraints Selector */}
-        <div className="bg-zinc-950 rounded-2xl p-5 border-2 border-zinc-800">
-          <div className="flex items-center gap-2 mb-2">
-            <Baby className="w-5 h-5 text-amber-400" />
-            <h4 className="font-black text-white text-sm uppercase tracking-wide">
+        <div className="bg-zinc-950 rounded-2xl p-4 sm:p-5 border-2 border-zinc-800">
+          <div className="flex items-center gap-2 mb-1.5">
+            <Baby className="w-5 h-5 text-amber-400 shrink-0" />
+            <h4 className="font-black text-white text-xs sm:text-sm uppercase tracking-wide">
               Need Child Restraints? (AS/NZS 1754 Certified)
             </h4>
           </div>
-          <p className="text-xs text-zinc-400 mb-4">
-            Seats are pre-installed and disinfected prior to your pickup. Select required quantities:
+          <p className="text-[11px] sm:text-xs text-zinc-400 mb-3.5 leading-relaxed">
+            Seats are pre-installed and disinfected prior to pickup. Select required quantities:
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <div>
-              <label className="block text-[11px] font-black uppercase text-zinc-300 mb-1">
+              <label className="block text-[10px] sm:text-[11px] font-black uppercase text-zinc-300 mb-1">
                 Rear-Facing Capsule (0–12m)
               </label>
               <select
                 name="rearFacingSeats"
                 value={formData.rearFacingSeats}
                 onChange={handleChange}
-                className="w-full px-3 py-2.5 rounded-xl bg-white text-zinc-950 font-bold border-2 border-zinc-300 text-xs sm:text-sm"
+                className="h-11 w-full px-3 rounded-xl bg-white text-zinc-950 font-bold border-2 border-zinc-300 text-xs sm:text-sm cursor-pointer"
               >
                 <option value={0}>0 - None</option>
                 <option value={1}>1 Capsule</option>
@@ -530,14 +536,14 @@ export default function EnquiryForm() {
             </div>
 
             <div>
-              <label className="block text-[11px] font-black uppercase text-zinc-300 mb-1">
+              <label className="block text-[10px] sm:text-[11px] font-black uppercase text-zinc-300 mb-1">
                 Forward-Facing (1–4 yrs)
               </label>
               <select
                 name="forwardFacingSeats"
                 value={formData.forwardFacingSeats}
                 onChange={handleChange}
-                className="w-full px-3 py-2.5 rounded-xl bg-white text-zinc-950 font-bold border-2 border-zinc-300 text-xs sm:text-sm"
+                className="h-11 w-full px-3 rounded-xl bg-white text-zinc-950 font-bold border-2 border-zinc-300 text-xs sm:text-sm cursor-pointer"
               >
                 <option value={0}>0 - None</option>
                 <option value={1}>1 Child Seat</option>
@@ -547,14 +553,14 @@ export default function EnquiryForm() {
             </div>
 
             <div>
-              <label className="block text-[11px] font-black uppercase text-zinc-300 mb-1">
+              <label className="block text-[10px] sm:text-[11px] font-black uppercase text-zinc-300 mb-1">
                 Booster Seat (4–8 yrs)
               </label>
               <select
                 name="boosterSeats"
                 value={formData.boosterSeats}
                 onChange={handleChange}
-                className="w-full px-3 py-2.5 rounded-xl bg-white text-zinc-950 font-bold border-2 border-zinc-300 text-xs sm:text-sm"
+                className="h-11 w-full px-3 rounded-xl bg-white text-zinc-950 font-bold border-2 border-zinc-300 text-xs sm:text-sm cursor-pointer"
               >
                 <option value={0}>0 - None</option>
                 <option value={1}>1 Booster</option>
@@ -570,7 +576,7 @@ export default function EnquiryForm() {
           <label className="block text-xs font-black uppercase tracking-wider text-amber-400 mb-2">
             Wheelchair or Mobility Device:
           </label>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mb-3">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-2.5 mb-3">
             {[
               { id: "manual", label: "Manual Chair" },
               { id: "electric", label: "Power / Electric" },
@@ -581,9 +587,9 @@ export default function EnquiryForm() {
                 key={item.id}
                 type="button"
                 onClick={() => setWheelchair(item.id as FormDataState["wheelchairType"])}
-                className={`py-3 px-3 rounded-xl text-xs font-black uppercase tracking-wider border-2 transition-all text-center cursor-pointer ${
+                className={`h-11 flex items-center justify-center px-3 rounded-xl text-xs font-black uppercase tracking-wider border-2 transition-all text-center cursor-pointer ${
                   formData.wheelchairType === item.id
-                    ? "bg-amber-400 text-black border-black shadow-[3px_3px_0px_0px_#000]"
+                    ? "bg-amber-400 text-black border-black shadow-[2px_2px_0px_0px_#000]"
                     : "bg-zinc-950 text-zinc-300 border-zinc-800 hover:border-zinc-700 hover:text-white"
                 }`}
               >
@@ -593,14 +599,14 @@ export default function EnquiryForm() {
           </div>
 
           {formData.wheelchairType !== "none" && (
-            <div className="bg-zinc-950 p-4 rounded-2xl border-2 border-zinc-800 flex items-start gap-4">
+            <div className="bg-zinc-950 p-4 rounded-xl border-2 border-zinc-800 flex items-start gap-3.5">
               <input
                 type="checkbox"
                 id="staysSeated"
                 name="staysSeated"
                 checked={formData.staysSeated}
                 onChange={handleChange}
-                className="w-5 h-5 rounded text-amber-400 focus:ring-amber-400 mt-1 cursor-pointer accent-amber-400"
+                className="w-5 h-5 rounded text-amber-400 focus:ring-amber-400 mt-0.5 cursor-pointer accent-amber-400 shrink-0"
               />
               <label htmlFor="staysSeated" className="cursor-pointer">
                 <span className="block text-sm font-bold text-white">
@@ -624,21 +630,24 @@ export default function EnquiryForm() {
             onChange={handleChange}
             rows={2}
             placeholder="e.g. Extra-wide powerchair, assistance needed from hospital lobby, pram and surfboards on board..."
-            className="w-full px-4 py-3.5 rounded-xl bg-white text-zinc-950 font-bold border-2 border-zinc-300 focus:border-amber-400 focus:outline-none text-sm placeholder:text-zinc-500 placeholder:font-normal shadow-sm"
+            className="w-full px-4 py-3 rounded-xl bg-white text-zinc-950 font-bold border-2 border-zinc-300 focus:border-amber-400 focus:outline-none text-sm placeholder:text-zinc-500 placeholder:font-normal shadow-sm resize-none"
           />
         </div>
       </div>
 
       {/* Section 3: Passenger Contact Details */}
-      <div className="space-y-6 mb-8 border-t border-zinc-800 pt-8">
-        <h3 className="text-xs font-black uppercase tracking-widest text-amber-400 pb-2 border-b border-zinc-800">
-          3. Contact Details
-        </h3>
+      <div className="space-y-5 mb-8 border-t border-zinc-800 pt-7">
+        <div className="flex items-center gap-2 pb-2 border-b border-zinc-800">
+          <span className="w-5 h-5 rounded-full bg-amber-400 text-black flex items-center justify-center text-[11px] font-black">3</span>
+          <h3 className="text-xs font-black uppercase tracking-widest text-amber-400">
+            Contact Details
+          </h3>
+        </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label className="block text-xs font-black uppercase tracking-wider text-zinc-200 mb-1.5 flex items-center gap-1.5">
-              <User className="w-4 h-4 text-amber-400" />
+              <User className="w-4 h-4 text-amber-400 shrink-0" />
               Full Name *
             </label>
             <input
@@ -647,14 +656,14 @@ export default function EnquiryForm() {
               value={formData.name}
               onChange={handleChange}
               placeholder="e.g. John Doe"
-              className="w-full px-4 py-3.5 rounded-xl bg-white text-zinc-950 font-bold border-2 border-zinc-300 focus:border-amber-400 focus:outline-none text-sm placeholder:text-zinc-500 placeholder:font-normal shadow-sm"
+              className="h-12 w-full px-4 rounded-xl bg-white text-zinc-950 font-bold border-2 border-zinc-300 focus:border-amber-400 focus:outline-none text-sm placeholder:text-zinc-500 placeholder:font-normal shadow-sm"
               required
             />
           </div>
 
           <div>
             <label className="block text-xs font-black uppercase tracking-wider text-zinc-200 mb-1.5 flex items-center gap-1.5">
-              <Phone className="w-4 h-4 text-emerald-400" />
+              <Phone className="w-4 h-4 text-emerald-400 shrink-0" />
               Phone / WhatsApp Number *
             </label>
             <input
@@ -663,7 +672,7 @@ export default function EnquiryForm() {
               value={formData.phone}
               onChange={handleChange}
               placeholder="+61 400 000 000"
-              className="w-full px-4 py-3.5 rounded-xl bg-white text-zinc-950 font-bold border-2 border-zinc-300 focus:border-amber-400 focus:outline-none text-sm placeholder:text-zinc-500 placeholder:font-normal shadow-sm"
+              className="h-12 w-full px-4 rounded-xl bg-white text-zinc-950 font-bold border-2 border-zinc-300 focus:border-amber-400 focus:outline-none text-sm placeholder:text-zinc-500 placeholder:font-normal shadow-sm"
               required
             />
           </div>

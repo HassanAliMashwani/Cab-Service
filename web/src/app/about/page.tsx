@@ -4,17 +4,17 @@ import {
   CheckCircle2,
   Star,
   Accessibility,
-  MapPin,
 } from "lucide-react";
 import SlideUp from "@/components/animations/SlideUp";
 import FadeIn from "@/components/animations/FadeIn";
 import AboutStatsCounter from "@/components/about/AboutStatsCounter";
 import CoreValuesGrid from "@/components/about/CoreValuesGrid";
+import FleetGallery from "@/components/about/FleetGallery";
 
 export const metadata: Metadata = {
-  title: "About Us | Perth Maxi Cab | Wheelchair Accessible & Group Transport",
+  title: "About Us | Perth Wheelchair Taxi Van | Wheelchair Accessible & Group Transport",
   description:
-    "Learn about Perth Maxi Cab: Western Australia's trusted provider for 7-11 seater vans, wheelchair-accessible transport, guaranteed airport transfers, and NDIS support.",
+    "Learn about Perth Wheelchair Taxi Van: Western Australia's trusted provider for wheelchair-accessible transport, guaranteed airport transfers, and NDIS support.",
 };
 
 export default function AboutPage() {
@@ -24,7 +24,7 @@ export default function AboutPage() {
       {/* ═════════════════════════════════════════════════════════════
           1. ABOUT PAGE HEADER — Built with Semantic HTML / SEO Architecture
          ═════════════════════════════════════════════════════════════ */}
-      <section className="relative bg-[#07090e] text-white min-h-[500px] sm:min-h-[550px] lg:min-h-[580px] flex items-center overflow-hidden border-b-4 border-black pt-20 sm:pt-24 pb-16">
+      <section className="relative bg-[#07090e] text-white min-h-[320px] sm:min-h-[550px] lg:min-h-[580px] flex items-center overflow-hidden border-b-4 border-black pt-20 sm:pt-24 pb-6 sm:pb-16">
         
         {/* Responsive Background Artwork (WA map, Maxi van outline, pins, circuit tracks) */}
         <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
@@ -49,7 +49,7 @@ export default function AboutPage() {
         <div className="absolute top-1/2 left-0 w-[500px] h-[500px] -translate-y-1/2 bg-amber-500/[0.07] rounded-full blur-3xl pointer-events-none" />
 
         {/* Real Semantic SEO Content Container */}
-        <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 w-full">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 w-full py-2 sm:py-8">
           <div className="max-w-2xl">
             {/* Primary SEO Heading <h1> */}
             <SlideUp delay={0.05}>
@@ -62,20 +62,12 @@ export default function AboutPage() {
 
             {/* Keyword-rich Tagline with highlighted spans */}
             <SlideUp delay={0.15}>
-              <div className="mt-6 sm:mt-8 max-w-xl">
+              <div className="mt-4 sm:mt-8 max-w-xl">
                 <p className="text-xs sm:text-sm md:text-base font-black uppercase tracking-wider text-white leading-relaxed">
                   OVER <span className="text-amber-400">10 YEARS</span> OF RELIABLE, ACCESSIBLE &amp; DEDICATED
                   <br className="hidden sm:inline" />
                   {" "}PASSENGER CARE ACROSS <span className="text-amber-400">WESTERN AUSTRALIA</span>
                 </p>
-              </div>
-            </SlideUp>
-
-            {/* WA Location Pin Badge */}
-            <SlideUp delay={0.2}>
-              <div className="mt-6 sm:mt-8 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-400/10 border border-amber-400/30 text-amber-400 text-xs font-bold uppercase tracking-wider shadow-[0_0_15px_rgba(251,191,36,0.15)]">
-                <MapPin className="w-3.5 h-3.5 fill-amber-400 text-black" />
-                <span>WA Licensed &bull; Perth Metro &bull; Airport Transfers</span>
               </div>
             </SlideUp>
           </div>
@@ -104,7 +96,7 @@ export default function AboutPage() {
                   <div className="relative h-full w-full bg-zinc-900 border-3 border-black rounded-xl overflow-hidden shadow-xl z-10">
                     <img
                       src="/images/our-story-maxi.jpg"
-                      alt="Modern Yellow and Black Perth Maxi Taxi Van parked on sunny St Georges Terrace Perth"
+                      alt="Perth Wheelchair Taxi Van with passenger assistance ramp in Perth"
                       loading="lazy"
                       className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                     />
@@ -199,7 +191,32 @@ export default function AboutPage() {
 
 
       {/* ═════════════════════════════════════════════════════════════
-          3. "OUR CORE VALUES" CARDS
+          3. ACCESSIBLE VEHICLE SHOWCASE
+         ═════════════════════════════════════════════════════════════ */}
+      <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-black border-b-4 border-black w-full">
+        <div className="max-w-7xl mx-auto">
+          {/* Section Header */}
+          <div className="mb-8 sm:mb-10">
+            <SlideUp>
+              <span className="text-[11px] font-black text-amber-400 uppercase tracking-[0.25em] mb-2 block">
+                Accessibility In Focus
+              </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-white">
+                Accessible Vehicle Showcase
+              </h2>
+              <p className="mt-3 text-zinc-400 text-sm max-w-xl leading-relaxed">
+                Take a look inside our purpose-built Toyota HiAce wheelchair-accessible maxi taxis — engineered with heavy-duty motorized hydraulic lifts, spacious high-roof cabins, and certified restraint systems.
+              </p>
+            </SlideUp>
+          </div>
+
+          <FleetGallery />
+        </div>
+      </section>
+
+
+      {/* ═════════════════════════════════════════════════════════════
+          4. "OUR CORE VALUES" CARDS
          ═════════════════════════════════════════════════════════════ */}
       <section className="py-14 md:py-20 px-4 sm:px-6 lg:px-8 bg-black border-b-4 border-black w-full">
         <div className="max-w-7xl mx-auto">
@@ -222,7 +239,7 @@ export default function AboutPage() {
 
 
       {/* ═════════════════════════════════════════════════════════════
-          4. "FULLY LICENSED & CERTIFIED" BANNER (3 Points + NDIS Logo)
+          5. "FULLY LICENSED & CERTIFIED" BANNER (3 Points + NDIS Logo)
          ═════════════════════════════════════════════════════════════ */}
       <section className="py-10 md:py-14 px-4 sm:px-6 lg:px-8 bg-zinc-950 w-full">
         <div className="max-w-7xl mx-auto">
@@ -230,10 +247,10 @@ export default function AboutPage() {
             {/* Background watermark */}
             <ShieldCheck className="absolute -right-8 -bottom-8 w-64 h-64 text-black/[0.08] pointer-events-none select-none" />
 
-            <div className="relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+            <div className="relative z-10 flex flex-col gap-5 sm:gap-6">
               
-              {/* Left / Center content: Title + 3 punchy points */}
-              <div className="space-y-4 max-w-3xl">
+              {/* Header: Title & NDIS Logo in front of pills */}
+              <div className="flex items-center justify-between gap-4">
                 <div>
                   <span className="inline-block bg-black text-amber-400 text-[9px] font-black uppercase tracking-widest px-2.5 py-0.5 rounded-full mb-1.5">
                     Accreditation &amp; Trust
@@ -243,59 +260,59 @@ export default function AboutPage() {
                   </h2>
                 </div>
 
-                {/* 3 Points with concise details */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                  <div className="bg-black/90 text-white p-3.5 rounded-xl border-2 border-black flex items-start gap-2.5 shadow-sm">
-                    <div className="w-6 h-6 rounded-md bg-amber-400 text-black flex items-center justify-center shrink-0 font-bold mt-0.5">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-black" />
-                    </div>
-                    <div>
-                      <h3 className="text-xs font-black uppercase tracking-wide text-amber-400">
-                        WA DoT Licensed
-                      </h3>
-                      <p className="text-[10px] text-zinc-300 font-medium mt-0.5 leading-snug">
-                        Authorized On-Demand Passenger Transport in WA
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="bg-black/90 text-white p-3.5 rounded-xl border-2 border-black flex items-start gap-2.5 shadow-sm">
-                    <div className="w-6 h-6 rounded-md bg-amber-400 text-black flex items-center justify-center shrink-0 font-bold mt-0.5">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-black" />
-                    </div>
-                    <div>
-                      <h3 className="text-xs font-black uppercase tracking-wide text-amber-400">
-                        TUSS Vouchers
-                      </h3>
-                      <p className="text-[10px] text-zinc-300 font-medium mt-0.5 leading-snug">
-                        Approved Taxi User Subsidy Scheme operator
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="bg-black/90 text-white p-3.5 rounded-xl border-2 border-black flex items-start gap-2.5 shadow-sm">
-                    <div className="w-6 h-6 rounded-md bg-amber-400 text-black flex items-center justify-center shrink-0 font-bold mt-0.5">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-black" />
-                    </div>
-                    <div>
-                      <h3 className="text-xs font-black uppercase tracking-wide text-amber-400">
-                        Police Cleared
-                      </h3>
-                      <p className="text-[10px] text-zinc-300 font-medium mt-0.5 leading-snug">
-                        Annual mechanical checks &amp; WWC verified drivers
-                      </p>
-                    </div>
-                  </div>
+                {/* Clean NDIS Logo placed in front of pills */}
+                <div className="shrink-0">
+                  <img
+                    src="/images/ndis-badge.png"
+                    alt="Official NDIS Registered Provider"
+                    className="w-14 h-14 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain rounded-xl shadow-md border-2 border-black"
+                  />
                 </div>
               </div>
 
-              {/* Right side: Clean NDIS Logo placed directly in banner */}
-              <div className="flex items-center justify-start lg:justify-center shrink-0">
-                <img
-                  src="/images/ndis-badge.png"
-                  alt="Official NDIS Registered Provider"
-                  className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 object-contain rounded-2xl shadow-lg"
-                />
+              {/* 3 Points with concise details */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div className="bg-black/90 text-white p-3.5 rounded-xl border-2 border-black flex items-start gap-2.5 shadow-sm">
+                  <div className="w-6 h-6 rounded-md bg-amber-400 text-black flex items-center justify-center shrink-0 font-bold mt-0.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-black" />
+                  </div>
+                  <div>
+                    <h3 className="text-xs font-black uppercase tracking-wide text-amber-400">
+                      WA DoT Licensed
+                    </h3>
+                    <p className="text-[10px] text-zinc-300 font-medium mt-0.5 leading-snug">
+                      Authorized On-Demand Passenger Transport in WA
+                    </p>
+                  </div>
+                </div>
+
+                <div className="bg-black/90 text-white p-3.5 rounded-xl border-2 border-black flex items-start gap-2.5 shadow-sm">
+                  <div className="w-6 h-6 rounded-md bg-amber-400 text-black flex items-center justify-center shrink-0 font-bold mt-0.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-black" />
+                  </div>
+                  <div>
+                    <h3 className="text-xs font-black uppercase tracking-wide text-amber-400">
+                      TUSS Vouchers
+                    </h3>
+                    <p className="text-[10px] text-zinc-300 font-medium mt-0.5 leading-snug">
+                      Approved Taxi User Subsidy Scheme operator
+                    </p>
+                  </div>
+                </div>
+
+                <div className="bg-black/90 text-white p-3.5 rounded-xl border-2 border-black flex items-start gap-2.5 shadow-sm">
+                  <div className="w-6 h-6 rounded-md bg-amber-400 text-black flex items-center justify-center shrink-0 font-bold mt-0.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-black" />
+                  </div>
+                  <div>
+                    <h3 className="text-xs font-black uppercase tracking-wide text-amber-400">
+                      Police Cleared
+                    </h3>
+                    <p className="text-[10px] text-zinc-300 font-medium mt-0.5 leading-snug">
+                      Annual mechanical checks &amp; WWC verified drivers
+                    </p>
+                  </div>
+                </div>
               </div>
 
             </div>

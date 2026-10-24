@@ -15,6 +15,22 @@
   --font-sans: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
 
+:root {
+  --header-height: 4.25rem; /* 68px mobile */
+}
+
+@media (min-width: 640px) {
+  :root {
+    --header-height: 5rem; /* 80px tablet */
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --header-height: 5.75rem; /* 92px desktop */
+  }
+}
+
 @layer base {
   body {
     @apply bg-slate-50 text-slate-800 antialiased;

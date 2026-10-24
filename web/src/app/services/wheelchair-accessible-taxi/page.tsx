@@ -3,7 +3,6 @@ import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SlideUp from "@/components/animations/SlideUp";
-import FadeIn from "@/components/animations/FadeIn";
 
 export const metadata: Metadata = {
   title: "Wheelchair Accessible Taxi Perth | Flagship Ramp Service",
@@ -46,7 +45,7 @@ export default function WheelchairTaxiPage() {
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <a
-                href="https://wa.me/923335028515?text=Hi,%20I%20would%20like%20to%20book%20a%20wheelchair%20accessible%20taxi%20in%20Perth."
+                href="https://wa.me/61493252766?text=Hi,%20I%20would%20like%20to%20book%20a%20wheelchair%20accessible%20taxi%20in%20Perth."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-[#25D366] hover:bg-[#20ba59] text-white font-bold px-7 py-3.5 rounded-full transition-all text-sm sm:text-base flex items-center gap-2 shadow-md"
@@ -138,7 +137,7 @@ export default function WheelchairTaxiPage() {
                   </Link>
 
                   <a
-                    href="https://wa.me/923335028515?text=Hi,%20I%20need%20a%20wheelchair%20accessible%20taxi%20in%20Perth."
+                    href="https://wa.me/61493252766?text=Hi,%20I%20need%20a%20wheelchair%20accessible%20taxi%20in%20Perth."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba59] text-white w-full py-3.5 rounded-full font-bold text-sm transition-colors shadow-sm"
@@ -148,11 +147,11 @@ export default function WheelchairTaxiPage() {
                   </a>
 
                   <a
-                    href="tel:+923335028515"
+                    href="tel:+61493252766"
                     className="flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 w-full py-3 rounded-full font-bold text-sm transition-colors"
                   >
                     <Phone className="w-4 h-4" />
-                    <span>Call +92 333 5028515</span>
+                    <span>Call +61 493 252 766</span>
                   </a>
                 </div>
 
@@ -163,7 +162,7 @@ export default function WheelchairTaxiPage() {
                   </div>
                   <div className="flex items-center gap-2">
                     <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-                    <span>Q'Straint Certified Securement</span>
+                    <span>Q&apos;Straint Certified Securement</span>
                   </div>
                 </div>
               </div>
