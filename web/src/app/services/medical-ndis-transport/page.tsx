@@ -5,9 +5,60 @@ import Link from "next/link";
 import SlideUp from "@/components/animations/SlideUp";
 import FadeIn from "@/components/animations/FadeIn";
 
+import RelatedServices from "@/components/services/RelatedServices";
+import JsonLd from "@/components/seo/JsonLd";
+import { SITE_URL } from "@/config/site";
+
 export const metadata: Metadata = {
-  title: "Medical & NDIS Transport Perth | Wheelchair Accessible Taxi",
-  description: "Specialized NDIS transport and medical appointment taxi services in Perth. TUSS vouchers accepted, plan-managed tax invoices, hospital patient transfers.",
+  title: "NDIS & Medical Transport",
+  description:
+    "Reliable medical and NDIS transport in Perth. Hospital clinic visits, therapy appointments, itemized tax invoices, and official WA TUSS voucher acceptance.",
+  alternates: {
+    canonical: "/services/medical-ndis-transport",
+  },
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "NDIS & Medical Transport Perth",
+  description:
+    "Specialized NDIS transport and hospital appointment taxi services in Perth with TUSS voucher acceptance and itemized invoicing.",
+  provider: {
+    "@type": "TaxiService",
+    name: "Perth Wheelchair Taxi Van",
+    url: SITE_URL,
+    telephone: "+61493252766",
+  },
+  areaServed: {
+    "@type": "City",
+    name: "Perth",
+  },
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: SITE_URL,
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Services",
+      item: `${SITE_URL}/services`,
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: "NDIS & Medical Transport",
+      item: `${SITE_URL}/services/medical-ndis-transport`,
+    },
+  ],
 };
 
 export default function MedicalNdisTransportPage() {
@@ -50,8 +101,24 @@ export default function MedicalNdisTransportPage() {
     }
   ];
 
+  const medicalFaqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.a,
+      },
+    })),
+  };
+
   return (
     <div className="flex flex-col w-full bg-slate-50 min-h-screen">
+      <JsonLd data={serviceSchema} />
+      <JsonLd data={breadcrumbSchema} />
+      <JsonLd data={medicalFaqSchema} />
       {/* Hero */}
       <section className="bg-slate-900 text-white py-16 lg:py-24 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -232,6 +299,9 @@ export default function MedicalNdisTransportPage() {
           </div>
         </div>
       </section>
+
+      {/* Related Services */}
+      <RelatedServices currentSlug="medical-ndis-transport" />
     </div>
   );
 }

@@ -175,6 +175,7 @@ export default function ServiceCard({
                   e.stopPropagation();
                   setIsOpen(true);
                 }}
+                aria-label={`${title} details`}
                 className="flex-1 h-[36px] sm:h-[40px] flex items-center justify-center gap-1 px-2.5 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white text-[11px] sm:text-xs font-black uppercase tracking-wider hover:bg-white hover:text-black active:scale-95 transition-all cursor-pointer whitespace-nowrap"
               >
                 Details
@@ -185,6 +186,7 @@ export default function ServiceCard({
                   e.stopPropagation();
                   setIsOpen(true);
                 }}
+                aria-label={`Book ${title} now`}
                 className="flex-1 h-[36px] sm:h-[40px] flex items-center justify-center gap-1 px-2.5 py-1.5 rounded-full bg-white text-black border-2 border-black text-[11px] sm:text-xs font-black uppercase tracking-wider hover:bg-amber-400 active:scale-95 transition-all shadow-[2px_2px_0px_0px_#000] whitespace-nowrap cursor-pointer"
               >
                 <span>Book Now</span>

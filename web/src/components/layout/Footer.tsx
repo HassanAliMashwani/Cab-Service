@@ -149,7 +149,7 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/services/local-everyday-transport" className="text-zinc-400 hover:text-sky-400 active:text-sky-400 transition-colors uppercase block py-0.5">
+                  <Link href="/services/tours-and-events-transport" className="text-zinc-400 hover:text-sky-400 active:text-sky-400 transition-colors uppercase block py-0.5">
                     Tours &amp; Events
                   </Link>
                 </li>
@@ -282,7 +282,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/services/local-everyday-transport" className="text-white/60 hover:text-sky-400 transition-colors uppercase tracking-wider text-[11px]">
+                <Link href="/services/tours-and-events-transport" className="text-white/60 hover:text-sky-400 transition-colors uppercase tracking-wider text-[11px]">
                   Tours &amp; Events
                 </Link>
               </li>

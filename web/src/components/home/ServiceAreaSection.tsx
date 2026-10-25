@@ -4,6 +4,8 @@ import dynamic from "next/dynamic";
 import React from "react";
 import SlideUp from "@/components/animations/SlideUp";
 
+import Link from "next/link";
+
 // Client-only dynamic import to protect SSR on Vercel
 const ServiceAreaMapClient = dynamic(
   () => import("@/components/home/ServiceAreaMapClient"),
@@ -42,6 +44,22 @@ export default function ServiceAreaSection() {
       </div>
 
       <ServiceAreaMapClient />
+
+      {/* Crawlable Service Area text for SEO and search bots */}
+      <div className="mt-8 pt-6 border-t border-zinc-800/80 text-center max-w-4xl mx-auto px-2">
+        <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-normal">
+          Based in Girrawheen, we provide wheelchair taxi and maxi cab services across Perth and the surrounding 20 km, including{" "}
+          <Link href="/locations" className="text-amber-400 hover:text-amber-300 hover:underline font-semibold">Girrawheen</Link>,{" "}
+          <Link href="/locations" className="text-amber-400 hover:text-amber-300 hover:underline font-semibold">Joondalup</Link>,{" "}
+          <Link href="/locations" className="text-amber-400 hover:text-amber-300 hover:underline font-semibold">Fremantle</Link>,{" "}
+          <Link href="/locations" className="text-amber-400 hover:text-amber-300 hover:underline font-semibold">Perth CBD</Link>,{" "}
+          <Link href="/locations" className="text-amber-400 hover:text-amber-300 hover:underline font-semibold">Scarborough</Link>,{" "}
+          <Link href="/locations" className="text-amber-400 hover:text-amber-300 hover:underline font-semibold">Perth Airport (T1-T4)</Link>,{" "}
+          <Link href="/locations" className="text-amber-400 hover:text-amber-300 hover:underline font-semibold">Swan Valley</Link>,{" "}
+          <Link href="/locations" className="text-amber-400 hover:text-amber-300 hover:underline font-semibold">Nedlands</Link>,{" "}
+          and similar Perth metropolitan hubs.
+        </p>
+      </div>
     </section>
   );
 }

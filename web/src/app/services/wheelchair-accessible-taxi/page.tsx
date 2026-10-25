@@ -4,9 +4,60 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SlideUp from "@/components/animations/SlideUp";
 
+import RelatedServices from "@/components/services/RelatedServices";
+import JsonLd from "@/components/seo/JsonLd";
+import { SITE_URL } from "@/config/site";
+
 export const metadata: Metadata = {
-  title: "Wheelchair Accessible Taxi Perth | Flagship Ramp Service",
-  description: "Specialized wheelchair accessible taxi service in Perth. Low-angle ramps, 4-point Q'Straint tie-downs, trained drivers, and transparent fixed pricing.",
+  title: "Wheelchair Accessible Taxi",
+  description:
+    "Dedicated wheelchair accessible taxis in Perth. Hydraulic ramps, 4-point Q'Straint tie-downs, trained drivers, and NDIS & TUSS approved fixed-price fares.",
+  alternates: {
+    canonical: "/services/wheelchair-accessible-taxi",
+  },
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Wheelchair Accessible Taxi Perth",
+  description:
+    "Dedicated wheelchair accessible taxi service with hydraulic ramps, 4-point Q'Straint tie-downs, and NDIS/TUSS support.",
+  provider: {
+    "@type": "TaxiService",
+    name: "Perth Wheelchair Taxi Van",
+    url: SITE_URL,
+    telephone: "+61493252766",
+  },
+  areaServed: {
+    "@type": "City",
+    name: "Perth",
+  },
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: SITE_URL,
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Services",
+      item: `${SITE_URL}/services`,
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: "Wheelchair Accessible Taxi",
+      item: `${SITE_URL}/services/wheelchair-accessible-taxi`,
+    },
+  ],
 };
 
 export default function WheelchairTaxiPage() {
@@ -20,6 +71,8 @@ export default function WheelchairTaxiPage() {
 
   return (
     <div className="flex flex-col w-full bg-slate-50 min-h-screen">
+      <JsonLd data={serviceSchema} />
+      <JsonLd data={breadcrumbSchema} />
       {/* Hero */}
       <section className="bg-slate-900 text-white py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -170,6 +223,9 @@ export default function WheelchairTaxiPage() {
           </div>
         </div>
       </section>
+
+      {/* Related Services */}
+      <RelatedServices currentSlug="wheelchair-accessible-taxi" />
     </div>
   );
 }

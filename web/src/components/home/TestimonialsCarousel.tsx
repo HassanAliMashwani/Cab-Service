@@ -149,6 +149,7 @@ export default function TestimonialsCarousel() {
         {/* ── Mobile View: Smooth Scroll-Snap Swipe Carousel with scale & opacity (same as Core Services) ── */}
         <div 
           className="block sm:hidden"
+          aria-hidden="true"
           onTouchStart={handleInteractionStart}
           onTouchEnd={handleInteractionEnd}
           onMouseDown={handleInteractionStart}
@@ -188,7 +189,7 @@ export default function TestimonialsCarousel() {
 
                     {/* Review Quote text ~0.95rem */}
                     <p className="text-[0.95rem] font-bold text-white leading-relaxed mb-3 italic relative z-10 line-clamp-4">
-                      "{test.text}"
+                      &ldquo;{test.text}&rdquo;
                     </p>
                   </div>
 
@@ -262,7 +263,7 @@ export default function TestimonialsCarousel() {
                   ))}
                 </div>
                 <p className="text-[14px] font-bold text-white leading-relaxed mb-6 italic relative z-10">
-                  "{test.text}"
+                  &ldquo;{test.text}&rdquo;
                 </p>
               </div>
 

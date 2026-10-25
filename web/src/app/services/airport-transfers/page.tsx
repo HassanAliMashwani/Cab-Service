@@ -5,9 +5,60 @@ import Link from "next/link";
 import SlideUp from "@/components/animations/SlideUp";
 import FadeIn from "@/components/animations/FadeIn";
 
+import RelatedServices from "@/components/services/RelatedServices";
+import JsonLd from "@/components/seo/JsonLd";
+import { SITE_URL } from "@/config/site";
+
 export const metadata: Metadata = {
-  title: "Wheelchair Accessible Airport Transfers Perth (PER) | Direct Meet & Greet",
-  description: "Pre-book your wheelchair accessible airport transfer in Perth. Real-time flight tracking, dedicated curbside ramp boarding at Terminals 1, 2, 3 & 4.",
+  title: "Perth Airport Transfers",
+  description:
+    "24/7 Perth Airport transfers for Terminals T1, T2, T3 & T4. Live flight tracking, meet and greet, wheelchair ramps, and spacious luggage room with no surge.",
+  alternates: {
+    canonical: "/services/airport-transfers",
+  },
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Perth Airport Transfers",
+  description:
+    "24/7 wheelchair accessible and maxi cab transfers to Perth Airport Terminals T1, T2, T3 and T4 with live flight tracking.",
+  provider: {
+    "@type": "TaxiService",
+    name: "Perth Wheelchair Taxi Van",
+    url: SITE_URL,
+    telephone: "+61493252766",
+  },
+  areaServed: {
+    "@type": "City",
+    name: "Perth",
+  },
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: SITE_URL,
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Services",
+      item: `${SITE_URL}/services`,
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: "Perth Airport Transfers",
+      item: `${SITE_URL}/services/airport-transfers`,
+    },
+  ],
 };
 
 export default function AirportTransfersPage() {
@@ -20,6 +71,8 @@ export default function AirportTransfersPage() {
 
   return (
     <div className="flex flex-col w-full bg-slate-50 min-h-screen">
+      <JsonLd data={serviceSchema} />
+      <JsonLd data={breadcrumbSchema} />
       {/* Hero */}
       <section className="bg-slate-900 text-white py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -174,6 +227,9 @@ export default function AirportTransfersPage() {
           </div>
         </div>
       </section>
+
+      {/* Related Services */}
+      <RelatedServices currentSlug="airport-transfers" />
     </div>
   );
 }

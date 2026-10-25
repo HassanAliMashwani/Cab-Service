@@ -1,46 +1,19 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { ChevronDown, HelpCircle } from "lucide-react";
 
-export interface FAQItem {
-  q: string;
-  a: string;
-}
+import { defaultFAQs, type FAQItem } from "@/config/faqs";
+
+export { defaultFAQs };
+export type { FAQItem };
 
 interface FAQAccordionProps {
   items?: FAQItem[];
   title?: string;
   badge?: string;
 }
-
-const defaultFAQs: FAQItem[] = [
-  {
-    q: "How much luggage can your Perth Wheelchair Taxi Vans accommodate?",
-    a: "Our high-roof Toyota HiAce luxury vans easily accommodate up to 8 to 10 large suitcases along with backpacks, prams, golf bags, or surfboards alongside all passengers. You never have to worry about luggage overflowing into passenger seating.",
-  },
-  {
-    q: "How far in advance should I book my transfer?",
-    a: "For Perth Airport transfers (T1, T2, T3, T4) and early morning flights, we recommend booking at least 12 to 24 hours in advance to guarantee your preferred pickup slot. However, we also operate 24/7 and accept same-day and immediate dispatch bookings.",
-  },
-  {
-    q: "How do your wheelchair ramps and safety restraints work?",
-    a: "Our purpose-built wheelchair accessible maxi taxis feature heavy-duty hydraulic lifts or low-angle foldout ramps. The passenger remains securely seated in their wheelchair while our driver anchors the chair to the chassis floor using certified 4-point Q'Straint tie-downs and an over-shoulder lap-sash safety belt.",
-  },
-  {
-    q: "What happens if my flight into Perth Airport is delayed?",
-    a: "We actively monitor live Perth flight arrival schedules using your flight number. Whether your flight lands early or gets delayed by several hours, your driver adjusts your pickup schedule accordingly at zero additional surcharge.",
-  },
-  {
-    q: "Are your prices fixed or metered?",
-    a: "We offer guaranteed fixed-price quotes with zero hidden extras and zero surge pricing. The price you are quoted is the exact price you pay, regardless of traffic delays. Standard Western Australia Department of Transport taxi meters are also available upon request.",
-  },
-  {
-    q: "Do you supply certified baby car seats and child boosters?",
-    a: "Yes. We carry Australian Safety Standard AS/NZS 1754 compliant rear-facing infant capsules, forward-facing toddler seats, and booster seats. All seats are disinfected and pre-installed prior to your pickup.",
-  },
-];
 
 export default function FAQAccordion({
   items = defaultFAQs,
@@ -148,25 +121,23 @@ export default function FAQAccordion({
                   </div>
                 </button>
 
-                {/* Animated Drawer (250ms duration) */}
-                <AnimatePresence initial={false}>
-                  {isOpen && (
-                    <motion.div
-                      key="content"
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.25, ease: "easeInOut" }}
-                      className="overflow-hidden"
-                    >
-                      <div className="px-3.5 pb-3.5 pt-1 sm:px-5 sm:pb-5 text-white/75 sm:text-white/80 font-medium text-[0.8rem] sm:text-base leading-[1.55] sm:leading-relaxed border-t border-zinc-800 sm:border-t-2 sm:border-black/80 bg-zinc-950/40">
-                        <p className="pl-3 sm:pl-8 border-l-2 border-amber-400/50 mt-1">
-                          {faq.a}
-                        </p>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                {/* Animated Drawer — Always in HTML for SEO & crawlers, smoothly collapsed via CSS */}
+                <div
+                  id={`faq-answer-${index}`}
+                  role="region"
+                  aria-labelledby={`faq-question-${index}`}
+                  className={`grid transition-[grid-template-rows,opacity] duration-300 ease-in-out ${
+                    isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                  }`}
+                >
+                  <div className="overflow-hidden">
+                    <div className="px-3.5 pb-3.5 pt-1 sm:px-5 sm:pb-5 text-white/75 sm:text-white/80 font-medium text-[0.8rem] sm:text-base leading-[1.55] sm:leading-relaxed border-t border-zinc-800 sm:border-t-2 sm:border-black/80 bg-zinc-950/40">
+                      <p className="pl-3 sm:pl-8 border-l-2 border-amber-400/50 mt-1">
+                        {faq.a}
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </motion.div>
             );
           })}

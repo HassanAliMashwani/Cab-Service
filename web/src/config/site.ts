@@ -1,3 +1,6 @@
+export const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://maxitaxi-five.vercel.app";
+
 export const SITE_CONFIG = {
   name: "Perth Wheelchair Taxi Van",
   shortName: "Perth Wheelchair Taxi",
@@ -10,4 +13,6 @@ export const SITE_CONFIG = {
   whatsappUrl: (message?: string) => 
     `https://wa.me/61493252766${message ? `?text=${encodeURIComponent(message)}` : ""}`,
   email: "bookings@wheelchairmaxiperth.com",
+  siteUrl: SITE_URL,
 };
+

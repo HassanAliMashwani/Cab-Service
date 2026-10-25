@@ -3,9 +3,12 @@ import SlideUp from "@/components/animations/SlideUp";
 import PerthLocationsRoadmap from "@/components/locations/PerthLocationsRoadmap";
 
 export const metadata: Metadata = {
-  title: "Connected Transit Roadmap | Perth Wheelchair Taxi Van",
+  title: "Service Locations Map",
   description:
-    "Explore our connected transit roadmap across Perth. 24/7 wheelchair accessible taxis and maxi vans serving 16 key metropolitan hubs within 20 km of our Girrawheen base.",
+    "Wheelchair taxi and maxi cab service coverage across Perth. Connecting 16 major suburban hubs within 20 km of our Girrawheen base with 24/7 availability.",
+  alternates: {
+    canonical: "/locations",
+  },
 };
 
 export const suburbs = [

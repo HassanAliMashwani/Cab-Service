@@ -6,9 +6,15 @@ import SlideUp from "@/components/animations/SlideUp";
 import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 import GmailIcon from "@/components/icons/GmailIcon";
 
+import JsonLd from "@/components/seo/JsonLd";
+
 export const metadata: Metadata = {
-  title: "Frequently Asked Questions | Perth Accessible Taxi",
-  description: "Common questions about booking wheelchair accessible taxis in Perth: vehicle ramps, Q'Straint tie-downs, airport transfers, NDIS claiming, and TUSS vouchers.",
+  title: "Frequently Asked Questions",
+  description:
+    "Answers to common questions about Perth wheelchair taxis: ramps, Q'Straint tie-downs, airport meet-and-greets, flight delays, NDIS claims, and child seats.",
+  alternates: {
+    canonical: "/faq",
+  },
 };
 
 export default function FAQPage() {
@@ -79,8 +85,23 @@ export default function FAQPage() {
     }
   ];
 
+  const allFaqs = categories.flatMap((cat) => cat.faqs);
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: allFaqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.a,
+      },
+    })),
+  };
+
   return (
     <div className="flex flex-col w-full bg-slate-50 min-h-screen">
+      <JsonLd data={faqSchema} />
       {/* Hero */}
       <section className="bg-slate-900 text-white py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
