@@ -46,7 +46,7 @@ const services = [
     iconName: "Sparkles",
     gradient: "violet" as const,
     features: ["Tinted Glass", "Dual A/C", "Swan Valley"],
-    serviceHref: "/services/local-everyday-transport",
+    serviceHref: "/services/tours-and-events-transport",
     badgeText: "VIP",
   },
   {
@@ -55,7 +55,7 @@ const services = [
     iconName: "Car",
     gradient: "amber" as const,
     features: ["Optus Stadium", "Crown Perth", "Concerts"],
-    serviceHref: "/services/local-everyday-transport",
+    serviceHref: "/services/tours-and-events-transport",
     badgeText: "Events",
   },
 ];
@@ -142,6 +142,7 @@ export default function CoreServicesCarousel() {
       {/* ── Mobile Horizontal Swipe Carousel with peek (max-width: 640px) ── */}
       <div 
         className="block sm:hidden"
+        aria-hidden="true"
         onTouchStart={handleInteractionStart}
         onTouchEnd={handleInteractionEnd}
         onMouseDown={handleInteractionStart}

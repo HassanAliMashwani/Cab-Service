@@ -28,9 +28,13 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const resolvedParams = await params;
   const suburbName = formatSuburbName(resolvedParams.suburb);
+  const slug = resolvedParams.suburb.toLowerCase();
   return {
-    title: `Wheelchair Accessible Taxi in ${suburbName} | Perth Accessible Taxi`,
-    description: `Reliable and comfortable wheelchair accessible taxi service in ${suburbName}. Book your accessible transport to Perth Airport or local destinations today.`,
+    title: `${suburbName} Taxi`,
+    description: `Wheelchair accessible taxi and maxi cab service in ${suburbName}, WA. 24/7 airport transfers, NDIS transport, fixed quotes, and rapid local dispatch.`,
+    alternates: {
+      canonical: `/locations/${slug}`,
+    },
   };
 }
 
@@ -110,12 +114,12 @@ export default async function SuburbPage({ params }: Props) {
             <SlideUp delay={0.1} className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
               <h3 className="text-xl font-bold mb-2">{suburbName} to Perth Airport</h3>
               <p className="text-slate-600 mb-4">Stress-free airport transfers. We assist with luggage and ensure you arrive with plenty of time for your flight.</p>
-              <Link href="/services/airport-transfers" className="text-primary font-bold hover:underline">Learn more &rarr;</Link>
+              <Link href="/services/airport-transfers" className="text-primary font-bold hover:underline" aria-label={`Airport transfers from ${suburbName}`}>Learn more &rarr;</Link>
             </SlideUp>
             <SlideUp delay={0.2} className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
-              <h3 className="text-xl font-bold mb-2">Medical & Everyday Travel</h3>
-              <p className="text-slate-600 mb-4">Need to get to a hospital, clinic, or shopping centre in or around {suburbName}? We provide reliable point-to-point service.</p>
-              <Link href="/services/local-everyday-transport" className="text-primary font-bold hover:underline">Learn more &rarr;</Link>
+              <h3 className="text-xl font-bold mb-2">Tours &amp; Events Travel</h3>
+              <p className="text-slate-600 mb-4">Need comfortable group transport for concerts, winery tours, or social events in or around {suburbName}? We provide reliable point-to-point service.</p>
+              <Link href="/services/tours-and-events-transport" className="text-primary font-bold hover:underline" aria-label={`Tours and event transport in ${suburbName}`}>Learn more &rarr;</Link>
             </SlideUp>
           </div>
         </div>

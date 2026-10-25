@@ -5,9 +5,60 @@ import Link from "next/link";
 import SlideUp from "@/components/animations/SlideUp";
 import FadeIn from "@/components/animations/FadeIn";
 
+import RelatedServices from "@/components/services/RelatedServices";
+import JsonLd from "@/components/seo/JsonLd";
+import { SITE_URL } from "@/config/site";
+
 export const metadata: Metadata = {
-  title: "Maxi Taxi with Baby Seat Perth | Certified Child & Booster Seats",
-  description: "Book a Maxi Taxi in Perth equipped with certified baby capsules, toddler car seats, and booster seats (AS/NZS 1754). Sanitized and securely installed for stress-free family travel.",
+  title: "Baby Seat Maxi Taxi",
+  description:
+    "Perth baby seat taxis with pre-installed AS/NZS 1754 capsules and booster seats. Safe, sanitised family maxi cabs with plenty of room for prams and luggage.",
+  alternates: {
+    canonical: "/services/baby-seat-taxi",
+  },
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Baby Seat Maxi Taxi Perth",
+  description:
+    "Perth maxi taxis equipped with certified baby capsules, toddler car seats, and booster seats compliant with AS/NZS 1754.",
+  provider: {
+    "@type": "TaxiService",
+    name: "Perth Wheelchair Taxi Van",
+    url: SITE_URL,
+    telephone: "+61493252766",
+  },
+  areaServed: {
+    "@type": "City",
+    name: "Perth",
+  },
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: SITE_URL,
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Services",
+      item: `${SITE_URL}/services`,
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: "Baby Seat Maxi Taxi",
+      item: `${SITE_URL}/services/baby-seat-taxi`,
+    },
+  ],
 };
 
 export default function BabySeatTaxiPage() {
@@ -53,6 +104,8 @@ export default function BabySeatTaxiPage() {
 
   return (
     <div className="flex flex-col w-full bg-slate-50 min-h-screen">
+      <JsonLd data={serviceSchema} />
+      <JsonLd data={breadcrumbSchema} />
       {/* Hero */}
       <section className="bg-slate-900 text-white py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -240,6 +293,9 @@ export default function BabySeatTaxiPage() {
           </div>
         </div>
       </section>
+
+      {/* Related Services */}
+      <RelatedServices currentSlug="baby-seat-taxi" />
     </div>
   );
 }

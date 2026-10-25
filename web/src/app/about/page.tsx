@@ -11,10 +11,15 @@ import AboutStatsCounter from "@/components/about/AboutStatsCounter";
 import CoreValuesGrid from "@/components/about/CoreValuesGrid";
 import FleetGallery from "@/components/about/FleetGallery";
 
+import Image from "next/image";
+
 export const metadata: Metadata = {
-  title: "About Us | Perth Wheelchair Taxi Van | Wheelchair Accessible & Group Transport",
+  title: "About Us",
   description:
-    "Learn about Perth Wheelchair Taxi Van: Western Australia's trusted provider for wheelchair-accessible transport, guaranteed airport transfers, and NDIS support.",
+    "Learn about Perth Wheelchair Taxi Van. Over 10 years of trusted wheelchair accessible transport, NDIS accreditation, professional drivers, and maxi cabs.",
+  alternates: {
+    canonical: "/about",
+  },
 };
 
 export default function AboutPage() {
@@ -94,11 +99,12 @@ export default function AboutPage() {
 
                   {/* Main Image Container */}
                   <div className="relative h-full w-full bg-zinc-900 border-3 border-black rounded-xl overflow-hidden shadow-xl z-10">
-                    <img
+                    <Image
                       src="/images/our-story-maxi.jpg"
                       alt="Perth Wheelchair Taxi Van with passenger assistance ramp in Perth"
-                      loading="lazy"
-                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 40vw"
+                      className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
 
@@ -262,9 +268,11 @@ export default function AboutPage() {
 
                 {/* Clean NDIS Logo placed in front of pills */}
                 <div className="shrink-0">
-                  <img
+                  <Image
                     src="/images/ndis-badge.png"
-                    alt="Official NDIS Registered Provider"
+                    alt="Official NDIS Registered Provider badge"
+                    width={96}
+                    height={96}
                     className="w-14 h-14 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain rounded-xl shadow-md border-2 border-black"
                   />
                 </div>

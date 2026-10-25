@@ -18,8 +18,12 @@ import HowItWorks from "@/components/services/HowItWorks";
 import TestimonialsCarousel from "@/components/home/TestimonialsCarousel";
 
 export const metadata: Metadata = {
-  title: "Perth Wheelchair Taxi Van Services | Airport Transfers & Accessible Travel",
-  description: "Explore our full range of Perth Wheelchair Taxi Van services. Guaranteed airport transfers (T1-T4), wheelchair-accessible taxis, and comfortable family travel.",
+  title: "Our Fleet Services",
+  description:
+    "Explore our specialized Perth taxi services: wheelchair accessible vans, airport transfers, NDIS transport, baby seat taxis, and group maxi cab charters.",
+  alternates: {
+    canonical: "/services",
+  },
 };
 
 /* ── Service card data — short features (≤4 words each) ── */
@@ -48,7 +52,7 @@ const servicesList = [
     iconName: "Sparkles" as const,
     gradient: "violet" as const,
     features: ["Tinted Glass", "Dual A/C", "Swan Valley"],
-    serviceHref: "/services/local-everyday-transport",
+    serviceHref: "/services/tours-and-events-transport",
     badgeText: "VIP",
   },
   {
@@ -96,13 +100,9 @@ export default function ServicesPage() {
 
           {/* Giant brutalist headline */}
           <SlideUp delay={0.05}>
-            <h1 className="text-[clamp(3.5rem,15vw,10rem)] font-black uppercase leading-[0.9] tracking-tighter text-white mb-1 select-none">
-              OUR
-            </h1>
-          </SlideUp>
-          <SlideUp delay={0.1}>
-            <h1 className="text-[clamp(3.5rem,15vw,10rem)] font-black uppercase leading-[0.9] tracking-tighter text-amber-400 mb-0 select-none">
-              SERVICES
+            <h1 className="text-[clamp(3.5rem,15vw,10rem)] font-black uppercase leading-[0.9] tracking-tighter mb-0 select-none">
+              <span className="text-white block mb-1">OUR</span>
+              <span className="text-amber-400 block">SERVICES</span>
             </h1>
           </SlideUp>
           <SlideUp delay={0.15}>

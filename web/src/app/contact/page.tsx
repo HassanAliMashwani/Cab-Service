@@ -5,9 +5,12 @@ import GmailIcon from "@/components/icons/GmailIcon";
 import ContactForm from "@/components/contact/ContactForm";
 
 export const metadata: Metadata = {
-  title: "Contact Perth Wheelchair Taxi Van | Direct Call, WhatsApp & Quick Booking",
+  title: "Contact Us",
   description:
-    "Direct contact for Perth's premier wheelchair accessible taxi van service. Call or message WhatsApp +61 493 252 766 for immediate fixed quotes.",
+    "Contact Perth Wheelchair Taxi Van 24/7. Call or WhatsApp +61 493 252 766 or send an enquiry for reliable wheelchair taxis and maxi cabs across Perth.",
+  alternates: {
+    canonical: "/contact",
+  },
 };
 
 export default function ContactPage() {

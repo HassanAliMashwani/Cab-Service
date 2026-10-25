@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { 
   ShieldCheck, 
@@ -19,25 +21,54 @@ import {
 import FadeIn from "@/components/animations/FadeIn";
 import SlideUp from "@/components/animations/SlideUp";
 import FAQAccordion from "@/components/services/FAQAccordion";
+import { defaultFAQs } from "@/config/faqs";
 import TestimonialsCarousel from "@/components/home/TestimonialsCarousel";
 import VehicleShowcase from "@/components/home/VehicleShowcase";
 import CoreServicesCarousel from "@/components/home/CoreServicesCarousel";
 import HowItWorks from "@/components/home/HowItWorks";
 import ServiceAreaSection from "@/components/home/ServiceAreaSection";
+import JsonLd from "@/components/seo/JsonLd";
+
+export const metadata: Metadata = {
+  title: {
+    absolute: "Wheelchair Taxi Perth | Maxi Cab & Airport Transfers 24/7",
+  },
+  description:
+    "Wheelchair accessible 7-11 seater maxi cab in Perth. NDIS & TUSS, fixed quotes, 24/7 airport transfers. Call or WhatsApp +61 493 252 766 for fast booking.",
+  alternates: {
+    canonical: "/",
+  },
+};
+
+const faqPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: defaultFAQs.map((faq) => ({
+    "@type": "Question",
+    name: faq.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.a,
+    },
+  })),
+};
 
 export default function Home() {
   return (
     <div className="flex flex-col w-full bg-slate-50 min-h-screen">
+      <JsonLd data={faqPageSchema} />
       {/* ── Cinematic Hero Section ── */}
       <section className="relative w-full h-[62svh] min-h-[390px] max-h-[500px] sm:h-[100svh] sm:min-h-[680px] sm:max-h-[1080px] flex flex-col justify-between pt-[calc(var(--header-height,4rem)+0.5rem)] pb-3 sm:pt-28 sm:pb-8 lg:pb-12 overflow-hidden">
         
         {/* Background Image & Crisp Overlays */}
         <div className="absolute inset-0 z-0">
-          <img 
+          <Image 
             src="/images/hero-white-van.jpg" 
             alt="White wheelchair-accessible maxi cab in front of the Perth skyline at sunset" 
-            fetchPriority="high"
-            className="w-full h-full object-cover object-[70%_center] lg:object-center brightness-[0.95] sm:brightness-105"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-[70%_center] lg:object-center brightness-[0.95] sm:brightness-105"
           />
           {/* Subtle top header gradient so navbar text stays crisp */}
           <div className="absolute top-0 left-0 right-0 h-28 sm:h-36 bg-gradient-to-b from-black/75 sm:from-black/55 to-transparent pointer-events-none" />

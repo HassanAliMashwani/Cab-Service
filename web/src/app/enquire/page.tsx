@@ -3,8 +3,12 @@ import EnquiryForm from "@/components/booking/EnquiryForm";
 import BackButton from "@/components/ui/BackButton";
 
 export const metadata: Metadata = {
-  title: "Secure Your Booking | Perth Wheelchair Taxi Van",
-  description: "Book wheelchair-accessible transport in Perth with Perth Wheelchair Taxi Van. Guaranteed ramps, accredited drivers, direct WhatsApp confirmation, and fixed upfront fares.",
+  title: "Book a Ride Online",
+  description:
+    "Book a wheelchair accessible taxi or maxi cab in Perth. Get guaranteed fixed pricing, instant confirmation, airport pickups, and NDIS invoicing online.",
+  alternates: {
+    canonical: "/enquire",
+  },
 };
 
 export default function EnquirePage() {
