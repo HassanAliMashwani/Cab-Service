@@ -19,11 +19,11 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Wheelchair Taxi Perth | Maxi Cab & Airport Transfers 24/7",
+    default: "Wheelchair Taxi Perth | Accessible Taxi Vans 24/7",
     template: "%s | Perth Wheelchair Taxi Van",
   },
   description:
-    "Wheelchair accessible 7-11 seater maxi cab in Perth. NDIS & TUSS, fixed quotes, 24/7 airport transfers. Call or WhatsApp +61 493 252 766 for fast booking.",
+    "Wheelchair accessible taxi vans in Perth with ramp or lift access, for up to 10 passengers. NDIS & TUSS accepted. Call or WhatsApp +61 493 252 766.",
   robots: {
     index: true,
     follow: true,
@@ -33,9 +33,9 @@ export const metadata: Metadata = {
     siteName: "Perth Wheelchair Taxi Van",
     locale: "en_AU",
     url: SITE_URL,
-    title: "Wheelchair Taxi Perth | Maxi Cab & Airport Transfers 24/7",
+    title: "Wheelchair Taxi Perth | Accessible Taxi Vans 24/7",
     description:
-      "Wheelchair accessible 7-11 seater maxi cab in Perth. NDIS & TUSS, fixed quotes, 24/7 airport transfers. Call or WhatsApp +61 493 252 766 for fast booking.",
+      "Wheelchair accessible taxi vans in Perth with ramp or lift access, for up to 10 passengers. NDIS & TUSS accepted. Call or WhatsApp +61 493 252 766.",
     images: [
       {
         url: "/images/hero-white-van.jpg",
@@ -47,9 +47,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Wheelchair Taxi Perth | Maxi Cab & Airport Transfers 24/7",
+    title: "Wheelchair Taxi Perth | Accessible Taxi Vans 24/7",
     description:
-      "Wheelchair accessible 7-11 seater maxi cab in Perth. NDIS & TUSS, fixed quotes, 24/7 airport transfers. Call or WhatsApp +61 493 252 766 for fast booking.",
+      "Wheelchair accessible taxi vans in Perth with ramp or lift access, for up to 10 passengers. NDIS & TUSS accepted. Call or WhatsApp +61 493 252 766.",
     images: ["/images/hero-white-van.jpg"],
   },
 };
@@ -57,7 +57,10 @@ export const metadata: Metadata = {
 const taxiServiceSchema = {
   "@context": "https://schema.org",
   "@type": "TaxiService",
+  "@id": `${SITE_URL}/#business`,
   name: "Perth Wheelchair Taxi Van",
+  description:
+    "Wheelchair accessible taxi vans in Perth, Western Australia, carrying up to 10 passengers. NDIS and TUSS accepted, 24/7.",
   url: SITE_URL,
   telephone: "+61493252766",
   email: "bookings@wheelchairmaxiperth.com",
@@ -74,6 +77,13 @@ const taxiServiceSchema = {
     { "@type": "Place", name: "Perth Airport" },
     { "@type": "City", name: "Fremantle" },
     { "@type": "City", name: "Joondalup" },
+  ],
+  amenityFeature: [
+    {
+      "@type": "LocationFeatureSpecification",
+      name: "Wheelchair accessible",
+      value: true,
+    },
   ],
   openingHoursSpecification: [
     {

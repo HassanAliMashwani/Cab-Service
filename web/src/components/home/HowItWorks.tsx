@@ -9,7 +9,7 @@ const steps = [
     step: "1",
     title: "Select Service",
     description:
-      "Pick wheelchair accessible, 7-11 seater, or baby seat taxi with your pickup date & time.",
+      "Pick wheelchair accessible, up to 10 passengers, or baby seat taxi with your pickup date & time.",
     hoverColor: "group-hover:bg-amber-400 group-hover:text-black",
     colorAccent: "text-amber-400",
   },
@@ -17,7 +17,7 @@ const steps = [
     step: "2",
     title: "Instant Fixed Quote",
     description:
-      "We confirm vehicle availability and send an upfront fixed quote with no surge fees.",
+      "We confirm vehicle availability and send an upfront quote.",
     hoverColor: "group-hover:bg-emerald-500 group-hover:text-black",
     colorAccent: "text-emerald-400",
   },

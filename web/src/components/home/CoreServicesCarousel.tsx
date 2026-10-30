@@ -5,29 +5,29 @@ import ServiceCard from "@/components/services/ServiceCard";
 
 const services = [
   {
-    title: "Airport Transfer",
-    tagline: "T1 · T2 · T3 · T4",
-    iconName: "Plane",
-    gradient: "amber" as const,
-    features: ["Live Flight", "Meet & Greet", "8-10 Bags"],
-    serviceHref: "/services/airport-transfers",
+    title: "Wheelchair Taxi",
+    tagline: "Girrawheen & Perth Metro",
+    iconName: "Accessibility",
+    gradient: "sky" as const,
+    features: ["Ramp or Lift", "Secure Restraints", "Carer Welcome"],
+    serviceHref: "/services/wheelchair-accessible-taxi",
     badgeText: "24/7",
   },
   {
-    title: "Wheelchair Taxi",
-    tagline: "NDIS · TUSS",
-    iconName: "Accessibility",
-    gradient: "sky" as const,
-    features: ["Ramp Lift", "Q'Straint", "NDIS Invoice"],
-    serviceHref: "/services/wheelchair-accessible-taxi",
+    title: "NDIS & Medical Transport",
+    tagline: "NDIS · TUSS · Medical",
+    iconName: "HeartPulse",
+    gradient: "rose" as const,
+    features: ["Medical Visits", "TUSS Vouchers", "NDIS Invoice"],
+    serviceHref: "/services/medical-ndis-transport",
     badgeText: "NDIS",
   },
   {
     title: "Group Maxi Cab",
-    tagline: "7 to 11 Seats",
+    tagline: "Up to 10 Passengers",
     iconName: "Users",
     gradient: "emerald" as const,
-    features: ["7-11 Seater", "Dual A/C", "Swan Valley"],
+    features: ["Up to 10 Passengers", "Dual A/C", "Swan Valley"],
     serviceHref: "/services/group-maxi-cab",
     badgeText: "Spacious",
   },
@@ -35,28 +35,28 @@ const services = [
     title: "Baby Seat Taxi",
     tagline: "Pre-installed Seats",
     iconName: "Baby",
-    gradient: "rose" as const,
+    gradient: "amber" as const,
     features: ["Baby Seats", "Capsules", "Clean & Safe"],
     serviceHref: "/services/baby-seat-taxi",
     badgeText: "Family",
+  },
+  {
+    title: "Airport Transfer",
+    tagline: "T1 · T2 · T3 · T4",
+    iconName: "Plane",
+    gradient: "amber" as const,
+    features: ["Flight Timing", "Meet & Greet", "Luggage by Arrangement"],
+    serviceHref: "/services/airport-transfers",
+    badgeText: "24/7",
   },
   {
     title: "Weddings & Events",
     tagline: "Charters & Celebrations",
     iconName: "Sparkles",
     gradient: "violet" as const,
-    features: ["Tinted Glass", "Dual A/C", "Swan Valley"],
+    features: ["Up to 10 Passengers", "Dual A/C", "Swan Valley"],
     serviceHref: "/services/tours-and-events-transport",
     badgeText: "VIP",
-  },
-  {
-    title: "Local Events",
-    tagline: "Perth & Surrounds",
-    iconName: "Car",
-    gradient: "amber" as const,
-    features: ["Optus Stadium", "Crown Perth", "Concerts"],
-    serviceHref: "/services/tours-and-events-transport",
-    badgeText: "Events",
   },
 ];
 
@@ -140,7 +140,7 @@ export default function CoreServicesCarousel() {
   return (
     <div>
       {/* ── Mobile Horizontal Swipe Carousel with peek (max-width: 640px) ── */}
-      <div 
+      <div
         className="block sm:hidden"
         aria-hidden="true"
         onTouchStart={handleInteractionStart}
@@ -159,11 +159,10 @@ export default function CoreServicesCarousel() {
           {services.map((item, idx) => (
             <div
               key={idx}
-              className={`w-[84vw] max-w-[340px] shrink-0 snap-center transition-all duration-500 ease-in-out ${
-                activeIndex === idx
+              className={`w-[84vw] max-w-[340px] shrink-0 snap-center transition-all duration-500 ease-in-out ${activeIndex === idx
                   ? "scale-100 opacity-100"
                   : "scale-[0.95] opacity-70"
-              }`}
+                }`}
             >
               <ServiceCard
                 title={item.title}
@@ -189,11 +188,10 @@ export default function CoreServicesCarousel() {
                 scrollTo(i);
                 handleInteractionEnd();
               }}
-              className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                activeIndex === i
+              className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${activeIndex === i
                   ? "w-6 bg-amber-400"
                   : "w-2 bg-zinc-700 hover:bg-zinc-500"
-              }`}
+                }`}
               aria-label={`Go to service ${i + 1}`}
             />
           ))}

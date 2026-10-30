@@ -9,10 +9,10 @@ export default function VehicleShowcase() {
   const specs = [
     { label: "Ramp Angle & Width", value: "850mm wide, low gradient 1:6 angle for easy boarding" },
     { label: "Door Clearance", value: "1,550mm vertical entry height (fits high-headrest powerchairs)" },
-    { label: "Tie-Down System", value: "4-point Q'Straint self-tensioning retractors + lap/sash belt" },
-    { label: "Max Weight Capacity", value: "Tested & certified for chairs up to 360 kg (Bariatric ready)" },
-    { label: "Companion Seating", value: "Seats 4 to 6 additional family members alongside wheelchair" },
-    { label: "Luggage Space", value: "Spacious boot accommodates 3–4 large suitcases plus medical gear" },
+    { label: "Tie-Down System", value: "4-point floor restraints + lap/sash safety belt" },
+    { label: "Max Weight Capacity", value: "Accommodates manual and powered wheelchairs" },
+    { label: "Companion Seating", value: "Carries up to 10 passengers; space for companions alongside wheelchair" },
+    { label: "Luggage Space", value: "Luggage space by arrangement for suitcases and mobility gear" },
   ];
 
   return (

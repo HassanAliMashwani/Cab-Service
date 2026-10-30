@@ -147,7 +147,7 @@ export default function TestimonialsCarousel() {
         </div>
 
         {/* ── Mobile View: Smooth Scroll-Snap Swipe Carousel with scale & opacity (same as Core Services) ── */}
-        <div 
+        <div
           className="block sm:hidden"
           aria-hidden="true"
           onTouchStart={handleInteractionStart}
@@ -167,15 +167,14 @@ export default function TestimonialsCarousel() {
             {testimonials.map((test, idx) => (
               <div
                 key={idx}
-                className={`w-[84vw] max-w-[340px] shrink-0 snap-center transition-all duration-500 ease-in-out ${
-                  activeIndex === idx
+                className={`w-[84vw] max-w-[340px] shrink-0 snap-center transition-all duration-500 ease-in-out ${activeIndex === idx
                     ? "scale-100 opacity-100"
                     : "scale-[0.95] opacity-70"
-                }`}
+                  }`}
               >
                 <div className="bg-zinc-900 border-3 border-black p-5 shadow-[4px_4px_0px_0px_#000] relative flex flex-col justify-between h-[230px] rounded-none">
                   <Quote className="absolute top-3 right-3 w-10 h-10 text-white/5 pointer-events-none" />
-                  
+
                   <div>
                     {/* Star rating */}
                     <div className="flex items-center gap-1 mb-2.5">
@@ -228,11 +227,10 @@ export default function TestimonialsCarousel() {
                     handleInteractionEnd();
                   }}
                   aria-label={`Go to review ${i + 1}`}
-                  className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                    activeIndex === i 
-                      ? "w-6 bg-amber-400 shadow-[0_0_8px_rgba(251,191,36,0.5)]" 
+                  className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${activeIndex === i
+                      ? "w-6 bg-amber-400 shadow-[0_0_8px_rgba(251,191,36,0.5)]"
                       : "w-2 bg-zinc-700 hover:bg-zinc-500"
-                  }`}
+                    }`}
                 />
               ))}
             </div>

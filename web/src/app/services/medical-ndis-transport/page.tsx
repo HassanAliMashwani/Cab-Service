@@ -8,11 +8,12 @@ import FadeIn from "@/components/animations/FadeIn";
 import RelatedServices from "@/components/services/RelatedServices";
 import JsonLd from "@/components/seo/JsonLd";
 import { SITE_URL } from "@/config/site";
+import { defaultFAQs } from "@/config/faqs";
 
 export const metadata: Metadata = {
-  title: "NDIS & Medical Transport",
+  title: "NDIS Wheelchair Transport Perth",
   description:
-    "Reliable medical and NDIS transport in Perth. Hospital clinic visits, therapy appointments, itemized tax invoices, and official WA TUSS voucher acceptance.",
+    "Wheelchair accessible medical and NDIS transport in Perth. Rear ramp or lift van for hospital visits and therapy. WA TUSS vouchers and NDIS invoices 24/7.",
   alternates: {
     canonical: "/services/medical-ndis-transport",
   },
@@ -23,7 +24,7 @@ const serviceSchema = {
   "@type": "Service",
   name: "NDIS & Medical Transport Perth",
   description:
-    "Specialized NDIS transport and hospital appointment taxi services in Perth with TUSS voucher acceptance and itemized invoicing.",
+    "Wheelchair accessible medical and NDIS taxi transport in Perth with rear ramp or lift. WA TUSS vouchers and itemised NDIS invoices accepted 24/7.",
   provider: {
     "@type": "TaxiService",
     name: "Perth Wheelchair Taxi Van",
@@ -74,37 +75,18 @@ export default function MedicalNdisTransportPage() {
   ];
 
   const features = [
-    "Fixed-time pickup guaranteed — never miss a medical consultation or treatment session",
-    "Driver stays on standby or arranges exact return pickup time after appointment",
+    "Reliable pickup timing — scheduled around your medical consultation or treatment session",
+    "Driver stays on standby or arranges return pickup time after appointment",
     "Assistance provided from clinic/hospital entrance directly into the vehicle",
     "Spacious cabin allowing support worker, nurse, or family members to sit adjacent to wheelchair",
     "Compliant with Western Australia Department of Transport accessible vehicle standards",
     "Detailed tax invoices generated for NDIS plan managers and self-managed participants",
   ];
 
-  const faqs = [
-    {
-      q: "Can I use my NDIS funding for these taxi trips?",
-      a: "Yes. If your NDIS plan includes transport funding under Core Supports (Category 04: Assistance with Social and Economic Participation or specialized transport), we provide fully compliant tax invoices that you or your plan manager can claim immediately."
-    },
-    {
-      q: "Do you accept Western Australia TUSS vouchers?",
-      a: "Yes. We accept Western Australia Taxi User Subsidy Scheme (TUSS) vouchers. Hand the endorsed voucher to your driver, and you only pay the subsidized co-payment rate (typically 50% or 75% off the metered/agreed fare)."
-    },
-    {
-      q: "Can my support worker or carer ride with me?",
-      a: "Absolutely. Our accessible vehicles comfortably seat the wheelchair passenger plus up to 4 to 6 additional companions, family members, or support staff at no extra charge."
-    },
-    {
-      q: "Can the driver wait during my appointment?",
-      a: "Yes. For medical visits, dialysis, dental surgery, or day hospital procedures, you can pre-book a round trip with scheduled standby time or a guaranteed return collection time."
-    }
-  ];
-
   const medicalFaqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: faqs.map((faq) => ({
+    mainEntity: defaultFAQs.map((faq) => ({
       "@type": "Question",
       name: faq.q,
       acceptedAnswer: {
@@ -233,7 +215,7 @@ export default function MedicalNdisTransportPage() {
                 <h3 className="text-xl font-bold text-slate-900 mb-4">
                   NDIS & Medical Transport FAQs
                 </h3>
-                {faqs.map((faq, idx) => (
+                {defaultFAQs.map((faq, idx) => (
                   <div key={idx} className="bg-white p-6 rounded-2xl border border-slate-200">
                     <h4 className="font-bold text-slate-900 text-base mb-2">{faq.q}</h4>
                     <p className="text-slate-600 text-sm leading-relaxed">{faq.a}</p>

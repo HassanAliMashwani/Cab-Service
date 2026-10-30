@@ -52,23 +52,23 @@ export default function TermsAndConditionsPage() {
             </div>
 
             <div>
-              <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-3">2. Fixed Pricing Guarantee</h2>
+              <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-3">2. Upfront Pricing</h2>
               <p>
-                Quoted fixed prices are honored as stated, with no surge pricing during rain or peak demand. Standard airport parking fees or bridge/toll charges, if incurred, are disclosed upfront. Department of Transport regulated meter fares are available upon passenger request prior to trip departure.
+                Quoted prices are honored as stated, with upfront rates agreed before travel. Standard airport parking fees or bridge/toll charges, if incurred, are disclosed upfront. Department of Transport regulated meter fares are available upon passenger request prior to trip departure.
               </p>
             </div>
 
             <div>
               <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-3">3. Airport Pickups &amp; Flight Delays</h2>
               <p>
-                For Perth Airport (T1, T2, T3, T4) pickups, our dispatch monitors flight arrival radar. There are no penalty charges for commercial airline delays. Passengers are met at the designated terminal commercial pickup area with ramps prepped.
+                For Perth Airport (T1, T2, T3, T4) pickups, our dispatch plans around your flight schedule. Passengers are met at the designated terminal commercial pickup area with ramps or lift prepped.
               </p>
             </div>
 
             <div>
               <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-3">4. Wheelchair &amp; Restraint Compliance</h2>
               <p>
-                Safety is paramount. All wheelchairs, electric powerchairs, and mobility scooters are secured using certified 4-point Q&apos;Straint chassis tie-downs and Australian standard passenger lap/sash belts. Passengers must follow the driver&apos;s safety instructions during ramp loading and restraint fastening.
+                Safety is paramount. All wheelchairs, electric powerchairs, and mobility scooters are secured using certified 4-point chassis tie-downs and Australian standard passenger lap/sash belts. Passengers must follow the driver&apos;s safety instructions during ramp loading and restraint fastening.
               </p>
             </div>
 

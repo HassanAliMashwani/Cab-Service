@@ -29,49 +29,67 @@ export const metadata: Metadata = {
 /* ── Service card data — short features (≤4 words each) ── */
 const servicesList = [
   {
+    title: "Wheelchair Taxi",
+    tagline: "Girrawheen & Perth Metro",
+    iconName: "Accessibility" as const,
+    gradient: "sky" as const,
+    features: ["Ramp or Lift", "Secure Restraints", "Carer Welcome"],
+    serviceHref: "/services/wheelchair-accessible-taxi",
+    badgeText: "24/7",
+  },
+  {
+    title: "NDIS & Medical Transport",
+    tagline: "NDIS · TUSS · Medical",
+    iconName: "HeartPulse" as const,
+    gradient: "rose" as const,
+    features: ["Medical Visits", "TUSS Vouchers", "NDIS Invoice"],
+    serviceHref: "/services/medical-ndis-transport",
+    badgeText: "NDIS",
+  },
+  {
+    title: "Group Maxi Cab",
+    tagline: "Up to 10 Passengers",
+    iconName: "Users" as const,
+    gradient: "emerald" as const,
+    features: ["Up to 10 Passengers", "Dual A/C", "Swan Valley"],
+    serviceHref: "/services/group-maxi-cab",
+    badgeText: "Spacious",
+  },
+  {
+    title: "Baby Seat Taxi",
+    tagline: "Pre-installed Seats",
+    iconName: "Baby" as const,
+    gradient: "amber" as const,
+    features: ["Baby Seats", "Capsules", "Clean & Safe"],
+    serviceHref: "/services/baby-seat-taxi",
+    badgeText: "Family",
+  },
+  {
     title: "Airport Transfer",
     tagline: "T1 · T2 · T3 · T4",
     iconName: "Plane" as const,
     gradient: "amber" as const,
-    features: ["Live Flight", "Meet & Greet", "8-10 Bags"],
+    features: ["Flight Timing", "Meet & Greet", "Luggage by Arrangement"],
     serviceHref: "/services/airport-transfers",
-    badgeText: "24 / 7",
-  },
-  {
-    title: "Wheelchair Access",
-    tagline: "NDIS · TUSS · Q'Straint",
-    iconName: "Accessibility" as const,
-    gradient: "sky" as const,
-    features: ["Ramp Lift", "Q'Straint", "NDIS Invoice"],
-    serviceHref: "/services/wheelchair-accessible-taxi",
-    badgeText: "NDIS",
+    badgeText: "24/7",
   },
   {
     title: "Weddings & Events",
     tagline: "Charters · Celebrations",
     iconName: "Sparkles" as const,
     gradient: "violet" as const,
-    features: ["Tinted Glass", "Dual A/C", "Swan Valley"],
+    features: ["Up to 10 Passengers", "Dual A/C", "Swan Valley"],
     serviceHref: "/services/tours-and-events-transport",
     badgeText: "VIP",
-  },
-  {
-    title: "Family & Groups",
-    tagline: "7 to 11 Seater Capacity",
-    iconName: "Users" as const,
-    gradient: "emerald" as const,
-    features: ["7-11 Seater", "Baby Seats", "Fixed Price"],
-    serviceHref: "/services/group-maxi-cab",
-    badgeText: "Family",
   },
 ];
 
 /* ── Stats data ── */
 const stats = [
-  { value: "24/7", label: "Always Available", icon: Clock },
-  { value: "11", label: "Max Passengers", icon: Users },
-  { value: "4", label: "Core Services", icon: Star },
-  { value: "0", label: "Surge Pricing", icon: Zap },
+  { value: "24/7", label: "Open 24/7", icon: Clock },
+  { value: "10", label: "Max Passengers", icon: Users },
+  { value: "TUSS", label: "Vouchers Accepted", icon: Star },
+  { value: "NDIS", label: "Invoices Provided", icon: ShieldCheck },
 ];
 
 export default function ServicesPage() {
@@ -107,7 +125,7 @@ export default function ServicesPage() {
           </SlideUp>
           <SlideUp delay={0.15}>
             <p className="mt-3 sm:mt-6 text-xs sm:text-sm md:text-base font-bold uppercase tracking-wider text-zinc-300 max-w-2xl">
-              Guaranteed On-Time Airport Transfers, Wheelchair Accessible &amp; Group Travel Across Greater Perth
+              Wheelchair Accessible Taxi Vans, NDIS &amp; Group Travel Across Greater Perth
             </p>
           </SlideUp>
 
@@ -158,7 +176,7 @@ export default function ServicesPage() {
           </div>
 
           {/* Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {servicesList.map((service, index) => (
               <div key={index} className="h-full flex flex-col">
                 <ServiceCard
@@ -181,7 +199,7 @@ export default function ServicesPage() {
           BELOW-FOLD: How It Works & Reviews Carousel (Matching Home)
          ═════════════════════════════════════════════════════════════ */}
       <HowItWorks />
-      
+
       {/* Testimonials Carousel matching Home */}
       <section className="w-full border-b-4 border-zinc-800">
         <TestimonialsCarousel />

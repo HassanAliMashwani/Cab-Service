@@ -10,9 +10,9 @@ import JsonLd from "@/components/seo/JsonLd";
 import { SITE_URL } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "Perth Airport Transfers",
+  title: "Wheelchair Airport Taxi Perth",
   description:
-    "24/7 Perth Airport transfers for Terminals T1, T2, T3 & T4. Live flight tracking, meet and greet, wheelchair ramps, and spacious luggage room with no surge.",
+    "Wheelchair accessible Perth Airport transfers for Terminals T1-T4. Rear ramp or lift van carrying up to 10 passengers and luggage. 24/7 service.",
   alternates: {
     canonical: "/services/airport-transfers",
   },
@@ -23,7 +23,7 @@ const serviceSchema = {
   "@type": "Service",
   name: "Perth Airport Transfers",
   description:
-    "24/7 wheelchair accessible and maxi cab transfers to Perth Airport Terminals T1, T2, T3 and T4 with live flight tracking.",
+    "Wheelchair accessible Perth Airport transfers for Terminals T1-T4. Rear ramp or lift taxi van carrying up to 10 passengers and luggage 24/7.",
   provider: {
     "@type": "TaxiService",
     name: "Perth Wheelchair Taxi Van",
@@ -86,7 +86,10 @@ export default function AirportTransfersPage() {
                 Wheelchair Accessible Perth Airport Transfers
               </h1>
               <p className="text-lg lg:text-xl text-slate-300 leading-relaxed">
-                Arriving or departing Perth Airport? We monitor your flight live, wait curbside with the ramp deployed, and assist with all luggage into your hotel or home.
+                Arriving or departing Perth Airport? We plan around your flight, wait curbside with the ramp deployed, and assist with luggage into your hotel or home.
+              </p>
+              <p className="mt-3 text-sm text-amber-300 font-semibold">
+                Our vehicles are fully <Link href="/services/wheelchair-accessible-taxi" className="underline underline-offset-4 hover:text-white">wheelchair accessible</Link> with rear ramp or lift access.
               </p>
             </SlideUp>
 
@@ -125,7 +128,7 @@ export default function AirportTransfersPage() {
                   Long-haul flights and disembarking in a wheelchair can be exhausting. Standard taxi ranks at Perth Airport rarely have ramp-equipped vehicles waiting on demand, leading to unpredictable waiting times.
                 </p>
                 <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
-                  When you pre-book with us, our driver monitors your inbound flight radar. We account for customs clearance or baggage handling delays, ensuring your taxi is ready when you step through terminal doors.
+                  When you pre-book with us, our driver plans around your inbound flight timing. We account for customs clearance or baggage handling delays, ensuring your taxi is ready when you step through terminal doors.
                 </p>
               </div>
 
@@ -159,10 +162,10 @@ export default function AirportTransfersPage() {
                 </h3>
                 <ul className="space-y-3.5">
                   {[
-                    "Live flight tracking (no penalty fees for delayed or early landings)",
-                    "Direct meet-and-greet curbside with heavy-duty wheelchair ramp ready",
-                    "Massive luggage capacity for 3–4 large suitcases plus medical gear",
-                    "Fixed transparent rates without hidden toll or surge charges",
+                    "Flight timing coordination (we plan around your flight schedule)",
+                    "Direct meet-and-greet curbside with wheelchair ramp or lift ready",
+                    "Luggage space by arrangement for suitcases and mobility aids",
+                    "Upfront quotes without hidden fees",
                     "Assistance with boarding, luggage loading, and hotel check-in drop-off",
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-3">

@@ -9,9 +9,9 @@ import JsonLd from "@/components/seo/JsonLd";
 import { SITE_URL } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "Wheelchair Accessible Taxi",
+  title: "Wheelchair Accessible Taxi Perth",
   description:
-    "Dedicated wheelchair accessible taxis in Perth. Hydraulic ramps, 4-point Q'Straint tie-downs, trained drivers, and NDIS & TUSS approved fixed-price fares.",
+    "Wheelchair accessible taxi vans in Perth with rear ramp or lift. Travel seated in your wheelchair. Up to 10 passengers. NDIS and WA TUSS accepted 24/7.",
   alternates: {
     canonical: "/services/wheelchair-accessible-taxi",
   },
@@ -22,7 +22,7 @@ const serviceSchema = {
   "@type": "Service",
   name: "Wheelchair Accessible Taxi Perth",
   description:
-    "Dedicated wheelchair accessible taxi service with hydraulic ramps, 4-point Q'Straint tie-downs, and NDIS/TUSS support.",
+    "Wheelchair accessible taxi vans in Perth with rear ramp or lift, carrying up to 10 passengers. WA TUSS vouchers and NDIS invoices accepted 24/7.",
   provider: {
     "@type": "TaxiService",
     name: "Perth Wheelchair Taxi Van",
@@ -62,11 +62,11 @@ const breadcrumbSchema = {
 
 export default function WheelchairTaxiPage() {
   const specs = [
-    { title: "Ramp System", detail: "Heavy-duty low-gradient foldout & hydraulic ramp for smooth boarding" },
-    { title: "Door Clearance", detail: "1,550 mm vertical entrance height to accommodate tall powerchairs" },
-    { title: "Tie-Down Anchors", detail: "4-point Q'Straint crash-tested floor retractors + lap/sash inertia seatbelt" },
-    { title: "Weight Capacity", detail: "Tested to 360 kg max capacity (Manual, motorized, and bariatric chairs)" },
-    { title: "Passenger Capacity", detail: "Wheelchair occupant plus up to 4–6 additional family members / companions" },
+    { title: "Ramp System", detail: "Rear foldout ramp or hydraulic lift for smooth boarding" },
+    { title: "Door Clearance", detail: "1,550 mm vertical entrance height to accommodate wheelchairs" },
+    { title: "Tie-Down Anchors", detail: "4-point floor restraints + fitted safety seatbelt" },
+    { title: "Weight Capacity", detail: "Accommodates manual and powered wheelchairs" },
+    { title: "Passenger Capacity", detail: "Van carries up to 10 passengers in total, with space for wheelchair and carers" },
   ];
 
   return (
@@ -155,7 +155,7 @@ export default function WheelchairTaxiPage() {
                     "Remain comfortably seated in your wheelchair throughout the entire journey",
                     "Certified 4-point floor tie-downs and shoulder harness restraint",
                     "Generous headroom suitable for motorized powerchairs and headrests",
-                    "Punctual, guaranteed booking arrival — no cancellations",
+                    "Reliable booking arrival across Perth metro",
                     "Companion seating so family, carers, or friends can travel together",
                     "Western Australia TUSS vouchers accepted with 50% / 75% co-payments",
                   ].map((item, i) => (
@@ -178,7 +178,7 @@ export default function WheelchairTaxiPage() {
                   Book This Service
                 </h3>
                 <p className="text-slate-500 mb-6 text-center text-xs">
-                  Fixed pricing and instant vehicle verification.
+                  Upfront quotes and vehicle confirmation.
                 </p>
 
                 <div className="space-y-3 mb-6">
@@ -215,7 +215,7 @@ export default function WheelchairTaxiPage() {
                   </div>
                   <div className="flex items-center gap-2">
                     <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-                    <span>Q&apos;Straint Certified Securement</span>
+                    <span>Certified Restraints &amp; Securement</span>
                   </div>
                 </div>
               </div>

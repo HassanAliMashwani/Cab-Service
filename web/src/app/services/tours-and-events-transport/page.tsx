@@ -8,9 +8,9 @@ import JsonLd from "@/components/seo/JsonLd";
 import { SITE_URL } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "Tours & Events Transport",
+  title: "Wheelchair Tours & Events Perth",
   description:
-    "Accessible tours and event transport across Perth. Concerts at Optus Stadium, Crown Perth, Swan Valley wine tours, and private events with fixed quotes.",
+    "Wheelchair accessible tours and event transport across Perth. Rear ramp or lift van for up to 10 passengers. Swan Valley tours and concert trips 24/7.",
   alternates: {
     canonical: "/services/tours-and-events-transport",
   },
@@ -21,7 +21,7 @@ const serviceSchema = {
   "@type": "Service",
   name: "Tours & Events Transport Perth",
   description:
-    "Accessible tours, wedding charters, concert transfers, and event transport across Perth and the Swan Valley.",
+    "Wheelchair accessible tours and event transport across Perth with rear ramp or lift van carrying up to 10 passengers 24/7.",
   provider: {
     "@type": "TaxiService",
     name: "Perth Wheelchair Taxi Van",
@@ -80,6 +80,9 @@ export default function ToursAndEventsTransportPage() {
               <p className="text-lg lg:text-xl text-slate-300 leading-relaxed">
                 Enjoy customized tour charters and comfortable event transport. Seamless group travel for Swan Valley winery outings, Optus Stadium concerts, Crown Perth dinners, and family celebrations.
               </p>
+              <p className="mt-3 text-sm text-amber-300 font-semibold">
+                Our vehicles are fully <Link href="/services/wheelchair-accessible-taxi" className="underline underline-offset-4 hover:text-white">wheelchair accessible</Link> with rear ramp or lift access.
+              </p>
             </SlideUp>
 
             <SlideUp delay={0.2} className="mt-8 flex flex-wrap gap-4">
@@ -119,7 +122,7 @@ export default function ToursAndEventsTransportPage() {
                   Planning a special day out shouldn&apos;t be stressful. Whether you are arranging a full-day Swan Valley winery tour, attending an AFL match at Optus Stadium, or celebrating a wedding reception, our high-roof maxi vans ensure everyone travels comfortably together.
                 </p>
                 <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
-                  Our ramp-equipped vehicles accommodate manual wheelchairs, electric powerchairs, and mobility scooters with room for up to 10 additional companions to ride alongside in dual-zone climate-controlled luxury.
+                  Our ramp-equipped vehicles accommodate manual and powered wheelchairs, with room for companions to ride alongside in dual-zone climate-controlled comfort (carrying up to 10 passengers in total).
                 </p>
               </div>
 
@@ -135,7 +138,7 @@ export default function ToursAndEventsTransportPage() {
                     "Crown Perth dining, theater shows, and riverside casino functions",
                     "Wedding guest transfers, corporate outings, and family anniversaries",
                     "Scenic Perth tours: Kings Park, Fremantle Fishing Boat Harbour & Cottesloe",
-                    "Guaranteed return pickups with designated meeting points",
+                    "Coordinated return pickups with designated meeting points",
                   ].map((item, idx) => (
                     <li key={idx} className="flex items-start gap-3">
                       <CheckCircle2 className="w-5 h-5 text-violet-600 flex-shrink-0 mt-0.5" />
@@ -156,7 +159,7 @@ export default function ToursAndEventsTransportPage() {
                   Book Tour Charter
                 </h3>
                 <p className="text-slate-500 mb-6 text-center text-xs">
-                  Fixed quotes with zero surge pricing for events and charters.
+                  Upfront quotes for events and charters.
                 </p>
 
                 <div className="space-y-3 mb-6">
@@ -194,7 +197,7 @@ export default function ToursAndEventsTransportPage() {
                   </div>
                   <div className="flex items-center gap-2">
                     <Clock className="w-3.5 h-3.5 text-emerald-600" />
-                    <span>Guaranteed On-Time Pickups</span>
+                    <span>Reliable Scheduled Pickups</span>
                   </div>
                 </div>
               </div>

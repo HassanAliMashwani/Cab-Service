@@ -10,9 +10,9 @@ import JsonLd from "@/components/seo/JsonLd";
 import { SITE_URL } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "Baby Seat Maxi Taxi",
+  title: "Baby Seat Taxi Perth",
   description:
-    "Perth baby seat taxis with pre-installed AS/NZS 1754 capsules and booster seats. Safe, sanitised family maxi cabs with plenty of room for prams and luggage.",
+    "Wheelchair accessible family taxi vans in Perth with baby seats and boosters on request. Rear ramp or lift van carrying up to 10 passengers 24/7.",
   alternates: {
     canonical: "/services/baby-seat-taxi",
   },
@@ -23,7 +23,7 @@ const serviceSchema = {
   "@type": "Service",
   name: "Baby Seat Maxi Taxi Perth",
   description:
-    "Perth maxi taxis equipped with certified baby capsules, toddler car seats, and booster seats compliant with AS/NZS 1754.",
+    "Wheelchair accessible taxi vans in Perth with baby seats and child boosters available on request, carrying up to 10 passengers 24/7.",
   provider: {
     "@type": "TaxiService",
     name: "Perth Wheelchair Taxi Van",
@@ -67,7 +67,7 @@ export default function BabySeatTaxiPage() {
       name: "Infant Capsule (Rear-Facing)",
       age: "0 – 6 Months (Up to ~9kg)",
       desc: "Deep contoured ergonomic shell with padded infant inserts, 5-point harness, and sun canopy for newborn safety.",
-      features: ["AS/NZS 1754 Certified", "Rearward tethered", "Deep side impact protection"]
+      features: ["Safety Certified", "Rearward tethered", "Deep side impact protection"]
     },
     {
       name: "Forward-Facing Child Seat",
@@ -85,16 +85,16 @@ export default function BabySeatTaxiPage() {
 
   const benefits = [
     {
-      title: "AS/NZS 1754 Australian Standards",
-      desc: "We exclusively carry premium car seats that strictly comply with Australian Safety Standard AS/NZS 1754, never generic or expired restraints."
+      title: "Approved Safety Standards",
+      desc: "We exclusively carry quality car seats that strictly comply with Australian safety standards, never generic or expired restraints."
     },
     {
       title: "Pre-Installed & Safety Inspected",
       desc: "Your driver installs and verifies the restraint using certified vehicle anchor points prior to arriving at your doorstep or airport terminal."
     },
     {
-      title: "Hospital-Grade Sanitization",
-      desc: "Every baby seat and booster is thoroughly vacuumed, steam-cleaned, and disinfected between family bookings for total hygiene."
+      title: "Clean & Sanitised Restraints",
+      desc: "Every baby seat and booster is thoroughly cleaned and sanitised between family bookings for total hygiene."
     },
     {
       title: "Multiple Seats Available",
@@ -120,6 +120,9 @@ export default function BabySeatTaxiPage() {
               </h1>
               <p className="text-lg lg:text-xl text-slate-300 leading-relaxed">
                 Traveling with infants or young children? Don’t risk dragging heavy car seats through Perth Airport. We provide spotless, certified baby capsules, toddler seats, and boosters pre-installed in spacious Maxi Cabs.
+              </p>
+              <p className="mt-3 text-sm text-amber-300 font-semibold">
+                Our vehicles are fully <Link href="/services/wheelchair-accessible-taxi" className="underline underline-offset-4 hover:text-white">wheelchair accessible</Link> with rear ramp or lift access.
               </p>
             </SlideUp>
 
@@ -229,7 +232,7 @@ export default function BabySeatTaxiPage() {
                 <div className="flex flex-wrap gap-4 text-xs font-semibold text-blue-200">
                   <span className="bg-white/10 px-3 py-1.5 rounded-lg">✓ Terminals T1, T2, T3 & T4</span>
                   <span className="bg-white/10 px-3 py-1.5 rounded-lg">✓ Curbside Terminal Meet & Greet</span>
-                  <span className="bg-white/10 px-3 py-1.5 rounded-lg">✓ Zero Surge Pricing</span>
+                  <span className="bg-white/10 px-3 py-1.5 rounded-lg">✓ Upfront Quotes</span>
                 </div>
               </div>
             </div>
@@ -243,7 +246,7 @@ export default function BabySeatTaxiPage() {
                   </div>
                   <div>
                     <h3 className="text-lg font-bold text-slate-900">Pre-Book Child Seat</h3>
-                    <p className="text-xs text-slate-500">Fixed rate • Seats verified prior to arrival</p>
+                    <p className="text-xs text-slate-500">Upfront quote • Seats verified prior to arrival</p>
                   </div>
                 </div>
 
@@ -254,11 +257,11 @@ export default function BabySeatTaxiPage() {
                   </div>
                   <div className="flex items-start gap-2.5">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" />
-                    <span>Up to 11 passenger seating capacity + huge boot space</span>
+                    <span>Carries up to 10 passengers + spacious luggage room</span>
                   </div>
                   <div className="flex items-start gap-2.5">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" />
-                    <span>Flight delay monitoring for airport arrivals</span>
+                    <span>Flight schedule planning for airport arrivals</span>
                   </div>
                 </div>
 

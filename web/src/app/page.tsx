@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { 
-  ShieldCheck, 
-  CheckCircle, 
-  Clock, 
-  Plane, 
-  Car, 
-  HeartPulse, 
-  Navigation, 
-  Phone, 
-  Star, 
-  ArrowRight, 
+import {
+  ShieldCheck,
+  CheckCircle,
+  Clock,
+  Plane,
+  Car,
+  HeartPulse,
+  Navigation,
+  Phone,
+  Star,
+  ArrowRight,
   Sparkles,
   Award,
   Users,
@@ -31,12 +31,23 @@ import JsonLd from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Wheelchair Taxi Perth | Maxi Cab & Airport Transfers 24/7",
+    absolute: "Wheelchair Taxi Perth | Accessible Taxi Vans 24/7",
   },
   description:
-    "Wheelchair accessible 7-11 seater maxi cab in Perth. NDIS & TUSS, fixed quotes, 24/7 airport transfers. Call or WhatsApp +61 493 252 766 for fast booking.",
+    "Wheelchair accessible taxi vans in Perth with ramp or lift access, for up to 10 passengers. NDIS & TUSS accepted. Call or WhatsApp +61 493 252 766.",
   alternates: {
     canonical: "/",
+  },
+  openGraph: {
+    title: "Wheelchair Taxi Perth | Accessible Taxi Vans 24/7",
+    description:
+      "Wheelchair accessible taxi vans in Perth with ramp or lift access, for up to 10 passengers. NDIS & TUSS accepted. Call or WhatsApp +61 493 252 766.",
+    url: "/",
+  },
+  twitter: {
+    title: "Wheelchair Taxi Perth | Accessible Taxi Vans 24/7",
+    description:
+      "Wheelchair accessible taxi vans in Perth with ramp or lift access, for up to 10 passengers. NDIS & TUSS accepted. Call or WhatsApp +61 493 252 766.",
   },
 };
 
@@ -58,13 +69,13 @@ export default function Home() {
     <div className="flex flex-col w-full bg-slate-50 min-h-screen">
       <JsonLd data={faqPageSchema} />
       {/* ── Cinematic Hero Section ── */}
-      <section className="relative w-full h-[62svh] min-h-[390px] max-h-[500px] sm:h-[100svh] sm:min-h-[680px] sm:max-h-[1080px] flex flex-col justify-between pt-[calc(var(--header-height,4rem)+0.5rem)] pb-3 sm:pt-28 sm:pb-8 lg:pb-12 overflow-hidden">
-        
+      <section className="relative w-full h-[62svh] min-h-[430px] max-h-[500px] sm:h-[100svh] sm:min-h-[680px] sm:max-h-[1080px] flex flex-col justify-between pt-[calc(var(--header-height,4rem)+0.5rem)] pb-3 sm:pt-28 sm:pb-8 lg:pb-12 overflow-hidden">
+
         {/* Background Image & Crisp Overlays */}
         <div className="absolute inset-0 z-0">
-          <Image 
-            src="/images/hero-white-van.jpg" 
-            alt="White wheelchair-accessible maxi cab in front of the Perth skyline at sunset" 
+          <Image
+            src="/images/hero-white-van.jpg"
+            alt="White wheelchair-accessible maxi cab in front of the Perth skyline at sunset"
             fill
             priority
             sizes="100vw"
@@ -73,7 +84,7 @@ export default function Home() {
           {/* Subtle top header gradient so navbar text stays crisp */}
           <div className="absolute top-0 left-0 right-0 h-28 sm:h-36 bg-gradient-to-b from-black/75 sm:from-black/55 to-transparent pointer-events-none" />
           {/* Darker mobile gradient overlay (45-55% black) so text is 100% readable */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/45 to-black/65 sm:bg-none pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/50 to-black/65 sm:bg-none pointer-events-none" />
           {/* Desktop left gradient for text legibility */}
           <div className="absolute inset-0 hidden sm:block bg-gradient-to-r from-black/50 via-black/15 to-transparent pointer-events-none" />
         </div>
@@ -96,21 +107,23 @@ export default function Home() {
         {/* Top/Middle: Headline & Catchy Punchy Line */}
         <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 pt-1 sm:pt-4 md:pt-8">
           <div className="max-w-xl lg:max-w-2xl flex flex-col items-start">
-            
-            {/* Main Headline */}
-            <FadeIn delay={0.05}>
-              <h1 className="text-[clamp(1.85rem,7.8vw,2.4rem)] sm:text-6xl md:text-7xl lg:text-[clamp(3.5rem,6vw,5.5rem)] font-black tracking-tight leading-[0.95] text-white mb-2 sm:mb-4 drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)]">
-                Perth <br />
-                <span className="text-amber-400 drop-shadow-[0_4px_14px_rgba(0,0,0,0.6)]">Wheelchair Taxi Van</span>
-              </h1>
-            </FadeIn>
 
-            {/* Catchy Punchy Line */}
-            <FadeIn delay={0.1}>
-              <p className="text-xs sm:text-xl md:text-2xl lg:text-[clamp(1.4rem,2.4vw,2.2rem)] font-bold sm:font-extrabold text-white max-w-[650px] leading-snug drop-shadow-[0_3px_12px_rgba(0,0,0,0.95)]">
-                Anywhere in Perth. <span className="text-amber-400 [text-shadow:0_2px_10px_rgba(0,0,0,0.95)]">Always on Time.</span> Always Accessible.
+            {/* Main Headline */}
+            <h1 className="hero-title-enter text-[clamp(2.25rem,10.5vw,3rem)] sm:text-6xl md:text-7xl lg:text-[clamp(3.5rem,6vw,5.5rem)] font-black tracking-tight leading-[0.95] text-white drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)]">
+              <span className="block">Perth</span>
+              <span className="text-amber-400 drop-shadow-[0_4px_14px_rgba(0,0,0,0.6)]">
+                <span className="block sm:inline">Wheelchair </span>
+                <span className="block sm:inline">Taxi Van</span>
+              </span>
+            </h1>
+
+            {/* Accent bar & Tagline */}
+            <div className="mt-3 sm:mt-5 hero-tagline-enter">
+              <div className="w-10 sm:w-14 h-1 rounded-full bg-amber-400 mb-3" aria-hidden="true" />
+              <p className="text-[clamp(0.95rem,2.8vw,1rem)] sm:text-[1.15rem] lg:text-[clamp(1.25rem,1.8vw,1.65rem)] font-semibold sm:font-bold text-white/95 leading-snug text-balance max-w-[22rem] sm:max-w-[36ch] drop-shadow-[0_3px_12px_rgba(0,0,0,0.95)]">
+                Wheelchair accessible taxi vans across Perth. <span className="text-amber-400 [text-shadow:0_2px_10px_rgba(0,0,0,0.95)]">Available 24/7.</span>
               </p>
-            </FadeIn>
+            </div>
 
           </div>
         </div>
@@ -119,7 +132,7 @@ export default function Home() {
         <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
           <FadeIn delay={0.15} className="w-full">
             <div className="flex flex-row sm:flex-wrap items-center gap-2 sm:gap-5 pb-1 sm:pb-2 w-full max-w-sm sm:max-w-none">
-              
+
               {/* Book Now Button */}
               <Link
                 href="/enquire"
@@ -155,6 +168,44 @@ export default function Home() {
 
       {/* Brutalist Wrapper */}
       <div className="bg-black text-white w-full">
+        {/* Short Intro Section (Wheelchair First) */}
+        <section className="py-10 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full text-center border-b border-zinc-900">
+          <span className="text-xs font-black text-amber-400 uppercase tracking-[0.2em] mb-2 sm:mb-4 block">
+            Girrawheen &amp; Perth Metro
+          </span>
+          <h2 className="text-2xl sm:text-4xl font-black text-white uppercase tracking-tight mb-4">
+            Wheelchair Accessible Taxi Service in Perth
+          </h2>
+          <p className="text-sm sm:text-base text-zinc-300 leading-relaxed max-w-3xl mx-auto mb-6">
+            Wheelchair accessible taxi vans operate across the Perth metro area 24/7, based in Girrawheen with rear ramp or lift access. Our spacious vehicles carry up to 10 passengers with dedicated room for wheelchairs, carers, and family members, and we gladly accept WA TUSS vouchers and provide itemised invoices for NDIS participants. We also cater for medical appointments, events, and airport transfers with upfront quotes.
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-xs sm:text-sm font-bold">
+            <Link
+              href="/services/wheelchair-accessible-taxi"
+              className="inline-flex items-center gap-1.5 text-amber-400 hover:text-amber-300 underline underline-offset-4"
+            >
+              <span>Wheelchair Accessible Taxis</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+            <span className="text-zinc-600 hidden sm:inline">•</span>
+            <Link
+              href="/services/medical-ndis-transport"
+              className="inline-flex items-center gap-1.5 text-amber-400 hover:text-amber-300 underline underline-offset-4"
+            >
+              <span>NDIS &amp; Medical Transport</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+            <span className="text-zinc-600 hidden sm:inline">•</span>
+            <Link
+              href="/enquire"
+              className="inline-flex items-center gap-1.5 text-white hover:text-amber-400 underline underline-offset-4"
+            >
+              <span>Book Online</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+        </section>
+
         {/* 3-Step Process with scroll fade in/out animation */}
         <HowItWorks />
 
@@ -162,7 +213,7 @@ export default function Home() {
         <section className="py-10 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full border-t-4 border-black">
           <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
             <span className="text-xs font-black text-amber-400 uppercase tracking-[0.2em] mb-2 sm:mb-4 block">
-              Comprehensive Perth Fleet
+              Wheelchair Accessible Transport
             </span>
             <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-white uppercase tracking-tight">
               Our Core Services

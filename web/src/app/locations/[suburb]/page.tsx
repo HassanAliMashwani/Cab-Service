@@ -30,8 +30,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const suburbName = formatSuburbName(resolvedParams.suburb);
   const slug = resolvedParams.suburb.toLowerCase();
   return {
-    title: `${suburbName} Taxi`,
-    description: `Wheelchair accessible taxi and maxi cab service in ${suburbName}, WA. 24/7 airport transfers, NDIS transport, fixed quotes, and rapid local dispatch.`,
+    title: `${suburbName} Wheelchair Taxi`,
+    description: `Wheelchair accessible taxi vans in ${suburbName}, WA with ramp or lift. Up to 10 passengers. NDIS & TUSS accepted 24/7. Call or WhatsApp +61 493 252 766.`,
     alternates: {
       canonical: `/locations/${slug}`,
     },
@@ -58,8 +58,8 @@ export default async function SuburbPage({ params }: Props) {
             <p className="text-xl text-slate-300 mb-8">
               Reliable, dignified, and comfortable travel for passengers in {suburbName}. Dedicated accessible transport for everyday travel and airport transfers.
             </p>
-            
-            <a 
+
+            <a
               href={`https://wa.me/61493252766?text=Hi,%20I%20need%20a%20wheelchair%20accessible%20taxi%20in%20${encodeURIComponent(suburbName)}.`}
               target="_blank"
               rel="noopener noreferrer"
@@ -83,9 +83,9 @@ export default async function SuburbPage({ params }: Props) {
               </p>
               <ul className="space-y-3 mb-6">
                 {[
-                  "Fully equipped vehicles with secure tie-downs",
+                  "Fully equipped vehicles with secure restraints",
                   "Professionally trained, compassionate drivers",
-                  "Fixed pricing with no hidden fees",
+                  "Upfront quotes with no hidden fees",
                   `Direct transfers from ${suburbName} to Perth Airport`
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
@@ -96,14 +96,14 @@ export default async function SuburbPage({ params }: Props) {
               </ul>
             </FadeIn>
             <FadeIn delay={0.2} className="bg-slate-100 rounded-3xl h-64 md:h-full min-h-[300px] border border-slate-200 p-8 flex flex-col justify-center items-center text-center">
-               <ShieldCheck className="w-16 h-16 text-primary mb-4" />
-               <h3 className="text-2xl font-bold text-primary mb-2">Safety Guaranteed</h3>
-               <p className="text-slate-600">Our vehicles meet all safety standards for wheelchair transportation in Western Australia.</p>
+              <ShieldCheck className="w-16 h-16 text-primary mb-4" />
+              <h3 className="text-2xl font-bold text-primary mb-2">Safety &amp; Compliance</h3>
+              <p className="text-slate-600">Our vehicles meet safety standards for wheelchair transportation in Western Australia.</p>
             </FadeIn>
           </div>
         </div>
       </section>
-      
+
       {/* Services List Specific to Suburb */}
       <section className="py-16 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

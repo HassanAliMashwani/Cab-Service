@@ -11,32 +11,32 @@ const ALL_SERVICES: ServiceLinkItem[] = [
   {
     title: "Wheelchair Accessible Taxi",
     slug: "wheelchair-accessible-taxi",
-    desc: "Hydraulic ramps & 4-point Q'Straint tie-downs for manual and electric powerchairs.",
-  },
-  {
-    title: "Perth Airport Transfers",
-    slug: "airport-transfers",
-    desc: "24/7 direct airport pickups at Terminals T1-T4 with live flight tracking.",
+    desc: "Rear ramp or lift van with restraints for manual and powered wheelchairs across Perth.",
   },
   {
     title: "NDIS & Medical Transport",
     slug: "medical-ndis-transport",
-    desc: "Hospital clinics, specialist visits, itemized tax invoices & WA TUSS vouchers.",
-  },
-  {
-    title: "Baby Seat Maxi Taxi",
-    slug: "baby-seat-taxi",
-    desc: "Pre-installed Australian standard baby capsules, child seats & boosters.",
+    desc: "Hospital visits, therapy appointments, itemised NDIS invoices and WA TUSS vouchers.",
   },
   {
     title: "Group Maxi Cab Charters",
     slug: "group-maxi-cab",
-    desc: "7 to 11 seater luxury maxi vans for family events, corporate & wedding groups.",
+    desc: "Taxi vans for up to 10 passengers with flexible seating for family, carers, and groups.",
+  },
+  {
+    title: "Baby Seat Maxi Taxi",
+    slug: "baby-seat-taxi",
+    desc: "Baby capsules and booster seats on request for safe family travel across Perth.",
+  },
+  {
+    title: "Perth Airport Transfers",
+    slug: "airport-transfers",
+    desc: "Accessible airport pickups and transfers across Perth Terminals T1-T4, open 24/7.",
   },
   {
     title: "Tours & Events Transport",
     slug: "tours-and-events-transport",
-    desc: "Custom Swan Valley wine tours, Optus Stadium concerts, and special events.",
+    desc: "Accessible van transport for up to 10 passengers for Swan Valley tours and events.",
   },
 ];
 

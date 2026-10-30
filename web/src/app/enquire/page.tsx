@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function EnquirePage() {
   return (
     <div className="flex flex-col w-full bg-black min-h-screen text-white overflow-x-hidden selection:bg-amber-400 selection:text-black">
-      
+
       {/* ─────────────────────────────────────────────────────────────
           1. HEADER HERO (With Back Navigation)
          ───────────────────────────────────────────────────────────── */}

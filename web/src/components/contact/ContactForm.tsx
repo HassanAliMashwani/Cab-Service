@@ -8,7 +8,7 @@ export default function ContactForm() {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
-    service: "Airport Transfer",
+    service: "Wheelchair Taxi",
     pickup: "",
     destination: "",
     date: "",
@@ -205,11 +205,11 @@ export default function ContactForm() {
               onChange={handleChange}
               className="w-full px-4 py-2.5 bg-white text-zinc-950 font-bold text-sm border-2 border-zinc-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-400/30 rounded-md focus:outline-none transition-all shadow-sm cursor-pointer"
             >
-              <option value="Airport Transfer">Airport Transfer (T1–T4)</option>
               <option value="Wheelchair Taxi">Wheelchair Accessible Taxi</option>
-              <option value="7-11 Seater Maxi">7–11 Seater Maxi Cab</option>
-              <option value="Baby Seat Taxi">Baby Seat Taxi (Capsules/Boosters)</option>
               <option value="Medical Transport">Hospital &amp; NDIS Transport</option>
+              <option value="Maxi Cab (Up to 10 Passengers)">Maxi Cab (Up to 10 Passengers)</option>
+              <option value="Baby Seat Taxi">Baby Seat Taxi (Capsules/Boosters)</option>
+              <option value="Airport Transfer">Airport Transfer (T1–T4)</option>
               <option value="Weddings & Events">Weddings, Tours &amp; Events</option>
             </select>
           </div>
@@ -226,7 +226,7 @@ export default function ContactForm() {
             >
               <option value="1-4">1 to 4 Passengers</option>
               <option value="5-7">5 to 7 Passengers</option>
-              <option value="8-11">8 to 11 Passengers</option>
+              <option value="8-10">8 to 10 Passengers</option>
               <option value="Wheelchair + Companions">Wheelchair + Companions</option>
             </select>
           </div>

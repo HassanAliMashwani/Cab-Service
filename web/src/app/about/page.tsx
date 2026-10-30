@@ -12,6 +12,7 @@ import CoreValuesGrid from "@/components/about/CoreValuesGrid";
 import FleetGallery from "@/components/about/FleetGallery";
 
 import Image from "next/image";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -30,7 +31,7 @@ export default function AboutPage() {
           1. ABOUT PAGE HEADER — Built with Semantic HTML / SEO Architecture
          ═════════════════════════════════════════════════════════════ */}
       <section className="relative bg-[#07090e] text-white min-h-[320px] sm:min-h-[550px] lg:min-h-[580px] flex items-center overflow-hidden border-b-4 border-black pt-20 sm:pt-24 pb-6 sm:pb-16">
-        
+
         {/* Responsive Background Artwork (WA map, Maxi van outline, pins, circuit tracks) */}
         <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
           <picture className="w-full h-full block">
@@ -73,6 +74,9 @@ export default function AboutPage() {
                   <br className="hidden sm:inline" />
                   {" "}PASSENGER CARE ACROSS <span className="text-amber-400">WESTERN AUSTRALIA</span>
                 </p>
+                <p className="mt-3 text-sm text-amber-300 font-semibold normal-case">
+                  Our vehicles are fully <Link href="/services/wheelchair-accessible-taxi" className="underline underline-offset-4 hover:text-white">wheelchair accessible</Link> with rear ramp or lift access.
+                </p>
               </div>
             </SlideUp>
           </div>
@@ -86,7 +90,7 @@ export default function AboutPage() {
       <section className="py-10 md:py-14 px-4 sm:px-6 lg:px-8 bg-zinc-950 border-b-4 border-black w-full">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
-            
+
             {/* Visual Column: Adjusted to match text height */}
             <div className="lg:col-span-5 flex flex-col justify-center">
               <FadeIn delay={0.1} className="h-full">
@@ -150,17 +154,17 @@ export default function AboutPage() {
                       {
                         year: "2018",
                         title: "Fleet Expansion",
-                        description: "Expanded our fleet to include 7–11 seater passenger vans with pre-installed child capsules & booster seats.",
+                        description: "Expanded our fleet to include passenger vans for up to 10 passengers with pre-installed child capsules & booster seats.",
                       },
                       {
                         year: "2021",
                         title: "NDIS & Hydraulic Standards",
-                        description: "Achieved full NDIS registration, upgrading our fleet with hydraulic ramps and 4-point Q'Straint tie-down systems.",
+                        description: "Achieved full NDIS registration, upgrading our fleet with hydraulic ramps and certified restraint systems.",
                       },
                       {
                         year: "Present",
                         title: "24/7 Greater Perth Coverage",
-                        description: "Delivering guaranteed fixed fares and zero surge pricing across Perth Airport (T1–T4) and all surrounding suburbs.",
+                        description: "Delivering upfront quotes across Perth Airport (T1–T4) and all surrounding suburbs.",
                       },
                     ].map((item, idx) => (
                       <div key={idx} className="relative group">
@@ -254,7 +258,7 @@ export default function AboutPage() {
             <ShieldCheck className="absolute -right-8 -bottom-8 w-64 h-64 text-black/[0.08] pointer-events-none select-none" />
 
             <div className="relative z-10 flex flex-col gap-5 sm:gap-6">
-              
+
               {/* Header: Title & NDIS Logo in front of pills */}
               <div className="flex items-center justify-between gap-4">
                 <div>

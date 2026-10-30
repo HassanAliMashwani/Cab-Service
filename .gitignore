@@ -35,3 +35,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local references
+ref 2.jpeg
+perth-wheelchair-taxi-hero-2400w.jpg

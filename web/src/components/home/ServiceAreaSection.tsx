@@ -24,8 +24,8 @@ const ServiceAreaMapClient = dynamic(
 
 export default function ServiceAreaSection() {
   return (
-    <section 
-      id="service-area" 
+    <section
+      id="service-area"
       className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full border-t-4 border-black"
       aria-label="Our Service Area"
     >

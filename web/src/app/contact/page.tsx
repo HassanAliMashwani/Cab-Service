@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <div className="flex flex-col w-full bg-black min-h-screen text-white overflow-x-hidden selection:bg-amber-400 selection:text-black">
-      
+
       {/* ─────────────────────────────────────────────────────────────
           1. CLEAN HEADER HERO
          ───────────────────────────────────────────────────────────── */}
@@ -39,7 +39,7 @@ export default function ContactPage() {
           2. DIRECT CHANNELS SIDEBAR & QUICK ENQUIRY FORM
          ───────────────────────────────────────────────────────────── */}
       <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full pb-20">
-        
+
         {/* Mobile Quick Action Buttons Bar — Always visible at the top on mobile so direct contact is never hidden */}
         <div className="md:hidden grid grid-cols-2 gap-2.5 mb-6">
           <a
@@ -61,7 +61,7 @@ export default function ContactPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-start">
-          
+
           {/* SIDEBAR: Direct Contact Channels (5 cols on md/lg, Sticky on desktop) */}
           <div className="md:col-span-5 md:sticky md:top-24 space-y-3.5 sm:space-y-4 order-2 md:order-1">
             <div>

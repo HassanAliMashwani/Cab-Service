@@ -27,11 +27,11 @@ const GRADIENTS: Record<GradientKey, string> = {
 };
 
 const GRADIENT_SOLID: Record<GradientKey, string> = {
-  amber:   "bg-amber-500",
-  sky:     "bg-sky-500",
-  violet:  "bg-violet-600",
+  amber: "bg-amber-500",
+  sky: "bg-sky-500",
+  violet: "bg-violet-600",
   emerald: "bg-emerald-500",
-  rose:    "bg-rose-500",
+  rose: "bg-rose-500",
 };
 
 export interface ServiceCardProps {
@@ -47,22 +47,18 @@ export interface ServiceCardProps {
 
 /* ── Service detail descriptions ── */
 const SERVICE_DESCRIPTIONS: Record<string, string> = {
-  "Airport Transfer":
-    "Reliable 7–11 seater maxi cab transfers to and from Perth Airport terminals T1, T2, T3 & T4. We monitor live flight arrivals so your driver is always there on time — no waiting, no surge pricing, ever.",
-  "Wheelchair Access":
-    "Fully certified wheelchair-accessible maxi cabs with hydraulic ramps and Q'Straint 4-point tie-down systems. NDIS and TUSS invoicing available. Passengers travel safely in their own chair.",
-  "Weddings & Events":
-    "Premium group transport for weddings, corporate events, Swan Valley wine tours and special celebrations. Tinted windows, dual-zone climate control, and multi-stop flexibility for your party.",
-  "Family & Groups":
-    "Spacious 7–11 seater Toyota HiAce vans with pre-installed baby seats, pram storage and ample luggage room. Fixed pricing across all Perth suburbs — perfect for family outings and group travel.",
-  "Baby Seat Taxi":
-    "Pre-installed infant capsules and forward-facing child seats in every vehicle. Professionally fitted, Australian-standard approved, and always sanitised between rides for your little one's safety.",
-  "Medical Transport":
-    "Compassionate door-to-door medical transport to Fiona Stanley, Royal Perth, Sir Charles Gairdner and all WA hospitals. Wheelchair-ready vehicles with patient assistance from trained drivers.",
-  "Local Events":
-    "Get to Optus Stadium, Crown Perth, RAC Arena and Perth's biggest concerts hassle-free. Group capacity means your whole crew travels together at one fixed fare — no surge.",
+  "Wheelchair Taxi":
+    "Wheelchair accessible taxi vans with a rear ramp or lift, based in Girrawheen and covering Perth metro 24/7. Passengers travel securely seated in their wheelchair with restraints and driver assistance.",
+  "NDIS & Medical Transport":
+    "Reliable medical and NDIS transport across Perth metro for clinic visits and therapy. WA TUSS vouchers accepted and itemised invoices for NDIS participants provided on request.",
   "Group Maxi Cab":
-    "Spacious 7–11 seater Toyota HiAce vans for families, corporate events, and Swan Valley tours. Fixed pricing, clean vehicles, and professional drivers across all Perth suburbs.",
+    "Maxi taxi vans carrying up to 10 passengers across Perth metro. Rear ramp or lift van with space for carers, family, and group outings.",
+  "Baby Seat Taxi":
+    "Wheelchair accessible taxi vans carrying up to 10 passengers with baby capsules and child booster seats available on request across Perth.",
+  "Airport Transfer":
+    "Transfers to and from Perth Airport terminals T1, T2, T3 & T4. We plan around your flight for prompt pickups with upfront quotes and luggage by arrangement.",
+  "Weddings & Events":
+    "Accessible group transport for weddings, concerts, and Swan Valley tours carrying up to 10 passengers with dual-zone air-conditioning.",
 };
 
 export default function ServiceCard({
@@ -106,7 +102,7 @@ export default function ServiceCard({
 
   return (
     <>
-      <div 
+      <div
         onClick={() => setIsOpen(true)}
         role="button"
         tabIndex={0}
@@ -167,31 +163,29 @@ export default function ServiceCard({
               ))}
             </div>
 
-            {/* CTA row — Both buttons open the detail popup modal (no navigation away) */}
+            {/* CTA row — Details goes to service page, Book Now goes to /enquire */}
             <div className="flex gap-2">
-              <button
-                type="button"
+              <Link
+                href={serviceHref}
                 onClick={(e) => {
                   e.stopPropagation();
-                  setIsOpen(true);
                 }}
                 aria-label={`${title} details`}
                 className="flex-1 h-[36px] sm:h-[40px] flex items-center justify-center gap-1 px-2.5 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white text-[11px] sm:text-xs font-black uppercase tracking-wider hover:bg-white hover:text-black active:scale-95 transition-all cursor-pointer whitespace-nowrap"
               >
                 Details
-              </button>
-              <button
-                type="button"
+              </Link>
+              <Link
+                href="/enquire"
                 onClick={(e) => {
                   e.stopPropagation();
-                  setIsOpen(true);
                 }}
                 aria-label={`Book ${title} now`}
                 className="flex-1 h-[36px] sm:h-[40px] flex items-center justify-center gap-1 px-2.5 py-1.5 rounded-full bg-white text-black border-2 border-black text-[11px] sm:text-xs font-black uppercase tracking-wider hover:bg-amber-400 active:scale-95 transition-all shadow-[2px_2px_0px_0px_#000] whitespace-nowrap cursor-pointer"
               >
                 <span>Book Now</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
-              </button>
+              </Link>
             </div>
           </div>
 
@@ -265,13 +259,12 @@ export default function ServiceCard({
               <div className="space-y-3 mb-8">
                 {features.map((f, i) => (
                   <div key={i} className="flex items-center gap-3">
-                    <CheckCircle className={`w-4.5 h-4.5 flex-shrink-0 ${
-                      gradient === "amber" ? "text-amber-400" :
-                      gradient === "sky" ? "text-sky-400" :
-                      gradient === "violet" ? "text-violet-400" :
-                      gradient === "emerald" ? "text-emerald-400" :
-                      "text-rose-400"
-                    }`} />
+                    <CheckCircle className={`w-4.5 h-4.5 flex-shrink-0 ${gradient === "amber" ? "text-amber-400" :
+                        gradient === "sky" ? "text-sky-400" :
+                          gradient === "violet" ? "text-violet-400" :
+                            gradient === "emerald" ? "text-emerald-400" :
+                              "text-rose-400"
+                      }`} />
                     <span className="text-sm text-white/90 font-bold uppercase tracking-wide">
                       {f}
                     </span>

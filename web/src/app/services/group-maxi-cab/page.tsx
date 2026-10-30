@@ -10,9 +10,9 @@ import JsonLd from "@/components/seo/JsonLd";
 import { SITE_URL } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "Group Maxi Cab Charters",
+  title: "Accessible Group Taxi Perth",
   description:
-    "Spacious 7 to 11 seater maxi cabs in Perth. Group airport transfers, corporate travel, wedding charters, and Swan Valley tours with fixed upfront rates.",
+    "Wheelchair accessible maxi taxi for up to 10 passengers across Perth metro. Rear ramp or lift vehicle with flexible seating for family, groups and carers.",
   alternates: {
     canonical: "/services/group-maxi-cab",
   },
@@ -23,7 +23,7 @@ const serviceSchema = {
   "@type": "Service",
   name: "Group Maxi Cab Perth",
   description:
-    "Spacious 7 to 11 seater maxi cab charters for group airport transfers, corporate events, and wedding transport across Perth.",
+    "Wheelchair accessible group taxi vans in Perth carrying up to 10 passengers with rear ramp or lift access, available 24/7.",
   provider: {
     "@type": "TaxiService",
     name: "Perth Wheelchair Taxi Van",
@@ -63,9 +63,9 @@ const breadcrumbSchema = {
 
 export default function GroupMaxiCabPage() {
   const highlights = [
-    { title: "7 to 11 Passenger Capacity", desc: "Spacious seating allowing entire groups or large families to ride together without splitting into multiple small Ubers." },
-    { title: "Huge Luggage Space", desc: "Ample room for 6–10 suitcases, golf bags, surfboards, or sports equipment alongside all passengers." },
-    { title: "Pre-Booked Punctuality", desc: "Guaranteed pickup times for early morning flights, corporate conferences, and late-night return events." },
+    { title: "Up to 10 Passengers", desc: "Spacious seating allowing entire groups or large families to ride together without splitting into multiple small cars." },
+    { title: "Luggage Space by Arrangement", desc: "Ample room for suitcases, mobility aids, or sports equipment alongside passengers by arrangement." },
+    { title: "Pre-Booked Reliability", desc: "Reliable pickup times for early morning flights, corporate conferences, and late-night return events." },
     { title: "Clean & Air-Conditioned", desc: "High-roof Toyota HiAce luxury vans with dual-zone climate control and premium tinted privacy glass." },
   ];
 
@@ -80,13 +80,16 @@ export default function GroupMaxiCabPage() {
             <SlideUp>
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/20 text-blue-300 text-xs sm:text-sm font-semibold mb-6 border border-blue-500/30">
                 <Users className="w-4 h-4" />
-                7 to 11 Seater Maxi Van Fleet
+                Up to 10 Passengers Maxi Van Fleet
               </div>
               <h1 className="text-4xl lg:text-5xl font-extrabold mb-6 text-white tracking-tight">
                 Spacious 7–11 Seater Maxi Cab in Perth
               </h1>
               <p className="text-lg lg:text-xl text-slate-300 leading-relaxed">
-                Travel together comfortably. Whether it’s Perth Airport transfers with heavy luggage, wedding parties, corporate events, or Swan Valley winery tours, our high-capacity maxi cabs handle your entire group.
+                Travel together comfortably. Whether it’s Perth Airport transfers with luggage, wedding parties, corporate events, or Swan Valley winery tours, our high-capacity maxi cabs handle your entire group.
+              </p>
+              <p className="mt-3 text-sm text-amber-300 font-semibold">
+                Our vehicles are fully <Link href="/services/wheelchair-accessible-taxi" className="underline underline-offset-4 hover:text-white">wheelchair accessible</Link> with rear ramp or lift access.
               </p>
             </SlideUp>
 
@@ -99,7 +102,7 @@ export default function GroupMaxiCabPage() {
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <a
-                href="https://wa.me/61493252766?text=Hi,%20I%20would%20like%20to%20book%20a%207-11%20seater%20Maxi%20Cab%20in%20Perth."
+                href="https://wa.me/61493252766?text=Hi,%20I%20would%20like%20to%20book%20a%20Maxi%20Cab%20in%20Perth."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-[#25D366] hover:bg-[#20ba59] text-white font-bold px-7 py-3.5 rounded-full transition-all text-sm sm:text-base flex items-center gap-2 shadow-md"
@@ -122,7 +125,7 @@ export default function GroupMaxiCabPage() {
                   Why Split Into Multiple Taxis When You Can Ride Together?
                 </h2>
                 <p className="text-slate-600 text-base sm:text-lg leading-relaxed mb-4">
-                  Coordinating multiple small rideshares for a group often leads to mismatched arrival times, surge pricing, and luggage that won’t fit. With our 7 to 11-seater Maxi Cabs, your whole group travels together in a clean, modern, air-conditioned vehicle with one fixed upfront price.
+                  Coordinating multiple small rideshares for a group often leads to mismatched arrival times, surge pricing, and luggage that won’t fit. With our Maxi Cabs for up to 10 passengers, your whole group travels together in a clean, modern, air-conditioned vehicle with an upfront quote.
                 </p>
                 <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
                   Every driver is licensed by the Western Australia Department of Transport, police-checked, and deeply familiar with Perth roads, Perth Airport pickup forecourts, and popular tourist destinations.
@@ -146,7 +149,7 @@ export default function GroupMaxiCabPage() {
                 </h3>
                 <ul className="space-y-3.5">
                   {[
-                    "Perth Airport Arrivals & Departures (T1, T2, T3, T4) with excessive suitcases",
+                    "Perth Airport Arrivals & Departures (T1, T2, T3, T4) with luggage by arrangement",
                     "Weddings, reception guest shuttles, and bachelor/bachelorette celebrations",
                     "Swan Valley wine tours, Bickley Valley cider tastings, and coastal trips",
                     "Corporate delegates, team off-sites, and Perth Convention Centre transit",
@@ -169,10 +172,10 @@ export default function GroupMaxiCabPage() {
                   <Users className="w-6 h-6" />
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-2 text-center">
-                  Book a 7–11 Seater
+                  Book a Maxi Cab
                 </h3>
                 <p className="text-slate-500 mb-6 text-center text-xs">
-                  Fixed pricing, zero surge rates, and 24/7 availability.
+                  Upfront quotes, reliable service, and 24/7 availability.
                 </p>
 
                 <div className="space-y-3 mb-6">
@@ -205,11 +208,11 @@ export default function GroupMaxiCabPage() {
                 <div className="border-t border-slate-100 pt-4 text-xs text-slate-500 space-y-2">
                   <div className="flex items-center gap-2">
                     <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-                    <span>Seats 1 to 11 Passengers</span>
+                    <span>Carries Up to 10 Passengers</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-                    <span>Fixed Guaranteed Price</span>
+                    <span>Upfront Quotes</span>
                   </div>
                 </div>
               </div>

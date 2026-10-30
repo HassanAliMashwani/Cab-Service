@@ -2,13 +2,13 @@
 
 import React from "react";
 import Link from "next/link";
-import { 
-  Phone, 
-  MapPin, 
-  ArrowUp, 
-  Car, 
+import {
+  Phone,
+  MapPin,
+  ArrowUp,
+  Car,
   Accessibility,
-  ArrowUpRight 
+  ArrowUpRight
 } from "lucide-react";
 import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 import GmailIcon from "@/components/icons/GmailIcon";
@@ -21,13 +21,13 @@ export default function Footer() {
 
   return (
     <footer className="relative bg-[#000000] text-white border-t border-zinc-900 z-10">
-      
+
       {/* ─────────────────────────────────────────────────────────────
           1. FLOATING CARD: Yellow "READY TO RIDE?" Banner (Compact & Sleek)
          ───────────────────────────────────────────────────────────── */}
       <div className="max-w-5xl mx-auto px-5 sm:px-6 lg:px-8 pt-6 sm:pt-8 mb-6 sm:mb-8 relative z-20">
         <div className="relative bg-amber-400 rounded-2xl sm:rounded-3xl py-5 px-5 sm:py-6 sm:px-8 shadow-[0_12px_35px_rgba(0,0,0,0.3)] overflow-hidden text-black border border-amber-300">
-          
+
           {/* Subtle decorative background watermarks */}
           <div className="absolute -right-6 -bottom-8 pointer-events-none select-none opacity-[0.06]">
             <Car className="w-56 h-56 text-black" />
@@ -37,7 +37,7 @@ export default function Footer() {
           </div>
 
           <div className="relative z-10 flex flex-col items-center justify-center text-center max-w-3xl mx-auto">
-            
+
             {/* Centered Typography: READY TO in White, RIDE? in Black */}
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-black uppercase leading-[0.95] tracking-tight select-none mb-3.5">
               <span className="text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.18)]">READY TO </span>
@@ -124,18 +124,18 @@ export default function Footer() {
               </h3>
               <ul className="space-y-2 font-bold text-[0.78rem] tracking-[0.5px]">
                 <li>
-                  <Link href="/services/airport-transfers" className="text-zinc-400 hover:text-sky-400 active:text-sky-400 transition-colors uppercase block py-0.5">
-                    Airport Transfers
-                  </Link>
-                </li>
-                <li>
                   <Link href="/services/wheelchair-accessible-taxi" className="text-zinc-400 hover:text-sky-400 active:text-sky-400 transition-colors uppercase block py-0.5">
                     Wheelchair Taxis
                   </Link>
                 </li>
                 <li>
+                  <Link href="/services/medical-ndis-transport" className="text-zinc-400 hover:text-sky-400 active:text-sky-400 transition-colors uppercase block py-0.5">
+                    NDIS Transport
+                  </Link>
+                </li>
+                <li>
                   <Link href="/services/group-maxi-cab" className="text-zinc-400 hover:text-sky-400 active:text-sky-400 transition-colors uppercase block py-0.5">
-                    7-11 Seater Maxi
+                    Maxi Cab (Up to 10 Passengers)
                   </Link>
                 </li>
                 <li>
@@ -144,8 +144,8 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/services/medical-ndis-transport" className="text-zinc-400 hover:text-sky-400 active:text-sky-400 transition-colors uppercase block py-0.5">
-                    NDIS Transport
+                  <Link href="/services/airport-transfers" className="text-zinc-400 hover:text-sky-400 active:text-sky-400 transition-colors uppercase block py-0.5">
+                    Airport Transfers
                   </Link>
                 </li>
                 <li>
@@ -225,7 +225,7 @@ export default function Footer() {
 
         {/* ── DESKTOP/TABLET SPECIFIC LAYOUT (>=640px) ── */}
         <div className="hidden sm:grid sm:grid-cols-3 lg:grid-cols-12 gap-6 lg:gap-8 mb-8 items-start">
-          
+
           {/* Column 1: Links (directly under Perth Wheelchair Taxi Van) */}
           <div className="lg:col-span-4">
             <h3 className="text-white text-xs font-black uppercase tracking-[0.2em] mb-3 flex items-center gap-2">
@@ -257,18 +257,18 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2 text-sm font-bold">
               <li>
-                <Link href="/services/airport-transfers" className="text-white/60 hover:text-sky-400 transition-colors uppercase tracking-wider text-[11px]">
-                  Airport Transfers (T1–T4)
-                </Link>
-              </li>
-              <li>
                 <Link href="/services/wheelchair-accessible-taxi" className="text-white/60 hover:text-sky-400 transition-colors uppercase tracking-wider text-[11px]">
                   Wheelchair Taxis
                 </Link>
               </li>
               <li>
+                <Link href="/services/medical-ndis-transport" className="text-white/60 hover:text-sky-400 transition-colors uppercase tracking-wider text-[11px]">
+                  NDIS &amp; Medical Transport
+                </Link>
+              </li>
+              <li>
                 <Link href="/services/group-maxi-cab" className="text-white/60 hover:text-sky-400 transition-colors uppercase tracking-wider text-[11px]">
-                  7-11 Seater Maxi Cab
+                  Maxi Cab (Up to 10 Passengers)
                 </Link>
               </li>
               <li>
@@ -277,8 +277,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/services/medical-ndis-transport" className="text-white/60 hover:text-sky-400 transition-colors uppercase tracking-wider text-[11px]">
-                  NDIS &amp; Medical Transport
+                <Link href="/services/airport-transfers" className="text-white/60 hover:text-sky-400 transition-colors uppercase tracking-wider text-[11px]">
+                  Airport Transfers (T1–T4)
                 </Link>
               </li>
               <li>

@@ -39,10 +39,10 @@ export async function POST(request: Request) {
 
     const serviceLabels: Record<string, string> = {
       "wheelchair": "Wheelchair Accessible Taxi",
-      "airport": "Perth Airport Transfer (24/7)",
-      "maxi-cab": "7 to 11 Seater Maxi Cab",
-      "baby-seat": "Maxi Taxi with Baby Seat",
       "medical": "Medical & Patient Transport",
+      "maxi-cab": "Maxi Cab (Up to 10 Passengers)",
+      "baby-seat": "Maxi Taxi with Baby Seat",
+      "airport": "Perth Airport Transfer (24/7)",
       "event": "Special Event / Wedding Charter",
     };
 

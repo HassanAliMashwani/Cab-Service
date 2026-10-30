@@ -3,31 +3,37 @@
 @theme inline {
   --color-slate-50: #f8fafc;
   --color-slate-900: #0b1329;
-  
-  --color-primary: #0b1329; /* Deep Executive Navy */
+
+  --color-primary: #0b1329;
+  /* Deep Executive Navy */
   --color-primary-light: #1e293b;
-  --color-accent-amber: #f59e0b; /* Premium Warm Gold/Amber */
+  --color-accent-amber: #f59e0b;
+  /* Premium Warm Gold/Amber */
   --color-accent-amber-hover: #d97706;
-  --color-accent-green: #10b981; /* Fresh Emerald Green */
+  --color-accent-green: #10b981;
+  /* Fresh Emerald Green */
   --color-accent-green-hover: #059669;
   --color-accent-whatsapp: #25D366;
-  
+
   --font-sans: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
 
 :root {
-  --header-height: 4.25rem; /* 68px mobile */
+  --header-height: 4.25rem;
+  /* 68px mobile */
 }
 
 @media (min-width: 640px) {
   :root {
-    --header-height: 5rem; /* 80px tablet */
+    --header-height: 5rem;
+    /* 80px tablet */
   }
 }
 
 @media (min-width: 1024px) {
   :root {
-    --header-height: 5.75rem; /* 92px desktop */
+    --header-height: 5.75rem;
+    /* 92px desktop */
   }
 }
 
@@ -36,8 +42,13 @@
     @apply bg-slate-50 text-slate-800 antialiased;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
-  
-  h1, h2, h3, h4, h5, h6 {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-bold tracking-tight text-slate-900;
   }
 }
@@ -46,6 +57,7 @@
 .nav-link-animated {
   position: relative;
 }
+
 .nav-link-animated::after {
   content: '';
   position: absolute;
@@ -57,6 +69,7 @@
   transition: width 250ms ease-in-out;
   border-radius: 9999px;
 }
+
 .nav-link-animated:hover::after,
 .nav-link-animated.active::after {
   width: 100%;
@@ -66,15 +79,19 @@
 .service-card-image-wrap img {
   transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
 }
+
 .service-card:hover .service-card-image-wrap img {
   transform: scale(1.08);
 }
 
 /* Smooth fade in fade out pulse */
 @keyframes fadeInOut {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 1;
   }
+
   50% {
     opacity: 0.4;
   }
@@ -84,3 +101,21 @@
   animation: fadeInOut 2.2s ease-in-out infinite;
 }
 
+/* Hero entrance animation (CSS-only, no opacity change so server HTML text remains visible immediately) */
+@keyframes heroEntrance {
+  from {
+    transform: translateY(10px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-title-enter {
+    animation: heroEntrance 0.5s ease-out forwards;
+  }
+  .hero-tagline-enter {
+    animation: heroEntrance 0.5s ease-out 0.1s both;
+  }
+}

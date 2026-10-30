@@ -114,10 +114,10 @@ export default function EnquiryForm() {
   const generateWhatsAppUrl = () => {
     const serviceLabels: Record<FormDataState["serviceType"], string> = {
       "wheelchair": "Wheelchair Accessible Taxi",
-      "airport": "Perth Airport Transfer",
-      "maxi-cab": "7–11 Seater Maxi Cab",
-      "baby-seat": "Taxi with Baby Car Seats",
       "medical": "Medical & Hospital Transfer",
+      "maxi-cab": "Maxi Cab (Up to 10 Passengers)",
+      "baby-seat": "Taxi with Baby Car Seats",
+      "airport": "Perth Airport Transfer",
       "event": "Weddings & Event Charter",
     };
 
@@ -284,7 +284,7 @@ export default function EnquiryForm() {
             Secure Your Booking
           </h2>
           <p className="text-zinc-300 text-xs sm:text-sm mt-1 font-medium">
-            Fixed transparent pricing &bull; Zero airport surge pricing &bull; Immediate dispatch confirmation
+            Upfront transparent pricing &bull; Reliable airport pickups &bull; Immediate dispatch confirmation
           </p>
         </div>
       </div>
@@ -304,10 +304,10 @@ export default function EnquiryForm() {
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-2.5">
           {[
             { id: "wheelchair", label: "Wheelchair Taxi", icon: Accessibility },
-            { id: "airport", label: "Airport Transfer", icon: Plane },
-            { id: "maxi-cab", label: "7-11 Seater Maxi", icon: Users },
-            { id: "baby-seat", label: "Taxi w/ Baby Seat", icon: Baby },
             { id: "medical", label: "Medical Transfer", icon: HeartPulse },
+            { id: "maxi-cab", label: "Up to 10 Passengers", icon: Users },
+            { id: "baby-seat", label: "Taxi w/ Baby Seat", icon: Baby },
+            { id: "airport", label: "Airport Transfer", icon: Plane },
             { id: "event", label: "Weddings / Events", icon: Sparkles },
           ].map((item) => (
             <button
@@ -511,11 +511,11 @@ export default function EnquiryForm() {
           <div className="flex items-center gap-2 mb-1.5">
             <Baby className="w-5 h-5 text-amber-400 shrink-0" />
             <h4 className="font-black text-white text-xs sm:text-sm uppercase tracking-wide">
-              Need Child Restraints? (AS/NZS 1754 Certified)
+              Need Child Restraints? (Safety Certified)
             </h4>
           </div>
           <p className="text-[11px] sm:text-xs text-zinc-400 mb-3.5 leading-relaxed">
-            Seats are pre-installed and disinfected prior to pickup. Select required quantities:
+            Seats are pre-installed and cleaned prior to pickup. Select required quantities:
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -613,7 +613,7 @@ export default function EnquiryForm() {
                   Passenger stays seated in wheelchair during trip
                 </span>
                 <span className="block text-xs text-zinc-400 mt-0.5">
-                  Our vehicle will deploy the hydraulic ramp and lock the wheelchair securely with 4-point Q'Straint safety harnesses.
+                  Our vehicle will deploy the ramp or lift and lock the wheelchair securely with certified restraints and safety harnesses.
                 </span>
               </label>
             </div>

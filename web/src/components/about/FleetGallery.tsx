@@ -25,7 +25,7 @@ const GALLERY_ITEMS = [
     alt: "Spacious interior cabin with BraunAbility lift system and comfortable seating",
     caption: "Certified Accessible Cabin",
     description:
-      "Spacious passenger cabin equipped with BraunAbility restraint systems, Q'Straint floor anchors, and high-visibility grab handles.",
+      "Spacious passenger cabin equipped with certified restraint systems, heavy-duty floor anchors, and high-visibility grab handles.",
   },
 ];
 

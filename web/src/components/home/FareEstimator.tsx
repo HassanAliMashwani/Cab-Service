@@ -37,12 +37,12 @@ export default function FareEstimator() {
 
   const serviceLabel = {
     wheelchair: "Wheelchair Accessible Taxi",
-    maxi: "7-11 Seater Maxi Cab",
+    maxi: "Maxi Cab (Up to 10 Passengers)",
     baby: "Maxi Taxi with Baby Seat",
   }[vehicleMode];
 
   const whatsappMessage = encodeURIComponent(
-    `Hi, I saw your estimated fare for ${route.from} to ${route.to} (${currentFare}) for a ${serviceLabel}. Can I get an exact fixed quote?`
+    `Hi, I saw your estimated fare for ${route.from} to ${route.to} (${currentFare}) for a ${serviceLabel}. Can I get an upfront quote?`
   );
 
   return (
@@ -53,7 +53,7 @@ export default function FareEstimator() {
           <span>TRANSPARENT FARE ESTIMATOR</span>
         </div>
         <span className="text-[11px] bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full font-medium">
-          Zero Surge Pricing
+          Upfront Quotes
         </span>
       </div>
 
@@ -89,7 +89,7 @@ export default function FareEstimator() {
           }`}
         >
           <Users className="w-3.5 h-3.5" />
-          <span>7-11 Seater</span>
+          <span>Up to 10 Passengers</span>
         </button>
 
         <button

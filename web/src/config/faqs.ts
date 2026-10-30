@@ -5,27 +5,32 @@ export interface FAQItem {
 
 export const defaultFAQs: FAQItem[] = [
   {
-    q: "How much luggage can your Perth Wheelchair Taxi Vans accommodate?",
-    a: "Our high-roof Toyota HiAce luxury vans easily accommodate up to 8 to 10 large suitcases along with backpacks, prams, golf bags, or surfboards alongside all passengers. You never have to worry about luggage overflowing into passenger seating.",
+    q: "Do you provide wheelchair accessible taxis in Perth?",
+    a: "Yes. Wheelchair accessible transport is our main service. Our taxi vans have a rear ramp or lift, so you can travel seated in your wheelchair, and our driver is there to help you on and off. We're based in Girrawheen and cover the Perth metro area, 24/7.",
   },
   {
-    q: "How far in advance should I book my transfer?",
-    a: "For Perth Airport transfers (T1, T2, T3, T4) and early morning flights, we recommend booking at least 12 to 24 hours in advance to guarantee your preferred pickup slot. However, we also operate 24/7 and accept same-day and immediate dispatch bookings.",
+    q: "What types of wheelchairs can you carry?",
+    a: "We can usually carry both manual and powered wheelchairs. Sizes and weights vary, so please tell us the type, approximate size and weight when you book, and we'll confirm it suits our van before your trip.",
   },
   {
-    q: "How do your wheelchair ramps and safety restraints work?",
-    a: "Our purpose-built wheelchair accessible maxi taxis feature heavy-duty hydraulic lifts or low-angle foldout ramps. The passenger remains securely seated in their wheelchair while our driver anchors the chair to the chassis floor using certified 4-point Q'Straint tie-downs and an over-shoulder lap-sash safety belt.",
+    q: "How is my wheelchair secured during the trip?",
+    a: "Once you're on board, the driver secures your wheelchair with restraints and a seatbelt is fitted for you. If you have special requirements, let us know when booking and we'll do our best to plan for them.",
   },
   {
-    q: "What happens if my flight into Perth Airport is delayed?",
-    a: "We actively monitor live Perth flight arrival schedules using your flight number. Whether your flight lands early or gets delayed by several hours, your driver adjusts your pickup schedule accordingly at zero additional surcharge.",
+    q: "Can family members or a carer travel with me?",
+    a: "Yes. Our van can carry up to 10 passengers in total. A wheelchair on board takes up space, so the number of seats available may be lower. Tell us your group size and we'll confirm what works.",
   },
   {
-    q: "Are your prices fixed or metered?",
-    a: "We offer guaranteed fixed-price quotes with zero hidden extras and zero surge pricing. The price you are quoted is the exact price you pay, regardless of traffic delays. Standard Western Australia Department of Transport taxi meters are also available upon request.",
+    q: "How far in advance should I book?",
+    a: "As early as you can, especially for wheelchair trips, so we can reserve a suitable vehicle. We also try to accommodate short-notice requests, so call or WhatsApp +61 493 252 766 and we'll do our best.",
   },
   {
-    q: "Do you supply certified baby car seats and child boosters?",
-    a: "Yes. We carry Australian Safety Standard AS/NZS 1754 compliant rear-facing infant capsules, forward-facing toddler seats, and booster seats. All seats are disinfected and pre-installed prior to your pickup.",
+    q: "How much luggage can I bring?",
+    a: "Our van is a comfortable size but isn't a bus, so luggage space depends on how many passengers and wheelchairs are on board. Tell us what you're bringing (suitcases, mobility aids, prams) and we'll say what fits and suggest options if you need more room.",
+  },
+  {
+    q: "Do you have baby seats and booster seats?",
+    a: "We can provide child seats, such as baby capsules and boosters, on request. Please tell us your child's age and weight when booking so we can prepare the right seat. Availability may vary, so ask early.",
   },
 ];
+

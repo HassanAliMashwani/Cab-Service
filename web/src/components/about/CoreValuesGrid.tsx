@@ -23,7 +23,7 @@ const values: ValueItem[] = [
     id: "safety",
     step: "01",
     title: "SAFETY FIRST",
-    desc: "Certified Q'Straint tie-downs & audits",
+    desc: "Certified restraint tie-downs & audits",
     icon: ShieldCheck,
     bgColor: "bg-[#059669]", // Vibrant emerald green
   },
@@ -31,7 +31,7 @@ const values: ValueItem[] = [
     id: "punctuality",
     step: "02",
     title: "PUNCTUALITY",
-    desc: "Flight tracking & guaranteed arrival",
+    desc: "Planned dispatch & on-time pickups",
     icon: Clock,
     bgColor: "bg-[#ea580c]", // Bold warm orange
   },

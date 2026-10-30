@@ -1,95 +1,27 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Phone, HelpCircle } from "lucide-react";
-import FadeIn from "@/components/animations/FadeIn";
+import { ArrowRight } from "lucide-react";
 import SlideUp from "@/components/animations/SlideUp";
 import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 import GmailIcon from "@/components/icons/GmailIcon";
-
 import JsonLd from "@/components/seo/JsonLd";
+import { defaultFAQs } from "@/config/faqs";
+import FAQAccordion from "@/components/services/FAQAccordion";
 
 export const metadata: Metadata = {
   title: "Frequently Asked Questions",
   description:
-    "Answers to common questions about Perth wheelchair taxis: ramps, Q'Straint tie-downs, airport meet-and-greets, flight delays, NDIS claims, and child seats.",
+    "Answers to common questions about Perth wheelchair taxis: ramps or lifts, wheelchair restraints, passenger capacity, NDIS and TUSS vouchers, and baby seats.",
   alternates: {
     canonical: "/faq",
   },
 };
 
 export default function FAQPage() {
-  const categories = [
-    {
-      title: "Booking & Pricing",
-      faqs: [
-        {
-          q: "Do I need to book in advance?",
-          a: "We strongly recommend booking at least 12–24 hours in advance to guarantee vehicle allocation, particularly for airport arrivals, hospital clinics, and weekend events. However, we also take same-day bookings subject to current driver location."
-        },
-        {
-          q: "How does your pricing work? Are there surge rates?",
-          a: "We offer clear, upfront fixed-price quotes. There is no dynamic surge pricing during busy hours or rainy days. The quote we confirm is the exact fare you pay."
-        },
-        {
-          q: "How do I pay for my journey?",
-          a: "We accept all major credit and debit cards (Visa, Mastercard, Amex), EFTPOS in-vehicle, cash, Western Australia TUSS vouchers, and direct invoicing for registered NDIS plan managers."
-        }
-      ]
-    },
-    {
-      title: "Wheelchair & Vehicle Equipment",
-      faqs: [
-        {
-          q: "Can I remain seated in my wheelchair during the journey?",
-          a: "Yes. Our vehicles are equipped with certified low-gradient ramps and 4-point Q'Straint self-tensioning retractors plus a crash-tested passenger lap and diagonal sash belt. You do not need to transfer."
-        },
-        {
-          q: "What types of wheelchairs can you accommodate?",
-          a: "We accommodate standard manual wheelchairs, heavy motorized powerchairs, pediatric wheelchairs, and 3- or 4-wheel mobility scooters with up to 360 kg total certified capacity."
-        },
-        {
-          q: "How many family members or companions can travel with me?",
-          a: "Our accessible maxi taxis seat the wheelchair passenger plus up to 4 to 6 additional family members, friends, or support staff, all traveling together in the same vehicle."
-        }
-      ]
-    },
-    {
-      title: "Perth Airport Transfers",
-      faqs: [
-        {
-          q: "What happens if my inbound flight into Perth is delayed?",
-          a: "We track your flight number in real time via live radar. If your flight is delayed or lands early, our driver automatically adjusts pickup timing without any waiting or penalty fees."
-        },
-        {
-          q: "Where do we meet the driver at Perth Airport?",
-          a: "Our driver meets you right at the designated accessible commercial arrivals pickup bay outside Terminals 1, 2, 3 or 4 with the vehicle ramp prepared."
-        },
-        {
-          q: "How much luggage can fit with the wheelchair?",
-          a: "Our accessible vehicles feature an expansive luggage area that comfortably holds 3–4 large travel suitcases plus smaller carry-ons, walking frames, or oxygen equipment."
-        }
-      ]
-    },
-    {
-      title: "NDIS & TUSS Vouchers",
-      faqs: [
-        {
-          q: "How do I claim trips through my NDIS plan?",
-          a: "We provide an itemized tax invoice containing all necessary details (ABN, route, date, wheelchair transport line item). Self-managed participants can claim immediately through the NDIS Myplace portal, and plan-managed participants can have invoices forwarded to their plan manager."
-        },
-        {
-          q: "Do you accept Western Australia TUSS vouchers?",
-          a: "Yes, we accept Western Australia Taxi User Subsidy Scheme (TUSS) vouchers. Hand the voucher from your book to the driver, and you pay only the subsidized co-payment (typically 25% or 50% of the fare)."
-        }
-      ]
-    }
-  ];
-
-  const allFaqs = categories.flatMap((cat) => cat.faqs);
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: allFaqs.map((faq) => ({
+    mainEntity: defaultFAQs.map((faq) => ({
       "@type": "Question",
       name: faq.q,
       acceptedAnswer: {
@@ -113,34 +45,19 @@ export default function FAQPage() {
               Frequently Asked Questions
             </h1>
             <p className="text-lg lg:text-xl text-slate-300 leading-relaxed">
-              Find clear answers regarding wheelchair equipment, vehicle dimensions, airport meet-and-greets, and billing options.
+              Find clear answers regarding wheelchair equipment, vehicle capacity, bookings, and billing options.
             </p>
           </SlideUp>
         </div>
       </section>
 
-      {/* Content */}
-      <section className="py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          {categories.map((cat, idx) => (
-            <div key={idx}>
-              <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 mb-6 flex items-center gap-2 border-b border-slate-200 pb-3">
-                <HelpCircle className="w-5 h-5 text-blue-600" />
-                {cat.title}
-              </h2>
-              <div className="space-y-4">
-                {cat.faqs.map((faq, i) => (
-                  <FadeIn key={i} delay={0.05 * i} className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
-                    <h3 className="text-base sm:text-lg font-bold mb-2 text-slate-900">{faq.q}</h3>
-                    <p className="text-slate-600 text-sm leading-relaxed">{faq.a}</p>
-                  </FadeIn>
-                ))}
-              </div>
-            </div>
-          ))}
+      {/* Accordion Content */}
+      <FAQAccordion items={defaultFAQs} title="Frequently Asked Questions" badge="Common Questions" />
 
-          {/* Contact Box */}
-          <div className="bg-slate-900 text-white rounded-3xl p-8 sm:p-12 text-center shadow-lg">
+      {/* Contact Box */}
+      <section className="py-16 bg-slate-900">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-slate-900 text-white rounded-3xl p-8 sm:p-12 text-center shadow-lg border border-slate-800">
             <h2 className="text-2xl font-bold mb-3 text-white">Still have a specific question?</h2>
             <p className="text-slate-300 mb-8 max-w-lg mx-auto text-sm">
               We are happy to answer any questions about wheelchair dimensions, customized routes, or medical appointment schedules.
@@ -176,3 +93,4 @@ export default function FAQPage() {
     </div>
   );
 }
+

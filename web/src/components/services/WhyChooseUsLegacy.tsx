@@ -21,8 +21,8 @@ export default function WhyChooseUsLegacy() {
     },
     {
       icon: Clock,
-      title: "Always On Time",
-      desc: "Live traffic planning & flight monitoring for guaranteed punctuality.",
+      title: "Reliable Service",
+      desc: "Traffic planning & flight coordination for prompt pickups.",
       color: "text-amber-400",
       borderColor: "border-amber-400",
     },
