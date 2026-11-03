@@ -75,7 +75,7 @@ export default function TermsAndConditionsPage() {
             <div>
               <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-3">5. Cancellations</h2>
               <p>
-                We understand schedules change. Please notify us at least 2 hours prior to scheduled pickup if you need to cancel or reschedule your ride. Contact us directly at +61 493 252 766 or bookings@wheelchairmaxiperth.com.
+                We understand schedules change. Please notify us at least 2 hours prior to scheduled pickup if you need to cancel or reschedule your ride. Contact us directly at +61 493 252 766 or perthwheelchairtaxivan@gmail.com.
               </p>
             </div>
           </div>

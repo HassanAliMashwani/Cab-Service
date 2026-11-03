@@ -12,7 +12,7 @@ export const SITE_CONFIG = {
   whatsappDisplay: "+61 493 252 766",
   whatsappUrl: (message?: string) => 
     `https://wa.me/61493252766${message ? `?text=${encodeURIComponent(message)}` : ""}`,
-  email: "bookings@wheelchairmaxiperth.com",
+  email: "perthwheelchairtaxivan@gmail.com",
   siteUrl: SITE_URL,
 };
 

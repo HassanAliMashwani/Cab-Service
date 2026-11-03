@@ -62,7 +62,7 @@ export default function Header() {
               className="flex items-center group shrink-0"
               aria-label="Perth Wheelchair Taxi Van Home"
             >
-              <BrandLogo size="md" scrolled={scrolled} showText={true} />
+              <BrandLogo size="md" scrolled={scrolled} />
             </Link>
 
             {/* Desktop Nav */}
@@ -150,7 +150,7 @@ export default function Header() {
                   WhatsApp Us (+61 493 252 766)
                 </a>
                 <a
-                  href="mailto:bookings@wheelchairmaxiperth.com"
+                  href="mailto:perthwheelchairtaxivan@gmail.com"
                   className="flex items-center justify-center gap-2 py-3 rounded-full bg-white text-zinc-950 font-bold text-sm shadow-md"
                 >
                   <GmailIcon className="w-4 h-4" colored={true} />

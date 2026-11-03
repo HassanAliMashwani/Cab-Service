@@ -63,7 +63,7 @@ const taxiServiceSchema = {
     "Wheelchair accessible taxi vans in Perth, Western Australia, carrying up to 10 passengers. NDIS and TUSS accepted, 24/7.",
   url: SITE_URL,
   telephone: "+61493252766",
-  email: "bookings@wheelchairmaxiperth.com",
+  email: "perthwheelchairtaxivan@gmail.com",
   image: `${SITE_URL}/images/hero-white-van.jpg`,
   priceRange: "$$",
   address: {

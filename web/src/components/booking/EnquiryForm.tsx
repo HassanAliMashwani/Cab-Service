@@ -191,11 +191,18 @@ export default function EnquiryForm() {
         throw new Error(json.error || "Failed to submit enquiry. Please use direct WhatsApp.");
       }
 
+      const targetWhatsAppUrl = json.whatsappUrl || generateWhatsAppUrl();
+
       setSuccessResult({
         referenceId: json.referenceId,
         message: json.message,
-        whatsappUrl: json.whatsappUrl || generateWhatsAppUrl(),
+        whatsappUrl: targetWhatsAppUrl,
       });
+
+      // Automatically launch WhatsApp with pre-filled details
+      if (typeof window !== "undefined") {
+        window.location.href = targetWhatsAppUrl;
+      }
     } catch (err: any) {
       setErrorMsg(err.message || "An unexpected error occurred. Please message our driver via WhatsApp directly.");
     } finally {
@@ -216,7 +223,7 @@ export default function EnquiryForm() {
           Thank You, {formData.name}!
         </h2>
         <p className="text-zinc-300 text-sm mb-6 font-medium">
-          Your reservation request has been transmitted directly to dispatch.
+          Launching WhatsApp with your booking details... If WhatsApp didn't open automatically, click the button below.
         </p>
 
         <div className="bg-zinc-950 p-4 rounded-2xl border-2 border-zinc-800 text-xs font-mono mb-8 text-amber-400">

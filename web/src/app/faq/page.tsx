@@ -73,7 +73,7 @@ export default function FAQPage() {
                 <span>Ask on WhatsApp</span>
               </a>
               <a
-                href="mailto:bookings@wheelchairmaxiperth.com"
+                href="mailto:perthwheelchairtaxivan@gmail.com"
                 className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white px-7 py-3.5 rounded-full font-bold transition-all text-sm hover:scale-105"
               >
                 <GmailIcon className="w-4 h-4" colored={true} />

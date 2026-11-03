@@ -64,7 +64,7 @@ export default function ContactForm() {
           serviceType: formData.service.toLowerCase().includes("wheelchair") ? "wheelchair" : "airport",
           name: formData.name,
           phone: formData.phone,
-          email: "quick-contact@maxicab.com",
+          email: "perthwheelchairtaxivan@gmail.com",
           pickupLocation: formData.pickup || "Perth",
           destination: formData.destination || "Perth",
           pickupDate: formData.date || new Date().toISOString().split("T")[0],
@@ -84,11 +84,18 @@ export default function ContactForm() {
         }),
       });
 
+      const json = await res.json().catch(() => null);
+
       if (!res.ok) {
-        throw new Error("Unable to send inquiry. Please use WhatsApp direct.");
+        throw new Error(json?.error || "Unable to send inquiry. Please use WhatsApp direct.");
       }
 
       setSubmitted(true);
+
+      const targetUrl = json?.whatsappUrl || getWhatsAppMessage();
+      if (typeof window !== "undefined") {
+        window.location.href = targetUrl;
+      }
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : "Submission error.";
       setError(msg);
@@ -110,7 +117,7 @@ export default function ContactForm() {
           Thank you, {formData.name}!
         </h3>
         <p className="text-sm text-zinc-300 mb-6 leading-relaxed max-w-md mx-auto font-medium">
-          Our dispatch team has received your request. We will review availability and confirm your fixed quote shortly.
+          Launching WhatsApp with your enquiry details... If WhatsApp didn't open automatically, click the button below.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <a

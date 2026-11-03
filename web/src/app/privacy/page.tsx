@@ -68,7 +68,7 @@ export default function PrivacyPolicyPage() {
             <div>
               <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-3">4. Data Retention &amp; Contact</h2>
               <p>
-                We retain booking records only as required by Western Australia transport regulations and taxation laws. If you have any questions regarding your personal information, or wish to update your details, contact our privacy officer at bookings@wheelchairmaxiperth.com or call +61 493 252 766.
+                We retain booking records only as required by Western Australia transport regulations and taxation laws. If you have any questions regarding your personal information, or wish to update your details, contact our privacy officer at perthwheelchairtaxivan@gmail.com or call +61 493 252 766.
               </p>
             </div>
           </div>

@@ -136,7 +136,7 @@ export default function ContactPage() {
 
             {/* Email Button */}
             <a
-              href="mailto:bookings@wheelchairmaxiperth.com"
+              href="mailto:perthwheelchairtaxivan@gmail.com"
               className="flex items-center justify-between bg-zinc-900 p-3.5 sm:p-4 border-2 sm:border-3 border-white shadow-[3px_3px_0px_0px_#ffffff] sm:shadow-[4px_4px_0px_0px_#ffffff] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_#ffffff] transition-all group rounded-xl sm:rounded-2xl"
             >
               <div className="flex items-center gap-3.5 min-w-0">
@@ -153,7 +153,7 @@ export default function ContactPage() {
                     </span>
                   </div>
                   <p className="text-white font-bold text-xs sm:text-sm tracking-tight truncate mt-0.5">
-                    bookings@wheelchairmaxiperth.com
+                    perthwheelchairtaxivan@gmail.com
                   </p>
                 </div>
               </div>

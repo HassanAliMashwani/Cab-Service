@@ -12,7 +12,6 @@ import {
 } from "lucide-react";
 import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 import GmailIcon from "@/components/icons/GmailIcon";
-import BrandLogo from "@/components/ui/BrandLogo";
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -82,12 +81,7 @@ export default function Footer() {
          ───────────────────────────────────────────────────────────── */}
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
 
-        {/* Brand Header */}
-        <div className="mb-5 pb-4 border-b border-zinc-800/80">
-          <Link href="/" className="flex items-center gap-3 group inline-flex" aria-label="Perth Wheelchair Taxi Van Home">
-            <BrandLogo size="lg" />
-          </Link>
-        </div>
+        
 
         {/* ── MOBILE SPECIFIC LAYOUT (<640px) ── */}
         <div className="block sm:hidden mb-6">
@@ -195,14 +189,14 @@ export default function Footer() {
               </a>
 
               {/* Email */}
-              <a href="mailto:bookings@wheelchairmaxiperth.com" className="grid grid-cols-[28px_1fr] items-center gap-2.5 group min-h-[40px]">
+              <a href="mailto:perthwheelchairtaxivan@gmail.com" className="grid grid-cols-[28px_1fr] items-center gap-2.5 group min-h-[40px]">
                 <div className="w-7 h-7 flex items-center justify-center shrink-0">
                   <GmailIcon className="w-4 h-4" colored={true} />
                 </div>
                 <div className="flex flex-col text-left min-w-0">
                   <span className="text-[0.65rem] font-bold text-white/50 uppercase tracking-widest leading-none mb-1">Email (Gmail)</span>
                   <span className="text-white font-bold text-[0.9rem] group-hover:text-amber-400 group-active:text-amber-400 transition-colors break-all">
-                    bookings@wheelchairmaxiperth.com
+                    perthwheelchairtaxivan@gmail.com
                   </span>
                 </div>
               </a>
@@ -319,11 +313,11 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="mailto:bookings@wheelchairmaxiperth.com" className="group flex flex-col">
+                <a href="mailto:perthwheelchairtaxivan@gmail.com" className="group flex flex-col">
                   <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest mb-0.5">Email (Gmail)</span>
                   <span className="flex items-center gap-2 text-white font-bold group-hover:text-amber-400 transition-colors text-xs break-all">
                     <GmailIcon className="w-3.5 h-3.5" colored={true} />
-                    bookings@wheelchairmaxiperth.com
+                    perthwheelchairtaxivan@gmail.com
                   </span>
                 </a>
               </li>
