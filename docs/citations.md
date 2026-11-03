@@ -95,3 +95,4 @@ Submit to these directories in order of authority and relevance:
 * **Quarterly Audit:** Review live listings every 3 months to ensure phone number, website link, and operational hours have not drifted or been flagged by automated bots.
 * **Never Change Suburb Name Arbitrarily:** Do not list as "Perth City" on one site and "Girrawheen" on another. Always state "Girrawheen WA 6064" as the operational base, serving all Greater Perth metropolitan local government areas.
 * **Keep Same URL Scheme:** Always link to `https://` with the exact root canonical URL (e.g., `https://perthwheelchairtaxi.com.au` or `https://maxitaxi-five.vercel.app`). Do not alternate between `http://`, `https://`, `www.` and non-`www`.
+

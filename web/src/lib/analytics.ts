@@ -34,3 +34,4 @@ export function trackEvent(action: AnalyticsEventType, params: Record<string, an
     console.debug("[Analytics Error]", err);
   }
 }
+

@@ -10,14 +10,14 @@ import { SITE_URL, SITE_CONFIG } from "@/config/site";
 export const metadata: Metadata = {
   title: "Wheelchair Taxi Service Areas Perth | 20km Girrawheen",
   description:
-    "Perth wheelchair accessible taxi and 10-seater maxi cab service coverage. Connecting 14 major hubs within 20 km of Girrawheen base. Book 24/7 on +61 493 252 766.",
+    "Perth wheelchair accessible taxi and 10-seater maxi cab service coverage. Connecting 20 major hubs within 20 km of Girrawheen base. Book 24/7 on +61 493 252 766.",
   alternates: {
     canonical: `${SITE_URL}/locations`,
   },
   openGraph: {
     title: "Wheelchair Taxi Service Areas Perth | 20km Girrawheen",
     description:
-      "Perth wheelchair accessible taxi and 10-seater maxi cab service coverage. Connecting 14 major hubs within 20 km of Girrawheen base. Book 24/7 on +61 493 252 766.",
+      "Perth wheelchair accessible taxi and 10-seater maxi cab service coverage. Connecting 20 major hubs within 20 km of Girrawheen base. Book 24/7 on +61 493 252 766.",
     url: `${SITE_URL}/locations`,
     type: "website",
     siteName: SITE_CONFIG.name,
@@ -111,8 +111,24 @@ export default function LocationsPage() {
         </div>
       </section>
 
-      {/* ── Crawlable Index of All Served Suburbs with Unique Details ── */}
+      {/* ── Visual Route Map (Interactive Transit Roadmap) ── */}
       <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full border-b border-zinc-900">
+        <div className="text-center max-w-3xl mx-auto mb-8">
+          <span className="text-xs font-black text-amber-400 uppercase tracking-[0.2em] mb-2 block">
+            Visual Route Map
+          </span>
+          <h2 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight mb-2">
+            Metropolitan Hub Connections
+          </h2>
+          <p className="text-xs sm:text-sm text-zinc-400">
+            Interactive roadmap showing regional connectors between Girrawheen, coastal hubs, and airport terminals.
+          </p>
+        </div>
+        <PerthLocationsRoadmap />
+      </section>
+
+      {/* ── Suburban Hubs & Regional Corridors ── */}
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
           <div>
             <h2 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight">
@@ -123,7 +139,7 @@ export default function LocationsPage() {
             </p>
           </div>
           <span className="text-xs bg-amber-400/10 border border-amber-400/30 text-amber-400 font-bold px-3 py-1.5 rounded-full uppercase tracking-wider">
-            14 Dedicated Service Pages
+            {suburbList.length} Dedicated Service Pages
           </span>
         </div>
 
@@ -169,22 +185,6 @@ export default function LocationsPage() {
             </Link>
           ))}
         </div>
-      </section>
-
-      {/* ── Interactive Transit Roadmap ── */}
-      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
-        <div className="text-center max-w-3xl mx-auto mb-8">
-          <span className="text-xs font-black text-amber-400 uppercase tracking-[0.2em] mb-2 block">
-            Visual Route Map
-          </span>
-          <h2 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight mb-2">
-            Metropolitan Hub Connections
-          </h2>
-          <p className="text-xs sm:text-sm text-zinc-400">
-            Interactive roadmap showing regional connectors between Girrawheen, coastal hubs, and airport terminals.
-          </p>
-        </div>
-        <PerthLocationsRoadmap />
       </section>
     </div>
   );

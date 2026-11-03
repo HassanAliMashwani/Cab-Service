@@ -1,8 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState, useMemo } from "react";
-import { ArrowRight, Navigation } from "lucide-react";
-import { motion, useReducedMotion } from "framer-motion";
+import { Navigation } from "lucide-react";
 import "leaflet/dist/leaflet.css";
 
 export interface TransitPlace {
@@ -320,49 +319,6 @@ export default function TransitRoadmapMapClient() {
     if (activeFilter === "all") return TRANSIT_PLACES;
     return TRANSIT_PLACES.filter((p) => p.corridor === activeFilter);
   }, [activeFilter]);
-
-  const shouldReduceMotion = useReducedMotion();
-
-  // Subtle category accent bar color (airport, station, shopping, venue, sport, hospital)
-  const getCategoryAccentColor = (category: string) => {
-    switch (category) {
-      case "airport":
-        return "#10B981"; // Emerald
-      case "station":
-        return "#38BDF8"; // Sky Blue
-      case "shopping":
-        return "#A855F7"; // Purple
-      case "sport":
-        return "#F97316"; // Orange
-      case "hospital":
-        return "#EC4899"; // Rose
-      case "venue":
-      default:
-        return "#FACC15"; // Yellow
-    }
-  };
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.06, // 60 ms stagger
-      },
-    },
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.35,
-        ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
-      },
-    },
-  };
 
   useEffect(() => {
     let isCancelled = false;
@@ -803,93 +759,6 @@ export default function TransitRoadmapMapClient() {
             </div>
           </div>
         </div>
-      </div>
-
-      {/* ─────────────────────────────────────────────────────────────
-          2. MINIMALIST PILL-AND-BOX LOCATION CARDS
-         ───────────────────────────────────────────────────────────── */}
-      <div className="w-full">
-        {/* Section Title */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-6 border-b border-zinc-800 pb-4">
-          <div>
-            <span className="text-[11px] font-black uppercase tracking-[0.2em] text-amber-400 block mb-1">
-              Data &amp; Destination Intelligence
-            </span>
-            <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-white flex items-center gap-2">
-              <span>{activeFilter === "all" ? "All 16 Hubs" : FILTER_CHIPS.find((c) => c.id === activeFilter)?.label}</span>
-              <span className="text-amber-400">({filteredPlaces.length})</span>
-            </h3>
-          </div>
-          <span className="text-xs text-zinc-400 font-medium">
-            Verified within 20 km &bull; Click card to navigate on Google Maps
-          </span>
-        </div>
-
-        {/* Pill-and-Box Cards Grid */}
-        <motion.div
-          key={activeFilter}
-          variants={shouldReduceMotion ? undefined : containerVariants}
-          initial={shouldReduceMotion ? false : "hidden"}
-          whileInView="visible"
-          viewport={{ once: true, margin: "-40px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-fr"
-        >
-          {filteredPlaces.map((place) => (
-            <motion.a
-              key={place.id}
-              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(place.name)},${place.lat},${place.lng}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              variants={shouldReduceMotion ? undefined : cardVariants}
-              whileHover={
-                shouldReduceMotion
-                  ? undefined
-                  : {
-                      y: -6,
-                      transition: { duration: 0.2, ease: "easeOut" },
-                    }
-              }
-              whileTap={
-                shouldReduceMotion
-                  ? undefined
-                  : {
-                      scale: 0.98,
-                      transition: { duration: 0.1 },
-                    }
-              }
-              aria-label={`${place.name}, ${place.distanceKm.toFixed(1)} km from base, opens Google Maps`}
-              className="group relative rounded-2xl bg-[#13141a] border border-zinc-800 hover:border-amber-400 p-4 sm:p-5 pl-5 sm:pl-6 flex flex-col justify-between h-full min-h-[110px] w-full max-w-full shadow-sm hover:shadow-[0_8px_24px_rgba(250,204,21,0.2)] transition-colors transition-shadow duration-200 overflow-hidden cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
-            >
-              {/* Thin Left Accent Bar in Category Colour */}
-              <span
-                className="absolute left-0 top-3 bottom-3 w-1 rounded-r-full opacity-80 group-hover:opacity-100 transition-opacity"
-                style={{ backgroundColor: getCategoryAccentColor(place.category) }}
-                aria-hidden="true"
-              />
-
-              {/* Top Row: Place Name (Left) + Distance Pill (Right) */}
-              <div className="w-full flex items-center justify-between gap-2.5 sm:gap-3 mb-4 min-w-0">
-                <h4 className="text-[0.95rem] sm:text-[1.125rem] font-bold text-white uppercase tracking-tight leading-snug line-clamp-2 break-words whitespace-normal min-w-0 flex-1">
-                  {place.name}
-                </h4>
-                <span className="shrink-0 inline-flex items-baseline gap-0.5 bg-amber-400 text-black font-extrabold px-2.5 sm:px-3 py-1 rounded-full shadow-[0_0_12px_rgba(250,204,21,0.35)] transition-transform duration-200 group-hover:scale-105">
-                  <span className="text-xs sm:text-sm font-black leading-none">
-                    {place.distanceKm.toFixed(1)}
-                  </span>
-                  <span className="text-[9px] sm:text-[10px] font-extrabold leading-none uppercase">km</span>
-                </span>
-              </div>
-
-              {/* Bottom Row: Thin Divider + Navigate Link */}
-              <div className="pt-3 border-t border-zinc-800/80 flex items-center justify-between text-xs sm:text-sm font-bold text-amber-400">
-                <span className="inline-flex items-center gap-1.5">
-                  <span>Navigate</span>
-                  <ArrowRight className="w-4 h-4 transition-transform duration-200 ease-out group-hover:translate-x-1" />
-                </span>
-              </div>
-            </motion.a>
-          ))}
-        </motion.div>
       </div>
     </div>
   );

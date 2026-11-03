@@ -36,3 +36,4 @@
 - Taxi Fares & Pricing Guide: https://maxitaxi-five.vercel.app/fares
 - Frequently Asked Questions: https://maxitaxi-five.vercel.app/faq
 - Booking & Quote Request: https://maxitaxi-five.vercel.app/enquire
+
