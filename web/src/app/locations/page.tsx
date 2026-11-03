@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { MapPin, Navigation, ArrowRight, Hospital, Plane, ShieldCheck, Phone } from "lucide-react";
+import { ArrowRight, Hospital, Plane, Phone } from "lucide-react";
 import SlideUp from "@/components/animations/SlideUp";
 import PerthLocationsRoadmap from "@/components/locations/PerthLocationsRoadmap";
 import JsonLd from "@/components/seo/JsonLd";
@@ -76,7 +76,7 @@ export default function LocationsPage() {
       <JsonLd data={breadcrumbSchema} />
       <JsonLd data={collectionSchema} />
 
-      {/* ── Header Section ── */}
+      {/* ── 1. Header Section ── */}
       <section className="relative pt-28 pb-12 sm:pt-36 sm:pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full text-center border-b border-zinc-900">
         <div className="relative z-10 max-w-4xl mx-auto">
           <SlideUp>
@@ -111,7 +111,7 @@ export default function LocationsPage() {
         </div>
       </section>
 
-      {/* ── Visual Route Map (Interactive Transit Roadmap) ── */}
+      {/* ── 2. Visual Route Map (Directly After Header) ── */}
       <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full border-b border-zinc-900">
         <div className="text-center max-w-3xl mx-auto mb-8">
           <span className="text-xs font-black text-amber-400 uppercase tracking-[0.2em] mb-2 block">
@@ -127,7 +127,7 @@ export default function LocationsPage() {
         <PerthLocationsRoadmap />
       </section>
 
-      {/* ── Suburban Hubs & Regional Corridors ── */}
+      {/* ── 3. Suburban Hubs & Regional Corridors (Then this section) ── */}
       <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
           <div>
