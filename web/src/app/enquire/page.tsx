@@ -1,19 +1,41 @@
 import type { Metadata } from "next";
 import EnquiryForm from "@/components/booking/EnquiryForm";
 import BackButton from "@/components/ui/BackButton";
+import JsonLd from "@/components/seo/JsonLd";
+import { SITE_URL } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "Book a Ride Online",
+  title: "Book a Wheelchair Taxi in Perth | Online Quote Request",
   description:
-    "Book a wheelchair accessible taxi or maxi cab in Perth. Get guaranteed fixed pricing, instant confirmation, airport pickups, and NDIS invoicing online.",
+    "Book a wheelchair accessible taxi or 10-seater maxi cab across Perth. Transparent pricing, airport transfers, NDIS invoicing, and instant WhatsApp booking.",
   alternates: {
     canonical: "/enquire",
   },
 };
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: SITE_URL,
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Book a Ride",
+      item: `${SITE_URL}/enquire`,
+    },
+  ],
+};
+
 export default function EnquirePage() {
   return (
     <div className="flex flex-col w-full bg-black min-h-screen text-white overflow-x-hidden selection:bg-amber-400 selection:text-black">
+      <JsonLd data={breadcrumbSchema} />
 
       {/* ─────────────────────────────────────────────────────────────
           1. HEADER HERO (With Back Navigation)
@@ -29,11 +51,11 @@ export default function EnquirePage() {
 
         <div className="relative z-10 text-center max-w-3xl mx-auto">
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight leading-[0.95] mb-3 text-white">
-            Secure Your Booking
+            Book a Wheelchair Taxi or Maxi Cab
           </h1>
 
           <p className="text-sm sm:text-base text-zinc-300 font-semibold leading-relaxed max-w-xl mx-auto">
-            Direct owner dispatch with upfront fixed fares. Immediate flight and wheelchair scheduling across Greater Perth.
+            Direct owner dispatch with upfront fixed fares or metered rates. Instant confirmation for wheelchair transfers, NDIS travel, and Perth Airport trips 24/7.
           </p>
         </div>
       </section>

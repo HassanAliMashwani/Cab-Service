@@ -13,6 +13,8 @@ import {
 import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 import GmailIcon from "@/components/icons/GmailIcon";
 import BrandLogo from "@/components/ui/BrandLogo";
+import { BUSINESS_EMAIL } from "@/config/site";
+import { trackEvent } from "@/lib/analytics";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -135,6 +137,7 @@ export default function Header() {
               <div className="mt-4 pt-4 border-t border-white/10 flex flex-col gap-2.5">
                 <a
                   href="tel:+61493252766"
+                  onClick={() => trackEvent("phone_click", { location: "mobile_header_drawer" })}
                   className="flex items-center justify-center gap-2 py-3 rounded-full bg-white/10 border border-white/20 text-white font-bold text-sm hover:bg-white/20 transition-all"
                 >
                   <Phone className="w-4 h-4 text-amber-400" />
@@ -142,6 +145,7 @@ export default function Header() {
                 </a>
                 <a
                   href="https://wa.me/61493252766?text=Hi,%20I%20would%20like%20to%20book%20a%20Maxi%20Cab%20in%20Perth."
+                  onClick={() => trackEvent("whatsapp_click", { location: "mobile_header_drawer" })}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 py-3 rounded-full bg-[#25D366] text-white font-bold text-sm shadow-md"
@@ -150,11 +154,11 @@ export default function Header() {
                   WhatsApp Us (+61 493 252 766)
                 </a>
                 <a
-                  href="mailto:perthwheelchairtaxivan@gmail.com"
+                  href={`mailto:${BUSINESS_EMAIL}`}
                   className="flex items-center justify-center gap-2 py-3 rounded-full bg-white text-zinc-950 font-bold text-sm shadow-md"
                 >
                   <GmailIcon className="w-4 h-4" colored={true} />
-                  Email via Gmail
+                  Email Us
                 </a>
                 <Link
                   href="/enquire"

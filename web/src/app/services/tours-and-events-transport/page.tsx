@@ -8,9 +8,9 @@ import JsonLd from "@/components/seo/JsonLd";
 import { SITE_URL } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "Wheelchair Tours & Events Perth",
+  title: "Swan Valley Maxi Taxi | Perth Wedding & Event Transport",
   description:
-    "Wheelchair accessible tours and event transport across Perth. Rear ramp or lift van for up to 10 passengers. Swan Valley tours and concert trips 24/7.",
+    "Swan Valley wine tours, wedding guest charters, and private event transport in Perth. 10-seater maxi cabs with wheelchair accessibility. Get a quote.",
   alternates: {
     canonical: "/services/tours-and-events-transport",
   },
@@ -19,9 +19,9 @@ export const metadata: Metadata = {
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  name: "Tours & Events Transport Perth",
+  name: "Swan Valley Maxi Taxi & Perth Event Transport",
   description:
-    "Wheelchair accessible tours and event transport across Perth with rear ramp or lift van carrying up to 10 passengers 24/7.",
+    "Swan Valley wine tours, wedding guest charters, and private event transport in Perth. 10-seater maxi cabs with rear wheelchair ramp access.",
   provider: {
     "@type": "TaxiService",
     name: "Perth Wheelchair Taxi Van",
@@ -75,13 +75,13 @@ export default function ToursAndEventsTransportPage() {
                 <span>Special Charters &amp; Perth Events</span>
               </div>
               <h1 className="text-4xl lg:text-5xl font-extrabold mb-6 text-white tracking-tight">
-                Tours &amp; Events Transport Perth
+                Swan Valley &amp; Perth Event Maxi Taxi
               </h1>
               <p className="text-lg lg:text-xl text-slate-300 leading-relaxed">
-                Enjoy customized tour charters and comfortable event transport. Seamless group travel for Swan Valley winery outings, Optus Stadium concerts, Crown Perth dinners, and family celebrations.
+                Looking for a private Swan Valley wine tour or event maxi taxi in Perth? We provide dedicated 10-seater maxi vans with full wheelchair accessibility for winery day tours, wedding guest transfers, RAC Arena concerts, and Crown Perth celebrations. Enjoy fixed charter pricing, door-to-door multi-stop pickups, and guaranteed return transport 24 hours a day.
               </p>
               <p className="mt-3 text-sm text-amber-300 font-semibold">
-                Our vehicles are fully <Link href="/services/wheelchair-accessible-taxi" className="underline underline-offset-4 hover:text-white">wheelchair accessible</Link> with rear ramp or lift access.
+                Every vehicle includes a certified rear ramp and 4-point Q&apos;Straint tie-downs alongside seating for up to 10 ambulatory passengers.
               </p>
             </SlideUp>
 

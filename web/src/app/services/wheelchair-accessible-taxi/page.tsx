@@ -1,230 +1,194 @@
-import { CheckCircle2, ShieldCheck, ArrowRight, Phone, Sliders, Calendar } from "lucide-react";
+import { CheckCircle2, ShieldCheck, ArrowRight, Phone, Sliders, Calendar, Accessibility, HeartPulse, HelpCircle } from "lucide-react";
 import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SlideUp from "@/components/animations/SlideUp";
-
 import RelatedServices from "@/components/services/RelatedServices";
 import JsonLd from "@/components/seo/JsonLd";
-import { SITE_URL } from "@/config/site";
+import { SITE_URL, SITE_CONFIG } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "Wheelchair Accessible Taxi Perth",
+  title: "Wheelchair Taxi Service Perth | Accessible Transport 24/7",
   description:
-    "Wheelchair accessible taxi vans in Perth with rear ramp or lift. Travel seated in your wheelchair. Up to 10 passengers. NDIS and WA TUSS accepted 24/7.",
+    "Perth wheelchair accessible taxi vans with rear ramp or hydraulic lift. Travel seated in your wheelchair. Up to 10 passengers. NDIS & TUSS accepted 24/7.",
   alternates: {
-    canonical: "/services/wheelchair-accessible-taxi",
+    canonical: `${SITE_URL}/services/wheelchair-accessible-taxi`,
+  },
+  openGraph: {
+    title: "Wheelchair Taxi Service Perth | Accessible Transport 24/7",
+    description:
+      "Perth wheelchair accessible taxi vans with rear ramp or hydraulic lift. Travel seated in your wheelchair. Up to 10 passengers. NDIS & TUSS accepted 24/7.",
+    url: `${SITE_URL}/services/wheelchair-accessible-taxi`,
+    type: "website",
+    siteName: SITE_CONFIG.name,
+    locale: "en_AU",
+    images: [
+      {
+        url: `${SITE_URL}/images/og-image.jpg`,
+        width: 1200,
+        height: 630,
+        alt: "Perth Wheelchair Accessible Taxi Service",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Wheelchair Taxi Service Perth | Accessible Transport 24/7",
+    description:
+      "Perth wheelchair accessible taxi vans with rear ramp or hydraulic lift. NDIS & WA TUSS accepted 24/7.",
+    images: [`${SITE_URL}/images/og-image.jpg`],
   },
 };
 
 const serviceSchema = {
   "@context": "https://schema.org",
-  "@type": "Service",
-  name: "Wheelchair Accessible Taxi Perth",
-  description:
-    "Wheelchair accessible taxi vans in Perth with rear ramp or lift, carrying up to 10 passengers. WA TUSS vouchers and NDIS invoices accepted 24/7.",
-  provider: {
-    "@type": "TaxiService",
-    name: "Perth Wheelchair Taxi Van",
-    url: SITE_URL,
-    telephone: "+61493252766",
-  },
-  areaServed: {
-    "@type": "City",
-    name: "Perth",
-  },
-};
-
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
+  "@graph": [
     {
-      "@type": "ListItem",
-      position: 1,
-      name: "Home",
-      item: SITE_URL,
+      "@type": "Service",
+      "@id": `${SITE_URL}/services/wheelchair-accessible-taxi#service`,
+      name: "Wheelchair Accessible Taxi Service Perth",
+      description:
+        "Wheelchair accessible taxi vans in Perth with rear foldout ramp or hydraulic lift, carrying up to 10 passengers. WA TUSS vouchers and NDIS tax invoices accepted 24/7.",
+      provider: {
+        "@type": "TaxiService",
+        "@id": `${SITE_URL}/#business`,
+      },
+      areaServed: {
+        "@type": "City",
+        name: "Perth",
+      },
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Accessible Passenger Services",
+      },
     },
     {
-      "@type": "ListItem",
-      position: 2,
-      name: "Services",
-      item: `${SITE_URL}/services`,
-    },
-    {
-      "@type": "ListItem",
-      position: 3,
-      name: "Wheelchair Accessible Taxi",
-      item: `${SITE_URL}/services/wheelchair-accessible-taxi`,
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+        { "@type": "ListItem", position: 2, name: "Services", item: `${SITE_URL}/services` },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "Wheelchair Accessible Taxi",
+          item: `${SITE_URL}/services/wheelchair-accessible-taxi`,
+        },
+      ],
     },
   ],
 };
 
 export default function WheelchairTaxiPage() {
   const specs = [
-    { title: "Ramp System", detail: "Rear foldout ramp or hydraulic lift for smooth boarding" },
-    { title: "Door Clearance", detail: "1,550 mm vertical entrance height to accommodate wheelchairs" },
-    { title: "Tie-Down Anchors", detail: "4-point floor restraints + fitted safety seatbelt" },
-    { title: "Weight Capacity", detail: "Accommodates manual and powered wheelchairs" },
-    { title: "Passenger Capacity", detail: "Van carries up to 10 passengers in total, with space for wheelchair and carers" },
+    { title: "Ramp & Lift System", detail: "Rear foldout aluminium ramp or hydraulic lift for smooth, dignified boarding" },
+    { title: "Vertical Door Clearance", detail: "1,550 mm entrance height accommodates tall powerchairs, tilt chairs, and headrests" },
+    { title: "4-Point Floor Anchors", detail: "Heavy-duty commercial Q'Straint floor restraints lock the wheelchair chassis solidly" },
+    { title: "Occupant Seatbelt", detail: "Fitted independent commercial lap/sash belt across the passenger's torso" },
+    { title: "Wheelchair Types", detail: "Accommodates manual wheelchairs, powered electric wheelchairs, and mobility scooters" },
+    { title: "Passenger Seating", detail: "Van carries up to 10 passengers in total, with ample space for carers and family alongside" },
   ];
 
   return (
-    <div className="flex flex-col w-full bg-slate-50 min-h-screen">
+    <div className="flex flex-col w-full bg-black text-white min-h-screen">
       <JsonLd data={serviceSchema} />
-      <JsonLd data={breadcrumbSchema} />
-      {/* Hero */}
-      <section className="bg-slate-900 text-white py-16 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <SlideUp>
-              <span className="inline-block bg-blue-500/20 text-blue-300 text-xs sm:text-sm font-semibold px-4 py-1.5 rounded-full mb-4 border border-blue-500/30">
-                Flagship Accessibility Fleet
-              </span>
-              <h1 className="text-4xl lg:text-5xl font-extrabold mb-6 text-white tracking-tight">
-                Dedicated Wheelchair Accessible Taxi in Perth
-              </h1>
-              <p className="text-lg lg:text-xl text-slate-300 leading-relaxed">
-                We believe accessible transport should be dignified, prompt, and completely stress-free. Every vehicle is purpose-engineered to ensure you remain safely seated in your wheelchair.
-              </p>
-            </SlideUp>
 
-            <SlideUp delay={0.2} className="mt-8 flex flex-wrap gap-4">
+      {/* ── Hero Section ── */}
+      <section className="relative pt-28 pb-12 sm:pt-36 sm:pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full border-b border-zinc-900">
+        <div className="max-w-4xl mx-auto text-center">
+          <SlideUp>
+            <span className="text-xs font-black text-amber-400 uppercase tracking-[0.2em] mb-3 block">
+              Accredited Accessible Transport
+            </span>
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight leading-[1.02] mb-4 text-white">
+              Wheelchair Taxi <span className="text-amber-400">Service in Perth</span>
+            </h1>
+            {/* Answer-first 50-word opening paragraph */}
+            <p className="text-sm sm:text-base text-zinc-300 leading-relaxed max-w-3xl mx-auto font-normal">
+              Perth Wheelchair Taxi Van provides dedicated wheelchair accessible transport across the Perth metropolitan area 24/7. Equipped with rear foldout ramps or hydraulic lifts and certified four-point floor tie-downs, our long-wheelbase vans carry manual chairs, electric powerchairs, and mobility scooters. We accept WA TUSS vouchers and provide itemised NDIS invoices.
+            </p>
+
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
               <Link
                 href="/enquire"
-                className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-7 py-3.5 rounded-full shadow-lg transition-all text-sm sm:text-base flex items-center gap-2"
+                className="inline-flex items-center gap-2 bg-amber-400 hover:bg-amber-300 text-black font-black text-xs uppercase tracking-wider px-6 py-3.5 rounded-full transition-transform hover:scale-105"
               >
-                <span>Book Accessible Taxi</span>
-                <ArrowRight className="w-4 h-4" />
+                <span>Book Wheelchair Taxi</span>
+                <ArrowRight className="w-4 h-4" aria-hidden="true" />
               </Link>
               <a
-                href="https://wa.me/61493252766?text=Hi,%20I%20would%20like%20to%20book%20a%20wheelchair%20accessible%20taxi%20in%20Perth."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-[#25D366] hover:bg-[#20ba59] text-white font-bold px-7 py-3.5 rounded-full transition-all text-sm sm:text-base flex items-center gap-2 shadow-md"
+                href={SITE_CONFIG.phoneTel}
+                className="inline-flex items-center gap-2 bg-zinc-900 hover:bg-zinc-800 text-white font-bold text-xs uppercase tracking-wider px-5 py-3.5 rounded-full border border-zinc-700 transition-colors"
               >
-                <WhatsAppIcon className="w-4 h-4" />
-                <span>Message on WhatsApp</span>
+                <Phone className="w-4 h-4 text-amber-400" aria-hidden="true" />
+                <span>Call {SITE_CONFIG.phone}</span>
               </a>
-            </SlideUp>
-          </div>
+            </div>
+          </SlideUp>
         </div>
       </section>
 
-      {/* Content */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            <div className="lg:col-span-2 space-y-10">
-              <div>
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-4">
-                  Accessibility is Our Core Identity
-                </h2>
-                <p className="text-slate-600 text-base sm:text-lg leading-relaxed mb-4">
-                  Unlike traditional taxi fleets where accessible vans are an occasional afterthought, our service was built specifically around the requirements of wheelchair users, elderly passengers, and disability care providers.
-                </p>
-                <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
-                  Our drivers take the time to properly assist with boarding, inspect harness tension, and drive with smooth acceleration and braking to ensure maximum passenger comfort.
-                </p>
-              </div>
+      {/* ── Comprehensive Specs & Details ── */}
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <div className="lg:col-span-7 space-y-6 text-xs sm:text-sm text-zinc-300 leading-relaxed">
+            <h2 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight">
+              Dignified Travel Seated in Your Wheelchair
+            </h2>
+            <p>
+              Transferring out of a wheelchair into a standard car seat is uncomfortable, stressful, and often medically unsafe. Our purpose-built <strong>wheelchair accessible taxi vans</strong> eliminate the need to transfer. You remain comfortably seated in your own chair throughout the journey.
+            </p>
+            <p>
+              Our accredited drivers assist with the entire boarding procedure. We lower the rear ramp or hydraulic lift, assist you into the cabin, anchor all four floor tie-downs directly to your wheelchair chassis, and fasten your commercial safety lap/sash belt. We verify everything is locked firmly before setting off.
+            </p>
 
-              {/* Vehicle Specifications */}
-              <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm">
-                <h3 className="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
-                  <Sliders className="w-5 h-5 text-blue-600" />
-                  Vehicle & Equipment Specifications
-                </h3>
+            <h3 className="text-lg font-black text-white uppercase tracking-tight pt-2">
+              Wheelchair Compatibility &amp; Requirements
+            </h3>
+            <p>
+              We carry standard manual wheelchairs, heavy motorized electric powerchairs, transit chairs, and four-wheel mobility scooters. If your chair has specialized lateral supports, headrests, or elevated leg rests, our generous 1,550 mm vertical entrance clearance ensures plenty of room. Please inform us of your chair dimensions when booking so we allocate the best vehicle configuration.
+            </p>
 
-                <div className="divide-y divide-slate-100">
-                  {specs.map((item, idx) => (
-                    <div key={idx} className="py-4 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
-                      <span className="font-bold text-slate-900 text-sm">{item.title}:</span>
-                      <span className="text-slate-600 text-sm sm:text-right">{item.detail}</span>
-                    </div>
-                  ))}
+            <h3 className="text-lg font-black text-white uppercase tracking-tight pt-2">
+              WA TUSS &amp; NDIS Billing Options
+            </h3>
+            <p>
+              We accept Western Australia <strong>Taxi User Subsidy Scheme (TUSS)</strong> voucher books directly, providing 50% or 75% co-payment discounts off your metered fare. If you are an NDIS participant funded under Core Supports — Transport, we issue formal tax receipts with registered ABN, driver details, and trip itinerary for effortless plan-manager reimbursement.
+            </p>
+          </div>
+
+          <div className="lg:col-span-5 bg-zinc-950 border-2 border-zinc-800 rounded-2xl p-6 sm:p-8">
+            <h3 className="text-base font-black text-white uppercase tracking-wider mb-4 pb-3 border-b border-zinc-800 flex items-center gap-2">
+              <Accessibility className="w-5 h-5 text-amber-400" aria-hidden="true" />
+              <span>Vehicle Specifications</span>
+            </h3>
+
+            <div className="space-y-4">
+              {specs.map((s, idx) => (
+                <div key={idx} className="p-3 bg-zinc-900 rounded-xl border border-zinc-800">
+                  <span className="text-[10px] text-amber-400 font-bold uppercase tracking-wider block mb-0.5">
+                    {s.title}
+                  </span>
+                  <span className="text-xs text-zinc-200 leading-snug font-medium block">
+                    {s.detail}
+                  </span>
                 </div>
-              </div>
-
-              {/* What to Expect */}
-              <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-4">
-                  Passenger Benefits on Every Trip
-                </h3>
-                <ul className="space-y-3.5">
-                  {[
-                    "Remain comfortably seated in your wheelchair throughout the entire journey",
-                    "Certified 4-point floor tie-downs and shoulder harness restraint",
-                    "Generous headroom suitable for motorized powerchairs and headrests",
-                    "Reliable booking arrival across Perth metro",
-                    "Companion seating so family, carers, or friends can travel together",
-                    "Western Australia TUSS vouchers accepted with 50% / 75% co-payments",
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                      <span className="text-slate-700 text-base">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              ))}
             </div>
 
-            {/* Sidebar CTA */}
-            <div className="lg:col-span-1">
-              <div className="bg-white border border-slate-200 rounded-3xl p-6 sticky top-28 shadow-lg">
-                <div className="w-12 h-12 bg-blue-50 text-blue-700 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <Calendar className="w-6 h-6" />
-                </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2 text-center">
-                  Book This Service
-                </h3>
-                <p className="text-slate-500 mb-6 text-center text-xs">
-                  Upfront quotes and vehicle confirmation.
-                </p>
-
-                <div className="space-y-3 mb-6">
-                  <Link
-                    href="/enquire"
-                    className="flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white w-full py-3.5 rounded-full font-bold text-sm transition-colors shadow-sm"
-                  >
-                    <span>Online Booking Form</span>
-                  </Link>
-
-                  <a
-                    href="https://wa.me/61493252766?text=Hi,%20I%20need%20a%20wheelchair%20accessible%20taxi%20in%20Perth."
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba59] text-white w-full py-3.5 rounded-full font-bold text-sm transition-colors shadow-sm"
-                  >
-                    <WhatsAppIcon className="w-4 h-4" />
-                    <span>WhatsApp Booking</span>
-                  </a>
-
-                  <a
-                    href="tel:+61493252766"
-                    className="flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 w-full py-3 rounded-full font-bold text-sm transition-colors"
-                  >
-                    <Phone className="w-4 h-4" />
-                    <span>Call +61 493 252 766</span>
-                  </a>
-                </div>
-
-                <div className="border-t border-slate-100 pt-4 text-xs text-slate-500 space-y-2">
-                  <div className="flex items-center gap-2">
-                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-                    <span>Police-Checked Commercial Drivers</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-                    <span>Certified Restraints &amp; Securement</span>
-                  </div>
-                </div>
-              </div>
+            <div className="mt-6 pt-4 border-t border-zinc-800 text-center">
+              <Link
+                href="/enquire"
+                className="inline-flex items-center justify-center gap-2 w-full bg-amber-400 hover:bg-amber-300 text-black font-black text-xs uppercase tracking-wider py-3 rounded-full transition-colors"
+              >
+                <span>Book This Vehicle</span>
+                <ArrowRight className="w-4 h-4" aria-hidden="true" />
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Related Services */}
+      {/* ── Related Services ── */}
       <RelatedServices currentSlug="wheelchair-accessible-taxi" />
     </div>
   );

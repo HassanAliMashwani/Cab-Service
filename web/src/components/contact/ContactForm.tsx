@@ -3,6 +3,8 @@
 import React, { useState } from "react";
 import { Send, CheckCircle2, AlertCircle } from "lucide-react";
 import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
+import { BUSINESS_EMAIL } from "@/config/site";
+import { trackEvent } from "@/lib/analytics";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -17,6 +19,7 @@ export default function ContactForm() {
     notes: "",
   });
 
+  const [hpEmail, setHpEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
@@ -57,6 +60,12 @@ export default function ContactForm() {
     setLoading(true);
 
     try {
+      trackEvent("quote_submit", {
+        service: formData.service,
+        passengers: formData.passengers,
+        source: "contact_quick_form",
+      });
+
       const res = await fetch("/api/enquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -64,7 +73,8 @@ export default function ContactForm() {
           serviceType: formData.service.toLowerCase().includes("wheelchair") ? "wheelchair" : "airport",
           name: formData.name,
           phone: formData.phone,
-          email: "perthwheelchairtaxivan@gmail.com",
+          email: BUSINESS_EMAIL,
+          hp_email: hpEmail,
           pickupLocation: formData.pickup || "Perth",
           destination: formData.destination || "Perth",
           pickupDate: formData.date || new Date().toISOString().split("T")[0],
@@ -159,8 +169,25 @@ export default function ContactForm() {
         </span>
       </div>
 
+      {/* Bot spam prevention honeypot (visually hidden) */}
+      <div className="hidden" aria-hidden="true">
+        <label htmlFor="contact_hp_field">Do not fill this</label>
+        <input
+          id="contact_hp_field"
+          type="text"
+          value={hpEmail}
+          onChange={(e) => setHpEmail(e.target.value)}
+          tabIndex={-1}
+          autoComplete="off"
+        />
+      </div>
+
       {error && (
-        <div className="mb-5 p-3.5 bg-rose-500/20 border-2 border-rose-500 flex items-center gap-2.5 text-xs font-bold text-rose-300">
+        <div
+          role="alert"
+          aria-live="assertive"
+          className="mb-5 p-3.5 bg-rose-500/20 border-2 border-rose-500 flex items-center gap-2.5 text-xs font-bold text-rose-300"
+        >
           <AlertCircle className="w-4 h-4 shrink-0 text-rose-400" />
           <span>{error}</span>
         </div>

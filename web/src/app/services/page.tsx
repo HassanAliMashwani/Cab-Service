@@ -11,38 +11,65 @@ import {
   Sparkles,
   Star,
   Zap,
+  HeartPulse,
+  Baby,
 } from "lucide-react";
 import SlideUp from "@/components/animations/SlideUp";
 import ServiceCard from "@/components/services/ServiceCard";
 import HowItWorks from "@/components/services/HowItWorks";
 import TestimonialsCarousel from "@/components/home/TestimonialsCarousel";
+import JsonLd from "@/components/seo/JsonLd";
+import { SITE_URL, SITE_CONFIG } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "Our Fleet Services",
+  title: "Perth Wheelchair Taxi & Maxi Cab Services | 24/7",
   description:
-    "Explore our specialized Perth taxi services: wheelchair accessible vans, airport transfers, NDIS transport, baby seat taxis, and group maxi cab charters.",
+    "Perth wheelchair accessible taxi vans and 10-seater maxi cabs. Rear ramp or lift, NDIS & WA TUSS accepted, 24/7 airport and medical transfers.",
   alternates: {
-    canonical: "/services",
+    canonical: `${SITE_URL}/services`,
+  },
+  openGraph: {
+    title: "Perth Wheelchair Taxi & Maxi Cab Services | 24/7",
+    description:
+      "Perth wheelchair accessible taxi vans and 10-seater maxi cabs. Rear ramp or lift, NDIS & WA TUSS accepted, 24/7 airport and medical transfers.",
+    url: `${SITE_URL}/services`,
+    type: "website",
+    siteName: SITE_CONFIG.name,
+    locale: "en_AU",
+    images: [
+      {
+        url: `${SITE_URL}/images/og-image.jpg`,
+        width: 1200,
+        height: 630,
+        alt: "Perth Wheelchair Taxi and Maxi Cab Fleet Services",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Perth Wheelchair Taxi & Maxi Cab Services | 24/7",
+    description:
+      "Perth wheelchair accessible taxi vans and 10-seater maxi cabs. Rear ramp or lift, NDIS & WA TUSS accepted 24/7.",
+    images: [`${SITE_URL}/images/og-image.jpg`],
   },
 };
 
-/* ── Service card data — short features (≤4 words each) ── */
 const servicesList = [
   {
     title: "Wheelchair Taxi",
     tagline: "Girrawheen & Perth Metro",
     iconName: "Accessibility" as const,
     gradient: "sky" as const,
-    features: ["Ramp or Lift", "Secure Restraints", "Carer Welcome"],
+    features: ["Ramp or Lift Access", "4-Point Tie-Downs", "Carers Welcome"],
     serviceHref: "/services/wheelchair-accessible-taxi",
     badgeText: "24/7",
   },
   {
     title: "NDIS & Medical Transport",
-    tagline: "NDIS · TUSS · Medical",
+    tagline: "NDIS · WA TUSS · Hospitals",
     iconName: "HeartPulse" as const,
     gradient: "rose" as const,
-    features: ["Medical Visits", "TUSS Vouchers", "NDIS Invoice"],
+    features: ["Hospital Transfers", "WA TUSS Vouchers", "Itemised NDIS Invoices"],
     serviceHref: "/services/medical-ndis-transport",
     badgeText: "NDIS",
   },
@@ -51,40 +78,39 @@ const servicesList = [
     tagline: "Up to 10 Passengers",
     iconName: "Users" as const,
     gradient: "emerald" as const,
-    features: ["Up to 10 Passengers", "Dual A/C", "Swan Valley"],
+    features: ["10 Seater Capacity", "Dual A/C", "Ample Luggage"],
     serviceHref: "/services/group-maxi-cab",
-    badgeText: "Spacious",
+    badgeText: "10 Seater",
   },
   {
     title: "Baby Seat Taxi",
-    tagline: "Pre-installed Seats",
+    tagline: "Pre-installed Child Seats",
     iconName: "Baby" as const,
     gradient: "amber" as const,
-    features: ["Baby Seats", "Capsules", "Clean & Safe"],
+    features: ["Baby Capsules", "Child Seats", "Booster Seats"],
     serviceHref: "/services/baby-seat-taxi",
     badgeText: "Family",
   },
   {
     title: "Airport Transfer",
-    tagline: "T1 · T2 · T3 · T4",
+    tagline: "Terminals T1 · T2 · T3 · T4",
     iconName: "Plane" as const,
     gradient: "amber" as const,
-    features: ["Flight Timing", "Meet & Greet", "Luggage by Arrangement"],
+    features: ["Flight Monitoring", "Terminal Meet & Greet", "Luggage Room"],
     serviceHref: "/services/airport-transfers",
-    badgeText: "24/7",
+    badgeText: "Airport 24/7",
   },
   {
     title: "Weddings & Events",
-    tagline: "Charters · Celebrations",
+    tagline: "Swan Valley & Charters",
     iconName: "Sparkles" as const,
     gradient: "violet" as const,
-    features: ["Up to 10 Passengers", "Dual A/C", "Swan Valley"],
+    features: ["Wine Tours", "Wedding Guests", "Upfront Charter Quotes"],
     serviceHref: "/services/tours-and-events-transport",
-    badgeText: "VIP",
+    badgeText: "Private Charter",
   },
 ];
 
-/* ── Stats data ── */
 const stats = [
   { value: "24/7", label: "Open 24/7", icon: Clock },
   { value: "10", label: "Max Passengers", icon: Users },
@@ -92,121 +118,72 @@ const stats = [
   { value: "NDIS", label: "Invoices Provided", icon: ShieldCheck },
 ];
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+    { "@type": "ListItem", position: 2, name: "Services", item: `${SITE_URL}/services` },
+  ],
+};
+
 export default function ServicesPage() {
   return (
-    <div className="flex flex-col w-full bg-black min-h-screen">
+    <div className="flex flex-col w-full bg-black min-h-screen text-white">
+      <JsonLd data={breadcrumbSchema} />
 
-      {/* ═════════════════════════════════════════════════════════════
-          HERO — Clean, distant background icons on mobile, bold brutalist
-         ═════════════════════════════════════════════════════════════ */}
-      <section className="relative bg-black text-white min-h-[45vh] sm:min-h-[55vh] flex items-center overflow-hidden border-b-4 border-black">
-
-        {/* Floating decorative icons — clean, small, distant & appealing */}
-        <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
-          <Plane className="absolute top-3 left-3 sm:-top-4 sm:-left-8 w-14 h-14 sm:w-72 sm:h-72 text-amber-500/15 sm:text-amber-500/25 rotate-12" />
-          <Accessibility className="absolute top-4 right-3 sm:top-8 sm:right-0 w-14 h-14 sm:w-56 sm:h-56 text-sky-400/15 sm:text-sky-400/25 -rotate-6" />
-          <Sparkles className="absolute bottom-6 left-4 sm:bottom-24 sm:left-0 w-12 h-12 sm:w-52 sm:h-52 text-violet-400/15 sm:text-violet-400/20 rotate-3" />
-          <Users className="absolute bottom-4 right-4 sm:bottom-0 sm:right-24 w-14 h-14 sm:w-64 sm:h-64 text-emerald-400/15 sm:text-emerald-400/20 -rotate-12" />
-          <Car className="hidden sm:block absolute top-1/2 left-1/2 w-96 h-96 text-white/[0.07] -translate-x-1/2 -translate-y-1/2" />
-          <ShieldCheck className="hidden sm:block absolute top-1/3 right-1/4 w-32 h-32 text-amber-400/20" />
-        </div>
-
-        {/* Amber radial glow */}
-        <div className="absolute top-1/2 left-0 w-[600px] h-[600px] -translate-y-1/2 bg-amber-500/[0.06] rounded-full blur-3xl pointer-events-none" />
-
-        <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-16 sm:py-24 w-full">
-
-          {/* Giant brutalist headline */}
-          <SlideUp delay={0.05}>
-            <h1 className="text-[clamp(3.5rem,15vw,10rem)] font-black uppercase leading-[0.9] tracking-tighter mb-0 select-none">
-              <span className="text-white block mb-1">OUR</span>
-              <span className="text-amber-400 block">SERVICES</span>
+      {/* ── Hero Section ── */}
+      <section className="relative pt-28 pb-12 sm:pt-36 sm:pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full border-b border-zinc-900">
+        <div className="max-w-4xl mx-auto text-center">
+          <SlideUp>
+            <span className="text-xs font-black text-amber-400 uppercase tracking-[0.2em] mb-3 block">
+              Fleet &amp; Accessible Transport
+            </span>
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight leading-[1.02] mb-4 text-white">
+              Perth Wheelchair Taxi <span className="text-amber-400">&amp; Maxi Cab Services</span>
             </h1>
-          </SlideUp>
-          <SlideUp delay={0.15}>
-            <p className="mt-3 sm:mt-6 text-xs sm:text-sm md:text-base font-bold uppercase tracking-wider text-zinc-300 max-w-2xl">
-              Wheelchair Accessible Taxi Vans, NDIS &amp; Group Travel Across Greater Perth
+            {/* Answer-first opening paragraph */}
+            <p className="text-sm sm:text-base text-zinc-300 leading-relaxed max-w-3xl mx-auto font-normal">
+              Perth Wheelchair Taxi Van provides accredited wheelchair accessible transport and 10-seater maxi cab services across metropolitan Perth. Whether travelling to hospital clinics, catching flights at Perth Airport (T1–T4), or heading out on Swan Valley tours, our rear ramp and lift vans ensure safe, dependable travel 24 hours a day.
             </p>
           </SlideUp>
-
         </div>
       </section>
 
-      {/* ═════════════════════════════════════════════════════════════
-          STATS BAR — 4 massive numbers
-         ═════════════════════════════════════════════════════════════ */}
-      <section className="bg-amber-400 border-y-4 border-black">
-        <div className="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 divide-x-4 divide-y-4 lg:divide-y-0 divide-black">
+      {/* ── Stats Strip ── */}
+      <section className="bg-amber-400 border-y-4 border-black text-black">
+        <div className="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 divide-x-2 sm:divide-x-4 divide-y-2 sm:divide-y-0 divide-black">
           {stats.map(({ value, label, icon: Icon }, i) => (
-            <div key={i} className="flex flex-col items-center justify-center py-8 sm:py-10 px-4 sm:px-6 text-center group hover:bg-black transition-colors duration-200">
-              <Icon className="w-7 h-7 sm:w-8 sm:h-8 mb-2 sm:mb-3 text-black group-hover:text-amber-400 transition-colors" />
-              <span className="text-5xl sm:text-6xl lg:text-7xl font-black text-black group-hover:text-amber-400 transition-colors leading-none tracking-tighter">
-                {value}
-              </span>
-              <span className="mt-2 text-[10px] sm:text-[11px] font-black text-black/60 group-hover:text-white/60 uppercase tracking-widest transition-colors">
-                {label}
-              </span>
+            <div key={i} className="flex flex-col items-center justify-center py-6 sm:py-8 px-4 text-center">
+              <Icon className="w-6 h-6 mb-2 text-black" aria-hidden="true" />
+              <span className="text-4xl sm:text-5xl font-black tracking-tighter leading-none">{value}</span>
+              <span className="mt-1 text-[11px] font-black uppercase tracking-wider text-black/70">{label}</span>
             </div>
           ))}
         </div>
       </section>
 
-      {/* ═════════════════════════════════════════════════════════════
-          SERVICE CARDS — 2x2 brutalist+glass grid
-         ═════════════════════════════════════════════════════════════ */}
-      <section className="bg-black py-12 sm:py-20 px-4 sm:px-10 lg:px-16 border-b-4 border-black">
-        <div className="max-w-7xl mx-auto">
-
-          {/* Section label */}
-          <div className="flex items-end justify-between mb-8 sm:mb-10 gap-4 flex-wrap">
-            <div>
-              <div className="inline-block bg-white border-2 sm:border-4 border-black px-2.5 py-0.5 sm:px-3 sm:py-1 mb-2.5 sm:mb-3 shadow-[2px_2px_0px_0px_#facc15] sm:shadow-[3px_3px_0px_0px_#facc15]">
-                <span className="text-black font-black uppercase text-[9px] sm:text-[10px] tracking-widest">What We Offer</span>
-              </div>
-              <h2 className="text-3xl sm:text-5xl font-black uppercase text-white tracking-tight leading-none">
-                Core Fleet &amp;<br />Services
-              </h2>
-            </div>
-            <Link
-              href="/enquire"
-              className="inline-flex items-center gap-2 bg-amber-400 border-2 sm:border-4 border-black text-black font-black uppercase text-xs px-4 sm:px-5 py-2.5 sm:py-3 shadow-[3px_3px_0px_0px_#000] sm:shadow-[4px_4px_0px_0px_#000] hover:shadow-[7px_7px_0px_0px_#000] hover:-translate-x-1 hover:-translate-y-1 transition-all self-end rounded-full"
-            >
-              Book Any Service <ArrowUpRight className="w-4 h-4" />
-            </Link>
-          </div>
-
-          {/* Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-            {servicesList.map((service, index) => (
-              <div key={index} className="h-full flex flex-col">
-                <ServiceCard
-                  title={service.title}
-                  tagline={service.tagline}
-                  iconName={service.iconName}
-                  gradient={service.gradient}
-                  features={service.features}
-                  serviceHref={service.serviceHref}
-                  badgeText={service.badgeText}
-                />
-              </div>
-            ))}
-          </div>
-
+      {/* ── Core Services Grid ── */}
+      <section className="py-12 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {servicesList.map((service, index) => (
+            <ServiceCard
+              key={index}
+              title={service.title}
+              tagline={service.tagline}
+              iconName={service.iconName}
+              gradient={service.gradient}
+              features={service.features}
+              serviceHref={service.serviceHref}
+              badgeText={service.badgeText}
+            />
+          ))}
         </div>
       </section>
 
-      {/* ═════════════════════════════════════════════════════════════
-          BELOW-FOLD: How It Works & Reviews Carousel (Matching Home)
-         ═════════════════════════════════════════════════════════════ */}
+      {/* ── How It Works & Commitments ── */}
       <HowItWorks />
-
-      {/* Testimonials Carousel matching Home */}
-      <section className="w-full border-b-4 border-zinc-800">
-        <TestimonialsCarousel />
-      </section>
-
-      {/* Minimized bottom spacer */}
-      <div className="h-4 sm:h-8 bg-black" />
+      <TestimonialsCarousel />
     </div>
   );
 }

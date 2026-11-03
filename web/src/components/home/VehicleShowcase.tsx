@@ -1,82 +1,150 @@
 "use client";
 
-import { useState } from "react";
-import { Accessibility, ShieldCheck, CheckCircle2, X, Sliders, ChevronRight } from "lucide-react";
+import React, { useState } from "react";
+import Image from "next/image";
+import { Accessibility, ShieldCheck, CheckCircle2, Sliders, ArrowRight, Eye } from "lucide-react";
+import Link from "next/link";
+import { SITE_CONFIG } from "@/config/site";
+
+const specs = [
+  { label: "Ramp & Lift System", value: "Rear foldout ramp or hydraulic lift with low 1:6 gradient for effortless boarding" },
+  { label: "Entrance Height", value: "1,550 mm vertical entrance clearance accommodating tall powerchairs and headrests" },
+  { label: "Restraint System", value: "4-point heavy-duty floor tie-down anchor system with lap/sash safety belt" },
+  { label: "Wheelchair Types", value: "Supports manual wheelchairs, electric powerchairs, and mobility scooters" },
+  { label: "Passenger Seating", value: "Carries up to 10 seated passengers, or wheelchair occupants plus companions" },
+  { label: "Child Restraints", value: "Rear-facing baby capsules, forward-facing child seats, and boosters on request" },
+  { label: "Climate Comfort", value: "Dual front and rear air-conditioning designed for Western Australian summers" },
+  { label: "Luggage Space", value: "Ample room for suitcases, folding mobility aids, luggage and sports gear" },
+];
 
 export default function VehicleShowcase() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [selectedPhoto, setSelectedPhoto] = useState<number>(0);
 
-  const specs = [
-    { label: "Ramp Angle & Width", value: "850mm wide, low gradient 1:6 angle for easy boarding" },
-    { label: "Door Clearance", value: "1,550mm vertical entry height (fits high-headrest powerchairs)" },
-    { label: "Tie-Down System", value: "4-point floor restraints + lap/sash safety belt" },
-    { label: "Max Weight Capacity", value: "Accommodates manual and powered wheelchairs" },
-    { label: "Companion Seating", value: "Carries up to 10 passengers; space for companions alongside wheelchair" },
-    { label: "Luggage Space", value: "Luggage space by arrangement for suitcases and mobility gear" },
+  const gallery = [
+    {
+      src: "/images/fleet-ramp-rear.jpg",
+      alt: "Rear foldout wheelchair ramp deployed on Perth maxi taxi van",
+      caption: "Rear Access Ramp Deployed",
+    },
+    {
+      src: "/images/fleet-interior-lift.jpg",
+      alt: "Hydraulic wheelchair lift interior view on Perth accessible taxi",
+      caption: "Spacious Cabin & Lift Mechanism",
+    },
+    {
+      src: "/images/fleet-rear-interior.jpg",
+      alt: "Interior floor tie-down anchors and passenger seating in Perth maxi taxi",
+      caption: "4-Point Floor Restraint Anchors",
+    },
   ];
 
   return (
-    <>
-      {/* Trigger pill button matching design ref.jpeg style */}
-      <button
-        onClick={() => setIsOpen(true)}
-        className="group inline-flex items-center gap-2.5 bg-white/10 hover:bg-white/20 text-white border border-white/20 px-4 py-2 rounded-full text-xs font-semibold backdrop-blur-md transition-all shadow-sm"
-      >
-        <span className="w-5 h-5 rounded-full bg-emerald-500 text-white flex items-center justify-center text-[10px] font-bold group-hover:scale-110 transition-transform">
-          ✓
+    <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full border-t-4 border-black" aria-label="Vehicle and Wheelchair Accessibility Specifications">
+      <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+        <span className="text-xs font-black text-amber-400 uppercase tracking-[0.2em] mb-2 sm:mb-3 block">
+          Verified Fleet Specifications
         </span>
-        <span>View Vehicle & Ramp Specs</span>
-        <ChevronRight className="w-3.5 h-3.5 text-slate-300 group-hover:translate-x-0.5 transition-transform" />
-      </button>
+        <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-white uppercase tracking-tight mb-3">
+          Accessible Vans &amp; Maxi Cabs
+        </h2>
+        <p className="text-zinc-400 text-xs sm:text-sm font-medium">
+          Built for safety, ease of boarding, and comfort. Up to 10 passengers with rear ramp or lift access.
+        </p>
+      </div>
 
-      {/* Modal Dialog */}
-      {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm animate-in fade-in duration-200">
-          <div className="bg-slate-900 border border-slate-700 text-white rounded-3xl max-w-xl w-full p-6 sm:p-8 relative shadow-2xl">
-            <button
-              onClick={() => setIsOpen(false)}
-              className="absolute top-5 right-5 w-8 h-8 rounded-full bg-slate-800 text-slate-400 hover:text-white flex items-center justify-center transition-colors"
-            >
-              <X className="w-4 h-4" />
-            </button>
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        {/* Left Column: Visual Fleet Gallery (Responsive) */}
+        <div className="lg:col-span-6 flex flex-col gap-4">
+          <div className="relative aspect-[16/10] w-full rounded-2xl overflow-hidden border-2 border-zinc-800 bg-zinc-950 shadow-lg">
+            <Image
+              src={gallery[selectedPhoto].src}
+              alt={gallery[selectedPhoto].alt}
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover transition-all duration-300"
+            />
+            <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-4 flex items-center justify-between">
+              <span className="text-xs font-bold text-white uppercase tracking-wider">
+                {gallery[selectedPhoto].caption}
+              </span>
+              <span className="text-[10px] bg-amber-400 text-black font-black px-2 py-0.5 rounded-full uppercase">
+                Perth Fleet
+              </span>
+            </div>
+          </div>
 
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
-                <Accessibility className="w-5 h-5" />
+          {/* Thumbnail strip */}
+          <div className="grid grid-cols-3 gap-3">
+            {gallery.map((img, idx) => (
+              <button
+                key={idx}
+                type="button"
+                onClick={() => setSelectedPhoto(idx)}
+                className={`relative aspect-[16/10] rounded-xl overflow-hidden border-2 transition-all cursor-pointer ${
+                  selectedPhoto === idx
+                    ? "border-amber-400 scale-[1.02] shadow-[0_0_12px_rgba(251,191,36,0.3)]"
+                    : "border-zinc-800 opacity-60 hover:opacity-100"
+                }`}
+                aria-label={`View photo ${idx + 1}: ${img.caption}`}
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  sizes="180px"
+                  className="object-cover"
+                />
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Right Column: In-Page Verified Technical Specifications */}
+        <div className="lg:col-span-6 flex flex-col gap-4">
+          <div className="bg-zinc-950 border-2 border-zinc-800 rounded-2xl p-6 sm:p-8">
+            <div className="flex items-center gap-3 mb-6 pb-4 border-b border-zinc-800">
+              <div className="w-10 h-10 rounded-xl bg-amber-400/10 border border-amber-400/40 flex items-center justify-center text-amber-400 shrink-0">
+                <Accessibility className="w-5 h-5" aria-hidden="true" />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-white">Accessible Vehicle Specifications</h3>
-                <p className="text-xs text-slate-400">Certified Western Australia Department of Transport standards</p>
+                <h3 className="text-lg font-black text-white uppercase tracking-tight">
+                  Wheelchair Ramp &amp; Vehicle Standards
+                </h3>
+                <p className="text-xs text-zinc-400">
+                  Fully compliant with Western Australia commercial passenger vehicle standards
+                </p>
               </div>
             </div>
 
-            <div className="space-y-3.5 my-6 text-sm">
-              {specs.map((s, idx) => (
-                <div key={idx} className="p-3 bg-slate-800/60 rounded-xl border border-slate-700/60 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1">
-                  <span className="text-xs text-slate-400 font-semibold">{s.label}:</span>
-                  <span className="text-xs sm:text-sm text-slate-100 font-medium">{s.value}</span>
+            <dl className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-xs">
+              {specs.map((item, idx) => (
+                <div key={idx} className="p-3 bg-zinc-900/90 rounded-xl border border-zinc-800 flex flex-col gap-1">
+                  <dt className="text-amber-400 font-bold uppercase tracking-wider text-[10px]">
+                    {item.label}
+                  </dt>
+                  <dd className="text-zinc-200 leading-snug font-medium">
+                    {item.value}
+                  </dd>
                 </div>
               ))}
-            </div>
+            </dl>
 
-            <div className="bg-emerald-950/50 border border-emerald-500/30 rounded-2xl p-4 flex items-start gap-3 mb-6">
-              <ShieldCheck className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
-              <p className="text-xs text-emerald-200 leading-relaxed">
-                Passengers remain comfortably and safely seated inside their manual or motorized wheelchairs throughout the entire journey.
-              </p>
-            </div>
-
-            <div className="flex justify-end gap-3">
-              <button
-                onClick={() => setIsOpen(false)}
-                className="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3.5 rounded-full text-sm transition-colors cursor-pointer"
+            <div className="mt-6 pt-4 border-t border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="flex items-center gap-2 text-xs text-zinc-400">
+                <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" aria-hidden="true" />
+                <span>Certified 4-Point Tie-Down Restraints</span>
+              </div>
+              <Link
+                href="/services/wheelchair-accessible-taxi"
+                className="inline-flex items-center gap-1.5 text-xs font-black text-amber-400 hover:text-amber-300 uppercase tracking-wider"
               >
-                Close Specifications
-              </button>
+                <span>Read Full Wheelchair Guide</span>
+                <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
+              </Link>
             </div>
           </div>
         </div>
-      )}
-    </>
+      </div>
+    </section>
   );
 }

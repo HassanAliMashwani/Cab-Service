@@ -1,6 +1,9 @@
+"use client";
+
 import Link from "next/link";
 import { Phone, Calendar } from "lucide-react";
 import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
+import { trackEvent } from "@/lib/analytics";
 
 export default function MobileContactBar() {
   return (
@@ -8,6 +11,7 @@ export default function MobileContactBar() {
       <div className="flex gap-1.5 items-center h-11">
         <a 
           href="tel:+61493252766" 
+          onClick={() => trackEvent("phone_click", { location: "mobile_contact_bar" })}
           className="flex-1 h-full min-h-[44px] flex items-center justify-center gap-1 px-1.5 bg-slate-800 active:bg-slate-700 text-white rounded-full font-bold text-[0.825rem] transition-colors border border-slate-700 whitespace-nowrap"
           aria-label="Direct Phone Call"
         >
@@ -17,6 +21,7 @@ export default function MobileContactBar() {
 
         <a 
           href="https://wa.me/61493252766?text=Hi,%20I%20would%20like%20to%20book%20a%20Maxi%20Cab%20in%20Perth."
+          onClick={() => trackEvent("whatsapp_click", { location: "mobile_contact_bar" })}
           target="_blank"
           rel="noopener noreferrer"
           className="flex-1 h-full min-h-[44px] flex items-center justify-center gap-1 px-1.5 bg-emerald-500 active:bg-emerald-600 text-white rounded-full font-bold text-[0.825rem] transition-colors shadow-sm whitespace-nowrap"

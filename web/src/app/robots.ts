@@ -7,22 +7,33 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
+        disallow: ["/api/", "/enquire?*"],
+      },
+      {
+        // Search engine indexers & search citation bots (AEO / GEO)
+        userAgent: [
+          "Googlebot",
+          "Bingbot",
+          "Slurp",
+          "DuckDuckBot",
+          "Baiduspider",
+          "YandexBot",
+          "OAI-SearchBot",
+          "PerplexityBot",
+          "Claude-SearchBot",
+          "ClaudeBot",
+        ],
+        allow: "/",
         disallow: ["/api/"],
       },
       {
-        userAgent: [
-          "GPTBot",
-          "OAI-SearchBot",
-          "ChatGPT-User",
-          "ClaudeBot",
-          "Claude-SearchBot",
-          "PerplexityBot",
-          "Google-Extended",
-        ],
+        // LLM training bots (owner can disallow if opting out of AI model training)
+        userAgent: ["GPTBot", "Google-Extended"],
         allow: "/",
         disallow: ["/api/"],
       },
     ],
     sitemap: `${SITE_URL}/sitemap.xml`,
+    host: SITE_URL,
   };
 }

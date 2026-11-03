@@ -1,303 +1,189 @@
-import { Baby, ShieldCheck, CheckCircle2, ArrowRight, Phone, Heart, Users, Sparkles } from "lucide-react";
+import { Baby, CheckCircle2, ShieldCheck, HeartHandshake, Phone, ArrowRight, Car } from "lucide-react";
 import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SlideUp from "@/components/animations/SlideUp";
-import FadeIn from "@/components/animations/FadeIn";
-
 import RelatedServices from "@/components/services/RelatedServices";
 import JsonLd from "@/components/seo/JsonLd";
-import { SITE_URL } from "@/config/site";
+import { SITE_URL, SITE_CONFIG } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "Baby Seat Taxi Perth",
+  title: "Perth Taxi with Baby Seat | Fitted Child & Booster Seats",
   description:
-    "Wheelchair accessible family taxi vans in Perth with baby seats and boosters on request. Rear ramp or lift van carrying up to 10 passengers 24/7.",
+    "Perth maxi taxi with professionally fitted baby capsules, child safety seats, and boosters. Safe family transport with luggage room across Perth.",
   alternates: {
-    canonical: "/services/baby-seat-taxi",
+    canonical: `${SITE_URL}/services/baby-seat-taxi`,
+  },
+  openGraph: {
+    title: "Perth Taxi with Baby Seat | Fitted Child & Booster Seats",
+    description:
+      "Perth maxi taxi with professionally fitted baby capsules, child safety seats, and boosters. Safe family transport with luggage room across Perth.",
+    url: `${SITE_URL}/services/baby-seat-taxi`,
+    type: "website",
+    siteName: SITE_CONFIG.name,
+    locale: "en_AU",
+    images: [
+      {
+        url: `${SITE_URL}/images/og-image.jpg`,
+        width: 1200,
+        height: 630,
+        alt: "Perth Taxi with Fitted Baby and Child Seats",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Perth Taxi with Baby Seat | Fitted Child & Booster Seats",
+    description:
+      "Perth maxi taxi with professionally fitted baby capsules, child safety seats, and boosters. Safe family transport across Perth.",
+    images: [`${SITE_URL}/images/og-image.jpg`],
   },
 };
 
 const serviceSchema = {
   "@context": "https://schema.org",
-  "@type": "Service",
-  name: "Baby Seat Maxi Taxi Perth",
-  description:
-    "Wheelchair accessible taxi vans in Perth with baby seats and child boosters available on request, carrying up to 10 passengers 24/7.",
-  provider: {
-    "@type": "TaxiService",
-    name: "Perth Wheelchair Taxi Van",
-    url: SITE_URL,
-    telephone: "+61493252766",
-  },
-  areaServed: {
-    "@type": "City",
-    name: "Perth",
-  },
-};
-
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
+  "@graph": [
     {
-      "@type": "ListItem",
-      position: 1,
-      name: "Home",
-      item: SITE_URL,
+      "@type": "Service",
+      "@id": `${SITE_URL}/services/baby-seat-taxi#service`,
+      name: "Perth Taxi with Baby & Child Seats",
+      description:
+        "Family-friendly maxi taxi vans equipped with certified rear-facing capsules, forward-facing child seats, and boosters across Perth WA.",
+      provider: {
+        "@type": "TaxiService",
+        "@id": `${SITE_URL}/#business`,
+      },
+      areaServed: {
+        "@type": "City",
+        name: "Perth",
+      },
     },
     {
-      "@type": "ListItem",
-      position: 2,
-      name: "Services",
-      item: `${SITE_URL}/services`,
-    },
-    {
-      "@type": "ListItem",
-      position: 3,
-      name: "Baby Seat Maxi Taxi",
-      item: `${SITE_URL}/services/baby-seat-taxi`,
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+        { "@type": "ListItem", position: 2, name: "Services", item: `${SITE_URL}/services` },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "Baby Seat Taxi",
+          item: `${SITE_URL}/services/baby-seat-taxi`,
+        },
+      ],
     },
   ],
 };
 
 export default function BabySeatTaxiPage() {
-  const seatTypes = [
-    {
-      name: "Infant Capsule (Rear-Facing)",
-      age: "0 – 6 Months (Up to ~9kg)",
-      desc: "Deep contoured ergonomic shell with padded infant inserts, 5-point harness, and sun canopy for newborn safety.",
-      features: ["Safety Certified", "Rearward tethered", "Deep side impact protection"]
-    },
-    {
-      name: "Forward-Facing Child Seat",
-      age: "6 Months – 4 Years (8kg – 18kg)",
-      desc: "Comfortable upright seat with multi-position recline, adjustable headrest, and secure 5-point harness system.",
-      features: ["Factory anchor tethered", "Padded chest straps", "Pram-compatible travel"]
-    },
-    {
-      name: "Booster Seat",
-      age: "4 – 7+ Years (14kg – 26kg+)",
-      desc: "Elevated high-back or cushion booster ensuring proper sash seatbelt geometry across your child's shoulder and pelvis.",
-      features: ["Anti-submarining design", "Contoured armrests", "Safe lap-sash positioning"]
-    }
-  ];
-
-  const benefits = [
-    {
-      title: "Approved Safety Standards",
-      desc: "We exclusively carry quality car seats that strictly comply with Australian safety standards, never generic or expired restraints."
-    },
-    {
-      title: "Pre-Installed & Safety Inspected",
-      desc: "Your driver installs and verifies the restraint using certified vehicle anchor points prior to arriving at your doorstep or airport terminal."
-    },
-    {
-      title: "Clean & Sanitised Restraints",
-      desc: "Every baby seat and booster is thoroughly cleaned and sanitised between family bookings for total hygiene."
-    },
-    {
-      title: "Multiple Seats Available",
-      desc: "Traveling with twins, triplets, or multiple young siblings? We can equip our spacious Maxi Cabs with 2, 3, or even 4 child seats simultaneously."
-    }
+  const seatOptions = [
+    { type: "Rear-Facing Capsule", age: "0 – 6 months", desc: "Designed for newborn infants with secure harness anchoring and head support" },
+    { type: "Forward-Facing Child Seat", age: "6 months – 4 years", desc: "Built-in 5-point safety harness for toddlers and young children" },
+    { type: "Booster Seat", age: "4 – 7+ years", desc: "Contoured booster seat aligning vehicle sash seatbelt across child's shoulder" },
   ];
 
   return (
-    <div className="flex flex-col w-full bg-slate-50 min-h-screen">
+    <div className="flex flex-col w-full bg-black text-white min-h-screen">
       <JsonLd data={serviceSchema} />
-      <JsonLd data={breadcrumbSchema} />
-      {/* Hero */}
-      <section className="bg-slate-900 text-white py-16 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <SlideUp>
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-500/20 text-amber-300 text-xs sm:text-sm font-semibold mb-6 border border-amber-500/30">
-                <Baby className="w-4 h-4" />
-                Family Safety Priority
-              </div>
-              <h1 className="text-4xl lg:text-5xl font-extrabold mb-6 text-white tracking-tight">
-                Maxi Taxi with Baby Seat & Child Restraints Perth
-              </h1>
-              <p className="text-lg lg:text-xl text-slate-300 leading-relaxed">
-                Traveling with infants or young children? Don’t risk dragging heavy car seats through Perth Airport. We provide spotless, certified baby capsules, toddler seats, and boosters pre-installed in spacious Maxi Cabs.
-              </p>
-              <p className="mt-3 text-sm text-amber-300 font-semibold">
-                Our vehicles are fully <Link href="/services/wheelchair-accessible-taxi" className="underline underline-offset-4 hover:text-white">wheelchair accessible</Link> with rear ramp or lift access.
-              </p>
-            </SlideUp>
 
-            <SlideUp delay={0.2} className="mt-8 flex flex-wrap gap-4">
+      {/* ── Hero ── */}
+      <section className="relative pt-28 pb-12 sm:pt-36 sm:pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full border-b border-zinc-900">
+        <div className="max-w-4xl mx-auto text-center">
+          <SlideUp>
+            <span className="text-xs font-black text-amber-400 uppercase tracking-[0.2em] mb-3 block">
+              Certified Child Safety Restraints
+            </span>
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight leading-[1.02] mb-4 text-white">
+              Perth Taxi <span className="text-amber-400">with Baby Seat</span>
+            </h1>
+            {/* Answer-first 50-word opening paragraph */}
+            <p className="text-sm sm:text-base text-zinc-300 leading-relaxed max-w-3xl mx-auto font-normal">
+              Looking for a reliable Perth taxi with baby seats? Perth Wheelchair Taxi Van provides clean, spacious 10-seater maxi cabs equipped with professionally fitted infant capsules, forward-facing child seats, and booster seats on request. Compliant with Western Australian road safety laws, we guarantee safe family travel to Perth Airport and across the city.
+            </p>
+
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
               <Link
                 href="/enquire"
-                className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-7 py-3.5 rounded-full shadow-lg transition-all text-sm sm:text-base flex items-center gap-2"
+                className="inline-flex items-center gap-2 bg-amber-400 hover:bg-amber-300 text-black font-black text-xs uppercase tracking-wider px-6 py-3.5 rounded-full transition-transform hover:scale-105"
               >
-                <span>Book Taxi with Baby Seat</span>
-                <ArrowRight className="w-4 h-4" />
+                <span>Book Family Taxi</span>
+                <ArrowRight className="w-4 h-4" aria-hidden="true" />
               </Link>
               <a
-                href="https://wa.me/61493252766?text=Hi,%20I%20would%20like%20to%20book%20a%20Maxi%20Taxi%20with%20a%20Baby%20Seat%20in%20Perth."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-[#25D366] hover:bg-[#20ba59] text-white font-bold px-7 py-3.5 rounded-full transition-all text-sm sm:text-base flex items-center gap-2 shadow-md"
+                href={SITE_CONFIG.phoneTel}
+                className="inline-flex items-center gap-2 bg-zinc-900 hover:bg-zinc-800 text-white font-bold text-xs uppercase tracking-wider px-5 py-3.5 rounded-full border border-zinc-700 transition-colors"
               >
-                <WhatsAppIcon className="w-4 h-4" />
-                <span>Message on WhatsApp</span>
+                <Phone className="w-4 h-4 text-amber-400" aria-hidden="true" />
+                <span>Call {SITE_CONFIG.phone}</span>
               </a>
-            </SlideUp>
-          </div>
+            </div>
+          </SlideUp>
         </div>
       </section>
 
-      {/* Main Content */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            <div className="lg:col-span-2 space-y-12">
-              <div>
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-4">
-                  Safe, Stress-Free Travel for Perth Families
-                </h2>
-                <p className="text-slate-600 text-base sm:text-lg leading-relaxed mb-4">
-                  Under Western Australian road safety laws, children under 7 years of age must be secured in an approved, properly fastened child restraint. While regular taxis are technically exempt in certain circumstances, your child’s life should never depend on an exemption.
-                </p>
-                <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
-                  Our family-friendly Maxi Cabs provide top-tier safety. Whether arriving at Perth Airport after a long flight or heading out for a day trip to Rottnest ferry or Hillarys Boat Harbour, your children ride safely anchored with zero hassle.
-                </p>
-              </div>
+      {/* ── Content ── */}
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <div className="lg:col-span-7 space-y-6 text-xs sm:text-sm text-zinc-300 leading-relaxed">
+            <h2 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight">
+              Safety First: Never Travel Unsecured in Perth
+            </h2>
+            <p>
+              In Western Australia, children under seven years of age must be secured in an approved, properly fastened child car restraint. Although standard taxis have certain exemptions, no parent wants their baby or toddler travelling without a properly anchored car seat, particularly on busy 100 km/h motorways like the Mitchell Freeway or Tonkin Highway.
+            </p>
+            <p>
+              When you book with us, we pre-install the exact child restraint appropriate for your child&apos;s age and weight before arriving at your doorstep. You don&apos;t have to lug heavy, awkward car seats through airport terminals or worry about installing them yourself in a rush.
+            </p>
 
-              {/* Seat Types Breakdown */}
-              <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-6">
-                  Available Child Restraint Options
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  {seatTypes.map((seat, i) => (
-                    <div key={i} className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
-                      <div>
-                        <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center font-bold mb-4">
-                          <Baby className="w-5 h-5" />
-                        </div>
-                        <h4 className="font-bold text-slate-900 text-base mb-1">{seat.name}</h4>
-                        <span className="text-xs font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded inline-block mb-3">
-                          {seat.age}
-                        </span>
-                        <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
-                          {seat.desc}
-                        </p>
-                      </div>
-                      <ul className="border-t border-slate-100 pt-3 space-y-1.5 text-xs text-slate-500">
-                        {seat.features.map((f, idx) => (
-                          <li key={idx} className="flex items-center gap-1.5">
-                            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 flex-shrink-0" />
-                            <span>{f}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                </div>
-              </div>
+            <h3 className="text-lg font-black text-white uppercase tracking-tight pt-2">
+              Multiple Child Seats &amp; Family Van Space
+            </h3>
+            <p>
+              Have twins, multiple children, or travelling with grandparents? Standard 4-seater cars cannot legally fit two car seats plus three adults. Our 10-seater maxi cabs can comfortably accommodate multiple child restraints alongside adult passengers, prams, strollers, and holiday baggage.
+            </p>
 
-              {/* Benefits */}
-              <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-6">
-                  Why Perth Parents Choose Our Service
-                </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {benefits.map((b, i) => (
-                    <div key={i} className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs">
-                      <div className="flex items-center gap-2 mb-2">
-                        <ShieldCheck className="w-5 h-5 text-emerald-600" />
-                        <h4 className="font-bold text-slate-900 text-base">{b.title}</h4>
-                      </div>
-                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{b.desc}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
+            <h3 className="text-lg font-black text-white uppercase tracking-tight pt-2">
+              Sanitised &amp; Pre-Inspected Restraints
+            </h3>
+            <p>
+              All our child restraints meet strict Australian Safety Standards (AS/NZS 1754). Harnesses, buckles, and fabrics are routinely cleaned and sanitised between journeys, ensuring your little ones enjoy a clean, hygienic ride.
+            </p>
+          </div>
 
-              {/* Airport & Luggage note */}
-              <div className="bg-gradient-to-br from-blue-900 to-slate-900 rounded-3xl p-8 text-white">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-blue-500/20 flex items-center justify-center text-blue-300">
-                    <Sparkles className="w-5 h-5" />
+          <div className="lg:col-span-5 bg-zinc-950 border-2 border-zinc-800 rounded-2xl p-6 sm:p-8">
+            <h3 className="text-base font-black text-white uppercase tracking-wider mb-4 pb-3 border-b border-zinc-800 flex items-center gap-2">
+              <Baby className="w-5 h-5 text-amber-400" aria-hidden="true" />
+              <span>Available Child Restraint Types</span>
+            </h3>
+
+            <div className="space-y-4">
+              {seatOptions.map((s, idx) => (
+                <div key={idx} className="p-3.5 bg-zinc-900 rounded-xl border border-zinc-800">
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="text-xs text-white font-bold">{s.type}</span>
+                    <span className="text-[10px] bg-amber-400/20 text-amber-400 border border-amber-400/30 px-2 py-0.5 rounded font-black uppercase">
+                      {s.age}
+                    </span>
                   </div>
-                  <h3 className="text-xl font-bold text-white">
-                    Perth Airport Transfers with Prams & Bulky Luggage
-                  </h3>
+                  <span className="text-[11px] text-zinc-300 leading-snug block">
+                    {s.desc}
+                  </span>
                 </div>
-                <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-4">
-                  Traveling with babies often means bulky double prams, portacots, and endless suitcases. Regular sedans simply don&apos;t have the trunk space. Our high-roof Maxi Cabs comfortably hold all your baby gear and suitcases with room to spare.
-                </p>
-                <div className="flex flex-wrap gap-4 text-xs font-semibold text-blue-200">
-                  <span className="bg-white/10 px-3 py-1.5 rounded-lg">✓ Terminals T1, T2, T3 & T4</span>
-                  <span className="bg-white/10 px-3 py-1.5 rounded-lg">✓ Curbside Terminal Meet & Greet</span>
-                  <span className="bg-white/10 px-3 py-1.5 rounded-lg">✓ Upfront Quotes</span>
-                </div>
-              </div>
+              ))}
             </div>
 
-            {/* Sidebar Booking Card */}
-            <div className="lg:col-span-1">
-              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-lg sticky top-24">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center">
-                    <Baby className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-slate-900">Pre-Book Child Seat</h3>
-                    <p className="text-xs text-slate-500">Upfront quote • Seats verified prior to arrival</p>
-                  </div>
-                </div>
-
-                <div className="space-y-4 mb-6 text-sm text-slate-600">
-                  <div className="flex items-start gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" />
-                    <span>State which seat types your children need in the notes</span>
-                  </div>
-                  <div className="flex items-start gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" />
-                    <span>Carries up to 10 passengers + spacious luggage room</span>
-                  </div>
-                  <div className="flex items-start gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" />
-                    <span>Flight schedule planning for airport arrivals</span>
-                  </div>
-                </div>
-
-                <div className="space-y-3">
-                  <Link
-                    href="/enquire"
-                    className="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3.5 px-4 rounded-full text-center block text-sm transition-all shadow-md"
-                  >
-                    Online Booking Form
-                  </Link>
-
-                  <a
-                    href="https://wa.me/61493252766?text=Hi,%20I'd%20like%20to%20reserve%20a%20Maxi%20Taxi%20with%20a%20Baby%20Seat."
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full bg-[#25D366] hover:bg-[#20ba59] text-white font-bold py-3.5 px-4 rounded-full text-center flex items-center justify-center gap-2 text-sm transition-all"
-                  >
-                    <WhatsAppIcon className="w-4 h-4" />
-                    <span>WhatsApp Instant Quote</span>
-                  </a>
-
-                  <a
-                    href="tel:+61493252766"
-                    className="w-full bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold py-3 px-4 rounded-full text-center flex items-center justify-center gap-2 text-xs transition-all"
-                  >
-                    <Phone className="w-3.5 h-3.5" />
-                    <span>Call Driver Dispatch: +61 493 252 766</span>
-                  </a>
-                </div>
-              </div>
+            <div className="mt-6 pt-4 border-t border-zinc-800 text-center">
+              <Link
+                href="/enquire"
+                className="inline-flex items-center justify-center gap-2 w-full bg-amber-400 hover:bg-amber-300 text-black font-black text-xs uppercase tracking-wider py-3 rounded-full transition-colors"
+              >
+                <span>Request Baby Seat Booking</span>
+                <ArrowRight className="w-4 h-4" aria-hidden="true" />
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Related Services */}
       <RelatedServices currentSlug="baby-seat-taxi" />
     </div>
   );

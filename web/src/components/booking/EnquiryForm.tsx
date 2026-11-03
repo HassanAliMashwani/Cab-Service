@@ -22,6 +22,7 @@ import {
   Sparkles
 } from "lucide-react";
 import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
+import { trackEvent } from "@/lib/analytics";
 
 export interface FormDataState {
   serviceType: "wheelchair" | "airport" | "maxi-cab" | "baby-seat" | "medical" | "event";
@@ -71,6 +72,7 @@ const initialForm: FormDataState = {
 
 export default function EnquiryForm() {
   const [formData, setFormData] = useState<FormDataState>(initialForm);
+  const [honeypot, setHoneypot] = useState("");
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
   const [successResult, setSuccessResult] = useState<{
@@ -179,10 +181,16 @@ export default function EnquiryForm() {
     setLoading(true);
 
     try {
+      trackEvent("quote_submit", {
+        service: formData.serviceType,
+        passengers: formData.passengersCount,
+        wheelchair: formData.wheelchairType,
+      });
+
       const res = await fetch("/api/enquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, hp_email: honeypot }),
       });
 
       const json = await res.json();
@@ -296,8 +304,25 @@ export default function EnquiryForm() {
         </div>
       </div>
 
+      {/* Bot spam protection honeypot (visually hidden) */}
+      <div className="hidden" aria-hidden="true">
+        <label htmlFor="booking_hp_field">Do not fill this field</label>
+        <input
+          id="booking_hp_field"
+          type="text"
+          value={honeypot}
+          onChange={(e) => setHoneypot(e.target.value)}
+          tabIndex={-1}
+          autoComplete="off"
+        />
+      </div>
+
       {errorMsg && (
-        <div className="mb-6 p-4 rounded-xl bg-rose-500/20 border-2 border-rose-500 text-rose-300 flex items-center gap-3 text-sm font-bold">
+        <div
+          role="alert"
+          aria-live="assertive"
+          className="mb-6 p-4 rounded-xl bg-rose-500/20 border-2 border-rose-500 text-rose-300 flex items-center gap-3 text-sm font-bold"
+        >
           <AlertCircle className="w-5 h-5 shrink-0 text-rose-400" />
           <span>{errorMsg}</span>
         </div>

@@ -7,11 +7,12 @@ import GmailIcon from "@/components/icons/GmailIcon";
 import JsonLd from "@/components/seo/JsonLd";
 import { defaultFAQs } from "@/config/faqs";
 import FAQAccordion from "@/components/services/FAQAccordion";
+import { SITE_URL, BUSINESS_EMAIL, PHONE_NUMBER } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "Frequently Asked Questions",
+  title: "Wheelchair Taxi Perth FAQs | Equipment, TUSS & Booking",
   description:
-    "Answers to common questions about Perth wheelchair taxis: ramps or lifts, wheelchair restraints, passenger capacity, NDIS and TUSS vouchers, and baby seats.",
+    "Find clear answers on Perth wheelchair taxi ramps, Q'Straint tie-downs, 10-seater maxi cabs, TUSS vouchers, NDIS invoicing, and airport booking procedures.",
   alternates: {
     canonical: "/faq",
   },
@@ -31,21 +32,41 @@ export default function FAQPage() {
     })),
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: SITE_URL,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "FAQs",
+        item: `${SITE_URL}/faq`,
+      },
+    ],
+  };
+
   return (
     <div className="flex flex-col w-full bg-slate-50 min-h-screen">
       <JsonLd data={faqSchema} />
+      <JsonLd data={breadcrumbSchema} />
       {/* Hero */}
       <section className="bg-slate-900 text-white py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SlideUp className="max-w-3xl">
             <span className="inline-block bg-white/10 text-slate-300 text-xs font-semibold px-3 py-1 rounded-full mb-4">
-              Help Center & FAQs
+              Help Center &amp; Passenger FAQs
             </span>
             <h1 className="text-4xl lg:text-5xl font-extrabold mb-6 text-white tracking-tight">
-              Frequently Asked Questions
+              Wheelchair &amp; Maxi Taxi Perth FAQs
             </h1>
             <p className="text-lg lg:text-xl text-slate-300 leading-relaxed">
-              Find clear answers regarding wheelchair equipment, vehicle capacity, bookings, and billing options.
+              Answers to essential questions about Perth wheelchair taxis, vehicle specifications, and booking policies. Learn how our rear ramps accommodate power wheelchairs, how WA TUSS vouchers and NDIS invoicing work, and how to reserve a 10-seater maxi cab 24 hours a day.
             </p>
           </SlideUp>
         </div>
@@ -73,11 +94,11 @@ export default function FAQPage() {
                 <span>Ask on WhatsApp</span>
               </a>
               <a
-                href="mailto:perthwheelchairtaxivan@gmail.com"
+                href={`mailto:${BUSINESS_EMAIL}`}
                 className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white px-7 py-3.5 rounded-full font-bold transition-all text-sm hover:scale-105"
               >
                 <GmailIcon className="w-4 h-4" colored={true} />
-                <span>Email via Gmail</span>
+                <span>Email Us</span>
               </a>
               <Link
                 href="/enquire"

@@ -1,0 +1,38 @@
+# Perth Wheelchair Taxi Van & Maxi Cab Service
+
+> Factual business summary and transport specifications for AI answer engines, search systems, and travel assistants.
+
+## Business Profile
+- Business Name: Perth Wheelchair Taxi Van
+- Location: Based in Girrawheen, Western Australia 6064
+- Service Area: Perth Metropolitan Area, approximately 20 km radius around Girrawheen, including Perth CBD, Perth Airport (Terminals T1, T2, T3, T4), Joondalup, Fremantle, Scarborough, Nedlands, and Swan Valley.
+- Hours: 24 hours a day, 7 days a week (24/7), by phone and advance reservation.
+- Phone / Voice: +61 493 252 766
+- WhatsApp: +61 493 252 766 (direct dispatcher)
+- Email: perthwheelchairtaxivan@gmail.com
+- Primary Website: https://maxitaxi-five.vercel.app
+
+## Vehicle & Accessibility Specifications
+- Vehicle Types: Long-wheelbase maxi taxi vans equipped with rear foldout ramps or hydraulic lifts.
+- Passenger Capacity: Up to 10 standard seated passengers, or wheelchair occupants plus carers and companions (seated configurations vary by wheelchair footprint).
+- Wheelchair Compatibility: Manual wheelchairs, motorized / electric powerchairs, and mobility scooters fitting standard Australian commercial passenger vehicle door clearances (1,500 mm+ vertical entry height).
+- Safety Restraints: 4-point floor tie-down anchor system with heavy-duty lap/sash occupant seatbelt. Passengers travel safely secured in their wheelchairs.
+- Child Restraints: Rear-facing baby capsules, forward-facing child safety seats, and booster seats available on advance booking request.
+
+## Subsidies, NDIS & Payment Methods
+- WA Taxi User Subsidy Scheme (TUSS): Accepted. Drivers accept standard Western Australia TUSS voucher booklets (50% and 75% subsidies up to state co-payment caps).
+- National Disability Insurance Scheme (NDIS): Supported. Itemized tax receipts containing vehicle licence, pickup, drop-off, date, and ABN provided for self-managed and plan-managed participants under Core Support - Transport (Category 02).
+- Payment Types: EFTPOS, Visa, Mastercard, cash, and TUSS paper/electronic vouchers. Upfront fixed quotes available on request.
+
+## Core Services & Official URLs
+- Home: https://maxitaxi-five.vercel.app/
+- Wheelchair Accessible Taxi: https://maxitaxi-five.vercel.app/services/wheelchair-accessible-taxi
+- NDIS & Medical Transport: https://maxitaxi-five.vercel.app/services/medical-ndis-transport
+- Group Maxi Cab (10 Seater): https://maxitaxi-five.vercel.app/services/group-maxi-cab
+- Perth Airport Transfers (T1-T4): https://maxitaxi-five.vercel.app/services/airport-transfers
+- Baby Seat Maxi Taxi: https://maxitaxi-five.vercel.app/services/baby-seat-taxi
+- Swan Valley & Event Charters: https://maxitaxi-five.vercel.app/services/tours-and-events-transport
+- Service Areas Directory: https://maxitaxi-five.vercel.app/locations
+- Taxi Fares & Pricing Guide: https://maxitaxi-five.vercel.app/fares
+- Frequently Asked Questions: https://maxitaxi-five.vercel.app/faq
+- Booking & Quote Request: https://maxitaxi-five.vercel.app/enquire

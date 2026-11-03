@@ -9,54 +9,54 @@ const services = [
     tagline: "Girrawheen & Perth Metro",
     iconName: "Accessibility",
     gradient: "sky" as const,
-    features: ["Ramp or Lift", "Secure Restraints", "Carer Welcome"],
+    features: ["Ramp or Lift Access", "4-Point Tie-Downs", "Carers Travel Together"],
     serviceHref: "/services/wheelchair-accessible-taxi",
-    badgeText: "24/7",
+    badgeText: "24/7 Available",
   },
   {
     title: "NDIS & Medical Transport",
-    tagline: "NDIS · TUSS · Medical",
+    tagline: "NDIS · WA TUSS · Hospital",
     iconName: "HeartPulse",
     gradient: "rose" as const,
-    features: ["Medical Visits", "TUSS Vouchers", "NDIS Invoice"],
+    features: ["Hospital Transfers", "WA TUSS Vouchers", "Itemised NDIS Invoices"],
     serviceHref: "/services/medical-ndis-transport",
-    badgeText: "NDIS",
+    badgeText: "NDIS & TUSS",
   },
   {
     title: "Group Maxi Cab",
     tagline: "Up to 10 Passengers",
     iconName: "Users",
     gradient: "emerald" as const,
-    features: ["Up to 10 Passengers", "Dual A/C", "Swan Valley"],
+    features: ["Up to 10 Passengers", "Luggage by Arrangement", "Dual Air Conditioning"],
     serviceHref: "/services/group-maxi-cab",
-    badgeText: "Spacious",
+    badgeText: "10 Seater",
   },
   {
     title: "Baby Seat Taxi",
-    tagline: "Pre-installed Seats",
+    tagline: "Fitted Child Restraints",
     iconName: "Baby",
     gradient: "amber" as const,
-    features: ["Baby Seats", "Capsules", "Clean & Safe"],
+    features: ["Infant Capsules", "Forward-Facing Seats", "Booster Seats"],
     serviceHref: "/services/baby-seat-taxi",
-    badgeText: "Family",
+    badgeText: "Family Safe",
   },
   {
     title: "Airport Transfer",
-    tagline: "T1 · T2 · T3 · T4",
+    tagline: "Terminals T1 · T2 · T3 · T4",
     iconName: "Plane",
     gradient: "amber" as const,
-    features: ["Flight Timing", "Meet & Greet", "Luggage by Arrangement"],
+    features: ["Flight Monitoring", "Terminal Curbside Pickup", "Spacious Van Luggage"],
     serviceHref: "/services/airport-transfers",
-    badgeText: "24/7",
+    badgeText: "Airport 24/7",
   },
   {
-    title: "Weddings & Events",
-    tagline: "Charters & Celebrations",
+    title: "Tours & Events",
+    tagline: "Swan Valley & Celebrations",
     iconName: "Sparkles",
     gradient: "violet" as const,
-    features: ["Up to 10 Passengers", "Dual A/C", "Swan Valley"],
+    features: ["Swan Valley Wine Tours", "Wedding Guest Transport", "Upfront Charter Quotes"],
     serviceHref: "/services/tours-and-events-transport",
-    badgeText: "VIP",
+    badgeText: "Private Charter",
   },
 ];
 
@@ -67,159 +67,129 @@ export default function CoreServicesCarousel() {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const resumeTimerRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Check prefers-reduced-motion safely
   useEffect(() => {
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setPrefersReducedMotion(mq.matches);
-    const handler = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
-    mq.addEventListener("change", handler);
-    return () => mq.removeEventListener("change", handler);
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setPrefersReducedMotion(mediaQuery.matches);
+    const handleChange = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
+    mediaQuery.addEventListener("change", handleChange);
+    return () => mediaQuery.removeEventListener("change", handleChange);
   }, []);
+
+  const total = services.length;
 
   const scrollTo = useCallback((index: number) => {
     if (!scrollRef.current) return;
     const container = scrollRef.current;
     const firstItem = container.firstElementChild as HTMLElement | null;
     const cardWidth = firstItem ? firstItem.offsetWidth : container.clientWidth * 0.84;
-    const gap = 14; // gap-3.5 = 14px
+    const gap = 16;
     const targetLeft = index * (cardWidth + gap);
 
     container.scrollTo({
       left: targetLeft,
-      behavior: "smooth",
+      behavior: prefersReducedMotion ? "auto" : "smooth",
     });
     setActiveIndex(index);
-  }, []);
+  }, [prefersReducedMotion]);
 
-  // Auto-advance every 4 seconds, loops infinitely
-  useEffect(() => {
-    if (prefersReducedMotion || isPaused) return;
-
-    const interval = setInterval(() => {
-      setActiveIndex((prev) => {
-        const next = (prev + 1) % services.length;
-        scrollTo(next);
-        return next;
-      });
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, [prefersReducedMotion, isPaused, scrollTo]);
-
-  // Handle interaction pause & 3-second resume
-  const handleInteractionStart = () => {
-    if (resumeTimerRef.current) {
-      clearTimeout(resumeTimerRef.current);
-      resumeTimerRef.current = null;
+  const handleScroll = useCallback(() => {
+    if (!scrollRef.current) return;
+    const container = scrollRef.current;
+    const scrollLeft = container.scrollLeft;
+    const firstItem = container.firstElementChild as HTMLElement | null;
+    const cardWidth = firstItem ? firstItem.offsetWidth : container.clientWidth * 0.84;
+    const gap = 16;
+    const currentIndex = Math.round(scrollLeft / (cardWidth + gap));
+    if (currentIndex >= 0 && currentIndex < total && currentIndex !== activeIndex) {
+      setActiveIndex(currentIndex);
     }
+  }, [activeIndex, total]);
+
+  const handleInteractionStart = () => {
     setIsPaused(true);
+    if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
   };
 
   const handleInteractionEnd = () => {
-    if (resumeTimerRef.current) {
-      clearTimeout(resumeTimerRef.current);
-    }
+    if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
     resumeTimerRef.current = setTimeout(() => {
       setIsPaused(false);
-    }, 3000);
+    }, 6000);
   };
 
-  // Sync dot indicator with manual scroll position on mobile
-  const handleScroll = () => {
-    if (!scrollRef.current) return;
-    const container = scrollRef.current;
-    const firstItem = container.firstElementChild as HTMLElement | null;
-    const cardWidth = firstItem ? firstItem.offsetWidth : container.clientWidth * 0.84;
-    const gap = 14;
-    const scrollLeft = container.scrollLeft;
-    const index = Math.round(scrollLeft / (cardWidth + gap));
-    const bounded = Math.min(Math.max(0, index), services.length - 1);
-    setActiveIndex(bounded);
-  };
+  useEffect(() => {
+    if (isPaused || prefersReducedMotion) return;
+    const interval = setInterval(() => {
+      // Auto-advance only on mobile where horizontal scrolling is active
+      if (typeof window !== "undefined" && window.innerWidth < 640) {
+        const next = (activeIndex + 1) % total;
+        scrollTo(next);
+      }
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [activeIndex, isPaused, prefersReducedMotion, scrollTo, total]);
 
   return (
-    <div>
-      {/* ── Mobile Horizontal Swipe Carousel with peek (max-width: 640px) ── */}
+    <div className="w-full relative">
+      {/* 
+        Single DOM Tree:
+        Mobile (<640px): Horizontal snap carousel with touch scrolling
+        Tablet & Desktop (>=640px): Structured 2 & 3 column grid
+      */}
       <div
-        className="block sm:hidden"
-        aria-hidden="true"
+        ref={scrollRef}
+        onScroll={handleScroll}
         onTouchStart={handleInteractionStart}
         onTouchEnd={handleInteractionEnd}
-        onMouseDown={handleInteractionStart}
-        onMouseUp={handleInteractionEnd}
+        onMouseEnter={handleInteractionStart}
+        onMouseLeave={handleInteractionEnd}
         onFocus={handleInteractionStart}
         onBlur={handleInteractionEnd}
+        className="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 overflow-x-auto sm:overflow-visible snap-x snap-mandatory sm:snap-none gap-4 sm:gap-6 pb-4 sm:pb-0 px-1 hide-scrollbar"
+        style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
-        <div
-          ref={scrollRef}
-          onScroll={handleScroll}
-          className="flex overflow-x-auto snap-x snap-mandatory gap-3.5 pb-2 px-1 hide-scrollbar"
-          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-        >
-          {services.map((item, idx) => (
-            <div
-              key={idx}
-              className={`w-[84vw] max-w-[340px] shrink-0 snap-center transition-all duration-500 ease-in-out ${activeIndex === idx
-                  ? "scale-100 opacity-100"
-                  : "scale-[0.95] opacity-70"
-                }`}
-            >
-              <ServiceCard
-                title={item.title}
-                tagline={item.tagline}
-                iconName={item.iconName}
-                gradient={item.gradient}
-                features={item.features}
-                serviceHref={item.serviceHref}
-                badgeText={item.badgeText}
-              />
-            </div>
-          ))}
-        </div>
-
-        {/* Mobile Carousel Dot Indicators */}
-        <div className="flex items-center justify-center gap-2 mt-3" aria-label="Services carousel pagination">
-          {services.map((_, i) => (
-            <button
-              key={i}
-              type="button"
-              onClick={() => {
-                handleInteractionStart();
-                scrollTo(i);
-                handleInteractionEnd();
-              }}
-              className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${activeIndex === i
-                  ? "w-6 bg-amber-400"
-                  : "w-2 bg-zinc-700 hover:bg-zinc-500"
-                }`}
-              aria-label={`Go to service ${i + 1}`}
-            />
-          ))}
-        </div>
-      </div>
-
-      {/* ── Desktop & Tablet Multi-column Grid (>= 640px) ── */}
-      <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:gap-6">
         {services.map((item, idx) => (
-          <ServiceCard
-            key={idx}
-            title={item.title}
-            tagline={item.tagline}
-            iconName={item.iconName}
-            gradient={item.gradient}
-            features={item.features}
-            serviceHref={item.serviceHref}
-            badgeText={item.badgeText}
-          />
+          <div
+            key={item.serviceHref}
+            className="w-[84vw] max-w-[340px] sm:w-auto sm:max-w-none shrink-0 sm:shrink snap-center"
+          >
+            <ServiceCard
+              title={item.title}
+              tagline={item.tagline}
+              iconName={item.iconName}
+              gradient={item.gradient}
+              features={item.features}
+              serviceHref={item.serviceHref}
+              badgeText={item.badgeText}
+            />
+          </div>
         ))}
       </div>
 
-      <style dangerouslySetInnerHTML={{
-        __html: `
-        .hide-scrollbar::-webkit-scrollbar {
-          display: none;
-        }
-      `}} />
+      {/* Mobile Dot Indicators (hidden on >=640px) */}
+      <div
+        className="flex sm:hidden items-center justify-center gap-2 mt-3"
+        aria-label="Services pagination"
+      >
+        {services.map((_, i) => (
+          <button
+            key={i}
+            type="button"
+            onClick={() => {
+              handleInteractionStart();
+              scrollTo(i);
+              handleInteractionEnd();
+            }}
+            className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+              activeIndex === i
+                ? "w-6 bg-amber-400"
+                : "w-2 bg-zinc-700 hover:bg-zinc-500"
+            }`}
+            aria-label={`Go to service ${i + 1}`}
+          />
+        ))}
+      </div>
     </div>
   );
 }

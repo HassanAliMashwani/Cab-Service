@@ -1,21 +1,65 @@
 import type { Metadata } from "next";
-import { Phone } from "lucide-react";
+import { Phone, MapPin, Clock, Mail } from "lucide-react";
 import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 import GmailIcon from "@/components/icons/GmailIcon";
 import ContactForm from "@/components/contact/ContactForm";
+import JsonLd from "@/components/seo/JsonLd";
+import { SITE_URL, BUSINESS_EMAIL, PHONE_NUMBER } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "Contact Us",
+  title: "Contact Perth Wheelchair Taxi | Call or WhatsApp 24/7",
   description:
-    "Contact Perth Wheelchair Taxi Van 24/7. Call or WhatsApp +61 493 252 766 or send an enquiry for reliable wheelchair taxis and maxi cabs across Perth.",
+    "Contact Perth Wheelchair Taxi Van 24/7. Call or WhatsApp +61 493 252 766 for instant quotes on accessible vans, maxi taxis, and NDIS or airport bookings.",
   alternates: {
     canonical: "/contact",
+  },
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: SITE_URL,
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Contact",
+      item: `${SITE_URL}/contact`,
+    },
+  ],
+};
+
+const contactPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  name: "Contact Perth Wheelchair Taxi Van",
+  url: `${SITE_URL}/contact`,
+  mainEntity: {
+    "@type": "TaxiService",
+    name: "Perth Wheelchair Taxi Van",
+    telephone: PHONE_NUMBER,
+    email: BUSINESS_EMAIL,
+    url: SITE_URL,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Girrawheen",
+      addressRegion: "WA",
+      postalCode: "6064",
+      addressCountry: "AU",
+    },
   },
 };
 
 export default function ContactPage() {
   return (
     <div className="flex flex-col w-full bg-black min-h-screen text-white overflow-x-hidden selection:bg-amber-400 selection:text-black">
+      <JsonLd data={breadcrumbSchema} />
+      <JsonLd data={contactPageSchema} />
 
       {/* ─────────────────────────────────────────────────────────────
           1. CLEAN HEADER HERO
@@ -29,8 +73,8 @@ export default function ContactPage() {
             Contact Perth <span className="text-amber-400">Wheelchair Taxi Van</span>
           </h1>
 
-          <p className="text-base sm:text-lg text-zinc-300 font-semibold leading-relaxed max-w-xl mx-auto">
-            We connect you directly to the owner and driver. No automated phone trees or hold times.
+          <p className="text-base sm:text-lg text-zinc-300 font-semibold leading-relaxed max-w-2xl mx-auto">
+            Need an immediate wheelchair taxi or maxi cab in Perth? Contact Perth Wheelchair Taxi Van directly on +61 493 252 766 or send an instant WhatsApp message. We provide 24/7 door-to-door transport across Greater Perth with zero automated call centre wait times.
           </p>
         </div>
       </section>
@@ -136,7 +180,7 @@ export default function ContactPage() {
 
             {/* Email Button */}
             <a
-              href="mailto:perthwheelchairtaxivan@gmail.com"
+              href={`mailto:${BUSINESS_EMAIL}`}
               className="flex items-center justify-between bg-zinc-900 p-3.5 sm:p-4 border-2 sm:border-3 border-white shadow-[3px_3px_0px_0px_#ffffff] sm:shadow-[4px_4px_0px_0px_#ffffff] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_#ffffff] transition-all group rounded-xl sm:rounded-2xl"
             >
               <div className="flex items-center gap-3.5 min-w-0">
@@ -149,11 +193,11 @@ export default function ContactPage() {
                       Email Us
                     </span>
                     <span className="text-[9px] font-black uppercase px-2 py-0.5 bg-white/20 text-zinc-300 rounded-full border border-white/30">
-                      Gmail
+                      Email
                     </span>
                   </div>
                   <p className="text-white font-bold text-xs sm:text-sm tracking-tight truncate mt-0.5">
-                    perthwheelchairtaxivan@gmail.com
+                    {BUSINESS_EMAIL}
                   </p>
                 </div>
               </div>
@@ -162,19 +206,28 @@ export default function ContactPage() {
               </span>
             </a>
 
-            {/* Operational Info Card */}
-            <div className="bg-zinc-950/80 border border-zinc-800 p-4 rounded-xl text-xs space-y-2 mt-4 text-zinc-400 shadow-sm">
-              <div className="flex items-center justify-between">
-                <span className="font-bold text-white uppercase text-[10px] tracking-wider">Service Coverage:</span>
-                <span className="text-amber-400 font-bold">Greater Perth &amp; Airport</span>
+            {/* Operational Info Card / NAP details */}
+            <div className="bg-zinc-950/80 border border-zinc-800 p-4 rounded-xl text-xs space-y-2.5 mt-4 text-zinc-400 shadow-sm">
+              <div className="flex items-start gap-2">
+                <MapPin className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+                <div>
+                  <span className="font-bold text-white block">Perth Wheelchair Taxi Van</span>
+                  <span>Girrawheen WA 6064, Australia (Serving Greater Perth &amp; Airport)</span>
+                </div>
               </div>
-              <div className="flex items-center justify-between">
-                <span className="font-bold text-white uppercase text-[10px] tracking-wider">Operating Hours:</span>
-                <span className="text-emerald-400 font-bold">24 Hours / 7 Days</span>
+              <div className="flex items-center gap-2">
+                <Clock className="w-4 h-4 text-emerald-400 shrink-0" />
+                <div>
+                  <span className="font-bold text-white">Operating Hours: </span>
+                  <span className="text-emerald-400 font-bold">24 Hours / 7 Days</span>
+                </div>
               </div>
-              <div className="flex items-center justify-between">
-                <span className="font-bold text-white uppercase text-[10px] tracking-wider">Average Quote Time:</span>
-                <span className="text-zinc-200 font-bold">Under 5 minutes</span>
+              <div className="flex items-center gap-2">
+                <Mail className="w-4 h-4 text-amber-400 shrink-0" />
+                <div>
+                  <span className="font-bold text-white">Direct Email: </span>
+                  <span className="text-zinc-200">{BUSINESS_EMAIL}</span>
+                </div>
               </div>
             </div>
 

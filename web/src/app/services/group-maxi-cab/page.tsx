@@ -1,227 +1,187 @@
-import { Users, CheckCircle2, ShieldCheck, ArrowRight, Phone, Calendar, Wine, Briefcase } from "lucide-react";
+import { Users, CheckCircle2, ShieldCheck, Luggage, Phone, ArrowRight, Sparkles } from "lucide-react";
 import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SlideUp from "@/components/animations/SlideUp";
-import FadeIn from "@/components/animations/FadeIn";
-
 import RelatedServices from "@/components/services/RelatedServices";
 import JsonLd from "@/components/seo/JsonLd";
-import { SITE_URL } from "@/config/site";
+import { SITE_URL, SITE_CONFIG } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "Accessible Group Taxi Perth",
+  title: "Maxi Taxi Perth | 10 Seater Group Maxi Cab Booking 24/7",
   description:
-    "Wheelchair accessible maxi taxi for up to 10 passengers across Perth metro. Rear ramp or lift vehicle with flexible seating for family, groups and carers.",
+    "Book a 10-seater maxi taxi in Perth for groups, airport luggage, and events. Upfront fixed quotes, dual air conditioning, 24/7 availability. Call now.",
   alternates: {
-    canonical: "/services/group-maxi-cab",
+    canonical: `${SITE_URL}/services/group-maxi-cab`,
+  },
+  openGraph: {
+    title: "Maxi Taxi Perth | 10 Seater Group Maxi Cab Booking 24/7",
+    description:
+      "Perth 10-seater maxi taxi vans for airport departures, corporate events, wedding transfers, and group charters. Fixed quotes and 24/7 service.",
+    url: `${SITE_URL}/services/group-maxi-cab`,
+    type: "website",
+    siteName: SITE_CONFIG.name,
+    locale: "en_AU",
+    images: [
+      {
+        url: `${SITE_URL}/images/og-image.jpg`,
+        width: 1200,
+        height: 630,
+        alt: "Perth 10-Seater Maxi Cab Group Transport",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Maxi Taxi Perth | 10 Seater Group Maxi Cab Booking 24/7",
+    description:
+      "Book a 10-seater maxi taxi in Perth for groups, airport luggage, and events. Upfront fixed quotes & 24/7 booking.",
+    images: [`${SITE_URL}/images/og-image.jpg`],
   },
 };
 
 const serviceSchema = {
   "@context": "https://schema.org",
-  "@type": "Service",
-  name: "Group Maxi Cab Perth",
-  description:
-    "Wheelchair accessible group taxi vans in Perth carrying up to 10 passengers with rear ramp or lift access, available 24/7.",
-  provider: {
-    "@type": "TaxiService",
-    name: "Perth Wheelchair Taxi Van",
-    url: SITE_URL,
-    telephone: "+61493252766",
-  },
-  areaServed: {
-    "@type": "City",
-    name: "Perth",
-  },
-};
-
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
+  "@graph": [
     {
-      "@type": "ListItem",
-      position: 1,
-      name: "Home",
-      item: SITE_URL,
+      "@type": "Service",
+      "@id": `${SITE_URL}/services/group-maxi-cab#service`,
+      name: "10-Seater Group Maxi Cab Perth",
+      description:
+        "High-capacity 10-seater maxi taxi van in Perth for group travel, event charters, and airport transfers with generous luggage space.",
+      provider: {
+        "@type": "TaxiService",
+        "@id": `${SITE_URL}/#business`,
+      },
+      areaServed: {
+        "@type": "City",
+        name: "Perth",
+      },
     },
     {
-      "@type": "ListItem",
-      position: 2,
-      name: "Services",
-      item: `${SITE_URL}/services`,
-    },
-    {
-      "@type": "ListItem",
-      position: 3,
-      name: "Group Maxi Cab Charters",
-      item: `${SITE_URL}/services/group-maxi-cab`,
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+        { "@type": "ListItem", position: 2, name: "Services", item: `${SITE_URL}/services` },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "Group Maxi Cab",
+          item: `${SITE_URL}/services/group-maxi-cab`,
+        },
+      ],
     },
   ],
 };
 
 export default function GroupMaxiCabPage() {
-  const highlights = [
-    { title: "Up to 10 Passengers", desc: "Spacious seating allowing entire groups or large families to ride together without splitting into multiple small cars." },
-    { title: "Luggage Space by Arrangement", desc: "Ample room for suitcases, mobility aids, or sports equipment alongside passengers by arrangement." },
-    { title: "Pre-Booked Reliability", desc: "Reliable pickup times for early morning flights, corporate conferences, and late-night return events." },
-    { title: "Clean & Air-Conditioned", desc: "High-roof Toyota HiAce luxury vans with dual-zone climate control and premium tinted privacy glass." },
+  const perks = [
+    { title: "10 Passenger Seating", desc: "Keep your entire travel party together without splitting into two separate cars" },
+    { title: "Generous Luggage Cargo", desc: "High-roof van volume accommodating up to 10 suitcases, carry-ons, and prams" },
+    { title: "Dual Zone Air-Conditioning", desc: "Front and rear independent air-conditioning keeping all rows cool in WA heat" },
+    { title: "Upfront Fixed Quotes", desc: "Guaranteed all-inclusive group quote with no meter anxiety or hidden arrival surcharges" },
   ];
 
   return (
-    <div className="flex flex-col w-full bg-slate-50 min-h-screen">
+    <div className="flex flex-col w-full bg-black text-white min-h-screen">
       <JsonLd data={serviceSchema} />
-      <JsonLd data={breadcrumbSchema} />
-      {/* Hero */}
-      <section className="bg-slate-900 text-white py-16 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <SlideUp>
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/20 text-blue-300 text-xs sm:text-sm font-semibold mb-6 border border-blue-500/30">
-                <Users className="w-4 h-4" />
-                Up to 10 Passengers Maxi Van Fleet
-              </div>
-              <h1 className="text-4xl lg:text-5xl font-extrabold mb-6 text-white tracking-tight">
-                Spacious 7–11 Seater Maxi Cab in Perth
-              </h1>
-              <p className="text-lg lg:text-xl text-slate-300 leading-relaxed">
-                Travel together comfortably. Whether it’s Perth Airport transfers with luggage, wedding parties, corporate events, or Swan Valley winery tours, our high-capacity maxi cabs handle your entire group.
-              </p>
-              <p className="mt-3 text-sm text-amber-300 font-semibold">
-                Our vehicles are fully <Link href="/services/wheelchair-accessible-taxi" className="underline underline-offset-4 hover:text-white">wheelchair accessible</Link> with rear ramp or lift access.
-              </p>
-            </SlideUp>
 
-            <SlideUp delay={0.2} className="mt-8 flex flex-wrap gap-4">
+      {/* ── Hero ── */}
+      <section className="relative pt-28 pb-12 sm:pt-36 sm:pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full border-b border-zinc-900">
+        <div className="max-w-4xl mx-auto text-center">
+          <SlideUp>
+            <span className="text-xs font-black text-emerald-400 uppercase tracking-[0.2em] mb-3 block">
+              High-Capacity Group Transport
+            </span>
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight leading-[1.02] mb-4 text-white">
+              10-Seater Maxi Taxi <span className="text-amber-400">in Perth</span>
+            </h1>
+            {/* Answer-first 50-word opening paragraph */}
+            <p className="text-sm sm:text-base text-zinc-300 leading-relaxed max-w-3xl mx-auto font-normal">
+              Need a 10-seater maxi taxi in Perth? Perth Wheelchair Taxi Van delivers high-capacity group transport across the Perth metropolitan area 24/7. Ideal for airport departures with heavy luggage, corporate events, Optus Stadium match days, and weddings, our spacious vans carry up to 10 passengers with guaranteed upfront fixed quotes.
+            </p>
+
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
               <Link
                 href="/enquire"
-                className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-7 py-3.5 rounded-full shadow-lg transition-all text-sm sm:text-base flex items-center gap-2"
+                className="inline-flex items-center gap-2 bg-amber-400 hover:bg-amber-300 text-black font-black text-xs uppercase tracking-wider px-6 py-3.5 rounded-full transition-transform hover:scale-105"
               >
-                <span>Book Maxi Cab</span>
-                <ArrowRight className="w-4 h-4" />
+                <span>Book 10-Seater Maxi Cab</span>
+                <ArrowRight className="w-4 h-4" aria-hidden="true" />
               </Link>
               <a
-                href="https://wa.me/61493252766?text=Hi,%20I%20would%20like%20to%20book%20a%20Maxi%20Cab%20in%20Perth."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-[#25D366] hover:bg-[#20ba59] text-white font-bold px-7 py-3.5 rounded-full transition-all text-sm sm:text-base flex items-center gap-2 shadow-md"
+                href={SITE_CONFIG.phoneTel}
+                className="inline-flex items-center gap-2 bg-zinc-900 hover:bg-zinc-800 text-white font-bold text-xs uppercase tracking-wider px-5 py-3.5 rounded-full border border-zinc-700 transition-colors"
               >
-                <WhatsAppIcon className="w-4 h-4" />
-                <span>Message on WhatsApp</span>
+                <Phone className="w-4 h-4 text-amber-400" aria-hidden="true" />
+                <span>Call {SITE_CONFIG.phone}</span>
               </a>
-            </SlideUp>
-          </div>
+            </div>
+          </SlideUp>
         </div>
       </section>
 
-      {/* Main Content */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            <div className="lg:col-span-2 space-y-10">
-              <div>
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-4">
-                  Why Split Into Multiple Taxis When You Can Ride Together?
-                </h2>
-                <p className="text-slate-600 text-base sm:text-lg leading-relaxed mb-4">
-                  Coordinating multiple small rideshares for a group often leads to mismatched arrival times, surge pricing, and luggage that won’t fit. With our Maxi Cabs for up to 10 passengers, your whole group travels together in a clean, modern, air-conditioned vehicle with an upfront quote.
-                </p>
-                <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
-                  Every driver is licensed by the Western Australia Department of Transport, police-checked, and deeply familiar with Perth roads, Perth Airport pickup forecourts, and popular tourist destinations.
-                </p>
-              </div>
+      {/* ── Content ── */}
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <div className="lg:col-span-7 space-y-6 text-xs sm:text-sm text-zinc-300 leading-relaxed">
+            <h2 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight">
+              One Van, One Fare: Travel Together Across Perth
+            </h2>
+            <p>
+              When travelling with a group of 5 to 10 people, ordering two standard 4-seater sedans or rideshare vehicles doubles your flagfall fees, doubles your airport parking tolls, and risks one car getting stuck in traffic while the other waits. Booking a single <strong>10-seater maxi taxi</strong> keeps your party together, cuts your total travel costs, and simplifies arrival logistics.
+            </p>
+            <p>
+              Our maxi cabs are maintained in immaculate condition, featuring clean upholstered seats, dual air-conditioning throughout the cabin, and wide windows for sightseeing trips. Whether heading from Joondalup to Perth Airport, Girrawheen to Fremantle, or touring the Swan Valley, you travel in absolute comfort.
+            </p>
 
-              {/* Highlights */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {highlights.map((h, i) => (
-                  <div key={i} className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs">
-                    <h3 className="font-bold text-slate-900 text-base mb-2">{h.title}</h3>
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{h.desc}</p>
-                  </div>
-                ))}
-              </div>
+            <h3 className="text-lg font-black text-white uppercase tracking-tight pt-2">
+              Massive Luggage Capacity for Airport Flights
+            </h3>
+            <p>
+              Flying with extensive luggage, surfboards, sporting equipment, or baby gear? Standard sedans quickly run out of trunk space. Our long-wheelbase high-roof van offers expansive rear cargo volume that swallows up to 10 full-sized suitcases without forcing passengers to cram bags into footwells.
+            </p>
 
-              {/* Occasions */}
-              <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm">
-                <h3 className="text-xl font-bold text-slate-900 mb-4">
-                  Perfect For Every Group Occasion
-                </h3>
-                <ul className="space-y-3.5">
-                  {[
-                    "Perth Airport Arrivals & Departures (T1, T2, T3, T4) with luggage by arrangement",
-                    "Weddings, reception guest shuttles, and bachelor/bachelorette celebrations",
-                    "Swan Valley wine tours, Bickley Valley cider tastings, and coastal trips",
-                    "Corporate delegates, team off-sites, and Perth Convention Centre transit",
-                    "Family holiday transfers with prams, strollers, and boogie boards",
-                    "Optus Stadium and RAC Arena sports & concert group transport"
-                  ].map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                      <span className="text-slate-700 text-base">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            <h3 className="text-lg font-black text-white uppercase tracking-tight pt-2">
+              Optus Stadium, RAC Arena &amp; Wedding Charters
+            </h3>
+            <p>
+              Attending an AFL match at Optus Stadium, a concert at RAC Arena, or a wedding celebration in the Swan Valley? Public transport and rideshare surge pricing can quickly spoil an evening out. We offer fixed-rate charter bookings with pre-arranged return pickups so your entire group arrives together and returns home safely.
+            </p>
+          </div>
+
+          <div className="lg:col-span-5 bg-zinc-950 border-2 border-zinc-800 rounded-2xl p-6 sm:p-8">
+            <h3 className="text-base font-black text-white uppercase tracking-wider mb-4 pb-3 border-b border-zinc-800 flex items-center gap-2">
+              <Users className="w-5 h-5 text-emerald-400" aria-hidden="true" />
+              <span>Group Transport Advantages</span>
+            </h3>
+
+            <div className="space-y-4">
+              {perks.map((p, idx) => (
+                <div key={idx} className="p-3 bg-zinc-900 rounded-xl border border-zinc-800">
+                  <span className="text-[10px] text-amber-400 font-bold uppercase tracking-wider block mb-0.5">
+                    {p.title}
+                  </span>
+                  <span className="text-xs text-zinc-200 leading-snug font-medium block">
+                    {p.desc}
+                  </span>
+                </div>
+              ))}
             </div>
 
-            {/* Sidebar CTA */}
-            <div className="lg:col-span-1">
-              <div className="bg-white border border-slate-200 rounded-3xl p-6 sticky top-28 shadow-lg">
-                <div className="w-12 h-12 bg-blue-50 text-blue-700 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <Users className="w-6 h-6" />
-                </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2 text-center">
-                  Book a Maxi Cab
-                </h3>
-                <p className="text-slate-500 mb-6 text-center text-xs">
-                  Upfront quotes, reliable service, and 24/7 availability.
-                </p>
-
-                <div className="space-y-3 mb-6">
-                  <Link
-                    href="/enquire"
-                    className="flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white w-full py-3.5 rounded-full font-bold text-sm transition-colors shadow-sm"
-                  >
-                    <span>Instant Booking Form</span>
-                  </Link>
-
-                  <a
-                    href="https://wa.me/61493252766?text=Hi,%20I%20need%20a%20Maxi%20Cab%20for%20a%20group%20booking%20in%20Perth."
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba59] text-white w-full py-3.5 rounded-full font-bold text-sm transition-colors shadow-sm"
-                  >
-                    <WhatsAppIcon className="w-4 h-4" />
-                    <span>WhatsApp Inquiry</span>
-                  </a>
-
-                  <a
-                    href="tel:+61493252766"
-                    className="flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 w-full py-3 rounded-full font-bold text-sm transition-colors"
-                  >
-                    <Phone className="w-4 h-4" />
-                    <span>Call +61 493 252 766</span>
-                  </a>
-                </div>
-
-                <div className="border-t border-slate-100 pt-4 text-xs text-slate-500 space-y-2">
-                  <div className="flex items-center gap-2">
-                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-                    <span>Carries Up to 10 Passengers</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-                    <span>Upfront Quotes</span>
-                  </div>
-                </div>
-              </div>
+            <div className="mt-6 pt-4 border-t border-zinc-800 text-center">
+              <Link
+                href="/enquire"
+                className="inline-flex items-center justify-center gap-2 w-full bg-amber-400 hover:bg-amber-300 text-black font-black text-xs uppercase tracking-wider py-3 rounded-full transition-colors"
+              >
+                <span>Request Group Quote</span>
+                <ArrowRight className="w-4 h-4" aria-hidden="true" />
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Related Services */}
       <RelatedServices currentSlug="group-maxi-cab" />
     </div>
   );

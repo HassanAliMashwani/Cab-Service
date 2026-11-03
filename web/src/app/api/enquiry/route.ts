@@ -5,6 +5,7 @@ export interface EnquiryPayload {
   name: string;
   phone: string;
   email?: string;
+  hp_email?: string; // Honeypot field for bot spam prevention
   pickupLocation: string;
   destination: string;
   pickupDate: string;
@@ -26,6 +27,15 @@ export interface EnquiryPayload {
 export async function POST(request: Request) {
   try {
     const data: EnquiryPayload = await request.json();
+
+    // Honeypot check: If bot filled the hidden honeypot, silently respond success without action
+    if (data.hp_email && data.hp_email.trim().length > 0) {
+      return NextResponse.json({
+        success: true,
+        referenceId: `PER-BOT-BLOCKED`,
+        message: "Enquiry received.",
+      });
+    }
 
     // Validation
     if (!data.name || !data.phone || !data.pickupLocation || !data.destination || !data.pickupDate || !data.pickupTime) {

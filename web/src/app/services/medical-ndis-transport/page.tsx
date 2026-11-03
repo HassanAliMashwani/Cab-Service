@@ -1,288 +1,187 @@
-import { HeartPulse, CheckCircle2, ShieldCheck, FileText, Phone, ArrowRight } from "lucide-react";
+import { HeartPulse, CheckCircle2, ShieldCheck, FileText, Phone, ArrowRight, Hospital } from "lucide-react";
 import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SlideUp from "@/components/animations/SlideUp";
-import FadeIn from "@/components/animations/FadeIn";
-
 import RelatedServices from "@/components/services/RelatedServices";
 import JsonLd from "@/components/seo/JsonLd";
-import { SITE_URL } from "@/config/site";
-import { defaultFAQs } from "@/config/faqs";
+import { SITE_URL, SITE_CONFIG } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "NDIS Wheelchair Transport Perth",
+  title: "NDIS Wheelchair Taxi Perth | TUSS & Medical Transport",
   description:
-    "Wheelchair accessible medical and NDIS transport in Perth. Rear ramp or lift van for hospital visits and therapy. WA TUSS vouchers and NDIS invoices 24/7.",
+    "NDIS and medical appointment transport across Perth. WA TUSS vouchers accepted, itemised NDIS invoices, hospital transfers with rear ramp vans.",
   alternates: {
-    canonical: "/services/medical-ndis-transport",
+    canonical: `${SITE_URL}/services/medical-ndis-transport`,
+  },
+  openGraph: {
+    title: "NDIS Wheelchair Taxi Perth | TUSS & Medical Transport",
+    description:
+      "Specialised medical appointment and NDIS transport in Perth. Rear ramp wheelchair vans, WA TUSS subsidies, and itemised tax invoices.",
+    url: `${SITE_URL}/services/medical-ndis-transport`,
+    type: "website",
+    siteName: SITE_CONFIG.name,
+    locale: "en_AU",
+    images: [
+      {
+        url: `${SITE_URL}/images/og-image.jpg`,
+        width: 1200,
+        height: 630,
+        alt: "Perth Medical and NDIS Wheelchair Transport",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "NDIS Wheelchair Taxi Perth | TUSS & Medical Transport",
+    description:
+      "NDIS and medical appointment transport across Perth. WA TUSS vouchers accepted, itemised NDIS invoices, hospital transfers with rear ramp vans.",
+    images: [`${SITE_URL}/images/og-image.jpg`],
   },
 };
 
 const serviceSchema = {
   "@context": "https://schema.org",
-  "@type": "Service",
-  name: "NDIS & Medical Transport Perth",
-  description:
-    "Wheelchair accessible medical and NDIS taxi transport in Perth with rear ramp or lift. WA TUSS vouchers and itemised NDIS invoices accepted 24/7.",
-  provider: {
-    "@type": "TaxiService",
-    name: "Perth Wheelchair Taxi Van",
-    url: SITE_URL,
-    telephone: "+61493252766",
-  },
-  areaServed: {
-    "@type": "City",
-    name: "Perth",
-  },
-};
-
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
+  "@graph": [
     {
-      "@type": "ListItem",
-      position: 1,
-      name: "Home",
-      item: SITE_URL,
+      "@type": "Service",
+      "@id": `${SITE_URL}/services/medical-ndis-transport#service`,
+      name: "NDIS & Medical Appointment Wheelchair Transport Perth",
+      description:
+        "Specialised hospital transfers, dialysis, outpatient clinics, and NDIS transport across Perth. WA TUSS voucher acceptance and itemised invoicing.",
+      provider: {
+        "@type": "TaxiService",
+        "@id": `${SITE_URL}/#business`,
+      },
+      areaServed: {
+        "@type": "City",
+        name: "Perth",
+      },
     },
     {
-      "@type": "ListItem",
-      position: 2,
-      name: "Services",
-      item: `${SITE_URL}/services`,
-    },
-    {
-      "@type": "ListItem",
-      position: 3,
-      name: "NDIS & Medical Transport",
-      item: `${SITE_URL}/services/medical-ndis-transport`,
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+        { "@type": "ListItem", position: 2, name: "Services", item: `${SITE_URL}/services` },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "NDIS & Medical Transport",
+          item: `${SITE_URL}/services/medical-ndis-transport`,
+        },
+      ],
     },
   ],
 };
 
-export default function MedicalNdisTransportPage() {
+export default function MedicalNDISPage() {
   const hospitals = [
-    { name: "Fiona Stanley Hospital", suburb: "Murdoch" },
-    { name: "Royal Perth Hospital", suburb: "Perth CBD" },
-    { name: "Sir Charles Gairdner Hospital", suburb: "Nedlands" },
-    { name: "Perth Children's Hospital", suburb: "Nedlands" },
-    { name: "St John of God Hospital", suburb: "Subiaco & Murdoch" },
-    { name: "Hollywood Private Hospital", suburb: "Nedlands" },
-    { name: "Joondalup Health Campus", suburb: "Joondalup" },
-    { name: "Armadale Health Service", suburb: "Armadale" },
+    { name: "Sir Charles Gairdner Hospital (SCGH)", loc: "Nedlands" },
+    { name: "Royal Perth Hospital (RPH)", loc: "Perth CBD" },
+    { name: "Fiona Stanley Hospital (FSH)", loc: "Murdoch" },
+    { name: "Perth Children's Hospital (PCH)", loc: "Nedlands" },
+    { name: "Hollywood Private Hospital", loc: "Nedlands" },
+    { name: "Joondalup Health Campus", loc: "Joondalup" },
+    { name: "St John of God Subiaco Hospital", loc: "Subiaco" },
+    { name: "St John of God Midland Hospital", loc: "Midland" },
   ];
-
-  const features = [
-    "Reliable pickup timing — scheduled around your medical consultation or treatment session",
-    "Driver stays on standby or arranges return pickup time after appointment",
-    "Assistance provided from clinic/hospital entrance directly into the vehicle",
-    "Spacious cabin allowing support worker, nurse, or family members to sit adjacent to wheelchair",
-    "Compliant with Western Australia Department of Transport accessible vehicle standards",
-    "Detailed tax invoices generated for NDIS plan managers and self-managed participants",
-  ];
-
-  const medicalFaqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: defaultFAQs.map((faq) => ({
-      "@type": "Question",
-      name: faq.q,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.a,
-      },
-    })),
-  };
 
   return (
-    <div className="flex flex-col w-full bg-slate-50 min-h-screen">
+    <div className="flex flex-col w-full bg-black text-white min-h-screen">
       <JsonLd data={serviceSchema} />
-      <JsonLd data={breadcrumbSchema} />
-      <JsonLd data={medicalFaqSchema} />
-      {/* Hero */}
-      <section className="bg-slate-900 text-white py-16 lg:py-24 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl">
-            <SlideUp>
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-rose-500/20 text-rose-300 text-sm font-semibold mb-6 border border-rose-500/30">
-                <HeartPulse className="w-4 h-4" />
-                Medical Appointments & NDIS Transport
-              </div>
-              <h1 className="text-4xl lg:text-5xl font-extrabold mb-6 text-white tracking-tight">
-                Compassionate Medical & NDIS Transport in Perth
-              </h1>
-              <p className="text-lg lg:text-xl text-slate-300 leading-relaxed">
-                Punctual, dignified, and comfortable travel for hospital appointments, therapy sessions, and community access. TUSS vouchers accepted and NDIS-compliant tax invoices provided.
-              </p>
-            </SlideUp>
 
-            <SlideUp delay={0.2} className="mt-8 flex flex-wrap gap-4">
+      {/* ── Hero ── */}
+      <section className="relative pt-28 pb-12 sm:pt-36 sm:pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full border-b border-zinc-900">
+        <div className="max-w-4xl mx-auto text-center">
+          <SlideUp>
+            <span className="text-xs font-black text-rose-400 uppercase tracking-[0.2em] mb-3 block">
+              Compassionate Clinical Transport
+            </span>
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight leading-[1.02] mb-4 text-white">
+              NDIS &amp; Medical <span className="text-amber-400">Transport in Perth</span>
+            </h1>
+            {/* Answer-first 50-word opening paragraph */}
+            <p className="text-sm sm:text-base text-zinc-300 leading-relaxed max-w-3xl mx-auto font-normal">
+              Perth Wheelchair Taxi Van provides dedicated medical transport and NDIS travel across all Perth hospitals and therapy clinics. We accept Western Australia TUSS vouchers, supply compliant itemised NDIS invoices for self-managed and plan-managed participants, and ensure punctual curbside pickup with rear ramps and certified tie-downs.
+            </p>
+
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
               <Link
                 href="/enquire"
-                className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-7 py-3.5 rounded-full shadow-lg transition-all text-base flex items-center gap-2"
+                className="inline-flex items-center gap-2 bg-amber-400 hover:bg-amber-300 text-black font-black text-xs uppercase tracking-wider px-6 py-3.5 rounded-full transition-transform hover:scale-105"
               >
-                <span>Book Medical Transport</span>
-                <ArrowRight className="w-4 h-4" />
+                <span>Book Medical Transfer</span>
+                <ArrowRight className="w-4 h-4" aria-hidden="true" />
               </Link>
               <a
-                href="https://wa.me/61493252766?text=Hi,%20I%20need%20to%20book%20an%20NDIS/medical%20wheelchair%20transfer%20in%20Perth."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-[#25D366] hover:bg-[#20ba59] text-white font-bold px-7 py-3.5 rounded-full transition-all text-base flex items-center gap-2 shadow-md"
+                href={SITE_CONFIG.phoneTel}
+                className="inline-flex items-center gap-2 bg-zinc-900 hover:bg-zinc-800 text-white font-bold text-xs uppercase tracking-wider px-5 py-3.5 rounded-full border border-zinc-700 transition-colors"
               >
-                <WhatsAppIcon className="w-4 h-4" />
-                <span>WhatsApp Driver</span>
+                <Phone className="w-4 h-4 text-amber-400" aria-hidden="true" />
+                <span>Call {SITE_CONFIG.phone}</span>
               </a>
-            </SlideUp>
-          </div>
+            </div>
+          </SlideUp>
         </div>
       </section>
 
-      {/* Main Content */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            <div className="lg:col-span-2 space-y-12">
-              {/* Dignified Medical Rides */}
-              <div>
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-4">
-                  Dignified Healthcare Transfers Built Around You
-                </h2>
-                <p className="text-slate-600 text-lg leading-relaxed mb-6">
-                  Medical visits can be stressful, especially when relying on irregular general taxis that may not have appropriate wheelchair ramps or safety tie-downs. We prioritize medical transport bookings with strict punctuality, gentle vehicle handling, and patient assistance to ensure you arrive relaxed and on time.
-                </p>
+      {/* ── Detailed Medical & NDIS Features ── */}
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <div className="lg:col-span-7 space-y-6 text-xs sm:text-sm text-zinc-300 leading-relaxed">
+            <h2 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight">
+              Punctual Hospital &amp; Therapy Appointments
+            </h2>
+            <p>
+              Medical appointments require absolute punctuality. Whether heading to daily renal dialysis, oncology radiotherapy, or specialist surgical follow-ups, being late causes significant distress. Our service is scheduled directly with dedicated van drivers who arrive promptly, assist you safely down your driveway, and escort you to the clinic entrance.
+            </p>
+            <p>
+              We wait for you or schedule an exact return pickup time, so you never spend hours waiting in public hospital discharge lounges after an exhausting treatment. Carers, family members, and support workers travel alongside free of charge in our spacious 10-seater cabin.
+            </p>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="p-5 bg-white rounded-2xl border border-slate-200">
-                    <div className="w-10 h-10 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center mb-3">
-                      <ShieldCheck className="w-6 h-6" />
-                    </div>
-                    <h3 className="font-bold text-slate-900 text-base mb-1">Police-Checked & Trained</h3>
-                    <p className="text-xs text-slate-500">
-                      Drivers are experienced in mobility assistance, patient empathy, and secure wheelchair harness operation.
-                    </p>
-                  </div>
+            <h3 className="text-lg font-black text-white uppercase tracking-tight pt-2">
+              NDIS Core Support (Category 02) Compliance
+            </h3>
+            <p>
+              If your NDIS plan includes funding for <strong>Core Supports — Transport (Category 02)</strong>, you can use our service with complete confidence. For self-managed participants, we issue instant digital tax invoices with registered ABN and trip details for quick claiming on the myplace portal. For plan-managed participants, we email invoices directly to your plan manager for automated payment.
+            </p>
 
-                  <div className="p-5 bg-white rounded-2xl border border-slate-200">
-                    <div className="w-10 h-10 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-3">
-                      <FileText className="w-6 h-6" />
-                    </div>
-                    <h3 className="font-bold text-slate-900 text-base mb-1">NDIS Invoicing Ready</h3>
-                    <p className="text-xs text-slate-500">
-                      Self-managed, plan-managed, or agency participants receive prompt itemized receipts for effortless claiming.
-                    </p>
-                  </div>
+            <h3 className="text-lg font-black text-white uppercase tracking-tight pt-2">
+              WA TUSS Voucher Booklet Acceptance
+            </h3>
+            <p>
+              We gladly accept Western Australia Taxi User Subsidy Scheme vouchers. If you carry 50% or 75% TUSS vouchers, your driver deducts the state subsidy directly from your metered fare at the end of the trip, leaving you only the remaining co-payment to settle via card or cash.
+            </p>
+          </div>
+
+          <div className="lg:col-span-5 bg-zinc-950 border-2 border-zinc-800 rounded-2xl p-6 sm:p-8">
+            <h3 className="text-base font-black text-white uppercase tracking-wider mb-4 pb-3 border-b border-zinc-800 flex items-center gap-2">
+              <Hospital className="w-5 h-5 text-rose-400" aria-hidden="true" />
+              <span>Perth Hospitals Frequently Served</span>
+            </h3>
+
+            <div className="space-y-3">
+              {hospitals.map((h, idx) => (
+                <div key={idx} className="p-3 bg-zinc-900 rounded-xl border border-zinc-800 flex items-center justify-between">
+                  <span className="text-xs text-white font-semibold">{h.name}</span>
+                  <span className="text-[10px] text-amber-400 font-bold uppercase">{h.loc}</span>
                 </div>
-              </div>
-
-              {/* Service Features */}
-              <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
-                <h3 className="text-xl font-bold text-slate-900 mb-6">
-                  Medical Transport Standards
-                </h3>
-                <ul className="space-y-4">
-                  {features.map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                      <span className="text-slate-700 text-base">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Major Perth Hospitals We Serve */}
-              <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-4">
-                  Key Hospitals & Medical Centers We Frequently Serve
-                </h3>
-                <p className="text-slate-600 text-sm mb-4">
-                  We know the accessible drop-off bays, elevator corridors, and patient pickup locations across all major Perth hospitals:
-                </p>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                  {hospitals.map((h, i) => (
-                    <div key={i} className="p-3 bg-white rounded-xl border border-slate-200 text-xs">
-                      <span className="font-bold text-slate-800 block">{h.name}</span>
-                      <span className="text-slate-500">{h.suburb}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* FAQs */}
-              <div className="space-y-4">
-                <h3 className="text-xl font-bold text-slate-900 mb-4">
-                  NDIS & Medical Transport FAQs
-                </h3>
-                {defaultFAQs.map((faq, idx) => (
-                  <div key={idx} className="bg-white p-6 rounded-2xl border border-slate-200">
-                    <h4 className="font-bold text-slate-900 text-base mb-2">{faq.q}</h4>
-                    <p className="text-slate-600 text-sm leading-relaxed">{faq.a}</p>
-                  </div>
-                ))}
-              </div>
+              ))}
             </div>
 
-            {/* Sticky Sidebar Booking Card */}
-            <div className="lg:col-span-1">
-              <div className="bg-white border border-slate-200 rounded-3xl p-6 sticky top-28 shadow-lg">
-                <div className="w-12 h-12 bg-rose-50 text-rose-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <HeartPulse className="w-6 h-6" />
-                </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2 text-center">
-                  Book Medical Transport
-                </h3>
-                <p className="text-slate-500 mb-6 text-center text-xs">
-                  Tell us your clinic address, appointment time, and wheelchair requirements.
-                </p>
-
-                <div className="space-y-3 mb-6">
-                  <Link
-                    href="/enquire"
-                    className="flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white w-full py-3.5 rounded-full font-bold text-sm transition-colors shadow-sm"
-                  >
-                    <span>Complete Online Booking</span>
-                  </Link>
-                  <a
-                    href="https://wa.me/61493252766?text=Hi,%20I%20would%20like%20to%20enquire%20about%20NDIS/medical%20transport%20in%20Perth."
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba59] text-white w-full py-3.5 rounded-full font-bold text-sm transition-colors shadow-sm"
-                  >
-                    <WhatsAppIcon className="w-4 h-4" />
-                    <span>WhatsApp Inquiry</span>
-                  </a>
-                  <a
-                    href="tel:+61493252766"
-                    className="flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 w-full py-3 rounded-full font-bold text-sm transition-colors"
-                  >
-                    <Phone className="w-4 h-4" />
-                    <span>Call +61 493 252 766</span>
-                  </a>
-                </div>
-
-                <div className="border-t border-slate-100 pt-4 text-xs text-slate-500 space-y-2">
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-                    <span>TUSS Vouchers Accepted</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-                    <span>NDIS Itemized Invoicing</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-                    <span>Direct Door-to-Door Service</span>
-                  </div>
-                </div>
-              </div>
+            <div className="mt-6 pt-4 border-t border-zinc-800 text-center">
+              <Link
+                href="/enquire"
+                className="inline-flex items-center justify-center gap-2 w-full bg-amber-400 hover:bg-amber-300 text-black font-black text-xs uppercase tracking-wider py-3 rounded-full transition-colors"
+              >
+                <span>Schedule Medical Trip</span>
+                <ArrowRight className="w-4 h-4" aria-hidden="true" />
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Related Services */}
       <RelatedServices currentSlug="medical-ndis-transport" />
     </div>
   );
